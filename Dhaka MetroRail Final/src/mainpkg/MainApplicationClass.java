@@ -13,6 +13,10 @@ public class MainApplicationClass extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
+<<<<<<< Updated upstream
+=======
+        Parent root = FXMLLoader.load(getClass().getResource("/login/faysal/LoginScene.fxml"));
+>>>>>>> Stashed changes
         
         Parent root = FXMLLoader.load(getClass().getResource("/login/faysal/LoginScene.fxml")); 
         try 
