@@ -1,0 +1,70 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Mar 30, 2024, 4:08:23 PM
+    Author     : Faysal Kabir Ashik
+*/
+
+.glass{
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border:1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.radius{
+    -fx-border-radius: 8;
+    -fx-background-radius: 8
+    
+}
+
+
+.green_primary{
+    -fx-background-color:  #218C74
+}
+.green_3rd{
+    -fx-background-color:  #318653
+}
+
+.green_4rth{
+     -fx-background-color: #54A872
+}
+.green_5th{
+    -fx-background-color: #76CA92
+
+}
+
+.green_6th{
+   -fx-background-color: #99EEB4   
+}
+.green_2nd{
+    -fx-background-color:  #016636
+}
+.red_secodary{
+    -fx-background-color:   #ff6060
+}
+
+
+
+/*Green:
+
+
+Secondary Color:
+#FF0000
+#FF6060
+#FAADAD
+
+Neutral Color:
+#2F2F2F
+#7D7D7D
+#F4F4F4
+#FFFFFF
+
+Warning Color: Orange
+#FDB022
+#FEC84B
+#FEDF89*/
