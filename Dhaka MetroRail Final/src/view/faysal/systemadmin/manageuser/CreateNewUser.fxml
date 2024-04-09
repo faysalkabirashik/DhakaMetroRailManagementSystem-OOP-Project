@@ -32,10 +32,10 @@
       <Label layoutX="68.0" layoutY="107.0" text="Full Name:" />
       <TextField layoutX="68.0" layoutY="129.0" prefHeight="37.0" prefWidth="360.0" promptText="Enter name" />
       <Label layoutX="68.0" layoutY="217.0" text="Current Address:" />
-      <ComboBox layoutX="240.0" layoutY="239.0" prefHeight="37.0" prefWidth="188.0" promptText="Your city" />
-      <ComboBox layoutX="67.0" layoutY="239.0" prefHeight="37.0" prefWidth="170.0" promptText="District" />
-      <TextField layoutX="67.0" layoutY="287.0" prefHeight="37.0" prefWidth="360.0" promptText="Road No./Name" />
-      <TextField layoutX="68.0" layoutY="335.0" prefHeight="37.0" prefWidth="170.0" promptText="Village Name" />
+      <ComboBox layoutX="67.0" layoutY="285.0" prefHeight="37.0" prefWidth="360.0" promptText="Your city" />
+      <ComboBox layoutX="67.0" layoutY="239.0" prefHeight="37.0" prefWidth="170.0" promptText="Devision" />
+      <TextField layoutX="67.0" layoutY="331.0" prefHeight="37.0" prefWidth="360.0" promptText="Road No./Name" />
+      <TextField layoutX="68.0" layoutY="379.0" prefHeight="37.0" prefWidth="180.0" promptText="Village Name" />
       <TextField layoutX="461.0" layoutY="128.0" prefHeight="37.0" prefWidth="188.0" promptText="Primary Mobile No." />
       <Line endX="-100.0" endY="426.0" layoutX="543.0" layoutY="107.0" startX="-100.0" />
       <Label layoutX="461.0" layoutY="108.0" prefHeight="17.0" prefWidth="289.0" text="Mobile/Phone: (Start from 01.....)" />
@@ -43,12 +43,12 @@
       <TextField layoutX="460.0" layoutY="195.0" prefHeight="37.0" prefWidth="188.0" promptText="Primary Email" />
       <Label layoutX="461.0" layoutY="172.0" prefHeight="17.0" prefWidth="289.0" text="Mobile/Phone: (Start from 01....)" />
       <TextField layoutX="669.0" layoutY="195.0" prefHeight="37.0" prefWidth="188.0" promptText="Secodary Email (Optional)" />
-      <Label layoutX="67.0" layoutY="387.0" prefHeight="25.0" prefWidth="85.0" text="Date of Birth:" />
-      <DatePicker layoutX="144.0" layoutY="381.0" prefHeight="37.0" prefWidth="205.0" promptText="Pick your DoB" />
-      <Label layoutX="367.0" layoutY="382.0" text="Gender:" />
-      <RadioButton layoutX="360.0" layoutY="404.0" mnemonicParsing="false" text="Male" />
-      <RadioButton layoutX="358.0" layoutY="430.0" mnemonicParsing="false" text="Female" />
-      <RadioButton layoutX="358.0" layoutY="456.0" mnemonicParsing="false" text="Intersex" />
+      <Label layoutX="67.0" layoutY="435.0" prefHeight="25.0" prefWidth="85.0" text="Date of Birth:" />
+      <DatePicker layoutX="144.0" layoutY="429.0" prefHeight="37.0" prefWidth="205.0" promptText="Pick your DoB" />
+      <Label layoutX="367.0" layoutY="430.0" text="Gender:" />
+      <RadioButton layoutX="360.0" layoutY="452.0" mnemonicParsing="false" text="Male" />
+      <RadioButton layoutX="358.0" layoutY="478.0" mnemonicParsing="false" text="Female" />
+      <RadioButton layoutX="358.0" layoutY="504.0" mnemonicParsing="false" text="Intersex" />
       <CheckBox layoutX="464.0" layoutY="247.0" mnemonicParsing="false" text="NID" />
       <CheckBox layoutX="665.0" layoutY="247.0" mnemonicParsing="false" text="Birth Certificate" />
       <TextField layoutX="458.0" layoutY="272.0" prefHeight="37.0" prefWidth="188.0" promptText="NID is for 20+ age &amp; employees" />
@@ -69,7 +69,7 @@
           </Menu>
         </menus>
       </MenuBar>
-      <TextField layoutX="249.0" layoutY="334.0" prefHeight="37.0" prefWidth="170.0" promptText="House No." />
+      <TextField layoutX="256.0" layoutY="379.0" prefHeight="37.0" prefWidth="170.0" promptText="House No." />
       <Label layoutX="68.0" layoutY="187.0" text="Nationality/Country:" />
       <ComboBox layoutX="183.0" layoutY="177.0" prefHeight="37.0" prefWidth="243.0" promptText="Select your country" />
       <Button layoutX="129.0" layoutY="629.0" mnemonicParsing="false" text="Save and Create User" />
@@ -78,7 +78,8 @@
       <Button layoutX="459.0" layoutY="501.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="188.0" text="Generate Password:" />
       <PasswordField layoutX="659.0" layoutY="501.0" prefHeight="25.0" prefWidth="226.0" />
       <Button layoutX="659.0" layoutY="422.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="226.0" text="Generate Passenger Username:" />
-      <DatePicker layoutX="144.0" layoutY="428.0" prefHeight="37.0" prefWidth="205.0" promptText="Only for employee/admin" />
-      <Label layoutX="67.0" layoutY="434.0" prefHeight="25.0" prefWidth="85.0" text="Joining Date:" />
+      <DatePicker layoutX="144.0" layoutY="476.0" prefHeight="37.0" prefWidth="205.0" promptText="Only for employee/admin" />
+      <Label layoutX="67.0" layoutY="482.0" prefHeight="25.0" prefWidth="85.0" text="Joining Date:" />
+      <ComboBox layoutX="246.0" layoutY="237.0" prefHeight="37.0" prefWidth="180.0" promptText="District" />
    </children>
 </AnchorPane>
