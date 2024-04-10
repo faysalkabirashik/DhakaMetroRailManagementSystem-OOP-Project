@@ -24,6 +24,12 @@ public class Address {
         this.house = house;
     }
 
+    public Address(String district, String city, String house) {
+        this.district = district;
+        this.city = city;
+        this.house = house;
+    }
+    
     public String getDistrict() {
         return district;
     }
