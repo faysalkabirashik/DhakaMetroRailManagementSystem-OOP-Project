@@ -15,25 +15,43 @@ public class AlertGeneration {
     public static void successfulAlert(String str){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information");
-            alert.setHeaderText("Information alert");
+            alert.setHeaderText("Successfull");
             alert.setContentText(str);
             alert.showAndWait();
     }
     public static void unsuccessfulAlert(String str){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information");
-            alert.setHeaderText("Error!");
+            alert.setHeaderText("Unsuccessfull!");
             alert.setContentText(str);
             alert.showAndWait(); 
     }
+    
     public static boolean confirmationAlert(){
         Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
         confirmationAlert.setTitle("Confirmation");
-        confirmationAlert.setHeaderText("This is a confirmation alert");
-        confirmationAlert.setContentText("Do you want to proceed?");
+        confirmationAlert.setHeaderText("Your confirmation is needed.");
+        confirmationAlert.setContentText("Do you want to confirm?");
         
         ButtonType result = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
         
         return result == ButtonType.OK;
     }
+    
+    public static void crashOrInteruptErrorAlert(String str)
+    {
+        Alert crashAlert = new Alert(Alert.AlertType.ERROR);
+        crashAlert.setTitle("Error");
+        crashAlert.setHeaderText("Something has gone wrong");
+        crashAlert.setContentText(str);
+    }
+    public static void warningAlert(String str)
+    {
+        Alert warningAlert = new Alert(Alert.AlertType.ERROR);
+        warningAlert.setTitle("Warning!");
+        warningAlert.setHeaderText("Warning! Attention needed.");
+        warningAlert.setContentText(str);
+    }
+    
+    
 }
