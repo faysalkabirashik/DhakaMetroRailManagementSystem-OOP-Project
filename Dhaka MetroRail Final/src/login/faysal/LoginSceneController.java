@@ -1,8 +1,3 @@
-
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package login.faysal;
 
 import java.io.File;
@@ -13,11 +8,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -73,9 +63,6 @@ public class LoginSceneController implements Initializable {
                     
                     System.out.println(passenger);
                     pass = passenger.getPassword();
-                    System.out.println(pass);
-                    System.out.println(password_passField.getText());
-                    
                     if (passenger.getPassword().equals(password_passField.getText()))
                     {
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/nayem/passenger/PassengerDashBoard.fxml"));
@@ -88,7 +75,7 @@ public class LoginSceneController implements Initializable {
                 }
             }
             catch(Exception e){
-                //
+                System.out.println("hoy nai");
             }      
         } catch (IOException ex) {
             System.out.println(ex.toString());

@@ -62,6 +62,11 @@ public abstract class  User  implements Serializable {
         this.address2 = address2;
         this.loginStatus = loginStatus;
     }   
+
+    public User() {
+    }
+    
+    
     public abstract void changePassword();
     public abstract void loginToDashboard();
     
