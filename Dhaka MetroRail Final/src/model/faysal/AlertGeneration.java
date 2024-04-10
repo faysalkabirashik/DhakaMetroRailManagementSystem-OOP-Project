@@ -1,7 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
+
 package model.faysal;
 
 import javafx.scene.control.Alert;
@@ -38,20 +36,29 @@ public class AlertGeneration {
         return result == ButtonType.OK;
     }
     
-    public static void crashOrInteruptErrorAlert(String str)
+    public static void errorAlert(String headerStr, String contentStr)
     {
         Alert crashAlert = new Alert(Alert.AlertType.ERROR);
         crashAlert.setTitle("Error");
-        crashAlert.setHeaderText("Something has gone wrong");
-        crashAlert.setContentText(str);
+        crashAlert.setHeaderText(headerStr);
+        crashAlert.setContentText(contentStr);
+        crashAlert.showAndWait();
     }
-    public static void warningAlert(String str)
+    public static void warningAlert(String headerStr, String contentStr)
     {
         Alert warningAlert = new Alert(Alert.AlertType.ERROR);
         warningAlert.setTitle("Warning!");
-        warningAlert.setHeaderText("Warning! Attention needed.");
-        warningAlert.setContentText(str);
+        warningAlert.setHeaderText(headerStr);
+        warningAlert.setContentText(contentStr);
+        warningAlert.showAndWait();
     }
-    
-    
+
+    static void errorAlert(Exception e) 
+    {
+        Alert crashAlert = new Alert(Alert.AlertType.ERROR);
+        crashAlert.setTitle("Error");
+        crashAlert.setHeaderText(e.toString());
+        crashAlert.showAndWait();   
+    }
+
 }
