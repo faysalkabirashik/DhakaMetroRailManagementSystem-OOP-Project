@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="429.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dhakametrorailhrandaccountant.AccountantHRManagerSceneController">
+   <children>
+      <Label layoutX="36.0" layoutY="77.0" text="Employee ID:" />
+      <Label layoutX="208.0" layoutY="26.0" text="Add New Employee">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="36.0" layoutY="124.0" text="Name:" />
+      <Label layoutX="36.0" layoutY="158.0" text="Father's Name: " />
+      <TextField layoutX="124.0" layoutY="73.0" />
+      <TextField layoutX="126.0" layoutY="120.0" prefHeight="25.0" prefWidth="458.0" />
+      <Label layoutX="311.0" layoutY="77.0" text="Employee Designation:" />
+      <TextField layoutX="126.0" layoutY="154.0" prefHeight="25.0" prefWidth="458.0" />
+      <Label layoutX="37.0" layoutY="192.0" text="Mother's Name" />
+      <Label layoutX="37.0" layoutY="226.0" text="Date of Birth:" />
+      <TextField layoutX="127.0" layoutY="188.0" prefHeight="25.0" prefWidth="458.0" />
+      <DatePicker layoutX="127.0" layoutY="222.0" />
+      <Label layoutX="38.0" layoutY="261.0" text="NID Number:" />
+      <Label layoutX="38.0" layoutY="295.0" text="Mobile:" />
+      <TextField layoutX="128.0" layoutY="257.0" prefHeight="25.0" prefWidth="458.0" />
+      <TextField layoutX="128.0" layoutY="291.0" prefHeight="25.0" prefWidth="458.0" />
+      <Label layoutX="39.0" layoutY="329.0" text="E-mail Addres:" />
+      <TextField layoutX="129.0" layoutY="325.0" prefHeight="25.0" prefWidth="458.0" />
+      <ComboBox layoutX="436.0" layoutY="73.0" prefWidth="150.0" />
+      <Button layoutX="37.0" layoutY="358.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="122.0" text="Remove Employee Request" textAlignment="CENTER" wrapText="true" />
+      <Label layoutX="355.0" layoutY="226.0" text="Blood Group:" />
+      <ComboBox layoutX="436.0" layoutY="222.0" prefWidth="150.0" />
+      <Button layoutX="464.0" layoutY="358.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="122.0" text="Add Employee Request" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="238.0" layoutY="368.0" mnemonicParsing="false" onAction="#switchToheadofHRDash" prefHeight="38.0" prefWidth="146.0" text="Back" wrapText="true" />
+   </children>
+</AnchorPane>
