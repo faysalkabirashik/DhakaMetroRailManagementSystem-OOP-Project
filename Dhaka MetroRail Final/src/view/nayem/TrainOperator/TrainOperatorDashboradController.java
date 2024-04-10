@@ -61,7 +61,14 @@ public class TrainOperatorDashboradController implements Initializable {
     }
 
     @FXML
-    private void softwareIssuesButtonOnClicked(ActionEvent event) {
+    private void softwareIssuesButtonOnClicked(ActionEvent event) throws IOException 
+    {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/nayem/TrainOperator/SoftwareIssues.fxml"));
+            Parent parent = loader.load();
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene newScene = new Scene(parent);
+            currentStage.setScene(newScene);
+            currentStage.show();
     }
 
     @FXML

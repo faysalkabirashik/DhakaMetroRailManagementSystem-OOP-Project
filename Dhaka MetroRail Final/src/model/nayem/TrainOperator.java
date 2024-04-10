@@ -2,7 +2,6 @@ package model.nayem;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.time.LocalDate;
@@ -95,6 +94,27 @@ public class TrainOperator extends Employee
                 oos = new ObjectOutputStream(fos);               
             }
             oos.writeObject(message);
+
+        } catch (IOException ex) {
+            //
+        }
+    }
+    public void softwareFeedback(SystemFeedback sf)
+    {
+        File f = null;
+        FileOutputStream fos = null;      
+        ObjectOutputStream oos = null;        
+        try {
+            f = new File("SystemFeedback.bin");
+            if(f.exists()){
+                fos = new FileOutputStream(f,true);
+                oos = new AppendableObjectOutputStream(fos);                
+            }
+            else{
+                fos = new FileOutputStream(f);
+                oos = new ObjectOutputStream(fos);               
+            }
+            oos.writeObject(sf);
 
         } catch (IOException ex) {
             //
