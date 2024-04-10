@@ -452,6 +452,46 @@ public class AddressLists implements Serializable {
     
 */
 
+    public static Map<String, List<String>> getMap(String divisionName){
+    {
+     try{
+
+         if (null == divisionName)
+         {
+             AlertGeneration.errorAlert("Not Found!", "Please give the division correctly!");
+         }
+
+         else switch (divisionName) {
+             case "Dhaka":
+                 return getMapDhaka();
+
+             case "Mymensingh":
+                 return  getMapMymensingh();
+
+             case "Rajshahi":
+                 return  getMapRajshahi();
+             case "Rangpur":
+                 return  getMapRangpur();
+             case "Sylhet":
+                 return  getMapSylhet();
+             case "Khulna":
+                 return  getMapKhulna();
+             case "Chittagong":
+                 return  getMapChittagong();
+             case "Barisal":
+                 return  getMapBarisal();
+             default:
+                 AlertGeneration.errorAlert("Not Found!", "Please give the division correctly!");
+                 break;
+            }
+        }catch(Exception e)
+        {
+            AlertGeneration.errorAlert(e);
+        }
+
+       }
+       return null;
+   }
 
     public static Map<String, List<String>> getMapDhaka() {
         return mapDhaka;
