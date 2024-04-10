@@ -24,16 +24,12 @@ public class Address {
         this.house = house;
     }
 
-<<<<<<< HEAD
-=======
     public Address(String district, String city, String house) {
         this.district = district;
         this.city = city;
         this.house = house;
     }
     
-
->>>>>>> Pathan-2221656
     public String getDistrict() {
         return district;
     }

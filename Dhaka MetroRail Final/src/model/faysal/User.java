@@ -18,10 +18,7 @@ public abstract class  User  implements Serializable {
     protected String userType, userIdentity, password;
     
     protected Address address;
-<<<<<<< HEAD
-=======
     protected String address2;
->>>>>>> Pathan-2221656
     protected boolean loginStatus;
     
     protected String secondaryMobile, secondaryEmail ;
@@ -53,9 +50,6 @@ public abstract class  User  implements Serializable {
         this.secondaryMobile = secondaryMobile;
         this.secondaryEmail = secondaryEmail;
     }
-
-<<<<<<< HEAD
-=======
     public User(String fullName, String primaryMobile, String primaryEmail, String gender, LocalDate dateOfBirth, String userType, String userIdentity, String password, String address2, boolean loginStatus) {
         this.fullName = fullName;
         this.primaryMobile = primaryMobile;
@@ -67,10 +61,7 @@ public abstract class  User  implements Serializable {
         this.password = password;
         this.address2 = address2;
         this.loginStatus = loginStatus;
-    }
-
->>>>>>> Pathan-2221656
-    
+    }   
     public abstract void changePassword();
     public abstract void loginToDashboard();
     
