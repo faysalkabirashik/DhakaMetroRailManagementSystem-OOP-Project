@@ -17,6 +17,9 @@ public abstract class Employee extends User implements Serializable {
     protected LocalDate dateOfJoining;
     protected float salary;
 
+    public Employee() {
+    }
+    
 
     public Employee(String nid, String designation, LocalDate dateOfJoining, float salary, String fullName, String primaryMobile, String primaryEmail, String gender, LocalDate dateOfBirth, String userType, String userIdentity, String password, Address address, boolean loginStatus) {
         super(fullName, primaryMobile, primaryEmail, gender, dateOfBirth, userType, userIdentity, password, address, loginStatus);
