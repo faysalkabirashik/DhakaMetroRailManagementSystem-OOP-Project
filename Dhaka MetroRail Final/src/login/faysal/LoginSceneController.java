@@ -16,6 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.fxml.Initializable;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.AnchorPane;
 
 import model.nayem.Passenger;
 import model.nayem.TrainOperator;
@@ -23,6 +24,14 @@ public class LoginSceneController implements Initializable {
 
     @FXML    private TextField userIdentity_textField;
     @FXML    private PasswordField password_passField;
+    @FXML
+    private AnchorPane login_anchorPane;
+    @FXML
+    private AnchorPane forgotPass_anchorPane;
+    @FXML
+    private TextField forgetAnchorPane_userIdentity_textField;
+    @FXML
+    private TextField forgetAnchorPane_email_textField;
 
     /**
      * Initializes the controller class.
@@ -90,6 +99,14 @@ public class LoginSceneController implements Initializable {
 
     @FXML
     private void forgotButtonOnAction(ActionEvent event) {
+    }
+
+    @FXML
+    private void getPassButtonOnAction(ActionEvent event) {
+    }
+
+    @FXML
+    private void goBackToLoginBtnOnAction(ActionEvent event) {
     }
     
 }

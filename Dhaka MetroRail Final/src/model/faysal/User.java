@@ -4,7 +4,7 @@
  */
 package model.faysal;
 
-import java.io.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 /**
