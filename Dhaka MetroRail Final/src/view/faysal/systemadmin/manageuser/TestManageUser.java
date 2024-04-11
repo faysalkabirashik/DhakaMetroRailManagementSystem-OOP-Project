@@ -1,6 +1,7 @@
 
-package mainpkg;
+package view.faysal.systemadmin.manageuser;
 
+import mainpkg.*;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
@@ -9,12 +10,12 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 
-public class MainApplicationClass extends Application {
+public class TestManageUser extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
 
-        Parent root = FXMLLoader.load(getClass().getResource("/login/faysal/LoginScene.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/view/faysal/systemadmin/manageuser/CreateNewUser.fxml"));
         try 
         {
                
