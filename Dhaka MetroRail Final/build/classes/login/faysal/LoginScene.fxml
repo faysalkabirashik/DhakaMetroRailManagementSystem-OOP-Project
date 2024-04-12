@@ -81,7 +81,7 @@
                               <Insets top="10.0" />
                            </opaqueInsets>
                            <children>
-                              <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #f4F4F4;">
+                              <AnchorPane fx:id="login_anchorPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #f4F4F4;">
                                  <children>
                                     <ImageView fitHeight="130.0" fitWidth="114.0" layoutX="76.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -93,8 +93,8 @@
                                           <Font name="Arial Rounded MT Bold" size="36.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="userIdentity_textField" layoutX="17.0" layoutY="164.0" prefHeight="35.0" prefWidth="239.0" promptText="UserIdentity" style="-fx-border-color: #54A872; -fx-border-radius: 8; -fx-background-radius: 8;" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="164.0" />
-                                    <PasswordField fx:id="password_passField" layoutX="17.0" layoutY="218.0" prefHeight="39.0" prefWidth="239.0" promptText="Password" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+                                    <TextField fx:id="userIdentity_textField" layoutX="14.0" layoutY="164.0" prefHeight="35.0" prefWidth="239.0" promptText="UserIdentity" style="-fx-border-color: #54A872; -fx-border-radius: 8; -fx-background-radius: 8;" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="164.0" />
+                                    <PasswordField fx:id="password_passField" layoutX="14.0" layoutY="216.0" prefHeight="35.0" prefWidth="242.0" promptText="Password" style="-fx-border-color: #54A872; -fx-border-radius: 8; -fx-background-radius: 8;" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
                                     <Button layoutX="26.0" layoutY="268.0" mnemonicParsing="false" onAction="#loginButtonOnAction" prefHeight="25.0" prefWidth="81.0" style="-fx-background-color: #218C74;" text="Login" AnchorPane.leftAnchor="26.0" />
                                     <Button cancelButton="true" layoutX="142.0" layoutY="268.0" mnemonicParsing="false" onAction="#forgotButtonOnAction" style="-fx-background-color: #ff6060;" text="Forgot Password" AnchorPane.rightAnchor="23.0" />
                                     <Button cache="true" layoutX="123.0" layoutY="309.0" mnemonicParsing="false" onAction="#signUpOnAction" style="-fx-background-color: transparent;" text="Sign Up as Passenger" textFill="#4d8189" underline="true" />
@@ -107,6 +107,17 @@
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets>
+                              </AnchorPane>
+                              <AnchorPane fx:id="forgotPass_anchorPane" layoutY="152.0" prefHeight="152.0" prefWidth="270.0" visible="false">
+                                 <children>
+                                    <Button layoutX="25.0" layoutY="113.0" mnemonicParsing="false" onAction="#getPassButtonOnAction" prefHeight="27.0" prefWidth="86.0" style="-fx-background-color: #C5AE85;" text="Get Pass" />
+                                    <Button layoutX="125.0" layoutY="113.0" mnemonicParsing="false" onAction="#goBackToLoginBtnOnAction" prefHeight="27.0" prefWidth="125.0" style="-fx-background-color: #6BB2A2;" text="Go Back To Login" />
+                                    <TextField fx:id="forgetAnchorPane_userIdentity_textField" layoutX="14.0" layoutY="9.0" prefHeight="35.0" prefWidth="239.0" promptText="UserIdentity" style="-fx-border-color: #54A872; -fx-border-radius: 8; -fx-background-radius: 8;" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+                                    <TextField fx:id="forgetAnchorPane_email_textField" layoutX="14.0" layoutY="61.0" prefHeight="35.0" prefWidth="239.0" promptText="Email" style="-fx-border-color: #54A872; -fx-border-radius: 8; -fx-background-radius: 8;" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+                                 </children>
+                                 <StackPane.margin>
+                                    <Insets bottom="40.0" top="155.0" />
+                                 </StackPane.margin>
                               </AnchorPane>
                            </children>
                         </StackPane>

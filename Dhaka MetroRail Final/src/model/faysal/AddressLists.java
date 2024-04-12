@@ -451,7 +451,7 @@ public class AddressLists implements Serializable {
     }
     
 */
-
+    
     public static Map<String, List<String>> getMap(String divisionName){
     {
      try{
@@ -460,30 +460,52 @@ public class AddressLists implements Serializable {
          {
              AlertGeneration.errorAlert("Not Found!", "Please give the division correctly!");
          }
+         else  if ("Dhaka".equals(divisionName)) 
+         {
 
-         else switch (divisionName) {
-             case "Dhaka":
-                 return getMapDhaka();
+                 return getMapDhaka(); 
+         }
+         else  if ("Mymensingh".equals(divisionName)){
+                 return  getMapMymensingh();}
 
-             case "Mymensingh":
-                 return  getMapMymensingh();
+         else  if ("Rajshahi".equals(divisionName)){
+                 return  getMapRajshahi();}
+         else  if ("Rangpur".equals(divisionName)){
+                 return  getMapRangpur();}
+         else if ("Sylhet".equals(divisionName)){
+                 return  getMapSylhet();}
+         else if ("Khulna".equals(divisionName)){
+                 return  getMapKhulna();}
+         else if ("Chittagong".equals(divisionName)){
+                 return  getMapChittagong();}
+         else if ("Barisal".equals(divisionName)){
+                 return  getMapBarisal();}
+          
+//                 break;
 
-             case "Rajshahi":
-                 return  getMapRajshahi();
-             case "Rangpur":
-                 return  getMapRangpur();
-             case "Sylhet":
-                 return  getMapSylhet();
-             case "Khulna":
-                 return  getMapKhulna();
-             case "Chittagong":
-                 return  getMapChittagong();
-             case "Barisal":
-                 return  getMapBarisal();
-             default:
-                 AlertGeneration.errorAlert("Not Found!", "Please give the division correctly!");
-                 break;
-            }
+//         else switch (divisionName) {
+//             case "Dhaka":
+//                 return getMapDhaka();
+//
+//             case "Mymensingh":
+//                 return  getMapMymensingh();
+//
+//             case "Rajshahi":
+//                 return  getMapRajshahi();
+//             case "Rangpur":
+//                 return  getMapRangpur();
+//             case "Sylhet":
+//                 return  getMapSylhet();
+//             case "Khulna":
+//                 return  getMapKhulna();
+//             case "Chittagong":
+//                 return  getMapChittagong();
+//             case "Barisal":
+//                 return  getMapBarisal();
+//             default:
+//                 AlertGeneration.errorAlert("Not Found!", "Please give the division correctly!");
+//                 break;
+//            }
         }catch(Exception e)
         {
             AlertGeneration.errorAlert(e);
@@ -492,6 +514,7 @@ public class AddressLists implements Serializable {
        }
        return null;
    }
+
 
     public static Map<String, List<String>> getMapDhaka() {
         return mapDhaka;
