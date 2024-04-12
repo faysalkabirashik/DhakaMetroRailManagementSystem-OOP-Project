@@ -1,17 +1,21 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package model.faysal.users;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.Serializable;
 import java.time.LocalDate;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import model.faysal.Address;
 
 /**
  *
  * @author Faysal Kabir Ashik
  */
-public class PublicServiceProvider extends Employee implements Countable{
+public class PublicServiceProvider extends Employee implements Serializable, Countable{
     
     private static int userCount = 0;
     public static int itsTotalMember(){return userCount;}
@@ -47,6 +51,67 @@ public class PublicServiceProvider extends Employee implements Countable{
     }
     
     
+    /////////////////////////////////////////////////////////////////////
     
+        public static int getCountOfPublicServiceProvider()
+    {
+        ObservableList<PublicServiceProvider> sm = FXCollections.observableArrayList();
+        File f = null;
+        FileInputStream fis = null;      
+        ObjectInputStream ois = null;
+        String path = "PublicServiceProviderObjects.bin";
+        try {
+                f = new File(path);
+                fis = new FileInputStream(f);
+                ois = new ObjectInputStream(fis);
+                User tempUser = null;
+                try {
+                    while(true)
+                        {
+                        tempUser = (PublicServiceProvider) ois.readObject();
+                        sm.add((PublicServiceProvider)tempUser);
+                        }
+                    }
+                catch(IOException | ClassNotFoundException e){}
+            } 
+        catch (IOException ex) {}
+        finally {
+                try {if(ois != null) ois.close();} 
+                catch (IOException ex) { }
+                }
+
+        return sm.size();
+    }
+    
+        
+    public static ObservableList<PublicServiceProvider> getAllPublicServiceProvider()
+    {
+        ObservableList<PublicServiceProvider> sm = FXCollections.observableArrayList();
+        File f = null;
+        FileInputStream fis = null;      
+        ObjectInputStream ois = null;
+        String path = "PublicServiceProviderObjects.bin";
+        try {
+                f = new File(path);
+                fis = new FileInputStream(f);
+                ois = new ObjectInputStream(fis);
+                User tempUser = null;
+                try {
+                    while(true)
+                        {
+                        tempUser = (PublicServiceProvider) ois.readObject();
+                        sm.add((PublicServiceProvider)tempUser);
+                        }
+                    }
+                catch(IOException | ClassNotFoundException e){}
+            } 
+        catch (IOException ex) {}
+        finally {
+                try {if(ois != null) ois.close();} 
+                catch (IOException ex) { }
+                }
+
+        return sm;
+    }
     
 }

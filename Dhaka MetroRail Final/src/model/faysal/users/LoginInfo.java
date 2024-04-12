@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package model.faysal.users;
 
 import java.io.Serializable;
@@ -15,6 +12,13 @@ public class LoginInfo implements Serializable {
     private String userIdentity;
     String userType;
     private String password;
+
+    public LoginInfo(String userIdentity, String userType, String password) {
+        this.userIdentity = userIdentity;
+        this.userType = userType;
+        this.password = password;
+    }
+
 
     public String getUserIdentity() {
         return userIdentity;

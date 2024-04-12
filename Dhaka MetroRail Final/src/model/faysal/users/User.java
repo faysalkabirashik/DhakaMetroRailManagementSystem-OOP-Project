@@ -4,8 +4,14 @@
  */
 package model.faysal.users;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.time.LocalDate;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import model.faysal.Address;
 
 /**
@@ -175,4 +181,63 @@ public abstract class  User implements Serializable, Countable {
     
     /// own method ///////////
 
+    
+        public static int getCountOfAllTypeOfUsers()
+    {
+        ObservableList<User> allUsers = FXCollections.observableArrayList();
+        File f = null;
+        FileInputStream fis = null;      
+        ObjectInputStream ois = null;
+        String path = "UserObjects.bin";
+        try {
+                f = new File(path);
+                fis = new FileInputStream(f);
+                ois = new ObjectInputStream(fis);
+                User tempUser = null;
+                try {
+                    while(true)
+                        {
+                        tempUser = (User) ois.readObject();
+                        allUsers.add((User)tempUser);
+                        }
+                    }
+                catch(IOException | ClassNotFoundException e){}
+            } 
+        catch (IOException ex) {}
+        finally {
+                try {if(ois != null) ois.close();} 
+                catch (IOException ex) { }
+                }
+
+        return allUsers.size();
+    }
+        
+    public static ObservableList<User> getAllUsers(){
+        ObservableList<User> users = FXCollections.observableArrayList();
+        File f = null;
+        FileInputStream fis = null;      
+        ObjectInputStream ois = null;
+        String path = "UserObjects.bin";
+        try {
+            f = new File(path);
+            fis = new FileInputStream(f);
+            ois = new ObjectInputStream(fis);
+            User tempUser = null;
+            try {
+                while(true){
+                    tempUser = (User) ois.readObject();
+                    users.add((User)tempUser);
+                    }
+                }
+            catch(IOException | ClassNotFoundException e){}
+            } 
+        catch (IOException ex) {}
+        finally {
+                try {if(ois != null) ois.close();} 
+                catch (IOException ex) { }
+                }
+        return users;
+    }    
+        
+        
 }

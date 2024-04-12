@@ -4,14 +4,21 @@
  */
 package model.faysal.users;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.Serializable;
 import java.time.LocalDate;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import model.faysal.Address;
 
 /**
  *
  * @author Faysal Kabir Ashik
  */
-public class MaintenanceStaff extends Employee implements Countable{
+public class MaintenanceStaff extends Employee implements Serializable, Countable{
     
     private static int userCount = 0;
     public static int itsTotalMember(){return userCount;}   
@@ -47,4 +54,66 @@ public class MaintenanceStaff extends Employee implements Countable{
     }
     
     
+    
+    
+    /////////////////////////////////////////////////////////////////////
+    
+        public static int getCountOfMaintenanceStaff()
+    {
+        ObservableList<MaintenanceStaff> sm = FXCollections.observableArrayList();
+        File f = null;
+        FileInputStream fis = null;      
+        ObjectInputStream ois = null;
+        String path = "MaintenanceStaffObjects.bin";
+        try {
+                f = new File(path);
+                fis = new FileInputStream(f);
+                ois = new ObjectInputStream(fis);
+                User tempUser = null;
+                try {
+                    while(true)
+                        {
+                        tempUser = (MaintenanceStaff) ois.readObject();
+                        sm.add((MaintenanceStaff)tempUser);
+                        }
+                    }
+                catch(IOException | ClassNotFoundException e){}
+            } 
+        catch (IOException ex) {}
+        finally {
+                try {if(ois != null) ois.close();} 
+                catch (IOException ex) { }
+                }
+
+        return sm.size();
+    }
+            public static ObservableList<MaintenanceStaff> getAllMaintenanceStaff()
+    {
+        ObservableList<MaintenanceStaff> sm = FXCollections.observableArrayList();
+        File f = null;
+        FileInputStream fis = null;      
+        ObjectInputStream ois = null;
+        String path = "MaintenanceStaffObjects.bin";
+        try {
+                f = new File(path);
+                fis = new FileInputStream(f);
+                ois = new ObjectInputStream(fis);
+                User tempUser = null;
+                try {
+                    while(true)
+                        {
+                        tempUser = (MaintenanceStaff) ois.readObject();
+                        sm.add((MaintenanceStaff)tempUser);
+                        }
+                    }
+                catch(IOException | ClassNotFoundException e){}
+            } 
+        catch (IOException ex) {}
+        finally {
+                try {if(ois != null) ois.close();} 
+                catch (IOException ex) { }
+                }
+
+        return sm;
+    }
 }
