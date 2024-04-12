@@ -50,8 +50,8 @@ public class MessageToMaintenanceCrewController implements Initializable {
     @FXML
     private void backButtonOnClick(ActionEvent event) throws IOException 
     {
-        TrainOperator to = new TrainOperator();
-        to.loadDashBoard(event);
+       // TrainOperator to = new TrainOperator();
+       // to.loadDashBoard(event);
     }
 
     @FXML
@@ -70,8 +70,8 @@ public class MessageToMaintenanceCrewController implements Initializable {
             message = new Message2(trainNumberTextField.getText(),reportTypeComboBox.getValue().toString(), fuelIndicationComboBox.getValue().toString());
         }
         
-        TrainOperator to = new TrainOperator();
-        to.messageToMaintenanceStaff(message);
+        //TrainOperator to = new TrainOperator();
+        //to.messageToMaintenanceStaff(message);
     }
     
 }
