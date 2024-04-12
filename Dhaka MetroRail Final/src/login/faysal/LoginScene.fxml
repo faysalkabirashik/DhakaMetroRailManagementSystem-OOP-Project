@@ -76,7 +76,7 @@
                         </AnchorPane>
                      </bottom>
                      <right>
-                        <StackPane prefHeight="335.0" prefWidth="270.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: 218C74; -fx-border-width: 10;" BorderPane.alignment="CENTER">
+                        <StackPane prefHeight="335.0" prefWidth="270.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #218C74; -fx-border-width: 2;" BorderPane.alignment="CENTER">
                            <opaqueInsets>
                               <Insets top="10.0" />
                            </opaqueInsets>
