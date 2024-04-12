@@ -65,6 +65,8 @@ public class SignupSceneController implements Initializable {
         currentStage.show();
     }
 
+    
+    /* need to modify
 
     @FXML
     private void signUpButtonOnClick(ActionEvent event) 
@@ -90,15 +92,15 @@ public class SignupSceneController implements Initializable {
                     dobDatePicker.getValue(),nidTextBox.getText(), usernameTextField.getText(),passwordTextFiled.getText(), enterAddressTextArea.getText(), false);
             if (maleRadioButton.isSelected())
             {
-                passenger.setGender("Male");
+                //passenger.setGender("Male");
             }
             else if (femaleRadioButton.isSelected())
             {
-                passenger.setGender("Female");
+                //passenger.setGender("Female");
             }
             else if (intersexRadioButton.isSelected())
             {
-                passenger.setGender("Intersex");
+                //passenger.setGender("Intersex");
             }
             oos.writeObject(passenger);
 
@@ -112,5 +114,6 @@ public class SignupSceneController implements Initializable {
             }
         }
     }
+    */
     
 }

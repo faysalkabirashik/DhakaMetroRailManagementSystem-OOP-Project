@@ -39,8 +39,8 @@
                                  <buttons>
                                     <MenuButton contentDisplay="BOTTOM" mnemonicParsing="false" style="-fx-background-color: #99EEB4;" text="About Us">
                                       <items>
-                                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                                        <MenuItem mnemonicParsing="false" text="Action 2" />
+                                        <MenuItem mnemonicParsing="false" text=" Team Information" />
+                                        <MenuItem mnemonicParsing="false" text="Motive" />
                                       </items>
                                     </MenuButton>
                                     <MenuButton contentDisplay="BOTTOM" mnemonicParsing="false" style="-fx-background-color: #99EEB4;" text="Projects">
