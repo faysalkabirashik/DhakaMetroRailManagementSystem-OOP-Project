@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="745.0" prefWidth="825.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.DashboardController">
+<AnchorPane id="AnchorPane" prefHeight="745.0" prefWidth="825.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.minhaz.publicServiceProvider.PublicServiceProviderDashboardController">
    <children>
       <Label layoutX="304.0" layoutY="58.0" text="Dashboard">
          <font>
