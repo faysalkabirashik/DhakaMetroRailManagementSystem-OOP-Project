@@ -48,14 +48,14 @@ public class MessageToStationManagerController implements Initializable {
     @FXML
     private void backButtonOnClicked(ActionEvent event) throws IOException 
     {
-        TrainOperator to = new TrainOperator();
-        to.loadDashBoard(event);
+       // TrainOperator to = new TrainOperator();
+      //  to.loadDashBoard(event);
     }
 
     @FXML
     private void sendButtonOnClicked(ActionEvent event) 
     {
-        TrainOperator to = new TrainOperator();
+        //TrainOperator to = new TrainOperator();
         if (messageTypeComboBox.getValue().equals("Others"))
         {
             Message message = new Message(trainNumberTextField.getText(), 
@@ -75,7 +75,7 @@ public class MessageToStationManagerController implements Initializable {
                 messageTypeComboBox.getValue().toString(),
                 estimatedTimeTextField.getText());
         
-        to.messageToStationManager(message);
+       // to.messageToStationManager(message);
     }
     
 }

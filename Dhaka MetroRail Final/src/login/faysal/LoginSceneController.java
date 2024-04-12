@@ -56,9 +56,9 @@ public class LoginSceneController implements Initializable {
     @FXML
     private void loginButtonOnAction(ActionEvent event) throws IOException
     {
-        TrainOperator to = new TrainOperator();
-        to.loadDashBoard(event);
-        
+//        TrainOperator to = new TrainOperator();
+//        to.loadDashBoard(event);
+//        
 //        File f = null;
 //        FileInputStream fis = null;
 //        ObjectInputStream ois = null;
