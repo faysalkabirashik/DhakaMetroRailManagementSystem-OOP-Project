@@ -19,3 +19,11 @@
 !/Dhaka MetroRail Final/src/model/faysal/AppendableObjectOutputStream.java
 !/Dhaka MetroRail Final/src/model/faysal/users/ValidationVerification.java
 !/Dhaka MetroRail Final/src/view/jubair/Accountant/AccountantDashController.java
+!/Dhaka MetroRail Final/src/model/faysal/ValidationVerification.java
+!/Dhaka MetroRail Final/src/view/faysal/systemadmin/CreateNewUserController.java
+!/Dhaka MetroRail Final/src/view/faysal/systemadmin/UserAccountManagingOptionController.java
+!/Dhaka MetroRail Final/src/view/faysal/systemadmin/TrainConfigurationOptionController.java
+!/Dhaka MetroRail Final/src/view/faysal/systemadmin/SystemAdminGoalsController.java
+!/Dhaka MetroRail Final/src/view/faysal/systemadmin/StationConfigurationOptionController.java
+!/Dhaka MetroRail Final/src/view/faysal/systemadmin/Test.java
+!/Dhaka MetroRail Final/src/view/faysal/systemadmin/SystemAdminDashboardController.java
