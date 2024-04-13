@@ -22,6 +22,7 @@ import model.faysal.users.Countable;
 import model.faysal.users.Employee;
 import model.faysal.users.User;
 import model.faysal.AppendableObjectOutputStream;
+import model.faysal.SystemFeedback;
 
 
 public class TrainOperator extends Employee implements Serializable, Countable
@@ -113,7 +114,7 @@ public class TrainOperator extends Employee implements Serializable, Countable
         }
     }
     
-
+ 
     public void softwareFeedback(SystemFeedback sf)
     {
         File f = null;

@@ -1,37 +1,42 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
+ */
 package login.faysal;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
-import javafx.fxml.Initializable;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
+import model.faysal.AlertGen;
+import model.faysal.Validation;
 
-import model.nayem.Passenger;
-import model.nayem.TrainOperator;
+/**
+ * FXML Controller class
+ *
+ * @author Faysal Kabir Ashik
+ */
 public class LoginSceneController implements Initializable {
 
-    @FXML    private TextField userIdentity_textField;
-    @FXML    private PasswordField password_passField;
     @FXML
     private AnchorPane login_anchorPane;
+    @FXML
+    private TextField userIdentity_textField;
+    @FXML
+    private PasswordField password_passField;
     @FXML
     private AnchorPane forgotPass_anchorPane;
     @FXML
     private TextField forgetAnchorPane_userIdentity_textField;
     @FXML
     private TextField forgetAnchorPane_email_textField;
+    @FXML
+    private Label show_label;
 
     /**
      * Initializes the controller class.
@@ -39,36 +44,184 @@ public class LoginSceneController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        forgotPass_anchorPane.setVisible(false);
+        forgotPass_anchorPane.setDisable(true);
+        show_label.setText("");
     }    
 
-
     @FXML
-    private void signUpOnAction(ActionEvent event) throws IOException 
-    {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/nayem/passenger/SignupScene.fxml"));
-        Parent parent = loader.load();
-        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene newScene = new Scene(parent);
-        currentStage.setScene(newScene);
-        currentStage.show();
-    }
+    private void loginButtonOnAction(ActionEvent event) {
+        
+     if (userIdentity_textField.getText() == null || userIdentity_textField.getText().trim().isEmpty())
+     {
+            show_label.setText("UserIdentity field is empty!");
+             AlertGen.inforamtion("","UserIdentity field is empty!");
+     }
+  
+     else 
+     {
+         if (password_passField.getText() == null || password_passField.getText().trim().isEmpty()) 
+         {
+            show_label.setText("Password field is empty!");
+            AlertGen.inforamtion("","Password not given");
+            
+         }
+         else
+         {
+                String   userID = (userIdentity_textField.getText().trim());
+                String pass =  password_passField.getText().trim();
+                if (Validation.allDigits((userID)))
+                {
+                    ///checking for employ 
+                    if (Validation.isValisUserIdentity(userID))
+                    {
+                        
+                        if (Validation.isValidEmail(pass))
+                        {
+                        show_label.setText("Checking for verificaiton....");
+                        ////////////////////////////////////////////////////////////
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        }
+                        ////////////////////////////////////////////////////////////
+                        else{
+                        AlertGen.unsuccessfulAlert("Not a valid password given");
+                        }
+                        
+                    }
+                    else
+                    {
+                        AlertGen.unsuccessfulAlert("Not a valid UserIdentity");
+                    }
+                }
+                else
+                {
+                    ////////////// checking for passenger ///////////////////////////////////// verification
+                    if (Validation.isValidUsername(userID) && Validation.isValidEmail(pass))
+                    {
+                        AlertGen.inforamtion("Successfull" , "You have to wait! An Email will be sent or Contact Admin");
 
-    @FXML
-    private void loginButtonOnAction(ActionEvent event) throws IOException
-    {
+                    
+                    
+                    
+                    
+                    }
+                    /////////////////////////////////////////////////////////////////////////////////////
+                    else{
+                    AlertGen.unsuccessfulAlert("Not valid entry. Please check!");
+                    }
+                }
+         }
+       
+     }   
         
     }
 
     @FXML
     private void forgotButtonOnAction(ActionEvent event) {
+        
+        forgotPass_anchorPane.setDisable(false);
+        forgotPass_anchorPane.setVisible(true);
+        
+    }
+
+    @FXML
+    private void signUpOnAction(ActionEvent event) {
+        
     }
 
     @FXML
     private void getPassButtonOnAction(ActionEvent event) {
+        
+        if (forgetAnchorPane_userIdentity_textField.getText() == null || forgetAnchorPane_userIdentity_textField.getText().trim().isEmpty())
+            {
+            show_label.setText("UserIdentity field is empty!");
+            }
+
+        else 
+            {
+            
+            if (forgetAnchorPane_email_textField.getText() == null || forgetAnchorPane_email_textField.getText().trim().isEmpty())
+                {
+                show_label.setText("Email field is empty!");
+                }
+
+            else
+            {
+              // neither one empty
+                // check validat
+               String   userID = (forgetAnchorPane_userIdentity_textField.getText().trim());
+               String email =  forgetAnchorPane_email_textField.getText().trim();
+                if (Validation.allDigits((userID)))
+                {
+                    if (Validation.isValisUserIdentity(userID))
+                    {
+                        
+                        if (Validation.isValidEmail(email)){
+                        AlertGen.inforamtion("Successfull" , "You have to wait! An Email will be sent or Contact Admin");
+                        }
+                        else{
+                        AlertGen.unsuccessfulAlert("Not a valid email");
+                        }
+                        
+                    }
+                    else
+                    {
+                        AlertGen.unsuccessfulAlert("Not a valid UserIdentit");
+                    }
+                }
+                else
+                {
+                    if (Validation.isValidUsername(userID) && Validation.isValidEmail(email))
+                    {
+                    AlertGen.inforamtion("Successfull" , "You have to wait! An Email will be sent or Contact Admin");
+
+                    }
+                    else{
+                    AlertGen.unsuccessfulAlert("Not valid");
+                    }
+                }
+                
+            }
+               
+            }
+    
+        
+    
     }
 
     @FXML
     private void goBackToLoginBtnOnAction(ActionEvent event) {
+        
+        forgotPass_anchorPane.setVisible(false);
+        forgotPass_anchorPane.setDisable(true);
+        show_label.setText("");
+        
+    }
+
+    @FXML
+    private void one(ActionEvent event) {
+        AlertGen.inforamtion("", "Work under maintanance!");
+    }
+
+    @FXML
+    private void two(ActionEvent event) {
+        AlertGen.inforamtion("", "Work under maintanance!");
+    }
+
+    @FXML
+    private void three(ActionEvent event) {
+        AlertGen.inforamtion("", "Work under maintanance!");
+    }
+
+    @FXML
+    private void four(ActionEvent event) {
+        AlertGen.inforamtion("", "Work under maintanance!");
     }
     
 }
