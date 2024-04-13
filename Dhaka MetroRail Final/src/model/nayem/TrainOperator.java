@@ -12,39 +12,42 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import model.faysal.Address;
-import model.faysal.Employee;
+import model.faysal.users.Countable;
+import model.faysal.users.Employee;
 import view.nayem.passenger.AppendableObjectOutputStream;
 
 
-public class TrainOperator extends Employee
+public class TrainOperator extends Employee implements Countable
+        
 {
+    public static int userCount = 0;
+    public static int itsTotalMember(){return userCount;}
+     
+    public TrainOperator(String coreUserType, String userIdentity, LocalDate dateOfJoining) {
+        super(coreUserType, userIdentity, dateOfJoining);
+        userCount++;
+    }
 
-    public TrainOperator() {
+    public TrainOperator(String nid, String designation, LocalDate dateOfJoining, float salary, String fullName, String primaryMobile, String primaryEmail, String gender, String userIdentity, String coreUserType, String password, LocalDate dateOfBirth, Address address, boolean loginStatus) {
+        super(nid, designation, dateOfJoining, salary, fullName, primaryMobile, primaryEmail, gender, userIdentity, coreUserType, password, dateOfBirth, address, loginStatus);
+        userCount++;
+    }
+        
+
+    public TrainOperator(String nid, String designation, LocalDate dateOfJoining, float salary, String fullName, String primaryMobile, String primaryEmail, String gender, String userIdentity, String coreUserType, String password, LocalDate dateOfBirth, Address address, boolean loginStatus, String secondaryMobile, String secondaryEmail) {
+        super(nid, designation, dateOfJoining, salary, fullName, primaryMobile, primaryEmail, gender, userIdentity, coreUserType, password, dateOfBirth, address, loginStatus, secondaryMobile, secondaryEmail);
+        userCount++;
     }
     
-    public TrainOperator(String nid, String designation, LocalDate dateOfJoining, float salary, String fullName, String primaryMobile, String primaryEmail, String gender, LocalDate dateOfBirth, String userType, String userIdentity, String password, Address address, boolean loginStatus) {
-        super(nid, designation, dateOfJoining, salary, fullName, primaryMobile, primaryEmail, gender, dateOfBirth, userType, userIdentity, password, address, loginStatus);
-    }
-
-    @Override
-    public void leaveApplication() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void updateSalary() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    
+  
+    
 
     @Override
     public void changePassword() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    @Override
-    public void loginToDashboard() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
     
     public void loadDashBoard(ActionEvent event) throws IOException
     {
@@ -123,4 +126,14 @@ public class TrainOperator extends Employee
         }
     }
     */
+
+    @Override
+    public void changeDesignation() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void applyForLeave() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

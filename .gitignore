@@ -5,8 +5,23 @@
 /Dhaka MetroRail Final/build/
 >>>>>>> Stashed changes
 *.java
+<<<<<<< HEAD
 !/Dhaka MetroRail Final/src/view/jubair/Accountant/EmployeePaayrollController.java
 !/Dhaka MetroRail Final/src/view/jubair/Accountant/AccountantDashBoardController.java
 !/Dhaka MetroRail Final/src/view/jubair/Accountant/dailyTransactionController.java
 !/Dhaka MetroRail Final/src/view/jubair/Accountant/vendorManagementController.java
 !/Dhaka MetroRail Final/src/view/jubair/HeadofHR/HeadofHRDashBoardController.java
+=======
+!/Dhaka MetroRail Final/src/model/faysal/users/Accountant.java
+!/Dhaka MetroRail Final/src/model/faysal/users/MaintenanceStaff.java
+!/Dhaka MetroRail Final/src/model/faysal/users/HeadOfHR.java
+!/Dhaka MetroRail Final/src/model/faysal/users/StationManager.java
+!/Dhaka MetroRail Final/src/model/faysal/users/User.java
+!/Dhaka MetroRail Final/src/model/faysal/users/PublicServiceProvider.java
+!/Dhaka MetroRail Final/src/model/faysal/users/Classifiable.java
+!/Dhaka MetroRail Final/src/model/faysal/users/Countable.java
+!/Dhaka MetroRail Final/src/model/faysal/users/LoginInfo.java
+!/Dhaka MetroRail Final/src/model/faysal/users/Employee.java
+!/Dhaka MetroRail Final/src/model/faysal/users/SystemAdministrator.java
+!/Dhaka MetroRail Final/src/model/faysal/AppendableObjectOutputStream.java
+>>>>>>> 3cbb4ba8b52f42990cacadb84086cefc9609764c
