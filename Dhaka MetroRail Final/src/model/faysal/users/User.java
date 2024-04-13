@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package model.faysal.users;
 
 import java.io.File;
@@ -47,6 +43,12 @@ public abstract class  User implements Serializable, Countable {
         this.gender = null;
         userCount++;
         
+    }
+
+    public User() {
+        this.gender = null;
+        this.userIdentity = null;
+        this.coreUserType = null;
     }
 
     

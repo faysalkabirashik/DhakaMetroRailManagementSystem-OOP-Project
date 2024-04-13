@@ -60,6 +60,10 @@ public abstract class Employee extends User implements Serializable, Classifiabl
         userCount++;
     }
 
+    public Employee() {
+        this.dateOfJoining = null;
+    }
+
     
     
     //////////////// getter setter to string /////////////
