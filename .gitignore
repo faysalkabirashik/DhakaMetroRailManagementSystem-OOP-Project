@@ -5,3 +5,9 @@
 /Dhaka MetroRail Final/build/
 >>>>>>> Stashed changes
 *.java
+!/Dhaka MetroRail Final/src/view/minhaz/publicServiceProvider/PublicServiceProviderDashboardController.java
+!/Dhaka MetroRail Final/src/view/minhaz/publicServiceProvider/RealTimeServiceUpdatesController.java
+!/Dhaka MetroRail Final/src/view/minhaz/publicServiceProvider/PublicInquiriesController.java
+!/Dhaka MetroRail Final/src/view/minhaz/publicServiceProvider/RealTimeServiceUpdatesController1.java
+!/Dhaka MetroRail Final/src/view/minhaz/publicServiceProvider/TicketingAndFareIssuesController.java
+!/Dhaka MetroRail Final/src/view/minhaz/publicServiceProvider/SafetyAndSecurityController.java
