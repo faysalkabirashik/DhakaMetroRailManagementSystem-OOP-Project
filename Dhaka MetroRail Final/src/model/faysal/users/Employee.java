@@ -4,8 +4,14 @@
  */
 package model.faysal.users;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.time.LocalDate;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import model.faysal.Address;
 
 /**
@@ -52,6 +58,10 @@ public abstract class Employee extends User implements Serializable, Classifiabl
         this.dateOfJoining = dateOfJoining;
         this.salary = salary;
         userCount++;
+    }
+
+    public Employee() {
+        this.dateOfJoining = null;
     }
 
     
@@ -102,6 +112,68 @@ public abstract class Employee extends User implements Serializable, Classifiabl
     
     public static int totalEmployee() {return userCount;}
 
+    /////////////////////////////////////////////////////////////////////
+    
+    public static int getCountOfAllEmployees()
+    {
+        ObservableList<Employee> em = FXCollections.observableArrayList();
+        File f = null;
+        FileInputStream fis = null;      
+        ObjectInputStream ois = null;
+        String path = "EmployeeObjects.bin";
+        try {
+                f = new File(path);
+                fis = new FileInputStream(f);
+                ois = new ObjectInputStream(fis);
+                User tempUser = null;
+                try {
+                    while(true)
+                        {
+                        tempUser = (Employee) ois.readObject();
+                        em.add((Employee)tempUser);
+                        }
+                    }
+                catch(IOException | ClassNotFoundException e){}
+            } 
+        catch (IOException ex) {}
+        finally {
+                try {if(ois != null) ois.close();} 
+                catch (IOException ex) { }
+                }
+
+        return em.size();
+    }
+    
+    
+        public static ObservableList<Employee> getAllEmployees()
+    {
+        ObservableList<Employee> em = FXCollections.observableArrayList();
+        File f = null;
+        FileInputStream fis = null;      
+        ObjectInputStream ois = null;
+        String path = "EmployeeObjects.bin";
+        try {
+                f = new File(path);
+                fis = new FileInputStream(f);
+                ois = new ObjectInputStream(fis);
+                User tempUser = null;
+                try {
+                    while(true)
+                        {
+                        tempUser = (Employee) ois.readObject();
+                        em.add((Employee)tempUser);
+                        }
+                    }
+                catch(IOException | ClassNotFoundException e){}
+            } 
+        catch (IOException ex) {}
+        finally {
+                try {if(ois != null) ois.close();} 
+                catch (IOException ex) { }
+                }
+
+        return em;
+    }
     
 //    public String generateNewEmployeeID(){
 //        

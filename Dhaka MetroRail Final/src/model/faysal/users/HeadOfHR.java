@@ -4,14 +4,21 @@
  */
 package model.faysal.users;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.Serializable;
 import java.time.LocalDate;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import model.faysal.Address;
 
 /**
  *
  * @author Faysal Kabir Ashik
  */
-public class HeadOfHR extends Employee implements Countable{
+public class HeadOfHR extends Employee implements Serializable , Countable{
 
     private static int userCount = 0;
     public static int itsTotalMember(){return userCount;}
@@ -56,4 +63,39 @@ public class HeadOfHR extends Employee implements Countable{
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
+    
+    
+    
+    ////////////////////
+    /////////////////////////////////////////////////////////////////////
+    
+        public static int getCountOfHeadOfHR()
+    {
+        ObservableList<HeadOfHR> hr = FXCollections.observableArrayList();
+        File f = null;
+        FileInputStream fis = null;      
+        ObjectInputStream ois = null;
+        String path = "HeadOfHRObjects.bin";
+        try {
+                f = new File(path);
+                fis = new FileInputStream(f);
+                ois = new ObjectInputStream(fis);
+                User tempUser = null;
+                try {
+                    while(true)
+                        {
+                        tempUser = (HeadOfHR) ois.readObject();
+                        hr.add((HeadOfHR)tempUser);
+                        }
+                    }
+                catch(IOException | ClassNotFoundException e){}
+            } 
+        catch (IOException ex) {}
+        finally {
+                try {if(ois != null) ois.close();} 
+                catch (IOException ex) { }
+                }
+
+        return hr.size();
+    }
 }

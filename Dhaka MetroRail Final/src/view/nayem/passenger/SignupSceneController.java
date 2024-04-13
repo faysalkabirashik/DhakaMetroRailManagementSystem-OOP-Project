@@ -43,7 +43,7 @@ public class SignupSceneController implements Initializable {
     @FXML    private TextField cityTextField;
     
     ToggleGroup tg = new ToggleGroup();
-    AlertGeneration alert;
+    AlertGen alert;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) 

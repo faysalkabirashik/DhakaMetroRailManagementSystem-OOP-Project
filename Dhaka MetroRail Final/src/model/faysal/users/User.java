@@ -1,11 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package model.faysal.users;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.time.LocalDate;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import model.faysal.Address;
 
 /**
@@ -41,6 +43,12 @@ public abstract class  User implements Serializable, Countable {
         this.gender = null;
         userCount++;
         
+    }
+
+    public User() {
+        this.gender = null;
+        this.userIdentity = null;
+        this.coreUserType = null;
     }
 
     
@@ -175,4 +183,96 @@ public abstract class  User implements Serializable, Countable {
     
     /// own method ///////////
 
+    
+        public static int getCountOfAllTypeOfUsers()
+    {
+        ObservableList<User> allUsers = FXCollections.observableArrayList();
+        File f = null;
+        FileInputStream fis = null;      
+        ObjectInputStream ois = null;
+        String path = "UserObjects.bin";
+        try {
+                f = new File(path);
+                fis = new FileInputStream(f);
+                ois = new ObjectInputStream(fis);
+                User tempUser = null;
+                try {
+                    while(true)
+                        {
+                        tempUser = (User) ois.readObject();
+                        allUsers.add((User)tempUser);
+                        }
+                    }
+                catch(IOException | ClassNotFoundException e){}
+            } 
+        catch (IOException ex) {}
+        finally {
+                try {if(ois != null) ois.close();} 
+                catch (IOException ex) { }
+                }
+
+        return allUsers.size();
+    }
+        
+    public static ObservableList<User> getAllUsers(){
+        ObservableList<User> users = FXCollections.observableArrayList();
+        File f = null;
+        FileInputStream fis = null;      
+        ObjectInputStream ois = null;
+        String path = "UserObjects.bin";
+        try {
+            f = new File(path);
+            fis = new FileInputStream(f);
+            ois = new ObjectInputStream(fis);
+            User tempUser = null;
+            try {
+                while(true){
+                    tempUser = (User) ois.readObject();
+                    users.add((User)tempUser);
+                    }
+                }
+            catch(IOException | ClassNotFoundException e){}
+            } 
+        catch (IOException ex) {}
+        finally {
+                try {if(ois != null) ois.close();} 
+                catch (IOException ex) { }
+                }
+        return users;
+    }    
+    
+    public static User getObject(String userIdentity){
+        File f = null;
+        FileInputStream fis = null;      
+        ObjectInputStream ois = null;
+ 
+        try {
+            f = new File("UserObjects.bin");
+            fis = new FileInputStream(f);
+            ois = new ObjectInputStream(fis);
+            User tempUser = null;
+            try{
+                System.out.println("showing user objects");
+                while(true){
+                    tempUser = (User) ois.readObject();
+                    if (tempUser.getUserIdentity().equals(userIdentity)){
+                        System.out.println("User found");
+                        System.out.println(tempUser.toString());
+                        return tempUser;
+                    }
+                }
+            }
+            catch(IOException | ClassNotFoundException e){}
+             
+        } catch (IOException ex) {}
+
+        finally {
+            try {
+                if(ois != null) ois.close();
+            } catch (IOException ex) { }
+        }
+        return null;
+    }
+    
+        
 }
