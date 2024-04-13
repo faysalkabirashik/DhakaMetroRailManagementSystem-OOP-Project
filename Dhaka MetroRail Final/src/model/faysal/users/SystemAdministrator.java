@@ -15,6 +15,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.faysal.Address;
 import model.faysal.AppendableObjectOutputStream;
+import model.nayem.TrainOperator;
 
 /**
  *
@@ -323,5 +324,59 @@ public class SystemAdministrator extends Employee implements Serializable, Count
 
         return admins;
     }
+    
+    public static String generateEmployeeID(String userSelectedOptionFromcomBoxStringValue, LocalDate dateOfJoining)
+    {   
+        try{
+            String key = userSelectedOptionFromcomBoxStringValue;
+            if (key != null && MAP_CLASSIFICATION_LABEL.containsKey(key)) 
+                {        
+                    String  year = String.valueOf(dateOfJoining.getYear()).substring(2,4);
+                    String label = MAP_CLASSIFICATION_LABEL.get(key);
+                    int total = 0;
+                    switch (key) {
+                        case "System Administrator":
+                            total = SystemAdministrator.getCountOfSystemAdmins();
+                            break;
+                        case "Station Manager":
+                            total =StationManager.getCountOfStationManager() ;
+                            break;
+                        case "Train Operator":
+                            total = TrainOperator.getCountOfTrainOperator();
+                            break;
+                        case "Head of HR":
+                            total = HeadOfHR.getCountOfHeadOfHR();
+                            break;
+                        case "Maintenance Staff":
+                            total = MaintenanceStaff.getCountOfMaintenanceStaff();
+                            break;
+                        case "Public Service Provider":
+                            total = PublicServiceProvider.getCountOfPublicServiceProvider();
+                            break;
+                        case "Accountant":
+                            total = Accountant.getCountOfAccountant();
+                            break;
+                        default:
+                            break;
+                    }
+                    
+                    String id = year + label;
+                    if( total < 10){
+                         id = id + "00" + String.valueOf(total);
+                        }
+                     else if (total > 10 && total < 100){
+                         id = id + "0" + String.valueOf(total);
+                        } 
+                     else{
+                         id = id + String.valueOf(total);
+                        }
+                    return id;    
+                }
+            }
+        catch (Exception ex){}
+        return null;
+    }
+    
+    
     
 }
