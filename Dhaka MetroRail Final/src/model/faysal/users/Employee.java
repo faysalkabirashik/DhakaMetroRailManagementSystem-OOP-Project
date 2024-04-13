@@ -60,6 +60,9 @@ public abstract class Employee extends User implements Serializable, Classifiabl
         userCount++;
     }
 
+    public Employee() {
+    }
+
     
     
     //////////////// getter setter to string /////////////

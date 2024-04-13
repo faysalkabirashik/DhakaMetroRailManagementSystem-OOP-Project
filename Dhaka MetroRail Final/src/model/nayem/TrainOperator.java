@@ -45,6 +45,9 @@ public class TrainOperator extends Employee implements Serializable, Countable
         super(nid, designation, dateOfJoining, salary, fullName, primaryMobile, primaryEmail, gender, userIdentity, coreUserType, password, dateOfBirth, address, loginStatus, secondaryMobile, secondaryEmail);
         userCount++;
     }
+
+    public TrainOperator() {
+    }
     
     
   
@@ -110,7 +113,7 @@ public class TrainOperator extends Employee implements Serializable, Countable
         }
     }
     
-    /* 
+
     public void softwareFeedback(SystemFeedback sf)
     {
         File f = null;
@@ -132,7 +135,7 @@ public class TrainOperator extends Employee implements Serializable, Countable
             //
         }
     }
-    */
+    
 
     @Override
     public void changeDesignation() {
