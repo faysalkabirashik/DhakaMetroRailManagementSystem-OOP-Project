@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="adminMainDashboard_borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="1024.0" style="-fx-border-radius: 8; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.faysal.systemadmin.SystemAdminDashboardController">
+   <left>
+      <VBox prefHeight="590.0" prefWidth="155.0" style="-fx-background-color: #f6f6fa; -fx-border-color: #C5AE85;" BorderPane.alignment="BOTTOM_LEFT">
+         <children>
+            <HBox fx:id="dashBoard_hBox" onMouseClicked="#dashboardMouseOnClicked" spacing="5.0" style="-fx-background-radius: 5;">
+               <children>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/faysal/details_100px.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <Label fx:id="dashBoardLabel" prefHeight="60.0" prefWidth="76.0" style="-fx-font-size: 15;" text="Dashboard" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="15.0" />
+               </VBox.margin>
+               <opaqueInsets>
+                  <Insets top="10.0" />
+               </opaqueInsets>
+               <padding>
+                  <Insets bottom="5.0" right="5.0" top="20.0" />
+               </padding>
+            </HBox>
+            <HBox fx:id="profile_hBox" onMouseClicked="#profileMouseOnClicked" prefHeight="63.0" prefWidth="256.0" spacing="10.0" style="-fx-background-radius: 20; -fx-background-color: f6f6fa;">
+               <children>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/faysal/change_user_male_32px.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <Label fx:id="profileLabel" prefHeight="77.0" prefWidth="76.0" style="-fx-font-size: 15;" text="Profile">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <padding>
+                        <Insets bottom="5.0" top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" />
+               </padding>
+            </HBox>
+            <HBox fx:id="goals_hBox" onMouseClicked="#goalsOnMouseClicked" prefHeight="50.0" prefWidth="256.0" spacing="5.0">
+               <children>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/faysal/4600164.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <Label fx:id="expencesLID" prefHeight="75.0" prefWidth="76.0" style="-fx-font-size: 15;" text="Goals" />
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="10.0" />
+               </padding>
+            </HBox>
+            <HBox fx:id="download_Hbox" onMouseClicked="#downloadOnMouseClicked" prefHeight="50.0" prefWidth="256.0" spacing="10.0">
+               <children>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/faysal/download.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="downloadLid" prefHeight="85.0" prefWidth="76.0" style="-fx-font-size: 15;" text="Download" />
+               </children>
+               <padding>
+                  <Insets bottom="15.0" top="10.0" />
+               </padding>
+            </HBox>
+            <HBox fx:id="notifications_hBox" onMouseClicked="#notificationsOnMouseClicked" prefHeight="50.0" prefWidth="256.0" spacing="5.0">
+               <children>
+                  <ImageView fitHeight="42.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/faysal/notification.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <Label fx:id="downloadLid1" prefHeight="85.0" prefWidth="85.0" style="-fx-font-size: 15;" text="Notifications" />
+               </children>
+               <padding>
+                  <Insets bottom="15.0" />
+               </padding>
+            </HBox>
+            <HBox fx:id="logOut_hBox" onMouseClicked="#logOutOnMouseClicked" prefHeight="50.0" prefWidth="256.0" spacing="5.0">
+               <children>
+                  <ImageView fitHeight="48.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/faysal/logout.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <Label prefHeight="85.0" prefWidth="76.0" style="-fx-font-size: 15;" text="Log out" />
+               </children>
+               <padding>
+                  <Insets bottom="15.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+   </left>
+   <top>
+      <AnchorPane prefHeight="70.0" prefWidth="1024.0" style="-fx-background-color: #6BB2A2; -fx-border-color: #C5AE85;" BorderPane.alignment="CENTER">
+         <children>
+            <Pane layoutX="8.0" layoutY="10.0" prefHeight="55.0" prefWidth="238.0" style="-fx-background-color: White; -fx-background-radius: 10; -fx-border-radius: 10;" AnchorPane.leftAnchor="8.0">
+               <children>
+                  <ImageView fitHeight="46.0" fitWidth="51.0" layoutX="1.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/faysal/subway_48px.png" />
+                     </image>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </ImageView>
+                  <Label layoutX="48.0" layoutY="6.0" prefHeight="43.0" prefWidth="189.0" style=": bold;" text="Dhaka Metro System">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="18.0" />
+                     </font>
+                     <textFill>
+                        <LinearGradient endX="0.7" endY="1.0">
+                           <stops>
+                              <Stop color="#6fb06b" />
+                              <Stop color="#e84141" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="243.0" layoutY="4.0" prefHeight="70.0" prefWidth="736.0">
+               <children>
+                  <TextField fx:id="note_textField" layoutX="114.0" layoutY="14.0" onKeyReleased="#noteTextFieldKeyReleased" prefHeight="40.0" prefWidth="331.0" promptText="Note here " style="-fx-background-color: white; -fx-background-radius: 15; -fx-border-width: 0 0 3 0;" text="Note " />
+                  <Label fx:id="name_label" layoutX="461.0" layoutY="19.0" prefHeight="45.0" prefWidth="310.0" text="Mr.">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <textFill>
+                        <LinearGradient endX="0.7" endY="1.0">
+                           <stops>
+                              <Stop color="WHITE" />
+                              <Stop color="WHITE" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                  </Label>
+               </children>
+            </Pane>
+            <ImageView fitHeight="40.0" fitWidth="35.0" layoutX="942.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="36.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="4.0">
+               <image>
+                  <Image url="@../../../images/faysal/bangladesh_48px.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </top>
+   <bottom>
+      <AnchorPane prefHeight="10.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" style="-fx-background-color: white; -fx-background-color: D8C9AD;" text="2024 © Faysal Kabir Ashik - President of the TBA Botsho" textAlignment="CENTER" textFill="#ab4848" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </bottom>
+</BorderPane>

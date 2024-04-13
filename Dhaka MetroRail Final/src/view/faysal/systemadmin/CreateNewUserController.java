@@ -1,17 +1,24 @@
+package view.faysal.systemadmin;
 
-package view.faysal.systemadmin.manageuser;
-
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
@@ -24,6 +31,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import model.faysal.AutoFilterSupportToComboBox;
 import model.faysal.AddressLists;
 
@@ -34,16 +42,11 @@ import model.faysal.AddressLists;
  */
 public class CreateNewUserController implements Initializable {
 
-    @FXML
     private ComboBox<String> city_comBox;
-    @FXML
     private ComboBox<String> district_comBox;
     @FXML
     private TextField fullName_textField;
-    
-  
-    @FXML
-    private  ComboBox<String> division_comBox;
+
     @FXML
     private TextArea note_textArea;
     @FXML
@@ -91,8 +94,6 @@ public class CreateNewUserController implements Initializable {
     @FXML
     private DatePicker joiningDate_datePicker;
     @FXML
-    private Button viewUser_button;
-    @FXML
     private AnchorPane parentAnchorPane;
     @FXML
     private RadioButton employee_radioButton;
@@ -110,98 +111,116 @@ public class CreateNewUserController implements Initializable {
     private Label joiningDate_label;
     @FXML
     private Label nid_label;
-    
-    
-     private Map<String, List<String>> districtCityMap;
 
-    
-    
+    private Map<String, List<String>> districtCityMap;
+    @FXML
+    private ComboBox<String> cityComboBox;
+    @FXML
+    private ComboBox<String> divisionComboBox;
+    @FXML
+    private ComboBox<String> districtComboBox;
+
+    private void updateDistrictComboBox() {
+        String selectedDivision = divisionComboBox.getValue();
+        if (selectedDivision != null) {
+            List<String> districts = AddressLists.getBdDistricts(selectedDivision);
+            ObservableList<String> districtItems = FXCollections.observableArrayList(districts);
+            districtComboBox.setItems(districtItems);
+            //AutoFilterSupportToComboBox.setTheComboBoxAutoFilterSupported(districtComboBox, districts );
+            // Reset cityComboBox
+            cityComboBox.getItems().clear();
+        }
+    }
+
+    private void updateCityComboBox() {
+        String selectedDistrict = districtComboBox.getValue();
+        if (selectedDistrict != null) {
+            Map<String, List<String>> districtMap = AddressLists.getMap(divisionComboBox.getValue());
+            List<String> cities = districtMap.get(selectedDistrict);
+            ObservableList<String> cityItems = FXCollections.observableArrayList(cities);
+            cityComboBox.setItems(cityItems);
+            //AutoFilterSupportToComboBox.setTheComboBoxAutoFilterSupported(cityComboBox, cityItems );
+        }
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+
         String[] ep_designations = {"System Administrator", "Station Manager", "Train Operator",
-             "Head of HR",  "Maintenance Staff", "Public Service Provider", "Accountant"};
+            "Head of HR", "Maintenance Staff", "Public Service Provider", "Accountant"};
         employeeType_comBox.setItems(FXCollections.observableArrayList(ep_designations));
-        
-        userType_toggleGroup.selectedToggleProperty().addListener((observable, oldValue, newValue) -> 
-        {
+
+        userType_toggleGroup.selectedToggleProperty().addListener((observable, oldValue, newValue)
+                -> {
             RadioButton selectedRadioButton = (RadioButton) newValue;
-            if (selectedRadioButton == employee_radioButton)
-                {
-                    employeeType_comBox.getItems().clear();
-                    employeeType_comBox.setItems(FXCollections.observableArrayList(ep_designations));
-                }
-           
-            if (newValue == employee_radioButton || newValue == admin_radioButton ) 
-            {
+            if (selectedRadioButton == employee_radioButton) {
+                employeeType_comBox.getItems().clear();
+                employeeType_comBox.setItems(FXCollections.observableArrayList(ep_designations));
+            }
+
+            if (newValue == employee_radioButton || newValue == admin_radioButton) {
                 birthCer_checkBox.setDisable(true);
                 birthCer_textField.setDisable(true);
                 generatePassengerUsername_button.setDisable(true);
                 generatePassengerUsername_textField.setDisable(true);
                 nid_checkBox.setSelected(true);
                 nid_checkBox.setDisable(true);
-                
+
                 nid_label.setDisable(false);
                 employeeType_comBox.setDisable(false);
                 generateEmployeeId_button.setDisable(false);
                 generateEmployeeId_label.setDisable(false);
                 joiningDate_label.setDisable(false);
                 joiningDate_datePicker.setDisable(false);
-                
-                if (newValue == admin_radioButton)
-                {
+
+                if (newValue == admin_radioButton) {
                     employeeType_comBox.setItems(FXCollections.observableArrayList("System Administrator"));
                     employeeType_comBox.setValue("System Administrator");
-        
-                }
-                else
-                {
+
+                } else {
 
                     employeeType_comBox.setItems(FXCollections.observableArrayList(ep_designations));
-       
+
                 }
-            
-            }
-            
-            else if (newValue == passenger_radioButton) 
-            {
+
+            } else if (newValue == passenger_radioButton) {
                 birthCer_checkBox.setDisable(false);
                 birthCer_textField.setDisable(false);
                 generatePassengerUsername_button.setDisable(false);
                 generatePassengerUsername_textField.setDisable(false);
                 nid_checkBox.setSelected(false);
                 nid_checkBox.setDisable(false);
-                
-                
+
                 employeeType_comBox.setDisable(true);
                 generateEmployeeId_button.setDisable(true);
                 generateEmployeeId_label.setDisable(true);
                 joiningDate_label.setDisable(true);
                 joiningDate_datePicker.setDisable(true);
-            }      
-        });
-        
-        
-        employeeType_comBox.valueProperty().addListener((observable, oldValue, newValue) -> 
-        {
-            if (newValue != null) 
-            {
-                if (newValue.equals("System Administrator")) 
-                {
-                    // If ComboBox value is System Administrator
-                    userType_toggleGroup.selectToggle(admin_radioButton);
-                }  
             }
         });
-        
-        // initialize country combo box
-        List<String> countries = AddressLists.getCountries();
-        AutoFilterSupportToComboBox.setTheComboBoxAutoFilterSupported(country_comBox, FXCollections.observableList(countries));
-        
-        // initialize division combo box
+
+        employeeType_comBox.valueProperty().addListener((observable, oldValue, newValue)
+                -> {
+            if (newValue != null) {
+                if (newValue.equals("System Administrator")) {
+                    // If ComboBox value is System Administrator
+                    userType_toggleGroup.selectToggle(admin_radioButton);
+                }
+            }
+        });
+
+        // Populate divisionComboBox with divisions
         List<String> divisions = AddressLists.getBdDivisions();
-        AutoFilterSupportToComboBox.setTheComboBoxAutoFilterSupported(division_comBox, FXCollections.observableList(divisions));
-         
+        ObservableList<String> divisionItems = FXCollections.observableArrayList(divisions);
+        // AutoFilterSupportToComboBox.setTheComboBoxAutoFilterSupported(divisionComboBox, divisions );
+
+        divisionComboBox.setItems(divisionItems);
+
+        // Set up listeners for ComboBoxes
+        divisionComboBox.setOnAction(event -> updateDistrictComboBox());
+        districtComboBox.setOnAction(event -> updateCityComboBox());
+
+        /*
         // initialize district combo box    based on division selection
         division_comBox.valueProperty().addListener((observable, oldValue, newValue) -> 
         {
@@ -219,9 +238,10 @@ public class CreateNewUserController implements Initializable {
                 else
                 {
                     district_comBox.getItems().clear();
-                    city_comBox.getItems().clear();
-                    city_comBox.setDisable(true);
                     district_comBox.setDisable(true);
+                    city_comBox.getItems().clear();                  
+                    city_comBox.setDisable(true);
+                    
  
                 }
             }catch(Exception e){
@@ -243,12 +263,22 @@ public class CreateNewUserController implements Initializable {
                 
             }
         });        
-        
-   
-    }   
+         */
+    }
 
     @FXML
-    private void goBackBtnOnAction(ActionEvent event) {
+    private void goBackBtnOnAction(ActionEvent event) throws RuntimeException, IOException {
+
+        FXMLLoader dashLoader = new FXMLLoader(getClass().getResource("SystemAdminDashboard.fxml"));
+        Parent root = dashLoader.load();
+        SystemAdminDashboardController systemAdminDashController = dashLoader.getController();
+        systemAdminDashController.loadUIAtMainBorderPane("SystemAdminGoals");
+        
+
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene( new Scene(root));
+        window.show();
+
     }
 
     @FXML
@@ -268,12 +298,9 @@ public class CreateNewUserController implements Initializable {
     }
 
     @FXML
-    private void viewUserBtnOnAction(ActionEvent event) {
-    }
-
-    @FXML
     private void employeeRadioButtonOnAction(ActionEvent event) {
-        if (employee_radioButton.isSelected()){}
+        if (employee_radioButton.isSelected()) {
+        }
     }
 
     @FXML
@@ -285,6 +312,3 @@ public class CreateNewUserController implements Initializable {
     }
 
 }
-
-
-
