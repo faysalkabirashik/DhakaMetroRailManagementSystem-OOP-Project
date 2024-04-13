@@ -377,7 +377,7 @@ public class AddressLists implements Serializable {
 
                 if (null == divisionName)
                 {
-                    AlertGeneration.errorAlert("Not Found!", "Please give the division correctly!");
+                    AlertGen.errorAlert("Not Found!", "Please give the division correctly!");
                 }
 
                 else switch (divisionName) {
@@ -406,12 +406,12 @@ public class AddressLists implements Serializable {
                         obsList =  FXCollections.observableArrayList(AddressLists.getMapBarisal().keySet());
                         break;
                     default:
-                        AlertGeneration.errorAlert("Not Found!", "Please give the division correctly!");
+                        AlertGen.errorAlert("Not Found!", "Please give the division correctly!");
                         break;
                 }
             }catch(Exception e)
             {
-                AlertGeneration.errorAlert(e);
+                AlertGen.errorAlert(e);
             }
         
             return obsList;
@@ -458,7 +458,7 @@ public class AddressLists implements Serializable {
 
          if (null == divisionName)
          {
-             AlertGeneration.errorAlert("Not Found!", "Please give the division correctly!");
+             AlertGen.errorAlert("Not Found!", "Please give the division correctly!");
          }
          else  if ("Dhaka".equals(divisionName)) 
          {
@@ -503,12 +503,12 @@ public class AddressLists implements Serializable {
 //             case "Barisal":
 //                 return  getMapBarisal();
 //             default:
-//                 AlertGeneration.errorAlert("Not Found!", "Please give the division correctly!");
+//                 AlertGen.errorAlert("Not Found!", "Please give the division correctly!");
 //                 break;
 //            }
         }catch(Exception e)
         {
-            AlertGeneration.errorAlert(e);
+            AlertGen.errorAlert(e);
         }
 
        }
