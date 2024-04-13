@@ -5,3 +5,8 @@
 /Dhaka MetroRail Final/build/
 >>>>>>> Stashed changes
 *.java
+!/Dhaka MetroRail Final/src/view/jubair/Accountant/EmployeePaayrollController.java
+!/Dhaka MetroRail Final/src/view/jubair/Accountant/AccountantDashBoardController.java
+!/Dhaka MetroRail Final/src/view/jubair/Accountant/dailyTransactionController.java
+!/Dhaka MetroRail Final/src/view/jubair/Accountant/vendorManagementController.java
+!/Dhaka MetroRail Final/src/view/jubair/HeadofHR/HeadofHRDashBoardController.java

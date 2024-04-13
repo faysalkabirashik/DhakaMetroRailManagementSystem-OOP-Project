@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.jubair.Accountant.dailyTransactionController">
+   <children>
+      <AnchorPane layoutX="-1.0" layoutY="467.0" prefHeight="33.0" prefWidth="870.0" style="-fx-background-color: white;">
+         <children>
+            <Label layoutX="316.0" layoutY="7.0" text="© A product belongs to TBA -The Botsho Association" textAlignment="JUSTIFY" textFill="#ab4848">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="85.0" fitWidth="89.0" layoutX="56.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@MetroRail%20Logo%20png.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="160.0" layoutY="21.0" text="Daily Transaction" textFill="#0a8d45">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Button layoutX="408.0" layoutY="418.0" mnemonicParsing="false" style="-fx-background-color: e82e2f;" text="Logout" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <Line endX="413.0" layoutX="243.0" layoutY="54.0" startX="-100.0" stroke="#0a8d45" strokeWidth="4.0" />
+      <TableView layoutX="113.0" layoutY="209.0" prefHeight="200.0" prefWidth="658.0">
+         <columns>
+            <TableColumn prefWidth="111.0" text="Date" />
+            <TableColumn prefWidth="155.0" text="Transaction Category" />
+            <TableColumn minWidth="1.0" prefWidth="165.0" text="Transaction Details" />
+            <TableColumn minWidth="0.0" prefWidth="109.0" text="Amount" />
+            <TableColumn minWidth="0.0" prefWidth="117.0" text="Station" />
+         </columns>
+      </TableView>
+      <Label layoutX="87.0" layoutY="78.0" text="Transaction Date:" />
+      <Label layoutX="85.0" layoutY="112.0" text="Transaction Category:" />
+      <Label layoutX="395.0" layoutY="78.0" text="Transaction Details:" />
+      <TextField layoutX="509.0" layoutY="75.0" prefHeight="61.0" prefWidth="149.0" />
+      <Button layoutX="676.0" layoutY="94.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="95.0" style="-fx-background-color: #87ceeb; -fx-border-color: black;" text="Add Transaction" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font>
+      </Button>
+      <DatePicker layoutX="203.0" layoutY="74.0" />
+      <ComboBox layoutX="203.0" layoutY="108.0" prefHeight="25.0" prefWidth="174.0" />
+      <Label layoutX="87.0" layoutY="147.0" text="Select Station:" />
+      <ComboBox layoutX="203.0" layoutY="143.0" prefHeight="25.0" prefWidth="174.0" />
+      <Label layoutX="395.0" layoutY="147.0" text="Transaction Amount:" />
+      <TextField layoutX="509.0" layoutY="143.0" />
+   </children>
+</AnchorPane>
