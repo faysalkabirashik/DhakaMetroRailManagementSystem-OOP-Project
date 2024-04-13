@@ -12,6 +12,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
@@ -37,25 +38,25 @@
                               </ImageView>
                               <ButtonBar layoutY="188.0" prefHeight="31.0" prefWidth="870.0" style="-fx-background-color: #FF0000;">
                                  <buttons>
-                                    <MenuButton contentDisplay="BOTTOM" mnemonicParsing="false" style="-fx-background-color: #99EEB4;" text="About Us">
+                                    <MenuButton contentDisplay="BOTTOM" disable="true" mnemonicParsing="false" style="-fx-background-color: #99EEB4;" text="About Us">
                                       <items>
                                         <MenuItem mnemonicParsing="false" text=" Team Information" />
                                         <MenuItem mnemonicParsing="false" text="Motive" />
                                       </items>
                                     </MenuButton>
-                                    <MenuButton contentDisplay="BOTTOM" mnemonicParsing="false" style="-fx-background-color: #99EEB4;" text="Projects">
+                                    <MenuButton contentDisplay="BOTTOM" disable="true" mnemonicParsing="false" style="-fx-background-color: #99EEB4;" text="Projects">
                                       <items>
                                         <MenuItem mnemonicParsing="false" text="Action 1" />
                                         <MenuItem mnemonicParsing="false" text="Action 2" />
                                       </items>
                                     </MenuButton>
-                                    <MenuButton contentDisplay="BOTTOM" mnemonicParsing="false" style="-fx-background-color: #99EEB4;" text="Gallery">
+                                    <MenuButton contentDisplay="BOTTOM" disable="true" mnemonicParsing="false" style="-fx-background-color: #99EEB4;" text="Gallery">
                                       <items>
                                         <MenuItem mnemonicParsing="false" text="Action 1" />
                                         <MenuItem mnemonicParsing="false" text="Action 2" />
                                       </items>
                                     </MenuButton>
-                                    <Button contentDisplay="BOTTOM" mnemonicParsing="false" style="-fx-background-color: #99EEB4;" text="Audit Log" />
+                                    <Button contentDisplay="BOTTOM" disable="true" mnemonicParsing="false" style="-fx-background-color: #99EEB4;" text="Audit Log" />
                                  </buttons>
                                  <opaqueInsets>
                                     <Insets />
@@ -122,6 +123,17 @@
                            </children>
                         </StackPane>
                      </right>
+                     <center>
+                        <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Label fx:id="lopinInfo_label" layoutX="269.0" layoutY="110.0" prefHeight="182.0" prefWidth="331.0" textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font name="Arial Rounded MT Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                     </center>
                   </BorderPane>
                </children>
             </AnchorPane>

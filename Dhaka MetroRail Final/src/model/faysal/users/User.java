@@ -238,6 +238,39 @@ public abstract class  User implements Serializable, Countable {
                 }
         return users;
     }    
-        
+    
+    public static User getObject(String userIdentity){
+        File f = null;
+        FileInputStream fis = null;      
+        ObjectInputStream ois = null;
+ 
+        try {
+            f = new File("UserObjects.bin");
+            fis = new FileInputStream(f);
+            ois = new ObjectInputStream(fis);
+            User tempUser = null;
+            try{
+                System.out.println("showing user objects");
+                while(true){
+                    tempUser = (User) ois.readObject();
+                    if (tempUser.getUserIdentity().equals(userIdentity)){
+                        System.out.println("User found");
+                        System.out.println(tempUser.toString());
+                        return tempUser;
+                    }
+                }
+            }
+            catch(IOException | ClassNotFoundException e){}
+             
+        } catch (IOException ex) {}
+
+        finally {
+            try {
+                if(ois != null) ois.close();
+            } catch (IOException ex) { }
+        }
+        return null;
+    }
+    
         
 }

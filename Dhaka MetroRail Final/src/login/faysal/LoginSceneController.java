@@ -56,45 +56,7 @@ public class LoginSceneController implements Initializable {
     @FXML
     private void loginButtonOnAction(ActionEvent event) throws IOException
     {
-//        TrainOperator to = new TrainOperator();
-//        to.loadDashBoard(event);
-//        
-//        File f = null;
-//        FileInputStream fis = null;
-//        ObjectInputStream ois = null;
-//        String pass;
-//        try {
-//            f = new File("PassegerData.bin");
-//            fis = new FileInputStream(f);
-//            ois = new ObjectInputStream(fis);
-//            Passenger passenger;
-//            try{
-//                while(true){
-//                    passenger = (Passenger)ois.readObject();
-//                    System.out.println(passenger);
-//                    pass = passenger.getPassword();
-//                    if (passenger.getPassword().equals(password_passField.getText()))
-//                    {
-//                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/nayem/passenger/PassengerDashBoard.fxml"));
-//                        Parent parent = loader.load();
-//                        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//                        Scene newScene = new Scene(parent);
-//                        currentStage.setScene(newScene);
-//                        currentStage.show();
-//                    }
-//                }
-//            }
-//            catch(Exception e){
-//                System.out.println("hoy nai");
-//            }      
-//        } catch (IOException ex) {
-//            System.out.println(ex.toString());
-//        } 
-//        finally {
-//            try {
-//                if(ois != null) ois.close();
-//            } catch (IOException ex) { }
-//        }
+        
     }
 
     @FXML
