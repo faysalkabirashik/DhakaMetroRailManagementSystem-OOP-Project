@@ -209,7 +209,6 @@ public class CreateNewUserController implements Initializable {
             }
         });
 
-        // Populate divisionComboBox with divisions
         List<String> divisions = AddressLists.getBdDivisions();
         ObservableList<String> divisionItems = FXCollections.observableArrayList(divisions);
         // AutoFilterSupportToComboBox.setTheComboBoxAutoFilterSupported(divisionComboBox, divisions );
@@ -291,6 +290,7 @@ public class CreateNewUserController implements Initializable {
 
     @FXML
     private void generatePasswordBtnOnAction(ActionEvent event) {
+        
     }
 
     @FXML
