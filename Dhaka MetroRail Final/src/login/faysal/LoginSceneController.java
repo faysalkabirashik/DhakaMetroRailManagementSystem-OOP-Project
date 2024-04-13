@@ -76,13 +76,10 @@ public class LoginSceneController implements Initializable {
                     if (Validation.isValisUserIdentity(userID))
                     {
                         
-                        if (Validation.isValidEmail(pass))
+                        if (Validation.isValidPassword(pass))
                         {
                         show_label.setText("Checking for verificaiton....");
                         ////////////////////////////////////////////////////////////
-                        
-                        
-                        
                         
                         
                         
@@ -102,11 +99,12 @@ public class LoginSceneController implements Initializable {
                 else
                 {
                     ////////////// checking for passenger ///////////////////////////////////// verification
-                    if (Validation.isValidUsername(userID) && Validation.isValidEmail(pass))
+                    if (Validation.isValidUsername(userID) && Validation.isValidPassword(pass))
                     {
                         AlertGen.inforamtion("Successfull" , "You have to wait! An Email will be sent or Contact Admin");
 
-                    
+                    ////////// only for passenger, just verify that user exist, and correct pass
+                    /////////// then 
                     
                     
                     
