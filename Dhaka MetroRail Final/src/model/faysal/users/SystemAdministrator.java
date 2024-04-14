@@ -14,6 +14,7 @@ import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.faysal.Address;
+import model.faysal.AlertGen;
 import model.faysal.AppendableObjectOutputStream;
 import model.nayem.TrainOperator;
 
@@ -28,6 +29,11 @@ public class SystemAdministrator extends Employee implements Serializable, Count
     private static int userCount = 0;
 
     private boolean parentAdmin;
+
+    public SystemAdministrator() {
+    }
+    
+    
 
     public SystemAdministrator(String coreUserType, String userIdentity, LocalDate dateOfJoining) {
         super(coreUserType, userIdentity, dateOfJoining);
@@ -264,6 +270,97 @@ public class SystemAdministrator extends Employee implements Serializable, Count
         
     }
     
+    public  boolean addNewUser(User userToBeAdded, String userType, boolean areAllOptionalInfoGiven)    
+    {
+ 
+        String path2 = "";
+
+        
+        if (userType.equals("System Administrator"))
+            {
+                   path2 = "SystemAdministratorObjects.bin"; 
+            }
+        else if (userType.equals("Station Manager"))
+            {
+                    path2 = "StationManagerObjects.bin"; 
+            }
+        else if (userType.equals( "Train Operator"))
+            {
+                    path2 = "TrainOperatorObjects.bin"; 
+            }
+        else if (userType.equals("Head of HR"))
+            {
+                    path2 = "HeadOfHRObjects.bin"; 
+            }
+        else if (userType.equals("Maintenance Staff"))
+            {
+                    path2 = "MaintenanceStaffObjects.bin"; 
+            }
+        else if (userType.equals("Public Service Provider"))
+            {
+                    path2 = "PublicServiceProviderObjects.bin" ; 
+            }
+        else if (userType.equals("Accountant"))
+            {
+                    path2 =  "AccountantObjects.bin"; 
+            }
+        else if (userType.equals("Passenger"))
+            {
+                    path2 =  "PassengerObjects.bin"; 
+            }
+
+        
+        File f = null;
+        FileOutputStream fos = null;      
+        ObjectOutputStream oos = null;
+        File f2 = null;
+        FileOutputStream fos2 = null;      
+        ObjectOutputStream oos2 = null;
+
+        try {
+            f = new File(path2);
+            if (f.exists()) {
+                fos = new FileOutputStream(f, true);
+                oos = new AppendableObjectOutputStream(fos);
+            } else {
+                fos = new FileOutputStream(f);
+                oos = new ObjectOutputStream(fos);
+            }
+            f2 = new File("LoginInfoObjects.bin");
+            if (f2.exists()) {
+                fos2 = new FileOutputStream(f2, true);
+                oos2 = new AppendableObjectOutputStream(fos2);
+            } else {
+                fos2 = new FileOutputStream(f2);
+                oos2 = new ObjectOutputStream(fos2);
+            }
+            LoginInfo login = new LoginInfo(userToBeAdded.getUserIdentity(), userType, userToBeAdded.getPassword());
+            oos.writeObject(userToBeAdded);
+            oos2.writeObject(login);
+            oos.close();
+            oos2.close();
+            System.out.println("Added");
+            AlertGen.successfulAlert("User added successfully to bin");
+            
+            return true;
+        } catch (IOException ex) {
+            Logger.getLogger(SystemAdministrator.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                if (oos != null) {
+                    oos.close();
+                }
+                if (oos2 != null) {
+                    oos2.close();
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(SystemAdministrator.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        return false;
+      
+    }
     public static int getCountOfSystemAdmins()
     {
         ObservableList<SystemAdministrator> admins = FXCollections.observableArrayList();

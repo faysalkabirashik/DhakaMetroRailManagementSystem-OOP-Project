@@ -78,8 +78,8 @@ public class LoginSceneController implements Initializable {
          }
          else
          {
-                String   userID = (userIdentity_textField.getText().trim());
-                String pass =  password_passField.getText().trim();
+                String   userID = (userIdentity_textField.getText());
+                String pass =  password_passField.getText();
                 if (Validation.allDigits((userID)))
                 {
                     ///checking for employ 
