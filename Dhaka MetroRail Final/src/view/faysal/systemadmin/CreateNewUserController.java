@@ -31,9 +31,14 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import model.faysal.Address;
 //import model.faysal.AutoFilterSupportToComboBox;
 import model.faysal.AddressLists;
+import model.faysal.AlertGen;
+import model.faysal.DescriptionOnUserCreation;
+import model.faysal.Validation;
 import model.faysal.users.SystemAdministrator;
+import model.nayem.Passenger;
 
 /**
  * FXML Controller class
@@ -299,6 +304,8 @@ public class CreateNewUserController implements Initializable {
         
         RadioButton genderRB = (RadioButton) gender_toggleGroup.getSelectedToggle(); 
         RadioButton parentUserTypeRB = (RadioButton) userType_toggleGroup.getSelectedToggle();
+        String parentUserType = parentUserTypeRB.getText();
+        
         String fullName = fullName_textField.getText();
         String country = country_comBox.getValue();
         String div = divisionComboBox.getValue();
@@ -310,30 +317,64 @@ public class CreateNewUserController implements Initializable {
         String village = village_textField.getText();
         String primMobile = primaryMobileNo_textField.getText();
         String primEmail = primaryMobileNo_textField.getText();
-        
-        
         LocalDate doB = doB_datePicker.getValue();
+        String pass = generatePassword_passwordField.getText();
+        String nid = nid_textField.getText();
         
         if (fullName == null || country == null || div == null || district == null || city == null || gender == null || 
                 road == null || house == null || village  == null ||
-                doB == null || primMobile n 
-                
-                
-          
-                
-                
-                
-                
-                
-                
-                )
-                        
+                doB == null || primMobile == null || primEmail == null ||  pass == null)
 
-        {
-            
+            {
+                AlertGen.unsuccessfulAlert("Field can't be empty. Please fill properly.");
+            }
+
+        else
+            {   
+            if (Validation.isValidBirthDate(doB))
+            {
+
+              if (! Validation.isAtLeastEighteenYearsOld(doB))
+                    {
+                        AlertGen.unsuccessfulAlert("Age must be at least 18 years older.");
+                    }
+              else
+              {
+                  
+                if (Validation.isValidPassword(pass))
+                {
+                    String description = note_textArea.getText();
+                    DescriptionOnUserCreation descriptionObj =  new DescriptionOnUserCreation(description);
+                    Address address = new Address(district, city, road, village, house);
+                    if (parentUserType == "Passenger")
+                      {
+                          String birCer = birthCer_textField.getText();
+                          if (birCer == null || nid == null)
+                              {
+                                  AlertGen.unsuccessfulAlert("You have to select NID or Birth Certificate!");
+                              }
+                          else
+                              {
+                                  String username = generatePassengerUsername_textField.getText();
+                                  if (username == null || !Validation.isValidUsername(username))
+                                  {
+                                      AlertGen.unsuccessfulAlert("Select username properly!");
+                                  }
+                                  else
+                                  {
+                                      // valid type passenger, create one
+                                      Passenger passengerObj = new   Passenger(fullName,  primMobile,   primEmail,  gender,   username,   "Passenger",  pass,   doB,  address,   true);
+      
+                                      SystemAdministrator.createNewUserInstance(passengerObj,"Passenger", true);
+                                      System.out.println("Creation successfull");
+                                                                         
+                                  }
+                              }
+                      }
+                }
+              }
+            }
         }
-        
-        
     }
 
     @FXML

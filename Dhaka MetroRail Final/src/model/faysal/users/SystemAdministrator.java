@@ -86,7 +86,7 @@ public class SystemAdministrator extends Employee implements Serializable, Count
     // I can make it as static but it would not be appropriate
     // since by whom admin it is created needs to be check
     // there will be a signature that this admin has created this particular user
-    public boolean createNewUserInstance(User userToBeAdded, String userType, boolean areAllOptionalInfoGiven)    
+    public static boolean createNewUserInstance(User userToBeAdded, String userType, boolean areAllOptionalInfoGiven)    
     {
         // this is desiged in a way thet as the User handle is given, so user must exist
         // then userType must exist

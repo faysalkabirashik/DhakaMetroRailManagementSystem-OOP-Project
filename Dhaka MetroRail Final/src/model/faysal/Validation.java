@@ -100,11 +100,11 @@ public final class Validation {
     }
 
     // Confirm age is at least 15 years
-    public static boolean isAtLeastFifteenYearsOld(LocalDate birthDate) {
+    public static boolean isAtLeastEighteenYearsOld(LocalDate birthDate) {
         if (birthDate == null) return false; 
         LocalDate currentDate = LocalDate.now();
-        LocalDate fifteenYearsAgo = currentDate.minusYears(15);
-        return isValidBirthDate( birthDate) && !birthDate.isAfter(fifteenYearsAgo);
+        LocalDate yearAgo = currentDate.minusYears(18);
+        return isValidBirthDate( birthDate) && !birthDate.isAfter(yearAgo);
     }
 
     // Confirm age is at least 20 years
