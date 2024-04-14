@@ -1,6 +1,7 @@
 
 package login.faysal;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -18,7 +19,6 @@ import model.faysal.AlertGen;
 import model.faysal.Validation;
 import model.nayem.Passenger;
 import model.nayem.TrainOperator;
->>>>>>> fa56ffb1d293ef322ef5ca3db9ba818eaf05233b
 import javafx.scene.layout.AnchorPane;
 import model.faysal.AlertGen;
 import model.faysal.Validation;
@@ -40,11 +40,10 @@ public class LoginSceneController implements Initializable {
     Passenger passen = new Passenger();
     @FXML
     private AnchorPane login_anchorPane;
-    @FXML    private TextField userIdentity_textField;
-    @FXML    private PasswordField password_passField;
-    @FXML    private AnchorPane forgotPass_anchorPane;
-    @FXML    private TextField forgetAnchorPane_userIdentity_textField;
-    @FXML    private TextField forgetAnchorPane_email_textField;
+ 
+ 
+  
+ 
     @FXML    private Label show_label;
 
     @Override
@@ -55,11 +54,12 @@ public class LoginSceneController implements Initializable {
         show_label.setText("");
     }    
 
-    @FXML
-    private void loginButtonOnAction(ActionEvent event) throws IOException
-    {
-        //to.loadDashBoard(event);
-        passen.loadDashBoard(event);
+
+//    private void loginButtonOnAction(ActionEvent event) throws IOException 
+//    {
+//        //to.loadDashBoard(event);
+//        passen.loadDashBoard(event);
+        @FXML
     private void loginButtonOnAction(ActionEvent event) {
         
      if (userIdentity_textField.getText() == null || userIdentity_textField.getText().trim().isEmpty())
