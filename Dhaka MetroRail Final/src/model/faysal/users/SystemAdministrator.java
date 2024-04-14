@@ -278,35 +278,35 @@ public class SystemAdministrator extends Employee implements Serializable, Count
         
         if (userType.equals("System Administrator"))
             {
-                   path2 = "SystemAdministratorObjects.bin"; 
+                   path2 = "SystemAdministrator.bin"; 
             }
         else if (userType.equals("Station Manager"))
             {
-                    path2 = "StationManagerObjects.bin"; 
+                    path2 = "StationManager.bin"; 
             }
         else if (userType.equals( "Train Operator"))
             {
-                    path2 = "TrainOperatorObjects.bin"; 
+                    path2 = "TrainOperator.bin"; 
             }
         else if (userType.equals("Head of HR"))
             {
-                    path2 = "HeadOfHRObjects.bin"; 
+                    path2 = "HeadOfHR.bin"; 
             }
         else if (userType.equals("Maintenance Staff"))
             {
-                    path2 = "MaintenanceStaffObjects.bin"; 
+                    path2 = "MaintenanceStaff.bin"; 
             }
         else if (userType.equals("Public Service Provider"))
             {
-                    path2 = "PublicServiceProviderObjects.bin" ; 
+                    path2 = "PublicServiceProvider.bin" ; 
             }
         else if (userType.equals("Accountant"))
             {
-                    path2 =  "AccountantObjects.bin"; 
+                    path2 =  "Accountant.bin"; 
             }
         else if (userType.equals("Passenger"))
             {
-                    path2 =  "PassengerObjects.bin"; 
+                    path2 =  "Passenger.bin"; 
             }
 
         
@@ -361,7 +361,7 @@ public class SystemAdministrator extends Employee implements Serializable, Count
         return false;
       
     }
-    public static int getCountOfSystemAdmins()
+    public  static int getCountOfSystemAdmins()
     {
         ObservableList<SystemAdministrator> admins = FXCollections.observableArrayList();
         File f = null;
@@ -392,7 +392,7 @@ public class SystemAdministrator extends Employee implements Serializable, Count
     }
     
     
-    public static ObservableList<SystemAdministrator> getAllSystemAdmins()
+    public  ObservableList<SystemAdministrator> getAllSystemAdmins()
     {
         ObservableList<SystemAdministrator> admins = FXCollections.observableArrayList();
         File f = null;
@@ -422,10 +422,10 @@ public class SystemAdministrator extends Employee implements Serializable, Count
         return admins;
     }
     
-    public  String generateEmployeeID(String userSelectedOptionFromcomBoxStringValue, LocalDate dateOfJoining)
+    public  String generateEmployeeID(String userType, LocalDate dateOfJoining)
     {   
         try{
-            String key = userSelectedOptionFromcomBoxStringValue;
+            String key = userType;
             if (key != null && MAP_CLASSIFICATION_LABEL.containsKey(key)) 
                 {        
                     String  year = String.valueOf(dateOfJoining.getYear()).substring(2,4);
@@ -433,7 +433,10 @@ public class SystemAdministrator extends Employee implements Serializable, Count
                     int total = 0;
                     switch (key) {
                         case "System Administrator":
-                            total = SystemAdministrator.getCountOfSystemAdmins();
+                            System.out.println("admin ");
+                            
+                            total = getCountOfSystemAdmins();
+                            System.out.println(total);
                             break;
                         case "Station Manager":
                             total =StationManager.getCountOfStationManager() ;
@@ -456,9 +459,14 @@ public class SystemAdministrator extends Employee implements Serializable, Count
                         default:
                             break;
                     }
-                    
+                    try{ System.out.println("try 2");
                     String id = year + label;
-                    if( total < 10){
+                    if (total == 0){
+                        System.out.println("total 0");
+                        id = id + "000";
+                        }
+                    
+                   else if( total < 10){
                          id = id + "00" + String.valueOf(total);
                         }
                      else if (total > 10 && total < 100){
@@ -467,10 +475,13 @@ public class SystemAdministrator extends Employee implements Serializable, Count
                      else{
                          id = id + String.valueOf(total);
                         }
-                    return id;    
+                        System.out.println(id);
+                    return id;  
+                    }catch(Exception ex){AlertGen.unsuccessfulAlert(ex.toString());}
+                    
                 }
             }
-        catch (Exception ex){}
+        catch (Exception ex){AlertGen.unsuccessfulAlert(ex.toString());}
         return null;
     }
     /*

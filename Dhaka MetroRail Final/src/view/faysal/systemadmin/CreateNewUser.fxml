@@ -89,8 +89,8 @@
             <Label layoutX="29.0" layoutY="141.0" text="Nationality/Country:" />
             <ComboBox fx:id="country_comBox" editable="true" layoutX="144.0" layoutY="131.0" prefHeight="37.0" prefWidth="243.0" promptText="Select your country" />
             <Button layoutX="768.0" layoutY="482.0" mnemonicParsing="false" onAction="#saveAndCreateUserBtnOnAction" prefHeight="52.0" prefWidth="85.0" style="-fx-background-color: #6BB2A2; -fx-background-radius: 10;" text="Save and Create User" textAlignment="RIGHT" wrapText="true" />
-            <Button fx:id="generateEmployeeId_button" layoutX="417.0" layoutY="354.0" mnemonicParsing="false" onAction="#generateEmployeeIdBtnOnAction" prefHeight="25.0" prefWidth="188.0" text="Generate employee ID:" />
-            <Label fx:id="generateEmployeeId_label" layoutX="417.0" layoutY="388.0" prefHeight="37.0" prefWidth="188.0" style="-fx-background-color: white; -fx-border-color: #BABABA; -fx-background-radius: 4; -fx-border-radius: 4;" />
+            <Button fx:id="generateEmployeeId_button" disable="true" layoutX="417.0" layoutY="354.0" mnemonicParsing="false" onAction="#generateEmployeeIdBtnOnAction" prefHeight="25.0" prefWidth="188.0" text="Generate employee ID:" visible="false" />
+            <Label fx:id="generateEmployeeId_label" disable="true" layoutX="417.0" layoutY="388.0" prefHeight="37.0" prefWidth="188.0" style="-fx-background-color: white; -fx-border-color: #BABABA; -fx-background-radius: 4; -fx-border-radius: 4;" visible="false" />
             <Button layoutX="417.0" layoutY="436.0" mnemonicParsing="false" onAction="#generatePasswordBtnOnAction" prefHeight="25.0" prefWidth="188.0" text="Generate Password:" />
             <PasswordField fx:id="generatePassword_passwordField" layoutX="620.0" layoutY="436.0" prefHeight="25.0" prefWidth="226.0" />
             <Button fx:id="generatePassengerUsername_button" disable="true" layoutX="620.0" layoutY="354.0" mnemonicParsing="false" onAction="#generatePassengerUsernameBtnOnAction" prefHeight="25.0" prefWidth="226.0" text="Generate Passenger Username:" />
@@ -126,6 +126,8 @@
             <Label layoutX="624.0" layoutY="195.0" prefHeight="17.0" prefWidth="102.0" text="Birth Certificate" />
             <CheckBox fx:id="showPass_checkBox" layoutX="620.0" layoutY="328.0" mnemonicParsing="false" onAction="#showPassCheckBoxOnAction" text="Show Password" />
             <Label fx:id="showPass_label" layoutX="620.0" layoutY="435.0" prefHeight="27.0" prefWidth="225.0" style="-fx-background-color: white; -fx-border-color: #BABABA; -fx-background-radius: 4; -fx-border-radius: 4;" visible="false" />
+            <TextField fx:id="id_textField" layoutX="416.0" layoutY="386.0" prefHeight="39.0" prefWidth="187.0" />
+            <Label layoutX="418.0" layoutY="358.0" prefHeight="17.0" prefWidth="178.0" text="Give Valid ID (all digits, 7 long)" />
          </children>
          <BorderPane.margin>
             <Insets left="10.0" />

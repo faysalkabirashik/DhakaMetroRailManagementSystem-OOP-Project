@@ -135,11 +135,13 @@ public class CreateNewUserController implements Initializable {
     //////////////////////////////////////////////////////
     
     private User user;
-
+    private String generatedID = "";
 
     private DescriptionOnUserCreation descriptionObj ;
 
     private SystemAdministrator admin = new SystemAdministrator();
+    @FXML
+    private TextField id_textField;
     
     public SystemAdministrator getSystemAdmin(){
         return admin;
@@ -149,7 +151,7 @@ public class CreateNewUserController implements Initializable {
         
         this.admin =  admin;
     }
-    
+   
     private void updateDistrictComboBox() {
         String selectedDivision = divisionComboBox.getValue();
         if (selectedDivision != null) {
@@ -463,7 +465,7 @@ public class CreateNewUserController implements Initializable {
                     {   System.out.println("else7");
                         // User creation for all employee type
                         LocalDate joiningDate = joiningDate_datePicker.getValue();
-                        String employeeID = generateEmployeeId_label.getText();
+                        String employeeID = id_textField.getText();
                         String employeeType = employeeType_comBox.getValue();   
                         // CHECKS   if the joining date future date or not
                         if (joiningDate != null && 
@@ -478,11 +480,16 @@ public class CreateNewUserController implements Initializable {
                                    + year);
                         }
                         else
-                        {System.out.println("Else 8");
+                        {       System.out.println("Else 8");
                             // confirms joining date valid
                             // check employee id and employee type empty or unselected and nid is given or not
-                            if (employeeID.isEmpty() || employeeType.isEmpty() || nid.isEmpty())
-                            {AlertGen.unsuccessfulAlert("Fill all unfilled entity"); System.out.println("if13");}
+                           try{
+                               System.out.println("try2");
+                               if (employeeID.isEmpty() || employeeType.isEmpty() || nid.isEmpty()){
+                                   AlertGen.unsuccessfulAlert("Select all");
+                               }
+                            
+//                         
                             else{
                                 // validate nid
                                 System.out.println("else 9");
@@ -619,6 +626,7 @@ public class CreateNewUserController implements Initializable {
                                                 
                                                 
                                         }// get out of switch
+                                    
                                         if (flag)
                                         {   descriptionObj = new DescriptionOnUserCreation(description,empObj);
                                             System.out.println("Creation successfull");
@@ -642,6 +650,8 @@ public class CreateNewUserController implements Initializable {
                                 }
  
                                 }
+                               
+                        }catch(NullPointerException ex){AlertGen.unsuccessfulAlert("NullPointer! Please reselect each.");}
                             }
                         }
                     }else{AlertGen.unsuccessfulAlert("Pass is not valid!");}
@@ -670,7 +680,8 @@ public class CreateNewUserController implements Initializable {
                AlertGen.unsuccessfulAlert("Select employee type");
            }
            else{
-               this.admin.generateEmployeeID(employeeType_comBox.getValue(), joiningDate_datePicker.getValue());
+               generatedID = this.admin.generateEmployeeID(employeeType_comBox.getValue(), joiningDate_datePicker.getValue());
+                generateEmployeeId_label.setText(generatedID);
            }
 //            if ( !employeeType_comBox.getValue().isEmpty() && joiningDate_datePicker.getValue() != null)
 //            {this.admin.generateEmployeeID(employeeType_comBox.getValue(), joiningDate_datePicker.getValue());
