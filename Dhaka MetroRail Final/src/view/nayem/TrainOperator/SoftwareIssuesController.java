@@ -19,6 +19,7 @@ public class SoftwareIssuesController implements Initializable {
     @FXML    private TextArea suggesionTextArea;
     @FXML    private DatePicker incidentDatePicker;
     TrainOperator to = new TrainOperator();
+    SystemFeedback sf;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) 
@@ -35,9 +36,9 @@ public class SoftwareIssuesController implements Initializable {
     @FXML
     private void submitButtonOnClick(ActionEvent event) 
     {
-        SystemFeedback sf = new SystemFeedback(employeeIdTextField.getText(),incidentDatePicker.getValue().toString(),descriptionTextArea.getText(),
+        sf = new SystemFeedback(employeeIdTextField.getText(),incidentDatePicker.getValue().toString(),descriptionTextArea.getText(),
         suggesionTextArea.getText());
-        to.softwareFeedback(sf);
+        to.systemFeedback(sf);
         
     }
     

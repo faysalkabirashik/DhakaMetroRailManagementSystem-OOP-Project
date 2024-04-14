@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
+
 package login.faysal;
 
 import java.net.URL;
@@ -12,12 +9,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-<<<<<<< HEAD
 import javafx.stage.Stage;
 import javafx.fxml.Initializable;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
-=======
+import javafx.scene.layout.AnchorPane;
+import model.faysal.AlertGen;
+import model.faysal.Validation;
+import model.nayem.Passenger;
+import model.nayem.TrainOperator;
 >>>>>>> fa56ffb1d293ef322ef5ca3db9ba818eaf05233b
 import javafx.scene.layout.AnchorPane;
 import model.faysal.AlertGen;
@@ -30,32 +30,22 @@ import model.faysal.Validation;
  */
 public class LoginSceneController implements Initializable {
 
-<<<<<<< HEAD
     @FXML    private TextField userIdentity_textField;
     @FXML    private PasswordField password_passField;
-    @FXML    private AnchorPane login_anchorPane;
     @FXML    private AnchorPane forgotPass_anchorPane;
     @FXML    private TextField forgetAnchorPane_userIdentity_textField;
     @FXML    private TextField forgetAnchorPane_email_textField;
     @FXML    private Label lopinInfo_label;
     TrainOperator to = new TrainOperator();
     Passenger passen = new Passenger();
-=======
     @FXML
     private AnchorPane login_anchorPane;
-    @FXML
-    private TextField userIdentity_textField;
-    @FXML
-    private PasswordField password_passField;
-    @FXML
-    private AnchorPane forgotPass_anchorPane;
-    @FXML
-    private TextField forgetAnchorPane_userIdentity_textField;
-    @FXML
-    private TextField forgetAnchorPane_email_textField;
-    @FXML
-    private Label show_label;
->>>>>>> fa56ffb1d293ef322ef5ca3db9ba818eaf05233b
+    @FXML    private TextField userIdentity_textField;
+    @FXML    private PasswordField password_passField;
+    @FXML    private AnchorPane forgotPass_anchorPane;
+    @FXML    private TextField forgetAnchorPane_userIdentity_textField;
+    @FXML    private TextField forgetAnchorPane_email_textField;
+    @FXML    private Label show_label;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -66,12 +56,10 @@ public class LoginSceneController implements Initializable {
     }    
 
     @FXML
-<<<<<<< HEAD
     private void loginButtonOnAction(ActionEvent event) throws IOException
     {
         //to.loadDashBoard(event);
         passen.loadDashBoard(event);
-=======
     private void loginButtonOnAction(ActionEvent event) {
         
      if (userIdentity_textField.getText() == null || userIdentity_textField.getText().trim().isEmpty())
@@ -140,7 +128,6 @@ public class LoginSceneController implements Initializable {
        
      }   
         
->>>>>>> fa56ffb1d293ef322ef5ca3db9ba818eaf05233b
     }
 
     @FXML

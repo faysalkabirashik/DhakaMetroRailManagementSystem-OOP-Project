@@ -111,7 +111,7 @@ public class TrainOperator extends Employee implements Serializable, Countable
     }
     
  
-    public void softwareFeedback(SystemFeedback sf)
+    public void systemFeedback(SystemFeedback softwareFeedback)
     {
         File f = null;
         FileOutputStream fos = null;      
@@ -126,13 +126,11 @@ public class TrainOperator extends Employee implements Serializable, Countable
                 fos = new FileOutputStream(f);
                 oos = new ObjectOutputStream(fos);               
             }
-            oos.writeObject(sf);
-
+            oos.writeObject(softwareFeedback);
         } catch (IOException ex) {
             //
         }
     }
-    
     public void realTimeUpdate(Update update)
     {
         File f = null;
