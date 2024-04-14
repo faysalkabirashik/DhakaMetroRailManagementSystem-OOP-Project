@@ -79,5 +79,16 @@ public class PassengerDashBoardController implements Initializable {
     @FXML
     private void signOutButtonOnClicked(ActionEvent event) {
     }
+
+    @FXML
+    private void realTimeUpdateButtonOnClick(ActionEvent event) throws IOException 
+    {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/nayem/passenger/RealTimeUpdate.fxml"));
+        Parent parent = loader.load();
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene newScene = new Scene(parent);
+        currentStage.setScene(newScene);
+        currentStage.show();
+    }
     
 }

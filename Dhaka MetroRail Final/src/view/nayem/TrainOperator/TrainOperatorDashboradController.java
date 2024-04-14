@@ -72,7 +72,14 @@ public class TrainOperatorDashboradController implements Initializable {
     }
 
     @FXML
-    private void realTimeUpdateButtonOnClicked(ActionEvent event) {
+    private void realTimeUpdateButtonOnClicked(ActionEvent event) throws IOException 
+    {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/nayem/TrainOperator/RealTimeUpdateScene.fxml"));
+            Parent parent = loader.load();
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene newScene = new Scene(parent);
+            currentStage.setScene(newScene);
+            currentStage.show();
     }
 
     @FXML

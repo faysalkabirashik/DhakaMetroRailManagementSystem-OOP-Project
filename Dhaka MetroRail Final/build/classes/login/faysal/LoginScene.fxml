@@ -12,6 +12,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
@@ -37,25 +38,25 @@
                               </ImageView>
                               <ButtonBar layoutY="188.0" prefHeight="31.0" prefWidth="870.0" style="-fx-background-color: #FF0000;">
                                  <buttons>
-                                    <MenuButton contentDisplay="BOTTOM" mnemonicParsing="false" style="-fx-background-color: #99EEB4;" text="About Us">
+                                    <MenuButton contentDisplay="BOTTOM" disable="true" mnemonicParsing="false" style="-fx-background-color: #99EEB4;" text="About Us">
                                       <items>
                                         <MenuItem mnemonicParsing="false" text=" Team Information" />
                                         <MenuItem mnemonicParsing="false" text="Motive" />
                                       </items>
                                     </MenuButton>
-                                    <MenuButton contentDisplay="BOTTOM" mnemonicParsing="false" style="-fx-background-color: #99EEB4;" text="Projects">
+                                    <MenuButton contentDisplay="BOTTOM" disable="true" mnemonicParsing="false" style="-fx-background-color: #99EEB4;" text="Projects">
                                       <items>
                                         <MenuItem mnemonicParsing="false" text="Action 1" />
                                         <MenuItem mnemonicParsing="false" text="Action 2" />
                                       </items>
                                     </MenuButton>
-                                    <MenuButton contentDisplay="BOTTOM" mnemonicParsing="false" style="-fx-background-color: #99EEB4;" text="Gallery">
+                                    <MenuButton contentDisplay="BOTTOM" disable="true" mnemonicParsing="false" style="-fx-background-color: #99EEB4;" text="Gallery">
                                       <items>
                                         <MenuItem mnemonicParsing="false" text="Action 1" />
                                         <MenuItem mnemonicParsing="false" text="Action 2" />
                                       </items>
                                     </MenuButton>
-                                    <Button contentDisplay="BOTTOM" mnemonicParsing="false" style="-fx-background-color: #99EEB4;" text="Audit Log" />
+                                    <Button contentDisplay="BOTTOM" disable="true" mnemonicParsing="false" style="-fx-background-color: #99EEB4;" text="Audit Log" />
                                  </buttons>
                                  <opaqueInsets>
                                     <Insets />
@@ -97,7 +98,7 @@
                                     <PasswordField fx:id="password_passField" layoutX="14.0" layoutY="216.0" prefHeight="35.0" prefWidth="242.0" promptText="Password" style="-fx-border-color: #54A872; -fx-border-radius: 8; -fx-background-radius: 8;" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
                                     <Button layoutX="26.0" layoutY="268.0" mnemonicParsing="false" onAction="#loginButtonOnAction" prefHeight="25.0" prefWidth="81.0" style="-fx-background-color: #218C74;" text="Login" AnchorPane.leftAnchor="26.0" />
                                     <Button cancelButton="true" layoutX="142.0" layoutY="268.0" mnemonicParsing="false" onAction="#forgotButtonOnAction" style="-fx-background-color: #ff6060;" text="Forgot Password" AnchorPane.rightAnchor="23.0" />
-                                    <Button cache="true" layoutX="123.0" layoutY="309.0" mnemonicParsing="false" onAction="#signUpOnAction" style="-fx-background-color: transparent;" text="Sign Up as Passenger" textFill="#4d8189" underline="true" />
+                                    <Button cache="true" layoutX="123.0" layoutY="309.0" mnemonicParsing="false" onAction="#signUpButtonOnClick" style="-fx-background-color: transparent;" text="Sign Up as Passenger" textFill="#4d8189" underline="true" />
                                     <Label layoutX="28.0" layoutY="314.0" text="Not a memeber?">
                                        <font>
                                           <Font name="Arial Rounded MT Bold" size="12.0" />
@@ -122,6 +123,17 @@
                            </children>
                         </StackPane>
                      </right>
+                     <center>
+                        <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Label fx:id="lopinInfo_label" layoutX="269.0" layoutY="110.0" prefHeight="182.0" prefWidth="331.0" textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font name="Arial Rounded MT Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                     </center>
                   </BorderPane>
                </children>
             </AnchorPane>

@@ -66,54 +66,52 @@ public class SignupSceneController implements Initializable {
     }
 
     
-    /* need to modify
 
-    @FXML
-    private void signUpButtonOnClick(ActionEvent event) 
-    {
-        File f = null;
-        FileOutputStream fos = null;      
-        ObjectOutputStream oos = null;        
-        try {
-            f = new File("PassegerData.bin");
-            if(f.exists()){
-                fos = new FileOutputStream(f,true);
-                oos = new AppendableObjectOutputStream(fos);                
-            }
-            else{
-                fos = new FileOutputStream(f);
-                oos = new ObjectOutputStream(fos);               
-            }
-            Passenger passenger;
-            passenger = new Passenger(
-                    enterNameTextField.getText(),
-                    mobileNumberTextBox.getText(),emailTextBox.getText(),
-                    "null",
-                    dobDatePicker.getValue(),nidTextBox.getText(), usernameTextField.getText(),passwordTextFiled.getText(), enterAddressTextArea.getText(), false);
-            if (maleRadioButton.isSelected())
-            {
-                //passenger.setGender("Male");
-            }
-            else if (femaleRadioButton.isSelected())
-            {
-                //passenger.setGender("Female");
-            }
-            else if (intersexRadioButton.isSelected())
-            {
-                //passenger.setGender("Intersex");
-            }
-            oos.writeObject(passenger);
-
-        } catch (IOException ex) {
-            Logger.getLogger(SignupSceneController.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            try {
-                if(oos != null) oos.close();
-            } catch (IOException ex) {
-                Logger.getLogger(SignupSceneController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }
-    */
+//    @FXML
+//    private void signUpButtonOnClick(ActionEvent event) 
+//    {
+//        File f = null;
+//        FileOutputStream fos = null;      
+//        ObjectOutputStream oos = null;        
+//        try {
+//            f = new File("PassegerData.bin");
+//            if(f.exists()){
+//                fos = new FileOutputStream(f,true);
+//                oos = new AppendableObjectOutputStream(fos);                
+//            }
+//            else{
+//                fos = new FileOutputStream(f);
+//                oos = new ObjectOutputStream(fos);               
+//            }
+//            Passenger passenger;
+//            passenger = new Passenger(
+//                    enterNameTextField.getText(),
+//                    mobileNumberTextBox.getText(),emailTextBox.getText(),
+//                    "null",
+//                    dobDatePicker.getValue(),nidTextBox.getText(), usernameTextField.getText(),passwordTextFiled.getText(), enterAddressTextArea.getText(), false);
+//            if (maleRadioButton.isSelected())
+//            {
+//                //passenger.setGender("Male");
+//            }
+//            else if (femaleRadioButton.isSelected())
+//            {
+//                //passenger.setGender("Female");
+//            }
+//            else if (intersexRadioButton.isSelected())
+//            {
+//                //passenger.setGender("Intersex");
+//            }
+//            oos.writeObject(passenger);
+//
+//        } catch (IOException ex) {
+//            Logger.getLogger(SignupSceneController.class.getName()).log(Level.SEVERE, null, ex);
+//        } finally {
+//            try {
+//                if(oos != null) oos.close();
+//            } catch (IOException ex) {
+//                Logger.getLogger(SignupSceneController.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        }
+//    }
     
 }

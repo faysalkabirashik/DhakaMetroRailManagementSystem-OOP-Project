@@ -16,6 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.fxml.Initializable;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
 import model.nayem.Passenger;
@@ -24,39 +25,24 @@ public class LoginSceneController implements Initializable {
 
     @FXML    private TextField userIdentity_textField;
     @FXML    private PasswordField password_passField;
-    @FXML
-    private AnchorPane login_anchorPane;
-    @FXML
-    private AnchorPane forgotPass_anchorPane;
-    @FXML
-    private TextField forgetAnchorPane_userIdentity_textField;
-    @FXML
-    private TextField forgetAnchorPane_email_textField;
+    @FXML    private AnchorPane login_anchorPane;
+    @FXML    private AnchorPane forgotPass_anchorPane;
+    @FXML    private TextField forgetAnchorPane_userIdentity_textField;
+    @FXML    private TextField forgetAnchorPane_email_textField;
+    @FXML    private Label lopinInfo_label;
+    TrainOperator to = new TrainOperator();
+    Passenger passen = new Passenger();
 
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
 
-
-    @FXML
-    private void signUpOnAction(ActionEvent event) throws IOException 
-    {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/nayem/passenger/SignupScene.fxml"));
-        Parent parent = loader.load();
-        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene newScene = new Scene(parent);
-        currentStage.setScene(newScene);
-        currentStage.show();
-    }
-
     @FXML
     private void loginButtonOnAction(ActionEvent event) throws IOException
     {
-        
+        //to.loadDashBoard(event);
+        passen.loadDashBoard(event);
     }
 
     @FXML
@@ -69,6 +55,12 @@ public class LoginSceneController implements Initializable {
 
     @FXML
     private void goBackToLoginBtnOnAction(ActionEvent event) {
+    }
+
+    @FXML
+    private void signUpButtonOnClick(ActionEvent event) throws IOException
+    {
+        to.loadDashBoard(event);
     }
     
 }
