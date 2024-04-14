@@ -325,6 +325,7 @@ public class CreateNewUserController implements Initializable {
         String div = divisionComboBox.getValue();
         String district = districtComboBox.getValue() ;
         String city = cityComboBox.getValue();
+        if (genderRB == null){AlertGen.unsuccessfulAlert("please select gender first");return ;}
         String gender = genderRB.getText();
         String road = road_textField.getText();
         String house = house_textField.getText() ;
