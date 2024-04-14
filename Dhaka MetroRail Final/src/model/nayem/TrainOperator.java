@@ -22,6 +22,7 @@ import model.faysal.users.Countable;
 import model.faysal.users.Employee;
 import model.faysal.users.User;
 import model.faysal.AppendableObjectOutputStream;
+import model.faysal.SystemFeedback;
 
 
 public class TrainOperator extends Employee implements Serializable, Countable
@@ -44,6 +45,9 @@ public class TrainOperator extends Employee implements Serializable, Countable
     public TrainOperator(String nid, String designation, LocalDate dateOfJoining, float salary, String fullName, String primaryMobile, String primaryEmail, String gender, String userIdentity, String coreUserType, String password, LocalDate dateOfBirth, Address address, boolean loginStatus, String secondaryMobile, String secondaryEmail) {
         super(nid, designation, dateOfJoining, salary, fullName, primaryMobile, primaryEmail, gender, userIdentity, coreUserType, password, dateOfBirth, address, loginStatus, secondaryMobile, secondaryEmail);
         userCount++;
+    }
+
+    public TrainOperator() {
     }
     
     
@@ -110,7 +114,7 @@ public class TrainOperator extends Employee implements Serializable, Countable
         }
     }
     
-    /* 
+ 
     public void softwareFeedback(SystemFeedback sf)
     {
         File f = null;
@@ -132,7 +136,7 @@ public class TrainOperator extends Employee implements Serializable, Countable
             //
         }
     }
-    */
+    
 
     @Override
     public void changeDesignation() {
