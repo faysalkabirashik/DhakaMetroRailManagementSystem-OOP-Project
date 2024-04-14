@@ -61,7 +61,7 @@ public class RealTimeUpdateController implements Initializable {
                         realTimeTableVIew.getItems().add(update);
                     }
                 }
-            }//end of nested try
+            }
             catch(Exception e){
                 System.out.println("Hoy nai");
             }//nested catch              

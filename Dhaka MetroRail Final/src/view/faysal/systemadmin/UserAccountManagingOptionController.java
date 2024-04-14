@@ -37,6 +37,7 @@ public class UserAccountManagingOptionController implements Initializable {
     private void createNewUserBtnOnAction(ActionEvent event) {
         
         
+        
     }
 
     @FXML

@@ -9,7 +9,15 @@ import javafx.scene.control.ButtonType;
  *
  * @author Faysal Kabir Ashik
  */
-public class AlertGeneration {
+public class AlertGen {
+    
+        public static void inforamtion(String strheader, String strcontent){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information");
+            alert.setHeaderText(strheader);
+            alert.setContentText(strcontent);
+            alert.showAndWait();
+    }
     public static void successfulAlert(String str){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information");

@@ -38,25 +38,25 @@
                               </ImageView>
                               <ButtonBar layoutY="188.0" prefHeight="31.0" prefWidth="870.0" style="-fx-background-color: #FF0000;">
                                  <buttons>
-                                    <MenuButton contentDisplay="BOTTOM" disable="true" mnemonicParsing="false" style="-fx-background-color: #99EEB4;" text="About Us">
+                                    <MenuButton contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#one" style="-fx-background-color: #99EEB4;" text="About Us">
                                       <items>
                                         <MenuItem mnemonicParsing="false" text=" Team Information" />
                                         <MenuItem mnemonicParsing="false" text="Motive" />
                                       </items>
                                     </MenuButton>
-                                    <MenuButton contentDisplay="BOTTOM" disable="true" mnemonicParsing="false" style="-fx-background-color: #99EEB4;" text="Projects">
+                                    <MenuButton contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#two" style="-fx-background-color: #99EEB4;" text="Projects">
                                       <items>
                                         <MenuItem mnemonicParsing="false" text="Action 1" />
                                         <MenuItem mnemonicParsing="false" text="Action 2" />
                                       </items>
                                     </MenuButton>
-                                    <MenuButton contentDisplay="BOTTOM" disable="true" mnemonicParsing="false" style="-fx-background-color: #99EEB4;" text="Gallery">
+                                    <MenuButton contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#three" style="-fx-background-color: #99EEB4;" text="Gallery">
                                       <items>
                                         <MenuItem mnemonicParsing="false" text="Action 1" />
                                         <MenuItem mnemonicParsing="false" text="Action 2" />
                                       </items>
                                     </MenuButton>
-                                    <Button contentDisplay="BOTTOM" disable="true" mnemonicParsing="false" style="-fx-background-color: #99EEB4;" text="Audit Log" />
+                                    <Button contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#four" style="-fx-background-color: #99EEB4;" text="Audit Log" />
                                  </buttons>
                                  <opaqueInsets>
                                     <Insets />
@@ -82,7 +82,7 @@
                               <Insets top="10.0" />
                            </opaqueInsets>
                            <children>
-                              <AnchorPane fx:id="login_anchorPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #f4F4F4;">
+                              <AnchorPane fx:id="login_anchorPane" style="-fx-background-color: #f4F4F4;">
                                  <children>
                                     <ImageView fitHeight="130.0" fitWidth="114.0" layoutX="76.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -95,10 +95,17 @@
                                        </font>
                                     </Label>
                                     <TextField fx:id="userIdentity_textField" layoutX="14.0" layoutY="164.0" prefHeight="35.0" prefWidth="239.0" promptText="UserIdentity" style="-fx-border-color: #54A872; -fx-border-radius: 8; -fx-background-radius: 8;" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="164.0" />
+<<<<<<< HEAD
                                     <PasswordField fx:id="password_passField" layoutX="14.0" layoutY="216.0" prefHeight="35.0" prefWidth="242.0" promptText="Password" style="-fx-border-color: #54A872; -fx-border-radius: 8; -fx-background-radius: 8;" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
                                     <Button layoutX="26.0" layoutY="268.0" mnemonicParsing="false" onAction="#loginButtonOnAction" prefHeight="25.0" prefWidth="81.0" style="-fx-background-color: #218C74;" text="Login" AnchorPane.leftAnchor="26.0" />
                                     <Button cancelButton="true" layoutX="142.0" layoutY="268.0" mnemonicParsing="false" onAction="#forgotButtonOnAction" style="-fx-background-color: #ff6060;" text="Forgot Password" AnchorPane.rightAnchor="23.0" />
                                     <Button cache="true" layoutX="123.0" layoutY="309.0" mnemonicParsing="false" onAction="#signUpButtonOnClick" style="-fx-background-color: transparent;" text="Sign Up as Passenger" textFill="#4d8189" underline="true" />
+=======
+                                    <PasswordField fx:id="password_passField" layoutX="14.0" layoutY="216.0" prefHeight="35.0" prefWidth="242.0" promptText="Password" style="-fx-border-color: #54A872; -fx-border-radius: 8; -fx-background-radius: 8;" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="216.0" />
+                                    <Button layoutX="26.0" layoutY="268.0" mnemonicParsing="false" onAction="#loginButtonOnAction" prefHeight="25.0" prefWidth="81.0" style="-fx-background-color: #218C74;" text="Login" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="26.0" />
+                                    <Button cancelButton="true" layoutX="142.0" layoutY="268.0" mnemonicParsing="false" onAction="#forgotButtonOnAction" style="-fx-background-color: #ff6060;" text="Forgot Password" AnchorPane.bottomAnchor="55.0" AnchorPane.rightAnchor="23.0" />
+                                    <Button cache="true" layoutX="123.0" layoutY="309.0" mnemonicParsing="false" onAction="#signUpOnAction" style="-fx-background-color: transparent;" text="Sign Up as Passenger" textFill="#4d8189" underline="true" />
+>>>>>>> fa56ffb1d293ef322ef5ca3db9ba818eaf05233b
                                     <Label layoutX="28.0" layoutY="314.0" text="Not a memeber?">
                                        <font>
                                           <Font name="Arial Rounded MT Bold" size="12.0" />
@@ -108,17 +115,23 @@
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets>
+                                 <StackPane.margin>
+                                    <Insets />
+                                 </StackPane.margin>
                               </AnchorPane>
-                              <AnchorPane fx:id="forgotPass_anchorPane" layoutY="152.0" prefHeight="152.0" prefWidth="270.0" visible="false">
+                              <AnchorPane fx:id="forgotPass_anchorPane" pickOnBounds="false" prefHeight="234.0" prefWidth="270.0">
                                  <children>
-                                    <Button layoutX="25.0" layoutY="113.0" mnemonicParsing="false" onAction="#getPassButtonOnAction" prefHeight="27.0" prefWidth="86.0" style="-fx-background-color: #C5AE85;" text="Get Pass" />
-                                    <Button layoutX="125.0" layoutY="113.0" mnemonicParsing="false" onAction="#goBackToLoginBtnOnAction" prefHeight="27.0" prefWidth="125.0" style="-fx-background-color: #6BB2A2;" text="Go Back To Login" />
-                                    <TextField fx:id="forgetAnchorPane_userIdentity_textField" layoutX="14.0" layoutY="9.0" prefHeight="35.0" prefWidth="239.0" promptText="UserIdentity" style="-fx-border-color: #54A872; -fx-border-radius: 8; -fx-background-radius: 8;" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
-                                    <TextField fx:id="forgetAnchorPane_email_textField" layoutX="14.0" layoutY="61.0" prefHeight="35.0" prefWidth="239.0" promptText="Email" style="-fx-border-color: #54A872; -fx-border-radius: 8; -fx-background-radius: 8;" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+                                    <Button layoutX="24.0" layoutY="103.0" mnemonicParsing="false" onAction="#getPassButtonOnAction" prefHeight="29.0" prefWidth="86.0" style="-fx-background-color: #C5AE85;" text="Get Pass" />
+                                    <Button layoutX="125.0" layoutY="103.0" mnemonicParsing="false" onAction="#goBackToLoginBtnOnAction" prefHeight="29.0" prefWidth="125.0" style="-fx-background-color: #6BB2A2;" text="Go Back To Login" />
+                                    <TextField fx:id="forgetAnchorPane_userIdentity_textField" layoutX="14.0" prefHeight="35.0" prefWidth="239.0" promptText="UserIdentity" style="-fx-border-color: #54A872; -fx-border-radius: 8; -fx-background-radius: 8;" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+                                    <TextField fx:id="forgetAnchorPane_email_textField" layoutX="14.0" layoutY="52.0" prefHeight="35.0" prefWidth="239.0" promptText="Email" style="-fx-border-color: #54A872; -fx-border-radius: 8; -fx-background-radius: 8;" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
                                  </children>
                                  <StackPane.margin>
-                                    <Insets bottom="40.0" top="155.0" />
+                                    <Insets bottom="45.0" top="164.0" />
                                  </StackPane.margin>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
                               </AnchorPane>
                            </children>
                         </StackPane>
@@ -126,7 +139,7 @@
                      <center>
                         <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                            <children>
-                              <Label fx:id="lopinInfo_label" layoutX="269.0" layoutY="110.0" prefHeight="182.0" prefWidth="331.0" textAlignment="CENTER" wrapText="true">
+                              <Label fx:id="show_label" layoutX="246.0" layoutY="110.0" prefHeight="146.0" prefWidth="354.0" textAlignment="CENTER" wrapText="true">
                                  <font>
                                     <Font name="Arial Rounded MT Bold" size="12.0" />
                                  </font>
