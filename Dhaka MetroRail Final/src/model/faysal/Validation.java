@@ -4,6 +4,7 @@
  */
 package model.faysal;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Random;
 import java.util.regex.Matcher;
@@ -13,7 +14,7 @@ import java.util.regex.Pattern;
  *
  * @author Faysal Kabir Ashik
  */
-public final class Validation {
+public final class Validation  implements Serializable {
     
     private static final String LOWERCASE_LETTERS = "abcdefghijklmnopqrstuvwxyz";
     private static final String NUMBERS = "0123456789";

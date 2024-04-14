@@ -145,7 +145,7 @@ public class SystemAdministrator extends Employee implements Serializable, Count
                         
                 }
             } // outer if ends
-        /*
+ 
         if (userType.equals("System Administrator"))
             {
                    path = "SystemAdministrator"; 
@@ -178,9 +178,9 @@ public class SystemAdministrator extends Employee implements Serializable, Count
             {
                     path =  "Passenger"; 
             }
-            */
+      
         
-        path = userToBeAdded.getClass().getSimpleName() + "Objects.bin";
+       
         
         File fUser = null;
         FileOutputStream fosUser = null;

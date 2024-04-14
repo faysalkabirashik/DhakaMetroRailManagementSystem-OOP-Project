@@ -4,13 +4,14 @@
  */
 package model.faysal;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  *
  * @author Faysal Kabir Ashik
  */
-public class Train {
+public class Train  implements Serializable {
 
     private String  trainId;
     private String trainName;

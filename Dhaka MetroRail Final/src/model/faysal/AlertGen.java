@@ -2,6 +2,7 @@
 
 package model.faysal;
 
+import java.io.Serializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 
@@ -9,7 +10,7 @@ import javafx.scene.control.ButtonType;
  *
  * @author Faysal Kabir Ashik
  */
-public class AlertGen {
+public class AlertGen  implements Serializable {
     
         public static void inforamtion(String strheader, String strcontent){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);

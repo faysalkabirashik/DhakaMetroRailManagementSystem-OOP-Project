@@ -10,7 +10,7 @@ import java.util.Map;
  *
  * @author Faysal Kabir Ashik
  */
-public interface Classifiable extends Countable {
+public interface Classifiable extends Countable  {
     
     public static final String EMPLOYEE_CLASS = "Govt Employee";
     

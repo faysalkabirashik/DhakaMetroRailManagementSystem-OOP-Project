@@ -4,11 +4,13 @@
  */
 package model.faysal;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Faysal Kabir Ashik
  */
-public class SystemFeedback {
+public class SystemFeedback  implements Serializable {
     
     
     private String feedBack;

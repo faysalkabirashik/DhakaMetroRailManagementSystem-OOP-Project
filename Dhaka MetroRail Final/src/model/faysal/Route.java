@@ -4,13 +4,14 @@
  */
 package model.faysal;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  *
  * @author Faysal Kabir Ashik
  */
-public class Route {
+public class Route  implements Serializable {
     
     private int mrtLineNo;
     private String routeName;

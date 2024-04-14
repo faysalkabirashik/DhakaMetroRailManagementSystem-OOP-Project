@@ -139,7 +139,8 @@ public class CreateNewUserController implements Initializable {
 
     private DescriptionOnUserCreation descriptionObj ;
 
-    private SystemAdministrator admin;
+    private SystemAdministrator admin = new SystemAdministrator();
+    
     public SystemAdministrator getSystemAdmin(){
         return admin;
     }

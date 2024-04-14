@@ -4,13 +4,14 @@
  */
 package model.faysal;
 
+import java.io.Serializable;
 import model.faysal.users.User;
 
 /**
  *
  * @author Faysal Kabir Ashik
  */
-public class DescriptionOnUserCreation {
+public class DescriptionOnUserCreation  implements Serializable {
     
     private String note;
     private User user;
