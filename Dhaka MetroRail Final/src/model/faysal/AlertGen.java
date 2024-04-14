@@ -17,6 +17,8 @@ public class AlertGen {
             alert.setHeaderText(strheader);
             alert.setContentText(strcontent);
             alert.showAndWait();
+            
+ 
     }
     public static void successfulAlert(String str){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -38,6 +40,17 @@ public class AlertGen {
         confirmationAlert.setTitle("Confirmation");
         confirmationAlert.setHeaderText("Your confirmation is needed.");
         confirmationAlert.setContentText("Do you want to confirm?");
+        
+        ButtonType result = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
+        
+        return result == ButtonType.OK;
+    }
+    
+        public static boolean confirmationAlert(String confirmText){
+        Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmationAlert.setTitle("Confirmation");
+        confirmationAlert.setHeaderText("Your confirmation is needed.");
+        confirmationAlert.setContentText(confirmText);
         
         ButtonType result = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
         

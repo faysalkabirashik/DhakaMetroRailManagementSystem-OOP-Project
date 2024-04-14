@@ -1,15 +1,14 @@
 package view.faysal.systemadmin;
 
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
+ 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.time.LocalDate;
+ 
 import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+ 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -32,8 +31,22 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import model.faysal.AutoFilterSupportToComboBox;
+import model.faysal.Address;
+//import model.faysal.AutoFilterSupportToComboBox;
 import model.faysal.AddressLists;
+import model.faysal.AlertGen;
+import model.faysal.DescriptionOnUserCreation;
+import model.faysal.Validation;
+import model.faysal.users.Accountant;
+import model.faysal.users.Employee;
+import model.faysal.users.HeadOfHR;
+import model.faysal.users.MaintenanceStaff;
+import model.faysal.users.PublicServiceProvider;
+import model.faysal.users.StationManager;
+import model.faysal.users.SystemAdministrator;
+import model.faysal.users.User;
+import model.nayem.TrainOperator;
+import model.nayem.Passenger;
 
 /**
  * FXML Controller class
@@ -41,14 +54,11 @@ import model.faysal.AddressLists;
  * @author Faysal Kabir Ashik
  */
 public class CreateNewUserController implements Initializable {
+ 
+    @FXML private TextField fullName_textField;
 
-    private ComboBox<String> city_comBox;
-    private ComboBox<String> district_comBox;
-    @FXML
-    private TextField fullName_textField;
-
-    @FXML
-    private TextArea note_textArea;
+    @FXML private TextArea note_textArea;
+    
     @FXML
     private ToggleGroup userType_toggleGroup;
     @FXML
@@ -63,8 +73,6 @@ public class CreateNewUserController implements Initializable {
     private TextField primaryEmail_textField;
     @FXML
     private TextField secondaryEmail_textField;
-    @FXML
-    private DatePicker dob_datePicker;
     @FXML
     private ToggleGroup gender_toggleGroup;
     @FXML
@@ -111,15 +119,36 @@ public class CreateNewUserController implements Initializable {
     private Label joiningDate_label;
     @FXML
     private Label nid_label;
-
-    private Map<String, List<String>> districtCityMap;
     @FXML
     private ComboBox<String> cityComboBox;
     @FXML
     private ComboBox<String> divisionComboBox;
     @FXML
     private ComboBox<String> districtComboBox;
+    @FXML
+    private CheckBox showPass_checkBox;
+    @FXML
+    private DatePicker dob_datePicker;
+    @FXML
+    private Label showPass_label;  
 
+    //////////////////////////////////////////////////////
+    
+    private User user;
+
+
+    private DescriptionOnUserCreation descriptionObj ;
+
+    private SystemAdministrator admin;
+    public SystemAdministrator getSystemAdmin(){
+        return admin;
+    }
+    
+    public void setSystemAdmin(SystemAdministrator admin){
+        
+        this.admin =  admin;
+    }
+    
     private void updateDistrictComboBox() {
         String selectedDivision = divisionComboBox.getValue();
         if (selectedDivision != null) {
@@ -142,9 +171,12 @@ public class CreateNewUserController implements Initializable {
             //AutoFilterSupportToComboBox.setTheComboBoxAutoFilterSupported(cityComboBox, cityItems );
         }
     }
-
+    /////////////////////////////////////////////////////////////////////
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        List<String> countries = AddressLists.getCountries();
+        country_comBox.setItems(FXCollections.observableArrayList(countries));
 
         String[] ep_designations = {"System Administrator", "Station Manager", "Train Operator",
             "Head of HR", "Maintenance Staff", "Public Service Provider", "Accountant"};
@@ -271,7 +303,7 @@ public class CreateNewUserController implements Initializable {
         FXMLLoader dashLoader = new FXMLLoader(getClass().getResource("SystemAdminDashboard.fxml"));
         Parent root = dashLoader.load();
         SystemAdminDashboardController systemAdminDashController = dashLoader.getController();
-        systemAdminDashController.loadUIAtMainBorderPane("SystemAdminGoals");
+        systemAdminDashController.loadUIAtDashBorderPane("SystemAdminGoals");
         
 
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -281,21 +313,380 @@ public class CreateNewUserController implements Initializable {
     }
 
     @FXML
-    private void saveAndCreateUserBtnOnAction(ActionEvent event) {
+    private void saveAndCreateUserBtnOnAction(ActionEvent event) throws NullPointerException, RuntimeException {
+//        try{
+        RadioButton genderRB = (RadioButton) gender_toggleGroup.getSelectedToggle(); 
+        
+        RadioButton parentUserTypeRB = (RadioButton) userType_toggleGroup.getSelectedToggle();
+        String parentUserType = parentUserTypeRB.getText();
+        
+        String fullName = fullName_textField.getText();
+        String country = country_comBox.getValue();
+        String div = divisionComboBox.getValue();
+        String district = districtComboBox.getValue() ;
+        String city = cityComboBox.getValue();
+        String gender = genderRB.getText();
+        String road = road_textField.getText();
+        String house = house_textField.getText() ;
+        String village = village_textField.getText();
+        String primMobile = primaryMobileNo_textField.getText();
+        String primEmail = primaryEmail_textField.getText();
+        LocalDate doB = dob_datePicker.getValue();
+        String pass = generatePassword_passwordField.getText();
+        String nid = nid_textField.getText();
+        String description = note_textArea.getText();
+        
+        if (! secondaryMobileNo_textField.getText().isEmpty() || !secondaryEmail_textField.getText().isEmpty()){
+        AlertGen.inforamtion("Work under process!", "Secondary info will not be added for now");
+        }
+        
+        if (fullName == null || country == null || div == null || district == null || city == null || gender == null || 
+                road == null || house == null || village  == null ||
+                doB == null || primMobile == null || primEmail == null ||  pass == null)
+
+            {
+                AlertGen.unsuccessfulAlert("Field can't be empty. Please fill properly.");
+                System.out.println("if no 1");
+            }
+        else if (primMobile.isEmpty() && primEmail.isEmpty()){ System.out.println("else if 1");
+            AlertGen.unsuccessfulAlert("Please provide email and mobile number");
+        }
+        else if (primEmail.isEmpty() )
+        {
+            AlertGen.unsuccessfulAlert("Please provide primary email"); 
+            System.out.println("else if 2");
+            
+        }
+        else if (primMobile.isEmpty() )
+                {
+                AlertGen.unsuccessfulAlert("Please provide primary mobile");
+        
+        }
+        else if (!Validation.isValidEmail(primEmail)){AlertGen.unsuccessfulAlert("Please provide correct email");
+                System.out.println("else if validaion email");
+                 }
+        else if (!Validation.allDigits(primMobile)){AlertGen.unsuccessfulAlert("Please provide primary mobile No");}
+        else // esle 1 
+            {   Address address = new Address(district, city, road, village, house);
+                System.out.println("esle 1");
+                System.out.println(address.toString());
+                /// 
+            if (Validation.isValidBirthDate(doB)) // if 2
+            {
+                System.out.println("if 2");
+                if (! Validation.isAtLeastEighteenYearsOld(doB)) //if 3
+                {
+                    AlertGen.unsuccessfulAlert("Age must be at least 18 years older.");
+                    System.out.println("if");
+                }
+                else // else 2
+                {
+                  // age valid, passenger can be created
+                    System.out.println("else 2");
+                if (Validation.isValidPassword(pass))// if 4
+                {
+                    System.out.println("if 4");
+                    
+                    
+                    
+                    // user creation for passenger, birth certificate or nid is needed
+                    if ("Passenger".equals(parentUserType))    //if 5
+                    {   System.out.println("if 5 passenger e dhukse ");
+                        String birCer = birthCer_textField.getText();
+                        if (birCer.isEmpty() && nid.isEmpty()) //if 6
+                        {                                  System.out.println("if 6 e dhukse");
+                            AlertGen.unsuccessfulAlert("You have to select NID or Birth Certificate!");
+                        }
+           
+                        
+                        else// else 3
+                          {   System.out.println("else 3 ");
+                          
+                            
+                              String username = generatePassengerUsername_textField.getText();
+                              if (username.isEmpty() || !Validation.isValidUsername(username)) // if 7
+                              {
+                                  AlertGen.unsuccessfulAlert("Select username properly!");
+                                  System.out.println("if 7");
+                              }
+                              
+                              else // else 4
+                              {
+                                  // can create , vaid type passenger, create one
+                                  System.out.println("Can create passenger block");
+                                  System.out.println("else 4 e parbe");
+                                  
+                                  
+                                  boolean confirmation = AlertGen.confirmationAlert("Do you want to confim to add new Passenger?");
+                                  System.out.println(confirmation);
+                                  if (confirmation)// if 8
+                                  {System.out.println("if 8");
+                                    Passenger passengerObj = new   Passenger(fullName,  primMobile,   
+                                            primEmail,  gender,   username,   "Passenger",  
+                                            pass,   doB,  address,   true);
+                                    
+                                      System.out.println("passenger created successfully if 8 e");
+                                    // checks whether nid or certificate is chosen and set value
+                                    if (Validation.allDigits(nid)){passengerObj.setNid(nid);System.out.println("if 9");} // if9
+                                    //if (Validation.allDigits(birCer)){ passengerObj.setBirtCertificate(birCer);System.out.println("if10");} //if10
+                                    
+                                    boolean  isSuccess = this.admin.createNewUserInstance(passengerObj,"Passenger", true);
+                                      System.out.println("isSuccess"+ isSuccess);
+                                    if ( isSuccess)   // if 11 
+                                    {   System.out.println("/nif 11/n Passenger added to bin file by admin successfully");
+                                        descriptionObj =  new DescriptionOnUserCreation(description);
+                                        System.out.println("Creation successfull");
+                                        AlertGen.successfulAlert("Passenger scucceesfully added!");
+                                        descriptionObj.setUser( passengerObj);
+                                        generatePassengerUsername_textField.clear();
+                                        generatePassword_passwordField.clear();
+                                        secondaryMobileNo_textField.clear();
+                                        secondaryEmail_textField.clear();
+                                        birthCer_textField.clear();
+                                        primaryMobileNo_textField.clear();
+                                        primaryEmail_textField.clear();
+                                        nid_textField.clear();
+                                        gender_toggleGroup.selectToggle(null);
+                                        dob_datePicker.getEditor().clear();
+                                        generatePassengerUsername_textField.clear();
+                                    }else{AlertGen.unsuccessfulAlert("Something Gone Wrong!");}//else 5
+                                  }else // else6
+                                  {System.out.println("else 6 e nothing");
+                                     //nothoing 
+                                  }
+                               }
+                           }
+                    }
+                    else // if  passsenger is not selected to be added // not passenger type user
+                    {   System.out.println("else7");
+                        // User creation for all employee type
+                        LocalDate joiningDate = joiningDate_datePicker.getValue();
+                        String employeeID = generateEmployeeId_label.getText();
+                        String employeeType = employeeType_comBox.getValue();   
+                        // CHECKS   if the joining date future date or not
+                        if (joiningDate != null && 
+                                ! Validation.isValidJoiningDate(joiningDate))
+                        {System.out.println("if12");
+                            int year =  LocalDate.now().getYear();
+                            // the joining date is not valid
+                            // it can only be valid if it is not before year 2021 
+                            // and not after 4 year from current year.
+                            AlertGen.unsuccessfulAlert("The joining date is not valid!" + 
+                                    " It should be in between 2021/01 and "
+                                   + year);
+                        }
+                        else
+                        {System.out.println("Else 8");
+                            // confirms joining date valid
+                            // check employee id and employee type empty or unselected and nid is given or not
+                            if (employeeID.isEmpty() || employeeType.isEmpty() || nid.isEmpty())
+                            {AlertGen.unsuccessfulAlert("Fill all unfilled entity"); System.out.println("if13");}
+                            else{
+                                // validate nid
+                                System.out.println("else 9");
+                                if (!Validation.allDigits(nid)){AlertGen.unsuccessfulAlert("NID is not valid");System.out.println("if14");}
+                                else{
+                                    System.out.println("else 10 ");
+                                   boolean confimationEmp = AlertGen.confirmationAlert("Do you want to confim to add new ?"+employeeType);
+                                    if (!confimationEmp){System.out.println("calcel dise if");}
+                                    else
+                                    {  System.out.println("else 11 e created object");
+                                        // confirmationm done
+                                        // can create
+                                        // all info given
+                                        // now create employe
+                                        Employee empObj;
+                                        boolean flag;
+                                        switch (employeeType) {
+                                            case "System Administrator":
+                                                empObj = new SystemAdministrator( 
+                                                        nid,
+                                                        employeeType,
+                                                        joiningDate,
+                                                        1000000,   fullName,
+                                                        primMobile,
+                                                        primEmail,
+                                                        gender, 
+                                                        employeeID,
+                                                        employeeType, 
+                                                        pass,   doB,   
+                                                        address, 
+                                                        true);
+                                                flag = this.admin.createNewUserInstance(empObj, empObj.getCoreUserType(), true);
+                                                
+                                                break;
+                                            case "Station Manager":
+                                                empObj = new StationManager( 
+                                                        nid,
+                                                        employeeType,
+                                                        joiningDate,
+                                                        1000000,   fullName,
+                                                        primMobile,
+                                                        primEmail,
+                                                        gender, 
+                                                        employeeID,
+                                                        employeeType, 
+                                                        pass,   doB,   
+                                                        address, 
+                                                        true);
+                                                flag = this.admin.createNewUserInstance(empObj, empObj.getCoreUserType(), true);    
+                                                break;
+                                            case "Train Operator":
+                                                empObj = new TrainOperator( 
+                                                        nid,
+                                                        employeeType,
+                                                        joiningDate,
+                                                        1000000,   fullName,
+                                                        primMobile,
+                                                        primEmail,
+                                                        gender, 
+                                                        employeeID,
+                                                        employeeType, 
+                                                        pass,   doB,   
+                                                        address, 
+                                                        true);
+                                                flag = this.admin.createNewUserInstance(empObj, empObj.getCoreUserType(), true);
+                                                break;
+                                            case "Head of HR":
+                                                empObj = new HeadOfHR( 
+                                                        nid,
+                                                        employeeType,
+                                                        joiningDate,
+                                                        1000000,   fullName,
+                                                        primMobile,
+                                                        primEmail,
+                                                        gender, 
+                                                        employeeID,
+                                                        employeeType, 
+                                                        pass,   doB,   
+                                                        address, 
+                                                        true);
+                                                flag = this.admin.createNewUserInstance(empObj, empObj.getCoreUserType(), true);
+                                                break;
+                                            case "Maintenance Staff":
+                                                empObj = new MaintenanceStaff( 
+                                                        nid,
+                                                        employeeType,
+                                                        joiningDate,
+                                                        1000000,   fullName,
+                                                        primMobile,
+                                                        primEmail,
+                                                        gender, 
+                                                        employeeID,
+                                                        employeeType, 
+                                                        pass,   doB,   
+                                                        address, 
+                                                        true);
+                                                flag = this.admin.createNewUserInstance(empObj, empObj.getCoreUserType(), true);
+                                                break;
+                                            case "Public Service Provider":
+                                                empObj = new PublicServiceProvider( 
+                                                        nid,
+                                                        employeeType,
+                                                        joiningDate,
+                                                        1000000,   fullName,
+                                                        primMobile,
+                                                        primEmail,
+                                                        gender, 
+                                                        employeeID,
+                                                        employeeType, 
+                                                        pass,   doB,   
+                                                        address, 
+                                                        true);
+                                                flag = this.admin.createNewUserInstance(empObj, empObj.getCoreUserType(), true);
+                                                break;
+                                            case "Accountant":
+                                                empObj = new Accountant( 
+                                                        nid,
+                                                        employeeType,
+                                                        joiningDate,
+                                                        1000000,   fullName,
+                                                        primMobile,
+                                                        primEmail,
+                                                        gender, 
+                                                        employeeID,
+                                                        employeeType, 
+                                                        pass,   doB,   
+                                                        address, 
+                                                        true);
+                                                flag = this.admin.createNewUserInstance(empObj, empObj.getCoreUserType(), true);
+                                                break;
+                                            default: flag = false;
+                                                    empObj = null;
+                                                break;
+                                                
+                                                
+                                        }// get out of switch
+                                        if (flag)
+                                        {   descriptionObj = new DescriptionOnUserCreation(description,empObj);
+                                            System.out.println("Creation successfull");
+                                            AlertGen.successfulAlert("Employee scucceesfully added!");
+                                            System.out.println("file wirte done");
+                                            generateEmployeeId_label.setText("");
+                                            employeeType_comBox.getItems().clear();
+                                            generatePassword_passwordField.clear();
+                                            secondaryMobileNo_textField.clear();
+                                            secondaryEmail_textField.clear();
+                                            nid_textField.clear();
+                                            primaryMobileNo_textField.clear();
+                                            primaryEmail_textField.clear();
+                                             
+                                            gender_toggleGroup.selectToggle(null);
+                                            dob_datePicker.getEditor().clear();
+                                            joiningDate_datePicker.getEditor().clear();
+                                            generatePassengerUsername_textField.clear();
+                                        }else{AlertGen.unsuccessfulAlert("Something Gone Wrong!");}
+                                    }// empobj access seseh
+                                }
+ 
+                                }
+                            }
+                        }
+                    }else{AlertGen.unsuccessfulAlert("Pass is not valid!");}
+                }
+              }else{AlertGen.unsuccessfulAlert("Unvalid Date of Birth!");}
+
+            }
+
+//         }catch(NullPointerException ex){
+//            AlertGen.inforamtion("NullPointerException", ex.toString());
+//        }    
     }
 
     @FXML
-    private void generateEmployeeIdBtnOnAction(ActionEvent event) {
+    private void generateEmployeeIdBtnOnAction(ActionEvent event) 
+    {
+        try{
+           if (joiningDate_datePicker.getValue() == null){
+           
+           }
+           else if (employeeType_comBox.getValue().isEmpty() || !Validation.isValidJoiningDate(joiningDate_datePicker.getValue()))
+                   {
+                   AlertGen.unsuccessfulAlert("\"Please select fields first\" correctly!");
+                   }
+           else if (employeeType_comBox.getValue().isEmpty()){
+               AlertGen.unsuccessfulAlert("Select employee type");
+           }
+           else{
+               this.admin.generateEmployeeID(employeeType_comBox.getValue(), joiningDate_datePicker.getValue());
+           }
+//            if ( !employeeType_comBox.getValue().isEmpty() && joiningDate_datePicker.getValue() != null)
+//            {this.admin.generateEmployeeID(employeeType_comBox.getValue(), joiningDate_datePicker.getValue());
+//                }
+//            else{AlertGen.unsuccessfulAlert("Please select fields first");}
+        }catch(NullPointerException nu){System.out.println("NULLLLLLLLLLLLLL");}
+       
     }
-
     @FXML
     private void generatePasswordBtnOnAction(ActionEvent event) {
-        
+        generatePassword_passwordField.setText(Validation.generatePassword());
     }
 
     @FXML
     private void generatePassengerUsernameBtnOnAction(ActionEvent event) {
+        generatePassengerUsername_textField.setText(Validation.generateUsername());
     }
+    
 
     @FXML
     private void employeeRadioButtonOnAction(ActionEvent event) {
@@ -309,6 +700,18 @@ public class CreateNewUserController implements Initializable {
 
     @FXML
     private void adminRadioButtonOnAction(ActionEvent event) {
+    }
+
+    @FXML
+    private void showPassCheckBoxOnAction(ActionEvent event) {
+       if ( showPass_checkBox.isSelected() ) {
+          String pass = generatePassword_passwordField.getText();
+          showPass_label.setVisible(true);
+          showPass_label.setText(pass);
+       }else{
+            showPass_label.setVisible(false);
+        }
+          
     }
 
 }

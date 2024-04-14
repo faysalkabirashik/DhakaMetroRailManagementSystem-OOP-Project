@@ -20,6 +20,14 @@ public class DescriptionOnUserCreation {
         this.user = user;
     }
 
+    public DescriptionOnUserCreation() {
+    }
+
+    public DescriptionOnUserCreation(String note) {
+        this.note = note;
+    }
+    
+    
     public String getNote() {
         return note;
     }
