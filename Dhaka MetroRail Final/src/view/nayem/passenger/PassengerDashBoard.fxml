@@ -4,8 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.nayem.passenger.PassengerDashBoardController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="view.nayem.passenger.PassengerDashBoardController">
     <children>
       <Label fx:id="welcomeTextField" layoutX="14.0" layoutY="14.0" prefHeight="21.0" prefWidth="568.0" />
       <Button layoutX="31.0" layoutY="92.0" mnemonicParsing="false" onAction="#purchaseButtonOnClicked" text="Purchase Ticket" />
@@ -17,5 +16,6 @@
       <Button layoutX="418.0" layoutY="185.0" mnemonicParsing="false" onAction="#lostAndFoundButtonOnClicked" text="Lost and Found" />
       <Button layoutX="458.0" layoutY="232.0" mnemonicParsing="false" onAction="#feedbackButtonOnClicked" text="Feedback" />
       <Button layoutX="259.0" layoutY="286.0" mnemonicParsing="false" onAction="#signOutButtonOnClicked" text="Sign Out" />
+      <Button layoutX="237.0" layoutY="92.0" mnemonicParsing="false" onAction="#realTimeUpdateButtonOnClick" text="Real-Time Update" />
    </children>
 </AnchorPane>

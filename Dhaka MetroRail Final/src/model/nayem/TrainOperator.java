@@ -49,10 +49,6 @@ public class TrainOperator extends Employee implements Serializable, Countable
 
     public TrainOperator() {
     }
-    
-    
-  
-    
 
     @Override
     public void changePassword() {
@@ -137,6 +133,37 @@ public class TrainOperator extends Employee implements Serializable, Countable
         }
     }
     
+    public void realTimeUpdate(Update update)
+    {
+        File f = null;
+        FileOutputStream fos = null;      
+        ObjectOutputStream oos = null;        
+        try {
+            f = new File("RealTimeUpdate.bin");
+            if(f.exists()){
+                fos = new FileOutputStream(f,true);
+                oos = new AppendableObjectOutputStream(fos);                
+            }
+            else{
+                fos = new FileOutputStream(f);
+                oos = new ObjectOutputStream(fos);               
+            }
+            oos.writeObject(update);
+
+        } catch (IOException ex) {
+            //
+        }
+    }
+    
+    public void signup(ActionEvent event) throws IOException 
+    {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/nayem/passenger/SignupScene.fxml"));
+        Parent parent = loader.load();
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene newScene = new Scene(parent);
+        currentStage.setScene(newScene);
+        currentStage.show();
+    }
 
     @Override
     public void changeDesignation() {

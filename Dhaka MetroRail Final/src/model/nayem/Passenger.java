@@ -42,6 +42,11 @@ public class Passenger extends User implements Serializable{
         super(fullName, primaryMobile, primaryEmail, gender, userIdentity, coreUserType, password, dateOfBirth, address, loginStatus, secondaryMobile, secondaryEmail);
         userCount++;
     }
+
+    public Passenger() {
+    }
+
+    
     
     
     

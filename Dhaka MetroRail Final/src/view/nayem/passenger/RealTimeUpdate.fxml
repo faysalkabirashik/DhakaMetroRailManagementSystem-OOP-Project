@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.nayem.passenger.RealTimeUpdateController">
+   <children>
+      <Label layoutX="230.0" layoutY="14.0" text="Real Time Update">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Line endX="100.0" layoutX="300.0" layoutY="41.0" startX="-100.0" />
+      <Label layoutX="22.0" layoutY="72.0" text="Enter Train ID:" />
+      <TextField fx:id="trainId" layoutX="128.0" layoutY="67.0" promptText="Train ID" />
+      <Button layoutX="435.0" layoutY="67.0" mnemonicParsing="false" onAction="#searhButtonOnClick" text="Search" />
+      <TableView fx:id="realTimeTableVIew" layoutX="57.0" layoutY="117.0" prefHeight="200.0" prefWidth="480.0">
+        <columns>
+          <TableColumn fx:id="timeTableColumn" prefWidth="75.0" text="Time" />
+          <TableColumn fx:id="updateTimeTableColumn" prefWidth="207.0" text="Update Type" />
+            <TableColumn fx:id="updateTableColumn" prefWidth="207.0" text="Update" />
+        </columns>
+      </TableView>
+      <Button layoutX="283.0" layoutY="331.0" mnemonicParsing="false" onAction="#backButtononClick" text="Back" />
+   </children>
+</AnchorPane>
