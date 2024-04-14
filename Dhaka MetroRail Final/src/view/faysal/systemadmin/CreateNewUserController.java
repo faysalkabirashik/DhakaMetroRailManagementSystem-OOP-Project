@@ -1,15 +1,14 @@
 package view.faysal.systemadmin;
 
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
+ 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.time.LocalDate;
+ 
 import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+ 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -32,8 +31,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import model.faysal.AutoFilterSupportToComboBox;
+//import model.faysal.AutoFilterSupportToComboBox;
 import model.faysal.AddressLists;
+import model.faysal.users.SystemAdministrator;
 
 /**
  * FXML Controller class
@@ -63,8 +63,6 @@ public class CreateNewUserController implements Initializable {
     private TextField primaryEmail_textField;
     @FXML
     private TextField secondaryEmail_textField;
-    @FXML
-    private DatePicker dob_datePicker;
     @FXML
     private ToggleGroup gender_toggleGroup;
     @FXML
@@ -119,7 +117,20 @@ public class CreateNewUserController implements Initializable {
     private ComboBox<String> divisionComboBox;
     @FXML
     private ComboBox<String> districtComboBox;
-
+    
+    private SystemAdministrator admin;
+    @FXML
+    private DatePicker doB_datePicker;
+    
+    public SystemAdministrator getSystemAdmin(){
+        return admin;
+    }
+    
+    public void setSystemAdmin(SystemAdministrator admin){
+        
+        this.admin =  admin;
+    }
+    
     private void updateDistrictComboBox() {
         String selectedDivision = divisionComboBox.getValue();
         if (selectedDivision != null) {
@@ -145,6 +156,9 @@ public class CreateNewUserController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        List<String> countries = AddressLists.getCountries();
+        employeeType_comBox.setItems(FXCollections.observableArrayList(countries));
 
         String[] ep_designations = {"System Administrator", "Station Manager", "Train Operator",
             "Head of HR", "Maintenance Staff", "Public Service Provider", "Accountant"};
@@ -282,6 +296,44 @@ public class CreateNewUserController implements Initializable {
 
     @FXML
     private void saveAndCreateUserBtnOnAction(ActionEvent event) {
+        
+        RadioButton genderRB = (RadioButton) gender_toggleGroup.getSelectedToggle(); 
+        RadioButton parentUserTypeRB = (RadioButton) userType_toggleGroup.getSelectedToggle();
+        String fullName = fullName_textField.getText();
+        String country = country_comBox.getValue();
+        String div = divisionComboBox.getValue();
+        String district = districtComboBox.getValue() ;
+        String city = cityComboBox.getValue();
+        String gender = genderRB.getText();
+        String road = road_textField.getText();
+        String house = house_textField.getText() ;
+        String village = village_textField.getText();
+        String primMobile = primaryMobileNo_textField.getText();
+        String primEmail = primaryMobileNo_textField.getText();
+        
+        
+        LocalDate doB = doB_datePicker.getValue();
+        
+        if (fullName == null || country == null || div == null || district == null || city == null || gender == null || 
+                road == null || house == null || village  == null ||
+                doB == null || primMobile n 
+                
+                
+          
+                
+                
+                
+                
+                
+                
+                )
+                        
+
+        {
+            
+        }
+        
+        
     }
 
     @FXML
