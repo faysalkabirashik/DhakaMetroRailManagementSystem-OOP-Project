@@ -86,7 +86,7 @@ public class SystemAdministrator extends Employee implements Serializable, Count
     // I can make it as static but it would not be appropriate
     // since by whom admin it is created needs to be check
     // there will be a signature that this admin has created this particular user
-    public static boolean createNewUserInstance(User userToBeAdded, String userType, boolean areAllOptionalInfoGiven)    
+    public  boolean createNewUserInstance(User userToBeAdded, String userType, boolean areAllOptionalInfoGiven)    
     {
         // this is desiged in a way thet as the User handle is given, so user must exist
         // then userType must exist
@@ -376,7 +376,131 @@ public class SystemAdministrator extends Employee implements Serializable, Count
         catch (Exception ex){}
         return null;
     }
+    /*
+    public Employee createEmployeeInstance(String employeeType ){
+        
+        Employee empObj;
+                                        boolean flag;
+                                        switch (employeeType) {
+                                            case "System Administrator":
+                                                empObj = new SystemAdministrator( 
+                                                        nid,
+                                                        employeeType,
+                                                        joiningDate,
+                                                        1000000,   fullName,
+                                                        primMobile,
+                                                        primEmail,
+                                                        gender, 
+                                                        employeeID,
+                                                        employeeType, 
+                                                        pass,   doB,   
+                                                        address, 
+                                                        true);
+                                                flag = this.admin.createNewUserInstance(empObj, empObj.getCoreUserType(), true);
+                                                
+                                                break;
+                                            case "Station Manager":
+                                                empObj = new StationManager( 
+                                                        nid,
+                                                        employeeType,
+                                                        joiningDate,
+                                                        1000000,   fullName,
+                                                        primMobile,
+                                                        primEmail,
+                                                        gender, 
+                                                        employeeID,
+                                                        employeeType, 
+                                                        pass,   doB,   
+                                                        address, 
+                                                        true);
+                                                flag = this.admin.createNewUserInstance(empObj, empObj.getCoreUserType(), true);    
+                                                break;
+                                            case "Train Operator":
+                                                empObj = new TrainOperator( 
+                                                        nid,
+                                                        employeeType,
+                                                        joiningDate,
+                                                        1000000,   fullName,
+                                                        primMobile,
+                                                        primEmail,
+                                                        gender, 
+                                                        employeeID,
+                                                        employeeType, 
+                                                        pass,   doB,   
+                                                        address, 
+                                                        true);
+                                                flag = this.admin.createNewUserInstance(empObj, empObj.getCoreUserType(), true);
+                                                break;
+                                            case "Head of HR":
+                                                empObj = new HeadOfHR( 
+                                                        nid,
+                                                        employeeType,
+                                                        joiningDate,
+                                                        1000000,   fullName,
+                                                        primMobile,
+                                                        primEmail,
+                                                        gender, 
+                                                        employeeID,
+                                                        employeeType, 
+                                                        pass,   doB,   
+                                                        address, 
+                                                        true);
+                                                flag = this.admin.createNewUserInstance(empObj, empObj.getCoreUserType(), true);
+                                                break;
+                                            case "Maintenance Staff":
+                                                empObj = new MaintenanceStaff( 
+                                                        nid,
+                                                        employeeType,
+                                                        joiningDate,
+                                                        1000000,   fullName,
+                                                        primMobile,
+                                                        primEmail,
+                                                        gender, 
+                                                        employeeID,
+                                                        employeeType, 
+                                                        pass,   doB,   
+                                                        address, 
+                                                        true);
+                                                flag = this.admin.createNewUserInstance(empObj, empObj.getCoreUserType(), true);
+                                                break;
+                                            case "Public Service Provider":
+                                                empObj = new PublicServiceProvider( 
+                                                        nid,
+                                                        employeeType,
+                                                        joiningDate,
+                                                        1000000,   fullName,
+                                                        primMobile,
+                                                        primEmail,
+                                                        gender, 
+                                                        employeeID,
+                                                        employeeType, 
+                                                        pass,   doB,   
+                                                        address, 
+                                                        true);
+                                                flag = this.admin.createNewUserInstance(empObj, empObj.getCoreUserType(), true);
+                                                break;
+                                            case "Accountant":
+                                                empObj = new Accountant( 
+                                                        nid,
+                                                        employeeType,
+                                                        joiningDate,
+                                                        1000000,   fullName,
+                                                        primMobile,
+                                                        primEmail,
+                                                        gender, 
+                                                        employeeID,
+                                                        employeeType, 
+                                                        pass,   doB,   
+                                                        address, 
+                                                        true);
+                                                flag = this.admin.createNewUserInstance(empObj, empObj.getCoreUserType(), true);
+                                                break;
+                                            default: flag = false;
+                                                    empObj = null;
+                                                break;
+        
+        return empObj;
     
-    
+    }*/
     
 }

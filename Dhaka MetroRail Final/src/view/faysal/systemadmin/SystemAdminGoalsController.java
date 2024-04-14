@@ -15,6 +15,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
+import model.faysal.users.SystemAdministrator;
 
 /**
  * FXML Controller class
@@ -26,6 +27,15 @@ public class SystemAdminGoalsController implements Initializable {
     @FXML
      BorderPane adminMainGoals_borderPane;
 
+        private SystemAdministrator admin;
+    public SystemAdministrator getSystemAdmin(){
+        return admin;
+    }
+    
+    public void setSystemAdmin(SystemAdministrator admin){
+        
+        this.admin =  admin;
+    }
     
     
     @Override

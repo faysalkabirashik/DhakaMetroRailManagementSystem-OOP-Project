@@ -19,6 +19,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import model.faysal.users.SystemAdministrator;
 
 /**
  * FXML Controller class
@@ -38,8 +39,6 @@ public class SystemAdminDashboardController implements Initializable {
     @FXML
     private Label dashBoardLabel;
     @FXML
-    private HBox profile_hBox;
-    @FXML
     private Label profileLabel;
     @FXML
     private HBox goals_hBox;
@@ -55,17 +54,33 @@ public class SystemAdminDashboardController implements Initializable {
     private Label downloadLid1;
     @FXML
     private HBox logOut_hBox;
+    @FXML
+    private HBox addUser;
+    @FXML
+    private HBox logOut_hBox1;
+    @FXML
+    private HBox logOut_hBox11;
+    @FXML
+    private HBox logOut_hBox111;
 
-    /**
-     * Initializes the controller class.
-     * @param url
-     */
+    private SystemAdministrator admin;
+    public SystemAdministrator getSystemAdmin(){
+        return admin;
+    }
+    
+    public void setSystemAdmin(SystemAdministrator admin){
+        
+        this.admin =  admin;
+    }
+    
+    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
     
-    public void loadUIAtMainBorderPane(String ui) {
+    public void loadUIAtDashBorderPane(String ui) {
         Parent root;
         try {
             root = FXMLLoader.load(getClass().getResource(ui+".fxml"));
@@ -78,35 +93,62 @@ public class SystemAdminDashboardController implements Initializable {
     }
     
     
+
+
+
+//    private void goalsOnMouseClicked(MouseEvent event) {
+//        loadUIAtMainBorderPane("SystemAdminGoals");
+//    }
+//
+//    private void downloadOnMouseClicked(MouseEvent event) {
+//        loadUIAtMainBorderPane("CreateNewUser");
+//    }
+
     @FXML
     private void noteTextFieldKeyReleased(KeyEvent event) {
     }
 
     @FXML
     private void dashboardMouseOnClicked(MouseEvent event) {
-       
+        loadUIAtDashBorderPane("SystemAdminGoals");
     }
 
     @FXML
-    private void profileMouseOnClicked(MouseEvent event) {
+    private void addUserOnMouseClicked(MouseEvent event) {
+        loadUIAtDashBorderPane("CreateNewUser");
     }
 
     @FXML
-    private void goalsOnMouseClicked(MouseEvent event) {
-        loadUIAtMainBorderPane("SystemAdminGoals");
+    private void addTrainOnMouseClicked(MouseEvent event) {
     }
 
     @FXML
-    private void downloadOnMouseClicked(MouseEvent event) {
-        loadUIAtMainBorderPane("CreateNewUser");
+    private void addTrainOnAction(MouseEvent event) {
     }
 
     @FXML
-    private void notificationsOnMouseClicked(MouseEvent event) {
+    private void addStationOnMouseClicked(MouseEvent event) {
+    }
+
+    @FXML
+    private void generatePDF(MouseEvent event) {
+    }
+
+    @FXML
+    private void chartInfoOnMouseClikced(MouseEvent event) {
+    }
+
+    @FXML
+    private void scheduleOnMouseClicked(MouseEvent event) {
+    }
+
+    @FXML
+    private void reportOnMouseClicked(MouseEvent event) {
     }
 
     @FXML
     private void logOutOnMouseClicked(MouseEvent event) {
     }
-    
+
+
 }
