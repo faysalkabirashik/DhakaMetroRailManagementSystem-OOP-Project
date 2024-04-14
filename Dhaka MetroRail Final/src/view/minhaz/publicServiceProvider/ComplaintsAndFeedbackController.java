@@ -21,7 +21,7 @@ import javafx.stage.Stage;
  *
  * @author User
  */
-public class TicketingAndFareIssuesController implements Initializable {
+public class ComplaintsAndFeedbackController implements Initializable {
 
     /**
      * Initializes the controller class.
@@ -40,5 +40,6 @@ public class TicketingAndFareIssuesController implements Initializable {
         currentStage.setScene(newScene);
         currentStage.show();
     }
+    }
     
-}
+

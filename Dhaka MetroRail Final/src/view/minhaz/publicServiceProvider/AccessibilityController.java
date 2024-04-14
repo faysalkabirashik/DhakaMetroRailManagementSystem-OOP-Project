@@ -21,7 +21,7 @@ import javafx.stage.Stage;
  *
  * @author User
  */
-public class TicketingAndFareIssuesController implements Initializable {
+public class AccessibilityController implements Initializable {
 
     /**
      * Initializes the controller class.
