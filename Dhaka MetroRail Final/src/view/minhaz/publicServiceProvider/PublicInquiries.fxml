@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="717.0" prefWidth="770.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.PublicInquiriesController">
+<AnchorPane id="AnchorPane" prefHeight="717.0" prefWidth="770.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.minhaz.publicServiceProvider.PublicInquiriesController">
    <children>
       <Label layoutX="267.0" layoutY="69.0" text="Public Inquiries">
          <font>
