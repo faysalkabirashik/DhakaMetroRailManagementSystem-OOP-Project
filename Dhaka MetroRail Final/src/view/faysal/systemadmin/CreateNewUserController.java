@@ -56,81 +56,43 @@ import model.nayem.Passenger;
 public class CreateNewUserController implements Initializable {
  
     @FXML private TextField fullName_textField;
-
     @FXML private TextArea note_textArea;
-    
-    @FXML
     private ToggleGroup userType_toggleGroup;
-    @FXML
-    private TextField road_textField;
-    @FXML
-    private TextField village_textField;
-    @FXML
-    private TextField primaryMobileNo_textField;
-    @FXML
-    private TextField secondaryMobileNo_textField;
-    @FXML
-    private TextField primaryEmail_textField;
-    @FXML
-    private TextField secondaryEmail_textField;
-    @FXML
-    private ToggleGroup gender_toggleGroup;
-    @FXML
-    private CheckBox nid_checkBox;
-    @FXML
-    private CheckBox birthCer_checkBox;
-    @FXML
-    private TextField nid_textField;
-    @FXML
-    private TextField birthCer_textField;
-    @FXML
-    private TextField generatePassengerUsername_textField;
-    @FXML
+    @FXML    private TextField road_textField;
+    @FXML    private TextField village_textField;
+    @FXML    private TextField primaryMobileNo_textField;
+    @FXML    private TextField secondaryMobileNo_textField;
+    @FXML    private TextField primaryEmail_textField;
+    @FXML    private TextField secondaryEmail_textField;
+    @FXML    private ToggleGroup gender_toggleGroup;
+    @FXML    private CheckBox nid_checkBox;
+    @FXML    private CheckBox birthCer_checkBox;
+    @FXML    private TextField nid_textField;
+    @FXML    private TextField birthCer_textField;
+    @FXML    private TextField generatePassengerUsername_textField;
     private ComboBox<String> employeeType_comBox;
-    @FXML
-    private TextField house_textField;
-    @FXML
-    private ComboBox<String> country_comBox;
-    @FXML
-    private Button generateEmployeeId_button;
-    @FXML
-    private Label generateEmployeeId_label;
-    @FXML
-    private PasswordField generatePassword_passwordField;
-    @FXML
-    private Button generatePassengerUsername_button;
-    @FXML
+    @FXML    private TextField house_textField;
+    @FXML    private ComboBox<String> country_comBox;
+    @FXML    private Button generateEmployeeId_button;
+    @FXML    private Label generateEmployeeId_label;
+    @FXML    private PasswordField generatePassword_passwordField;
+    @FXML    private Button generatePassengerUsername_button;
     private DatePicker joiningDate_datePicker;
-    @FXML
-    private AnchorPane parentAnchorPane;
-    @FXML
+    @FXML    private AnchorPane parentAnchorPane;
     private RadioButton employee_radioButton;
-    @FXML
     private RadioButton passenger_radioButton;
-    @FXML
     private RadioButton admin_radioButton;
-    @FXML
-    private RadioButton male_radioButton;
-    @FXML
-    private RadioButton female_radioButton;
-    @FXML
-    private RadioButton intersex_radioButton;
-    @FXML
+    @FXML    private RadioButton male_radioButton;
+    @FXML    private RadioButton female_radioButton;
+    @FXML    private RadioButton intersex_radioButton;
     private Label joiningDate_label;
-    @FXML
-    private Label nid_label;
-    @FXML
-    private ComboBox<String> cityComboBox;
-    @FXML
-    private ComboBox<String> divisionComboBox;
-    @FXML
-    private ComboBox<String> districtComboBox;
-    @FXML
-    private CheckBox showPass_checkBox;
-    @FXML
-    private DatePicker dob_datePicker;
-    @FXML
-    private Label showPass_label;  
+    @FXML    private Label nid_label;
+    @FXML    private ComboBox<String> cityComboBox;
+    @FXML    private ComboBox<String> divisionComboBox;
+    @FXML    private ComboBox<String> districtComboBox;
+    @FXML    private CheckBox showPass_checkBox;
+    @FXML    private DatePicker dob_datePicker;
+    @FXML    private Label showPass_label;  
 
     //////////////////////////////////////////////////////
     
@@ -657,19 +619,11 @@ public class CreateNewUserController implements Initializable {
     }
     
 
-    @FXML
     private void employeeRadioButtonOnAction(ActionEvent event) {
         if (employee_radioButton.isSelected()) {
         }
     }
 
-    @FXML
-    private void passengerRadioButtonOnAction(ActionEvent event) {
-    }
-
-    @FXML
-    private void adminRadioButtonOnAction(ActionEvent event) {
-    }
 
     @FXML
     private void showPassCheckBoxOnAction(ActionEvent event) {
