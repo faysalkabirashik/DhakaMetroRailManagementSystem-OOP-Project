@@ -24,7 +24,7 @@ import javafx.stage.Stage;
  *
  * @author Acer
  */
-public class NesessaryAnnouncementController implements Initializable {
+public class MakeAnnouncementController implements Initializable {
 
     @FXML
     private TextField trainNameTextField;
