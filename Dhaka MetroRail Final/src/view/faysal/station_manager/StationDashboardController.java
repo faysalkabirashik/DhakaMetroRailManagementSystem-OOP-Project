@@ -4,15 +4,21 @@
  */
 package view.faysal.station_manager;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import view.faysal.systemadmin.SystemAdminDashboardController;
 
 /**
  * FXML Controller class
@@ -56,9 +62,21 @@ public class StationDashboardController implements Initializable {
     @FXML
     private HBox logOut_hBox111;
 
-    /**
-     * Initializes the controller class.
-     */
+    public void loadUIAtDashBorderPane(String ui) {
+        Parent root;
+        try {
+            root = FXMLLoader.load(getClass().getResource(ui+".fxml"));
+            adminMainDashboard_borderPane.setCenter(root);
+        }
+        catch (IOException ex) {
+            Logger.getLogger(StationDashboardController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
+    
+    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -103,5 +121,6 @@ public class StationDashboardController implements Initializable {
     @FXML
     private void logOutOnMouseClicked(MouseEvent event) {
     }
+
     
 }
