@@ -22,7 +22,6 @@ import model.faysal.users.Countable;
 import model.faysal.users.Employee;
 import model.faysal.users.User;
 import model.faysal.AppendableObjectOutputStream;
-import model.faysal.SystemFeedback;
 
 
 public class TrainOperator extends Employee implements Serializable, Countable
@@ -109,27 +108,6 @@ public class TrainOperator extends Employee implements Serializable, Countable
         }
     }
     
- 
-//    public void systemFeedback(SystemFeedback softwareFeedback)
-//    {
-//        File f = null;
-//        FileOutputStream fos = null;      
-//        ObjectOutputStream oos = null;        
-//        try {
-//            f = new File("SystemFeedback.bin");
-//            if(f.exists()){
-//                fos = new FileOutputStream(f,true);
-//                oos = new AppendableObjectOutputStream(fos);                
-//            }
-//            else{
-//                fos = new FileOutputStream(f);
-//                oos = new ObjectOutputStream(fos);               
-//            }
-//            oos.writeObject(softwareFeedback);
-//        } catch (IOException ex) {
-//            //
-//        }
-//    }
     public void realTimeUpdate(Update update)
     {
         File f = null;
@@ -139,7 +117,7 @@ public class TrainOperator extends Employee implements Serializable, Countable
             f = new File("RealTimeUpdate.bin");
             if(f.exists()){
                 fos = new FileOutputStream(f,true);
-                oos = new AppendableObjectOutputStream(fos);                
+                oos = new AppendableObjectOutputStream(fos);
             }
             else{
                 fos = new FileOutputStream(f);
@@ -151,16 +129,6 @@ public class TrainOperator extends Employee implements Serializable, Countable
             //
         }
     }
-    
-//    public void signup(ActionEvent event) throws IOException 
-//    {
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/nayem/passenger/SignupScene.fxml"));
-//        Parent parent = loader.load();
-//        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//        Scene newScene = new Scene(parent);
-//        currentStage.setScene(newScene);
-//        currentStage.show();
-//    }
 
     @Override
     public void changeDesignation() {

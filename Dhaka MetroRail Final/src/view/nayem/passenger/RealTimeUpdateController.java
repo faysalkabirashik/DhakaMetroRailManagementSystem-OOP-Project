@@ -13,6 +13,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import model.nayem.Passenger;
 import model.nayem.Update;
 
 public class RealTimeUpdateController implements Initializable {
@@ -70,7 +71,10 @@ public class RealTimeUpdateController implements Initializable {
     }
 
     @FXML
-    private void backButtononClick(ActionEvent event) {
+    private void backButtononClick(ActionEvent event) throws IOException 
+    {
+        Passenger pas = new Passenger();
+        pas.loadDashBoard(event);
     }
     
 }

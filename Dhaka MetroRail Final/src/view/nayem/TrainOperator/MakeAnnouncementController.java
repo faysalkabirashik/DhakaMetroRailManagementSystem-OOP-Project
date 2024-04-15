@@ -103,8 +103,8 @@ public class MakeAnnouncementController implements Initializable {
     @FXML
     private void backButtonOnClicked(ActionEvent event) throws IOException 
     {
-        //TrainOperator TO = new TrainOperator();
-       // TO.loadDashBoard(event);
+        TrainOperator TO = new TrainOperator();
+        TO.loadDashBoard(event);
     }
     
 }
