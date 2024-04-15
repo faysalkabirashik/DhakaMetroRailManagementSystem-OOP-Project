@@ -9,8 +9,8 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.nayem.TrainOperator.EmergencySceneController">
-   <children>
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.nayem.passenger.PassengerEmergencyController">
+    <children>
       <Label layoutX="256.0" layoutY="7.0" text="Emergency">
          <font>
             <Font size="18.0" />

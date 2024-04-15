@@ -2,6 +2,7 @@ package view.nayem.TrainOperator;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,7 +10,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import model.faysal.AlertGen;
 import model.nayem.TrainOperator;
 import model.nayem.SystemFeedback;
 
@@ -35,14 +35,32 @@ public class SoftwareIssuesController implements Initializable {
     }
 
     @FXML
-    private void submitButtonOnClick(ActionEvent event) 
+    private void submitButtonOnClick(ActionEvent event) throws IOException 
     {
-        sf = new SystemFeedback(employeeIdTextField.getText(),incidentDatePicker.getValue().toString(),descriptionTextArea.getText(),
+<<<<<<< HEAD
+        String empId = employeeIdTextField.getText();
+        LocalDate date = incidentDatePicker.getValue();
+        String description =descriptionTextArea.getText() ;
+        String suggestion = suggesionTextArea.getText();
+        
+        if (empId.isEmpty()||date==null||description.isEmpty()||suggestion.isEmpty())
+        {
+            AlertGen.errorAlert("Value Error", "Enter All The Field Values");
+        }
+        else
+        {
+            sf = new SystemFeedback(empId,date.toString(),descriptionTextArea.getText(),
         suggesionTextArea.getText());
         to.systemFeedback(sf);
         AlertGen.successfulAlert("Submitted Successfully");
-        employeeIdTextField.clear();descriptionTextArea.clear();suggesionTextArea.clear();
-        
+        to.loadDashBoard(event);
+        }
+=======
+//        sf = new SystemFeedback(employeeIdTextField.getText(),incidentDatePicker.getValue().toString(),descriptionTextArea.getText(),
+//        suggesionTextArea.getText());
+//        to.systemFeedback(sf);
+//        
+>>>>>>> Jubair-2221134
     }
     
 }

@@ -9,17 +9,18 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import model.faysal.AlertGen;
 import model.nayem.Message2;
 import model.nayem.TrainOperator;
 
 public class MessageToMaintenanceStaffController implements Initializable {
 
     @FXML    private TextField trainNumberTextField;
-    @FXML    private ComboBox reportTypeComboBox;
-    @FXML    private ComboBox problemComboBox;
+    @FXML    private ComboBox <String>reportTypeComboBox;
+    @FXML    private ComboBox <String>problemComboBox;
     @FXML    private TextArea othersTextArea;
     Message2 message;
-    @FXML    private ComboBox fuelIndicationComboBox;
+    @FXML    private ComboBox<String> fuelIndicationComboBox;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) 
@@ -55,23 +56,58 @@ public class MessageToMaintenanceStaffController implements Initializable {
     }
 
     @FXML
-    private void sendButtonOnClick(ActionEvent event) 
+    private void sendButtonOnClick(ActionEvent event) throws IOException
     {
-        if (reportTypeComboBox.getValue().equals("Technical Issues") || reportTypeComboBox.getValue().equals("Equipment Malfunction") )
+        String train = trainNumberTextField.getText();
+        String rType = reportTypeComboBox.getValue();
+        String problem = problemComboBox.getValue();
+        String others = othersTextArea.getText();
+        String fuel = fuelIndicationComboBox.getValue();
+        if(train.isEmpty()&&rType.isEmpty()&&problem.isEmpty()&&others.isEmpty()&&fuel.isEmpty())
         {
-            message = new Message2(trainNumberTextField.getText(),reportTypeComboBox.getValue().toString(), problemComboBox.getValue().toString());
-        }
-        else if (reportTypeComboBox.getValue().equals("Unusual sound and vibration")||reportTypeComboBox.getValue().equals("Emergency repair")||reportTypeComboBox.getValue().equals("Spare parts inventory"))
-        {
-            message = new Message2(trainNumberTextField.getText(),reportTypeComboBox.getValue().toString(), othersTextArea.getText());
+            AlertGen.errorAlert("Value Error", "Enter All Field Values");
         }
         else
         {
-            message = new Message2(trainNumberTextField.getText(),reportTypeComboBox.getValue().toString(), fuelIndicationComboBox.getValue().toString());
+            if (reportTypeComboBox.getValue().equals("Technical Issues") || reportTypeComboBox.getValue().equals("Equipment Malfunction") )
+            {
+                if(trainNumberTextField.getText().isEmpty()||reportTypeComboBox.getValue().isEmpty()||problemComboBox.getValue().isEmpty())
+                {
+                    AlertGen.errorAlert("Value Error", "Enter All Field Values");
+                }
+                else
+                {
+                    message = new Message2(trainNumberTextField.getText(),reportTypeComboBox.getValue(), problemComboBox.getValue());
+                    TrainOperator to = new TrainOperator();
+                    to.messageToMaintenanceStaff(message);
+                    AlertGen.successfulAlert("Sent Successfully");
+                    to.loadDashBoard(event);
+                }
+            }
+            else if (reportTypeComboBox.getValue().equals("Unusual sound and vibration")||reportTypeComboBox.getValue().equals("Emergency repair")||reportTypeComboBox.getValue().equals("Spare parts inventory"))
+            {
+                if(trainNumberTextField.getText().isEmpty()||reportTypeComboBox.getValue().isEmpty()||othersTextArea.getText().isEmpty())
+                {
+                    AlertGen.errorAlert("Value Error", "Enter All Field Values");
+                }
+                else
+                {
+                    message = new Message2(trainNumberTextField.getText(),reportTypeComboBox.getValue(), othersTextArea.getText());
+                    TrainOperator to = new TrainOperator();
+                    to.messageToMaintenanceStaff(message);
+                    AlertGen.successfulAlert("Sent Successfully");
+                    to.loadDashBoard(event);
+                }
+            }
+            else
+            {
+                message = new Message2(trainNumberTextField.getText(),reportTypeComboBox.getValue(), fuelIndicationComboBox.getValue());
+                TrainOperator to = new TrainOperator();
+                to.messageToMaintenanceStaff(message);
+                AlertGen.successfulAlert("Sent Successfully");
+                to.loadDashBoard(event);
+            }
         }
-        
-        TrainOperator to = new TrainOperator();
-        to.messageToMaintenanceStaff(message);
     }
     
 }

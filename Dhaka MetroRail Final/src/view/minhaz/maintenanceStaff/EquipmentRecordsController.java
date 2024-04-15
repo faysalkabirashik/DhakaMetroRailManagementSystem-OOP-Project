@@ -4,7 +4,10 @@
  */
 package view.minhaz.maintenanceStaff;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -20,6 +23,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import model.faysal.AppendableObjectOutputStream;
 import model.minhaz.maintenanceStaff.Equipment;
 
 /**
@@ -54,7 +58,7 @@ public class EquipmentRecordsController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         equipmentList = new ArrayList<>();
         serialTableCol.setCellValueFactory(new PropertyValueFactory<>("sl"));
-        maintenaceHistoryTableCol.setCellValueFactory(new PropertyValueFactory<>("mainHIstory"));
+        maintenaceHistoryTableCol.setCellValueFactory(new PropertyValueFactory<>("mainHistory"));
         currentStatusTableCol.setCellValueFactory(new PropertyValueFactory<>("currentStatus"));
         // TODO
     }    
@@ -85,6 +89,22 @@ public class EquipmentRecordsController implements Initializable {
         equipmentList.add(newEquipment);
         equipmentTable.getItems().clear();
         equipmentTable.getItems().addAll(equipmentList);
+        Equipment eqp = new Equipment(Integer.parseInt(EqipSerialTextField.getText()),EqipCurrentStatusTextField.getText(),EqipMaintenanceHistorylTextField.getText());
+         File f = null;
+        FileOutputStream fos = null;      
+        ObjectOutputStream oos = null;        
+        try {
+            f = new File("EquipmentRecords.bin");
+            if(f.exists()){
+                fos = new FileOutputStream(f,true);
+                oos = new AppendableObjectOutputStream(fos);                
+            }
+            else{
+                fos = new FileOutputStream(f);
+                oos = new ObjectOutputStream(fos);               
+            }
+            oos.writeObject(eqp);
+        } catch (IOException ex) {}
         
     }
     

@@ -34,14 +34,22 @@ public class EmergencySceneController implements Initializable {
     }
 
     @FXML
-    private void submitButtonOnClick(ActionEvent event) 
+    private void submitButtonOnClick(ActionEvent event) throws IOException
     {
-        Emergency emergency = new Emergency(trainNumberTextField.getText(),nextStationTextField.getText(),
-                emergencyComboBox.getItems().toString(),describeTextArea.getText());
-        to.reportEmergency(emergency);
-        AlertGen.successfulAlert("Successfully submitted");
-        emergencyComboBox.getItems().clear();
-        trainNumberTextField.clear();describeTextArea.clear();nextStationTextField.clear();
+        String trainNum = trainNumberTextField.getText();
+        String nextStation = nextStationTextField.getText();
+        String describe = describeTextArea.getText();
+        String type = emergencyComboBox.getItems().toString();
+        if (trainNum.isEmpty() || nextStation.isEmpty() || describe.isEmpty()|| type.isEmpty())
+        {
+            AlertGen.errorAlert("Null Value", "Please Enter Field Values");
+        }else{
+            Emergency emergency = new Emergency(trainNum,nextStation,
+                describe,type);
+            to.reportEmergency(emergency);
+            AlertGen.successfulAlert("Successfully submitted");
+            to.loadDashBoard(event);
+        }
     }
     
 }

@@ -1,5 +1,4 @@
 package model.nayem;
-
 import java.io.Serializable;
 
 public class Message2 implements Serializable
