@@ -76,18 +76,18 @@ public class EmployeePaayrollController implements Initializable {
         } else if (dueRadioButton.isSelected()) {
             status = "Due";
         }
-
-        EmployeeAc newEmployee = new EmployeeAc(
-                Integer.parseInt(empIDtextField.getText()),
-                bankAcTextField.getText(),
-                empNameTextField.getText(),
-                empDesignationCombobox.getValue(),
-                Float.parseFloat(empSalaryTextField.getText()),
-                status
-        );
-
-        employeeList.add(newEmployee);
-        clearFields();
+//
+//        EmployeeAc newEmployee = new EmployeeAc(
+//                Integer.parseInt(empIDtextField.getText()),
+//                bankAcTextField.getText(),
+//                empNameTextField.getText(),
+//                empDesignationCombobox.getValue(),
+//                Float.parseFloat(empSalaryTextField.getText()),
+//                status
+//        );
+//
+//        employeeList.add(newEmployee);
+//        clearFields();
     }
 
     @FXML

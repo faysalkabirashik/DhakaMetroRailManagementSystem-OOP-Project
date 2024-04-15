@@ -14,6 +14,7 @@ import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.faysal.Address;
+import model.faysal.AlertGen;
 import model.faysal.AppendableObjectOutputStream;
 import model.nayem.TrainOperator;
 
@@ -28,6 +29,11 @@ public class SystemAdministrator extends Employee implements Serializable, Count
     private static int userCount = 0;
 
     private boolean parentAdmin;
+
+    public SystemAdministrator() {
+    }
+    
+    
 
     public SystemAdministrator(String coreUserType, String userIdentity, LocalDate dateOfJoining) {
         super(coreUserType, userIdentity, dateOfJoining);
@@ -86,7 +92,7 @@ public class SystemAdministrator extends Employee implements Serializable, Count
     // I can make it as static but it would not be appropriate
     // since by whom admin it is created needs to be check
     // there will be a signature that this admin has created this particular user
-    public boolean createNewUserInstance(User userToBeAdded, String userType, boolean areAllOptionalInfoGiven)    
+    public  boolean createNewUserInstance(User userToBeAdded, String userType, boolean areAllOptionalInfoGiven)    
     {
         // this is desiged in a way thet as the User handle is given, so user must exist
         // then userType must exist
@@ -139,7 +145,7 @@ public class SystemAdministrator extends Employee implements Serializable, Count
                         
                 }
             } // outer if ends
-        /*
+ 
         if (userType.equals("System Administrator"))
             {
                    path = "SystemAdministrator"; 
@@ -172,9 +178,9 @@ public class SystemAdministrator extends Employee implements Serializable, Count
             {
                     path =  "Passenger"; 
             }
-            */
+      
         
-        path = userToBeAdded.getClass().getSimpleName() + "Objects.bin";
+       
         
         File fUser = null;
         FileOutputStream fosUser = null;
@@ -264,7 +270,98 @@ public class SystemAdministrator extends Employee implements Serializable, Count
         
     }
     
-    public static int getCountOfSystemAdmins()
+    public  boolean addNewUser(User userToBeAdded, String userType, boolean areAllOptionalInfoGiven)    
+    {
+ 
+        String path2 = "";
+
+        
+        if (userType.equals("System Administrator"))
+            {
+                   path2 = "SystemAdministrator.bin"; 
+            }
+        else if (userType.equals("Station Manager"))
+            {
+                    path2 = "StationManager.bin"; 
+            }
+        else if (userType.equals( "Train Operator"))
+            {
+                    path2 = "TrainOperator.bin"; 
+            }
+        else if (userType.equals("Head of HR"))
+            {
+                    path2 = "HeadOfHR.bin"; 
+            }
+        else if (userType.equals("Maintenance Staff"))
+            {
+                    path2 = "MaintenanceStaff.bin"; 
+            }
+        else if (userType.equals("Public Service Provider"))
+            {
+                    path2 = "PublicServiceProvider.bin" ; 
+            }
+        else if (userType.equals("Accountant"))
+            {
+                    path2 =  "Accountant.bin"; 
+            }
+        else if (userType.equals("Passenger"))
+            {
+                    path2 =  "Passenger.bin"; 
+            }
+
+        
+        File f = null;
+        FileOutputStream fos = null;      
+        ObjectOutputStream oos = null;
+        File f2 = null;
+        FileOutputStream fos2 = null;      
+        ObjectOutputStream oos2 = null;
+
+        try {
+            f = new File(path2);
+            if (f.exists()) {
+                fos = new FileOutputStream(f, true);
+                oos = new AppendableObjectOutputStream(fos);
+            } else {
+                fos = new FileOutputStream(f);
+                oos = new ObjectOutputStream(fos);
+            }
+            f2 = new File("LoginInfoObjects.bin");
+            if (f2.exists()) {
+                fos2 = new FileOutputStream(f2, true);
+                oos2 = new AppendableObjectOutputStream(fos2);
+            } else {
+                fos2 = new FileOutputStream(f2);
+                oos2 = new ObjectOutputStream(fos2);
+            }
+            LoginInfo login = new LoginInfo(userToBeAdded.getUserIdentity(), userType, userToBeAdded.getPassword());
+            oos.writeObject(userToBeAdded);
+            oos2.writeObject(login);
+            oos.close();
+            oos2.close();
+            System.out.println("Added");
+            AlertGen.successfulAlert("User added successfully to bin");
+            
+            return true;
+        } catch (IOException ex) {
+            Logger.getLogger(SystemAdministrator.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                if (oos != null) {
+                    oos.close();
+                }
+                if (oos2 != null) {
+                    oos2.close();
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(SystemAdministrator.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        return false;
+      
+    }
+    public  static int getCountOfSystemAdmins()
     {
         ObservableList<SystemAdministrator> admins = FXCollections.observableArrayList();
         File f = null;
@@ -295,7 +392,7 @@ public class SystemAdministrator extends Employee implements Serializable, Count
     }
     
     
-    public static ObservableList<SystemAdministrator> getAllSystemAdmins()
+    public  ObservableList<SystemAdministrator> getAllSystemAdmins()
     {
         ObservableList<SystemAdministrator> admins = FXCollections.observableArrayList();
         File f = null;
@@ -325,10 +422,10 @@ public class SystemAdministrator extends Employee implements Serializable, Count
         return admins;
     }
     
-    public  String generateEmployeeID(String userSelectedOptionFromcomBoxStringValue, LocalDate dateOfJoining)
+    public  String generateEmployeeID(String userType, LocalDate dateOfJoining)
     {   
         try{
-            String key = userSelectedOptionFromcomBoxStringValue;
+            String key = userType;
             if (key != null && MAP_CLASSIFICATION_LABEL.containsKey(key)) 
                 {        
                     String  year = String.valueOf(dateOfJoining.getYear()).substring(2,4);
@@ -336,7 +433,10 @@ public class SystemAdministrator extends Employee implements Serializable, Count
                     int total = 0;
                     switch (key) {
                         case "System Administrator":
-                            total = SystemAdministrator.getCountOfSystemAdmins();
+                            System.out.println("admin ");
+                            
+                            total = getCountOfSystemAdmins();
+                            System.out.println(total);
                             break;
                         case "Station Manager":
                             total =StationManager.getCountOfStationManager() ;
@@ -359,9 +459,14 @@ public class SystemAdministrator extends Employee implements Serializable, Count
                         default:
                             break;
                     }
-                    
+                    try{ System.out.println("try 2");
                     String id = year + label;
-                    if( total < 10){
+                    if (total == 0){
+                        System.out.println("total 0");
+                        id = id + "000";
+                        }
+                    
+                   else if( total < 10){
                          id = id + "00" + String.valueOf(total);
                         }
                      else if (total > 10 && total < 100){
@@ -370,13 +475,140 @@ public class SystemAdministrator extends Employee implements Serializable, Count
                      else{
                          id = id + String.valueOf(total);
                         }
-                    return id;    
+                        System.out.println(id);
+                    return id;  
+                    }catch(Exception ex){AlertGen.unsuccessfulAlert(ex.toString());}
+                    
                 }
             }
-        catch (Exception ex){}
+        catch (Exception ex){AlertGen.unsuccessfulAlert(ex.toString());}
         return null;
     }
+    /*
+    public Employee createEmployeeInstance(String employeeType ){
+        
+        Employee empObj;
+                                        boolean flag;
+                                        switch (employeeType) {
+                                            case "System Administrator":
+                                                empObj = new SystemAdministrator( 
+                                                        nid,
+                                                        employeeType,
+                                                        joiningDate,
+                                                        1000000,   fullName,
+                                                        primMobile,
+                                                        primEmail,
+                                                        gender, 
+                                                        employeeID,
+                                                        employeeType, 
+                                                        pass,   doB,   
+                                                        address, 
+                                                        true);
+                                                flag = this.admin.createNewUserInstance(empObj, empObj.getCoreUserType(), true);
+                                                
+                                                break;
+                                            case "Station Manager":
+                                                empObj = new StationManager( 
+                                                        nid,
+                                                        employeeType,
+                                                        joiningDate,
+                                                        1000000,   fullName,
+                                                        primMobile,
+                                                        primEmail,
+                                                        gender, 
+                                                        employeeID,
+                                                        employeeType, 
+                                                        pass,   doB,   
+                                                        address, 
+                                                        true);
+                                                flag = this.admin.createNewUserInstance(empObj, empObj.getCoreUserType(), true);    
+                                                break;
+                                            case "Train Operator":
+                                                empObj = new TrainOperator( 
+                                                        nid,
+                                                        employeeType,
+                                                        joiningDate,
+                                                        1000000,   fullName,
+                                                        primMobile,
+                                                        primEmail,
+                                                        gender, 
+                                                        employeeID,
+                                                        employeeType, 
+                                                        pass,   doB,   
+                                                        address, 
+                                                        true);
+                                                flag = this.admin.createNewUserInstance(empObj, empObj.getCoreUserType(), true);
+                                                break;
+                                            case "Head of HR":
+                                                empObj = new HeadOfHR( 
+                                                        nid,
+                                                        employeeType,
+                                                        joiningDate,
+                                                        1000000,   fullName,
+                                                        primMobile,
+                                                        primEmail,
+                                                        gender, 
+                                                        employeeID,
+                                                        employeeType, 
+                                                        pass,   doB,   
+                                                        address, 
+                                                        true);
+                                                flag = this.admin.createNewUserInstance(empObj, empObj.getCoreUserType(), true);
+                                                break;
+                                            case "Maintenance Staff":
+                                                empObj = new MaintenanceStaff( 
+                                                        nid,
+                                                        employeeType,
+                                                        joiningDate,
+                                                        1000000,   fullName,
+                                                        primMobile,
+                                                        primEmail,
+                                                        gender, 
+                                                        employeeID,
+                                                        employeeType, 
+                                                        pass,   doB,   
+                                                        address, 
+                                                        true);
+                                                flag = this.admin.createNewUserInstance(empObj, empObj.getCoreUserType(), true);
+                                                break;
+                                            case "Public Service Provider":
+                                                empObj = new PublicServiceProvider( 
+                                                        nid,
+                                                        employeeType,
+                                                        joiningDate,
+                                                        1000000,   fullName,
+                                                        primMobile,
+                                                        primEmail,
+                                                        gender, 
+                                                        employeeID,
+                                                        employeeType, 
+                                                        pass,   doB,   
+                                                        address, 
+                                                        true);
+                                                flag = this.admin.createNewUserInstance(empObj, empObj.getCoreUserType(), true);
+                                                break;
+                                            case "Accountant":
+                                                empObj = new Accountant( 
+                                                        nid,
+                                                        employeeType,
+                                                        joiningDate,
+                                                        1000000,   fullName,
+                                                        primMobile,
+                                                        primEmail,
+                                                        gender, 
+                                                        employeeID,
+                                                        employeeType, 
+                                                        pass,   doB,   
+                                                        address, 
+                                                        true);
+                                                flag = this.admin.createNewUserInstance(empObj, empObj.getCoreUserType(), true);
+                                                break;
+                                            default: flag = false;
+                                                    empObj = null;
+                                                break;
+        
+        return empObj;
     
- 
+    }*/
     
 }

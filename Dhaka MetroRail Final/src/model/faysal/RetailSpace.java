@@ -4,11 +4,13 @@
  */
 package model.faysal;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Faysal Kabir Ashik
  */
-public class RetailSpace {
+public class RetailSpace  implements Serializable {
  
     private String  leaseAgreements;
     private String tenantInfo;

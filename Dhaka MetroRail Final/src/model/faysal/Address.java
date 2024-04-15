@@ -4,11 +4,13 @@
  */
 package model.faysal;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Faysal Kabir Ashik
  */
-public class Address {
+public class Address implements Serializable {
     
     private String district;
     private String city;

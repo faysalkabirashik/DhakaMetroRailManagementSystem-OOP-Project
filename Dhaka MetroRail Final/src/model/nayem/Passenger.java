@@ -26,6 +26,8 @@ public class Passenger extends User implements Serializable{
     
     public static int userCount = 0;
     public static int itsTotalMember(){return userCount;}
+    private String nid = null;
+    private String birtCertificate = null;
 
     public Passenger(String coreUserType, String userIdentity) {
         super(coreUserType, userIdentity);
@@ -47,12 +49,25 @@ public class Passenger extends User implements Serializable{
 
     
     
-    
-    
-    ////////////////////////////// getter setter//////////////////////
+        ////////////////////////////// getter setter//////////////////////
     //// all implemented in User class, so no need
     
-    
+    public String getNid() {
+        return nid;
+    }
+
+    public void setNid(String nid) {
+        this.nid = nid;
+    }
+
+    public String getBirtCertificate() {
+        return birtCertificate;
+    }
+ 
+
+    public void setBirtCertificate(String birtCertificate) {
+        this.birtCertificate = birtCertificate;
+    }
 
     @Override
     public void changePassword() {

@@ -4,13 +4,14 @@
  */
 package model.faysal;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  *
  * @author Faysal Kabir Ashik
  */
-public class ResourceRequest {
+public class ResourceRequest  implements Serializable {
     
     private String requestID;
     private String requestedResource;

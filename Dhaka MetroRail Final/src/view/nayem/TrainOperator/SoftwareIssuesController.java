@@ -36,10 +36,10 @@ public class SoftwareIssuesController implements Initializable {
     @FXML
     private void submitButtonOnClick(ActionEvent event) 
     {
-        sf = new SystemFeedback(employeeIdTextField.getText(),incidentDatePicker.getValue().toString(),descriptionTextArea.getText(),
-        suggesionTextArea.getText());
-        to.systemFeedback(sf);
-        
+//        sf = new SystemFeedback(employeeIdTextField.getText(),incidentDatePicker.getValue().toString(),descriptionTextArea.getText(),
+//        suggesionTextArea.getText());
+//        to.systemFeedback(sf);
+//        
     }
     
 }

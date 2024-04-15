@@ -1,6 +1,7 @@
 
 package model.faysal;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import model.faysal.users.Employee;
@@ -9,7 +10,7 @@ import model.faysal.users.Employee;
  *
  * @author Faysal Kabir Ashik
  */
-public class LeaveRequest {
+public class LeaveRequest  implements Serializable {
             
     private String id;
     private Employee employee;
