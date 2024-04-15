@@ -128,14 +128,17 @@ public class SystemAdminDashboardController implements Initializable {
 
     @FXML
     private void chartInfoOnMouseClikced(MouseEvent event) {
+        loadUIAtDashBorderPane("/view/faysal.station_manager/FareChart");
     }
 
     @FXML
     private void scheduleOnMouseClicked(MouseEvent event) {
+         loadUIAtDashBorderPane("/view/faysal.station_manager/ScheduleShow");
     }
 
     @FXML
     private void reportOnMouseClicked(MouseEvent event) {
+        loadUIAtDashBorderPane("/view/faysal.station_manager/Reporting");
     }
 
     @FXML
