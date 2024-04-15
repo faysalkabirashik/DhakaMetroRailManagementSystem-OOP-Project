@@ -1,4 +1,4 @@
-package view.nayem.TrainOperator;
+package view.nayem.passenger;
 
 import java.io.IOException;
 import java.net.URL;
@@ -11,30 +11,29 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import model.faysal.AlertGen;
 import model.nayem.Emergency;
-import model.nayem.TrainOperator;
+import model.nayem.Passenger;
 
-public class EmergencySceneController implements Initializable {
+public class PassengerEmergencyController implements Initializable {
 
-    @FXML    private ComboBox emergencyComboBox;
+    @FXML    private ComboBox<String> emergencyComboBox;
     @FXML    private TextField trainNumberTextField;
     @FXML    private TextArea describeTextArea;
     @FXML    private TextField nextStationTextField;
-    TrainOperator to = new TrainOperator();
+    Passenger pas = new Passenger();
 
     @Override
-    public void initialize(URL url, ResourceBundle rb) 
-    {
+    public void initialize(URL url, ResourceBundle rb) {
         emergencyComboBox.getItems().addAll("Medical","Fire","Security treats","Tract Obstructions");
     }    
 
     @FXML
     private void backButtonOnClick(ActionEvent event) throws IOException 
     {
-        to.loadDashBoard(event);
+        pas.loadDashBoard(event);
     }
 
     @FXML
-    private void submitButtonOnClick(ActionEvent event) throws IOException
+    private void submitButtonOnClick(ActionEvent event) throws IOException 
     {
         String trainNum = trainNumberTextField.getText();
         String nextStation = nextStationTextField.getText();
@@ -46,9 +45,9 @@ public class EmergencySceneController implements Initializable {
         }else{
             Emergency emergency = new Emergency(trainNum,nextStation,
                 describe,type);
-            to.reportEmergency(emergency);
+            pas.reportEmergency(emergency);
             AlertGen.successfulAlert("Successfully submitted");
-            to.loadDashBoard(event);
+            pas.loadDashBoard(event);
         }
     }
     

@@ -193,5 +193,27 @@ public class Passenger extends User implements Serializable{
 
         return em;
     }  
+
+    public void reportEmergency(Emergency emergency) 
+    {
+        File f = null;
+        FileOutputStream fos = null;      
+        ObjectOutputStream oos = null;        
+        try {
+            f = new File("PassengerEmergency.bin");
+            if(f.exists()){
+                fos = new FileOutputStream(f,true);
+                oos = new AppendableObjectOutputStream(fos);
+            }
+            else{
+                fos = new FileOutputStream(f);
+                oos = new ObjectOutputStream(fos);               
+            }
+            oos.writeObject(emergency);
+
+        } catch (IOException ex) {
+            //
+        }
+    }
     
 }

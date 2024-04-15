@@ -174,14 +174,13 @@ public class LoginSceneController implements Initializable {
     @FXML
     private void signUpOnAction(ActionEvent event) throws IOException 
     {
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/nayem/passenger/PassengerSignUpScene.fxml"));
-//            Parent parent = loader.load();
-//            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//            Scene newScene = new Scene(parent);
-//            currentStage.setScene(newScene);
-//            currentStage.show();
-        TrainOperator to = new TrainOperator();
-        to.loadDashBoard(event);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/nayem/passenger/PassengerSignUpScene.fxml"));
+            Parent parent = loader.load();
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene newScene = new Scene(parent);
+            currentStage.setScene(newScene);
+            currentStage.show();
+
     }
 
     @FXML

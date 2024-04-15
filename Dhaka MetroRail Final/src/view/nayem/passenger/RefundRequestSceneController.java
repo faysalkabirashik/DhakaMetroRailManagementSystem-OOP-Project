@@ -26,7 +26,7 @@ public class RefundRequestSceneController implements Initializable {
     @FXML    private ComboBox selectTransactionIdComboBox;
     @FXML    private TextArea reasonTextArea;
     
-    //Passenger passenger = new Passenger();
+    Passenger passenger = new Passenger();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) 
@@ -41,7 +41,7 @@ public class RefundRequestSceneController implements Initializable {
     @FXML
     private void cancelButtonOnClick(ActionEvent event) throws IOException 
     {
-        //passenger.loadDashBoard(event);
+        passenger.loadDashBoard(event);
     }
 
     @FXML
