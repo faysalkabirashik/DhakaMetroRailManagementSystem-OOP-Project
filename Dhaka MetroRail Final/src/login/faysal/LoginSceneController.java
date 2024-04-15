@@ -286,10 +286,7 @@ public class LoginSceneController implements Initializable {
     @FXML
     private void signUpButtonOnClick(ActionEvent event) throws IOException
     {
-<<<<<<< HEAD
-        //
-}
-=======
+ 
         FXMLLoader dashLoader = new FXMLLoader(getClass().getResource("/view/nayem/passenger/SignUpScene.fxml"));
         Parent root = dashLoader.load();
 
@@ -299,6 +296,6 @@ public class LoginSceneController implements Initializable {
         window.setScene( new Scene(root));
         window.show();
     }
->>>>>>> Faysal-2111585
+ 
     
 }
