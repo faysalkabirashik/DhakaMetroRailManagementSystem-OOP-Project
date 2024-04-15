@@ -49,3 +49,5 @@
 !/Dhaka MetroRail Final/src/model/faysal/LeaveRequest.java
 !/Dhaka MetroRail Final/src/model/faysal/ResourceRequest.java
 >>>>>>> fa56ffb1d293ef322ef5ca3db9ba818eaf05233b
+!/Dhaka MetroRail Final/src/view/nayem/passenger/SignUpSceneController.java
+!/Dhaka MetroRail Final/src/view/nayem/passenger/PurchaseTicketSceneController.java

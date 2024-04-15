@@ -2,23 +2,17 @@ package view.nayem.passenger;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
 import model.nayem.Update;
 
 public class RealTimeUpdateController implements Initializable {
@@ -41,7 +35,7 @@ public class RealTimeUpdateController implements Initializable {
     private void searhButtonOnClick(ActionEvent event) throws IOException 
     {
         File f = null;
-        FileInputStream fis = null;      
+        FileInputStream fis = null;
         ObjectInputStream ois = null;
         String train;
         try {
@@ -53,7 +47,7 @@ public class RealTimeUpdateController implements Initializable {
             try{
                 while(true){
                     System.out.println("Printing objects.");
-                    update = (Update)ois.readObject();  // emp.
+                    update = (Update)ois.readObject();
                     System.out.println(update);
                     train = update.getTrainId();
                     if (train.equals(trainId.getText()))

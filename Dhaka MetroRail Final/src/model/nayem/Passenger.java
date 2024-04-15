@@ -19,7 +19,6 @@ import javafx.stage.Stage;
 import model.faysal.Address;
 import model.faysal.users.User;
 import model.faysal.AppendableObjectOutputStream;
-import model.faysal.users.Accountant;
 
 
 

@@ -111,26 +111,26 @@ public class TrainOperator extends Employee implements Serializable, Countable
     }
     
  
-    public void systemFeedback(SystemFeedback softwareFeedback)
-    {
-        File f = null;
-        FileOutputStream fos = null;      
-        ObjectOutputStream oos = null;        
-        try {
-            f = new File("SystemFeedback.bin");
-            if(f.exists()){
-                fos = new FileOutputStream(f,true);
-                oos = new AppendableObjectOutputStream(fos);                
-            }
-            else{
-                fos = new FileOutputStream(f);
-                oos = new ObjectOutputStream(fos);               
-            }
-            oos.writeObject(softwareFeedback);
-        } catch (IOException ex) {
-            //
-        }
-    }
+//    public void systemFeedback(SystemFeedback softwareFeedback)
+//    {
+//        File f = null;
+//        FileOutputStream fos = null;      
+//        ObjectOutputStream oos = null;        
+//        try {
+//            f = new File("SystemFeedback.bin");
+//            if(f.exists()){
+//                fos = new FileOutputStream(f,true);
+//                oos = new AppendableObjectOutputStream(fos);                
+//            }
+//            else{
+//                fos = new FileOutputStream(f);
+//                oos = new ObjectOutputStream(fos);               
+//            }
+//            oos.writeObject(softwareFeedback);
+//        } catch (IOException ex) {
+//            //
+//        }
+//    }
     public void realTimeUpdate(Update update)
     {
         File f = null;
@@ -235,5 +235,27 @@ public class TrainOperator extends Employee implements Serializable, Countable
 
         return em;
     }  
+
+    public void systemFeedback(model.nayem.SystemFeedback sf) {
+        {
+        File f = null;
+        FileOutputStream fos = null;      
+        ObjectOutputStream oos = null;        
+        try {
+            f = new File("SystemFeedback.bin");
+            if(f.exists()){
+                fos = new FileOutputStream(f,true);
+                oos = new AppendableObjectOutputStream(fos);                
+            }
+            else{
+                fos = new FileOutputStream(f);
+                oos = new ObjectOutputStream(fos);               
+            }
+            oos.writeObject(sf);
+        } catch (IOException ex) {
+            //
+        }
+    }
+    }
     
 }
