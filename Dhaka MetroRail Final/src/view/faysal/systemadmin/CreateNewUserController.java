@@ -151,6 +151,9 @@ public class CreateNewUserController implements Initializable {
         
         this.admin =  admin;
     }
+    
+    
+    
    
     private void updateDistrictComboBox() {
         String selectedDivision = divisionComboBox.getValue();
