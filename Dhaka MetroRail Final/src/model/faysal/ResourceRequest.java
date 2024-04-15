@@ -14,31 +14,14 @@ import java.util.List;
 public class ResourceRequest  implements Serializable {
     
     private String requestID;
-    private String requestedResource;
+    private String stationName;
   
-    
-    private String status;
+ 
     private String description;
 
-    public ResourceRequest(String requestID, String requestedResource, String status, String description) {
+    public ResourceRequest(String requestID, String stationName, String description) {
         this.requestID = requestID;
-        this.requestedResource = requestedResource;
-        this.status = status;
-        this.description = description;
-    }
-
-    public ResourceRequest(String requestID, List<String> requestedResourceList, String status, String description) {
-        this.requestID = requestID;
- 
-        this.status = status;
-        this.description = description;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
+        this.stationName = stationName;
         this.description = description;
     }
 
@@ -50,32 +33,23 @@ public class ResourceRequest  implements Serializable {
         this.requestID = requestID;
     }
 
-    public String getRequestedResource() {
-        return requestedResource;
+    public String getStationName() {
+        return stationName;
     }
 
-    public void setRequestedResource(String requestedResource) {
-        this.requestedResource = requestedResource;
+    public void setStationName(String stationName) {
+        this.stationName = stationName;
     }
 
-
-
-
-    public String getStatus() {
-        return status;
+    public String getDescription() {
+        return description;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    @Override
-    public String toString() {
-        return "ResourceRequest{" + "requestID=" + requestID + ", requestedResource=" + requestedResource + ", status=" + status + ", description=" + description + '}';
-    }
-
-
-    
+   
     
     
     

@@ -81,6 +81,46 @@ public class StationDashboardController implements Initializable {
         
     }
 
+    @FXML
+    private void makeAnnouncement(ActionEvent event) {
+        
+        loadUIAtDashBorderPane("MakeAnnouncement");
+        
+    }
+
+    @FXML
+    private void showRules(ActionEvent event) {
+        loadUIAtDashBorderPane("ShowRulesType");
+    }
+
+
+
+    @FXML
+    private void reporting(ActionEvent event) {
+        loadUIAtDashBorderPane("Reporting");
+    }
+
+    @FXML
+    private void schedule(ActionEvent event) {
+        loadUIAtDashBorderPane("ScheduleShow");
+    }
+
+    @FXML
+    private void resourceReq(ActionEvent event) {
+        
+        loadUIAtDashBorderPane("RequestResource");
+    }
+
+    @FXML
+    private void fareChart(ActionEvent event) {
+        loadUIAtDashBorderPane("FareChart");
+        
+    }
+
+ 
+    
+
+
 
     
 }

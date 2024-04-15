@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.faysal.station_manager.FareChartController">
+   <center>
+      <ImageView fitHeight="465.0" fitWidth="785.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+         <image>
+            <Image url="@../../../../../../../../ONEDRI~1/OOPMAI~1/DHAKAM~3/DHAKAM~1/src/images/2023-0~1.JPG" />
+         </image>
+      </ImageView>
+   </center>
+</BorderPane>

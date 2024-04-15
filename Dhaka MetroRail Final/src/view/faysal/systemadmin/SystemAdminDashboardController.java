@@ -119,6 +119,7 @@ public class SystemAdminDashboardController implements Initializable {
 
     @FXML
     private void addStationOnMouseClicked(MouseEvent event) {
+        loadUIAtDashBorderPane("SetNewStation");
     }
 
     @FXML

@@ -87,13 +87,13 @@
       <VBox prefHeight="578.0" prefWidth="207.0" BorderPane.alignment="CENTER">
          <children>
             <Button mnemonicParsing="false" onAction="#rulesOnAction" prefHeight="63.0" prefWidth="207.0" text="Manage Rules" />
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="207.0" text="Station" />
-            <Button mnemonicParsing="false" prefHeight="65.0" prefWidth="207.0" text="Reporting" />
-            <Button mnemonicParsing="false" prefHeight="59.0" prefWidth="236.0" text="Make announcement" />
-            <Button mnemonicParsing="false" prefHeight="79.0" prefWidth="207.0" text="Lost &amp; Found" />
-            <Button mnemonicParsing="false" prefHeight="59.0" prefWidth="236.0" text="Resourse Request" />
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="207.0" text="View Schedule" />
-            <Button mnemonicParsing="false" prefHeight="57.0" prefWidth="207.0" text="Get Updates from Train Operator" />
+            <Button mnemonicParsing="false" onAction="#showRules" prefHeight="70.0" prefWidth="207.0" text="Show Rules" />
+            <Button mnemonicParsing="false" onAction="#makeAnnouncement" prefHeight="65.0" prefWidth="207.0" text="Make Announcement" />
+            <Button mnemonicParsing="false" onAction="#resourceReq" prefHeight="59.0" prefWidth="236.0" text="Resourse Request" />
+            <Button mnemonicParsing="false" onAction="#fareChart" prefHeight="79.0" prefWidth="207.0" text="Fare Chart" />
+            <Button mnemonicParsing="false" onAction="#reporting" prefHeight="64.0" prefWidth="207.0" text="Reporting" />
+            <Button mnemonicParsing="false" onAction="#schedule" prefHeight="70.0" prefWidth="207.0" text="View Schedule" />
+            <Button disable="true" mnemonicParsing="false" prefHeight="57.0" prefWidth="207.0" text="Get Updates from Train Operator" />
             <Button mnemonicParsing="false" onAction="#LogoutOnAction" prefHeight="59.0" prefWidth="236.0" text="Logout" />
          </children>
       </VBox>

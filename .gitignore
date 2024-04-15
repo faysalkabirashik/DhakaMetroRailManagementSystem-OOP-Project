@@ -55,6 +55,28 @@
 !/Dhaka MetroRail Final/src/view/faysal/systemadmin/SetNewTrainController.java
 !/Dhaka MetroRail Final/src/view/faysal/systemadmin/SetNewStationController.java
 !/Dhaka MetroRail Final/src/view/nayem/passenger/PassengerSignUpSceneController.java
+<<<<<<< HEAD
 !/Dhaka MetroRail Final/src/view/nayem/TrainOperator/EmergencySceneController.java
 !/Dhaka MetroRail Final/src/model/nayem/Emergency.java
 !/Dhaka MetroRail Final/src/view/nayem/TrainOperator/MessageToMaintenanceStaffController.java
+=======
+=======
+!/Dhaka MetroRail Final/src/bintest/TestingBin.java
+>>>>>>> Faysal-2111585
+!/Dhaka MetroRail Final/src/view/faysal/station_manager/HUI1Controller.java
+!/Dhaka MetroRail Final/src/model/faysal/Rules.java
+!/Dhaka MetroRail Final/src/model/faysal/Total.java
+!/Dhaka MetroRail Final/src/view/faysal/station_manager/RulesTypeShowController.java
+!/Dhaka MetroRail Final/src/view/faysal/station_manager/CheckPointsController.java
+!/Dhaka MetroRail Final/src/view/faysal/station_manager/HeadOfSecurityController.java
+!/Dhaka MetroRail Final/src/view/faysal/station_manager/RulesController.java
+!/Dhaka MetroRail Final/src/view/faysal/station_manager/ShowRulesType.java
+!/Dhaka MetroRail Final/src/view/faysal/station_manager/ShowRulesTypeController.java
+!/Dhaka MetroRail Final/src/view/faysal/station_manager/NesessaryAnnouncementController.java
+!/Dhaka MetroRail Final/src/view/faysal/station_manager/MakeAnnouncementController.java
+!/Dhaka MetroRail Final/src/view/faysal/station_manager/ReportingController.java
+!/Dhaka MetroRail Final/src/model/faysal/Report.java
+!/Dhaka MetroRail Final/src/view/faysal/station_manager/ScheduleShowController.java
+!/Dhaka MetroRail Final/src/view/faysal/station_manager/RequestResourceController.java
+!/Dhaka MetroRail Final/src/view/faysal/station_manager/FareChartController.java
+>>>>>>> Faysal-2111585
