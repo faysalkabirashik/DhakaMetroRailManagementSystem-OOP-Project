@@ -186,8 +186,8 @@ public abstract class  User implements Serializable, Countable {
     /// own method ///////////
 
     
-        public static int getCountOfAllTypeOfUsers()
-    {
+    public static int getCountOfAllTypeOfUsers()
+        {
         ObservableList<User> allUsers = FXCollections.observableArrayList();
         File f = null;
         FileInputStream fis = null;      
@@ -203,6 +203,7 @@ public abstract class  User implements Serializable, Countable {
                         {
                         tempUser = (User) ois.readObject();
                         allUsers.add((User)tempUser);
+                            System.out.println("added");
                         }
                     }
                 catch(IOException | ClassNotFoundException e){}
@@ -212,7 +213,7 @@ public abstract class  User implements Serializable, Countable {
                 try {if(ois != null) ois.close();} 
                 catch (IOException ex) { }
                 }
-
+            System.out.println(allUsers);
         return allUsers.size();
     }
         
@@ -406,6 +407,7 @@ public abstract class  User implements Serializable, Countable {
                     tempLogin = (LoginInfo) ois.readObject();
                     System.out.println(tempLogin.toString());
                     if (idcheck.equals(tempLogin.getUserIdentity())){
+                        System.out.println("idflag");
                         System.out.println(idflag);
                         idflag=1;
                         if (passcheck.equals(tempLogin.getPassword())){

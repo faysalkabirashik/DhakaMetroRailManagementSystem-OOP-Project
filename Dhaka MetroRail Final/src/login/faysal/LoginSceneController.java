@@ -95,22 +95,23 @@ public class LoginSceneController implements Initializable {
                 switch(login){
                     case  "00":
 
-                    Parent scene2Parent = FXMLLoader.load(getClass().getResource("view/faysal/systemadmin/SystemAdminDashboard.fxml"));
-                    Scene scene2 = new Scene(scene2Parent);
-                    Stage stg2 = (Stage)((Node)event.getSource()).getScene().getWindow(); 
-                    stg2.setScene(scene2);
+//                    Parent scene2Parent = new FXMLLoader.load(getClass().getResource("view/faysal/systemadmin/SystemAdminDashboard.fxml"));
+//                    Scene scene2 = new Scene(scene2Parent);
+//                    Stage stg2 = (Stage)((Node)event.getSource()).getScene().getWindow(); 
+//                    stg2.setScene(scene2);
+//                    stg2.show();
 //                        
-//                        FXMLLoader dashLoader = new FXMLLoader(getClass().getResource("SystemAdminDashboard.fxml"));
-//                        System.out.println("Dash");
-//                        Parent root = dashLoader.load();
-//                        System.out.println("loader");
-//                        
-//                        SystemAdminDashboardController obj = dashLoader.getController();
-//                        obj.setSystemAdmin((SystemAdministrator) User.getObjectV2(userID, "System Administrator"));
-//
-//                        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//                        window.setScene(new Scene(root));
-//                        window.show();
+                        FXMLLoader dashLoader = new FXMLLoader(getClass().getResource("/view/faysal/systemadmin/SystemAdminDashboard.fxml"));
+                        System.out.println("Dash");
+                        Parent root = dashLoader.load();
+                        System.out.println("loader");
+                        
+                        SystemAdminDashboardController obj = dashLoader.getController();
+                        obj.setSystemAdmin((SystemAdministrator) User.getObjectV2(userID, "System Administrator"));
+
+                        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                        window.setScene(new Scene(root));
+                        window.show();
 
 //                        AlertGen.successfulAlert("Login Successfull!");
                         break;

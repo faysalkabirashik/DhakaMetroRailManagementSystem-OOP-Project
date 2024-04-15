@@ -8,7 +8,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import model.faysal.users.Employee;
 import model.faysal.users.LoginInfo;
+import model.faysal.users.SystemAdministrator;
 import model.faysal.users.User;
 
 /**
@@ -21,32 +23,35 @@ public class TestingBin {
  
      */
     public static void main(String[] args) {
-        System.out.println(User.verifyLogin("2400100", "Pass@123"));
+//        System.out.println(User.verifyLogin("2400100", "Pass@123"));
+//        System.out.println(User.getCountOfAllTypeOfUsers());
 //            System.out.println(User.getObjectV2("2400100", "System Administrator"));
+
+
 read();
     }
-       public static void read()
+
+        public static void read()
     {
         File f = null;
         FileInputStream fis = null;      
         ObjectInputStream ois = null;
         
         try {
-            f = new File("LoginInfoObjects.bin");
+            f = new File("EmployeeObjects.bin");
             fis = new FileInputStream(f);
             ois = new ObjectInputStream(fis);
-            LoginInfo tempUser = null;
+            Employee tempUser = null;
             try{
                 System.out.println("Printing objects.");
                 while(true){
                     
-                    tempUser = (LoginInfo) ois.readObject();
+                    tempUser = (SystemAdministrator) ois.readObject();
                     //Object obj = ois.readObject();
                     //obj.submitReport();
 //                    loginInfo.submitReport();
                     
                     System.out.println(tempUser.toString());
-                    System.out.println(tempUser.getUserIdentity() +" "  +tempUser.getPassword()+" " + tempUser.getUserType());
 //                    outputTextArea.appendText(emp.toString());
                 }
             }//end of nested try
