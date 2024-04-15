@@ -56,9 +56,6 @@ public class TrainOperatorDashboradController implements Initializable {
     private void viewMaintanaceScheduleButtonOnClicked(ActionEvent event) {
     }
 
-    @FXML
-    private void notifcationButtonOnClicked(ActionEvent event) {
-    }
 
     @FXML
     private void softwareIssuesButtonOnClicked(ActionEvent event) throws IOException 
