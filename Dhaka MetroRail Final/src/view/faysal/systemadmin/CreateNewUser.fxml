@@ -126,8 +126,11 @@
             <Label layoutX="624.0" layoutY="195.0" prefHeight="17.0" prefWidth="102.0" text="Birth Certificate" />
             <CheckBox fx:id="showPass_checkBox" layoutX="620.0" layoutY="328.0" mnemonicParsing="false" onAction="#showPassCheckBoxOnAction" text="Show Password" />
             <Label fx:id="showPass_label" layoutX="620.0" layoutY="435.0" prefHeight="27.0" prefWidth="225.0" style="-fx-background-color: white; -fx-border-color: #BABABA; -fx-background-radius: 4; -fx-border-radius: 4;" visible="false" />
+<<<<<<< Updated upstream
             <TextField fx:id="id_textField" layoutX="416.0" layoutY="386.0" prefHeight="39.0" prefWidth="187.0" />
             <Label layoutX="418.0" layoutY="358.0" prefHeight="17.0" prefWidth="178.0" text="Give Valid ID (all digits, 7 long)" />
+=======
+>>>>>>> Stashed changes
          </children>
          <BorderPane.margin>
             <Insets left="10.0" />

@@ -9,5 +9,9 @@ package model.jubair.accountant;
  * @author user
  */
 public class EmployeeAc {
+
+    public EmployeeAc(int parseInt, String text, String text0, String value, float parseFloat, String status) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
 }
