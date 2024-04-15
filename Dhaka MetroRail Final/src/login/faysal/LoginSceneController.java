@@ -42,7 +42,6 @@ public class LoginSceneController implements Initializable {
     @FXML    private AnchorPane forgotPass_anchorPane;
     @FXML    private TextField forgetAnchorPane_userIdentity_textField;
     @FXML    private TextField forgetAnchorPane_email_textField;
-    @FXML    private Label lopinInfo_label;
     TrainOperator to = new TrainOperator();
     Passenger passen = new Passenger();
     @FXML
@@ -176,8 +175,14 @@ public class LoginSceneController implements Initializable {
     }
 
     @FXML
-    private void signUpOnAction(ActionEvent event) {
-        
+    private void signUpOnAction(ActionEvent event) throws IOException 
+    {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/nayem/passenger/PassengerSignUpScene.fxml"));
+            Parent parent = loader.load();
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene newScene = new Scene(parent);
+            currentStage.setScene(newScene);
+            currentStage.show();
     }
 
     @FXML
@@ -268,11 +273,11 @@ public class LoginSceneController implements Initializable {
     private void four(ActionEvent event) {
         AlertGen.inforamtion("", "Work under maintanance!");
     }
-
+    
     @FXML
     private void signUpButtonOnClick(ActionEvent event) throws IOException
     {
-        to.loadDashBoard(event);
-    }
+        //
+}
     
 }

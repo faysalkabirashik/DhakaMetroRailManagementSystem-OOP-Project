@@ -4,6 +4,7 @@
  */
 package view.nayem.passenger;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.List;
@@ -13,7 +14,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
@@ -24,31 +29,23 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
-import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import model.faysal.Address;
 import model.faysal.AddressLists;
 import model.faysal.AlertGen;
 import model.faysal.DescriptionOnUserCreation;
 import model.faysal.Validation;
-import model.faysal.users.Accountant;
-import model.faysal.users.Employee;
-import model.faysal.users.HeadOfHR;
-import model.faysal.users.MaintenanceStaff;
-import model.faysal.users.PublicServiceProvider;
-import model.faysal.users.StationManager;
 import model.faysal.users.SystemAdministrator;
 import model.faysal.users.User;
 import model.nayem.Passenger;
-import model.nayem.TrainOperator;
 
 /**
  * FXML Controller class
  *
  * @author ASUS
  */
-public class SignUpSceneController implements Initializable {
+public class PassengerSignUpSceneController implements Initializable {
 
-    @FXML    private AnchorPane parentAnchorPane;
     @FXML    private TextArea note_textArea;
     @FXML    private TextField fullName_textField;
     @FXML    private ComboBox<String> cityComboBox;
@@ -79,8 +76,7 @@ public class SignUpSceneController implements Initializable {
     @FXML    private Label nid_label;
     @FXML    private CheckBox showPass_checkBox;
     @FXML    private Label showPass_label;
-    @FXML    private TextField id_textField;
-    
+
     private User user;
     private String generatedID = "";
 
@@ -118,7 +114,6 @@ public class SignUpSceneController implements Initializable {
             //AutoFilterSupportToComboBox.setTheComboBoxAutoFilterSupported(cityComboBox, cityItems );
         }
     }
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         List<String> countries = AddressLists.getCountries();
@@ -148,12 +143,18 @@ public class SignUpSceneController implements Initializable {
     }    
 
     @FXML
-    private void goBackBtnOnAction(ActionEvent event) {
+    private void goBackBtnOnAction(ActionEvent event) throws IOException 
+    {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/login/faysal/LoginScene.fxml"));
+            Parent parent = loader.load();
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene newScene = new Scene(parent);
+            currentStage.setScene(newScene);
+            currentStage.show();
     }
 
     @FXML
-    private void saveAndCreateUserBtnOnAction(ActionEvent event) 
-    {
+    private void saveAndCreateUserBtnOnAction(ActionEvent event) {
         RadioButton genderRB = (RadioButton) gender_toggleGroup.getSelectedToggle(); 
         String fullName = fullName_textField.getText();
         String country = country_comBox.getValue();
@@ -299,7 +300,7 @@ public class SignUpSceneController implements Initializable {
     }
 
     @FXML
-    private void generateEmployeeIdBtnOnAction(ActionEvent event) {generatePassengerUsername_textField.setText(Validation.generateUsername());
+    private void generateEmployeeIdBtnOnAction(ActionEvent event) {
     }
 
     @FXML
@@ -307,11 +308,12 @@ public class SignUpSceneController implements Initializable {
     }
 
     @FXML
-    private void generatePassengerUsernameBtnOnAction(ActionEvent event) {generatePassengerUsername_textField.setText(Validation.generateUsername());
+    private void generatePassengerUsernameBtnOnAction(ActionEvent event) {
     }
 
     @FXML
-    private void showPassCheckBoxOnAction(ActionEvent event) {if ( showPass_checkBox.isSelected() ) {
+    private void showPassCheckBoxOnAction(ActionEvent event) {
+        if ( showPass_checkBox.isSelected() ) {
           String pass = generatePassword_passwordField.getText();
           showPass_label.setVisible(true);
           showPass_label.setText(pass);
