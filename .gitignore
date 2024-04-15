@@ -54,4 +54,8 @@
 !/Dhaka MetroRail Final/src/view/faysal/systemadmin/CreateReportsOnEmployeesController.java
 !/Dhaka MetroRail Final/src/view/faysal/systemadmin/SetNewTrainController.java
 !/Dhaka MetroRail Final/src/view/faysal/systemadmin/SetNewStationController.java
+<<<<<<< HEAD
 !/Dhaka MetroRail Final/src/view/nayem/passenger/PassengerSignUpSceneController.java
+=======
+!/Dhaka MetroRail Final/src/bintest/TestingBin.java
+>>>>>>> Faysal-2111585
