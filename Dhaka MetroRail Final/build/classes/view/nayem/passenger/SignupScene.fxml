@@ -23,7 +23,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="550.0" prefWidth="856.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane prefHeight="550.0" prefWidth="856.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.nayem.passenger.SignUpSceneController">
    <center>
       <AnchorPane id="AnchorPane" fx:id="parentAnchorPane" prefHeight="568.0" prefWidth="863.0" BorderPane.alignment="CENTER_RIGHT">
          <children>
