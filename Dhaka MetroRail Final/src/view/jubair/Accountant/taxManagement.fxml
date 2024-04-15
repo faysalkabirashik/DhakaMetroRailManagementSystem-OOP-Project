@@ -29,12 +29,12 @@
             <Image url="@MetroRail%20Logo%20png.png" />
          </image>
       </ImageView>
-      <Label layoutX="160.0" layoutY="21.0" text="Employee Payroll" textFill="#0a8d45">
+      <Label layoutX="160.0" layoutY="21.0" text="Tax" textFill="#0a8d45">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Button layoutX="416.0" layoutY="420.0" mnemonicParsing="false" onAction="#employeePayBackButtonOnAction" style="-fx-background-color: e82e2f;" text="Back" textFill="WHITE">
+      <Button layoutX="416.0" layoutY="420.0" mnemonicParsing="false" style="-fx-background-color: e82e2f;" text="Back" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

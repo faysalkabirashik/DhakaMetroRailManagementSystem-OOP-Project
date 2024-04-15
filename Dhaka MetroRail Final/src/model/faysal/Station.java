@@ -6,8 +6,6 @@ package model.faysal;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
@@ -15,67 +13,107 @@ import java.util.List;
  */
 public class Station  implements Serializable {
     
-    
-    
+    private String stationName; 
+     private String stationID;
+     private int stationSerial;
+     private String stationType;
+     private String category;
+     private String cityName;
+     private String description;  
+     
+     LocalDate configureDate;
+     LocalDate openingDate;
 
-    
-    private String serial;
-    private String city;
 
-    public String getSerial() {
-        return serial;
+    public Station(String stationName, String stationID, int stationSerial, String stationType, String category, String cityName, String description, LocalDate configureDate, LocalDate openingDate) {
+        this.stationName = stationName;
+        this.stationID = stationID;
+        this.stationSerial = stationSerial;
+        this.stationType = stationType;
+        this.category = category;
+        this.cityName = cityName;
+        this.description = description;
+        this.configureDate = configureDate;
+        this.openingDate = openingDate;
     }
 
-    public void setSerial(String serial) {
-        this.serial = serial;
+    public LocalDate getOpeningDate() {
+        return openingDate;
     }
 
-    public String getCity() {
-        return city;
+    public void setOpeningDate(LocalDate openingDate) {
+        this.openingDate = openingDate;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public String getStationName() {
+        return stationName;
     }
 
-    public Station() {
+    public void setStationName(String stationName) {
+        this.stationName = stationName;
     }
 
-    public Station(String serial, String city) {
-        this.serial = serial;
-        this.city = city;
+    public String getStationID() {
+        return stationID;
+    }
+
+    public void setStationID(String stationID) {
+        this.stationID = stationID;
+    }
+
+    public int getStationSerial() {
+        return stationSerial;
+    }
+
+    public void setStationSerial(int stationSerial) {
+        this.stationSerial = stationSerial;
+    }
+
+    public String getStationType() {
+        return stationType;
+    }
+
+    public void setStationType(String stationType) {
+        this.stationType = stationType;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getCityName() {
+        return cityName;
+    }
+
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public LocalDate getConfigureDate() {
+        return configureDate;
+    }
+
+    public void setConfigureDate(LocalDate configureDate) {
+        this.configureDate = configureDate;
     }
 
     @Override
     public String toString() {
-        return "Station{" + "serial=" + serial + ", city=" + city + '}';
+        return "Station{" + "stationName=" + stationName + ", stationID=" + stationID + ", stationSerial=" + stationSerial + ", stationType=" + stationType + ", category=" + category + ", cityName=" + cityName + ", description=" + description + ", configureDate=" + configureDate + ", openingDate=" + openingDate + ", openingDate=" + openingDate + '}';
     }
-            
-            
-    public static List<String> getList(){
-        List<String> stations = new ArrayList<>();
-
-        stations.add("Uttara North");
-        stations.add("Uttara Center");
-        stations.add("Uttara South");
-        stations.add("Pallabi");
-        stations.add("Mirpur 11");
-        stations.add("Mirpur 10");
-        stations.add("Kazipara");
-        stations.add("Shewrapara");
-        stations.add("Agargaon");
-        stations.add("Bijoy Sarani");
-        stations.add("Farmgate");
-        stations.add("Karwan Bazar");
-        stations.add("Shahbag");
-        stations.add("Dhaka University");
-        stations.add("Bangladesh Secretariat");
-        stations.add("Motijheel");
-        return stations;
-    
-    
-    }
-    
+     
      
     
 }

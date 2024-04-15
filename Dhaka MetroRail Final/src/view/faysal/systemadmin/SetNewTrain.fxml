@@ -9,29 +9,33 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 
-<AnchorPane id="AnchorPane" prefHeight="542.0" prefWidth="764.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.faysal.systemadmin.SetNewTrainController">
+<AnchorPane id="AnchorPane" prefHeight="542.0" prefWidth="764.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="351.0" layoutY="42.0" text="Add New Train" underline="true" />
       <Label layoutX="83.0" layoutY="93.0" prefHeight="25.0" prefWidth="58.0" text="Train ID:" />
-      <TextField fx:id="trainID_textField" layoutX="173.0" layoutY="93.0" prefHeight="25.0" prefWidth="199.0" />
+      <TextField layoutX="173.0" layoutY="93.0" prefHeight="25.0" prefWidth="199.0" />
       <Label layoutX="83.0" layoutY="129.0" prefHeight="25.0" prefWidth="79.0" text="Train Name:" />
-      <TextField fx:id="trainName_txtField" layoutX="173.0" layoutY="129.0" prefHeight="25.0" prefWidth="199.0" />
+      <TextField layoutX="173.0" layoutY="129.0" prefHeight="25.0" prefWidth="199.0" />
       <Label layoutX="83.0" layoutY="172.0" prefHeight="25.0" prefWidth="103.0" text="Starting Station:" />
-      <ComboBox fx:id="start_comBox" layoutX="173.0" layoutY="170.0" prefHeight="25.0" prefWidth="199.0" promptText="Select Station" />
+      <ComboBox layoutX="173.0" layoutY="170.0" prefHeight="25.0" prefWidth="199.0" promptText="Select Station" />
       <Label layoutX="83.0" layoutY="210.0" prefHeight="25.0" prefWidth="103.0" text="Destination:" />
-      <ComboBox fx:id="end_comBox" layoutX="173.0" layoutY="209.0" prefHeight="25.0" prefWidth="199.0" promptText="Select Station" />
+      <ComboBox layoutX="173.0" layoutY="209.0" prefHeight="25.0" prefWidth="199.0" promptText="Select Station" />
       <Label layoutX="83.0" layoutY="252.0" prefHeight="25.0" prefWidth="103.0" text="Route:" />
-      <ComboBox fx:id="route_comBox" layoutX="173.0" layoutY="251.0" prefHeight="25.0" prefWidth="199.0" promptText="Select Route" />
+      <ComboBox layoutX="173.0" layoutY="251.0" prefHeight="25.0" prefWidth="199.0" promptText="Select Route" />
       <Line endX="-100.0" endY="211.0" layoutX="490.0" layoutY="83.0" startX="-100.0" />
       <Label layoutX="406.0" layoutY="93.0" prefHeight="25.0" prefWidth="89.0" text="Total Car/Bogie:" />
-      <TextField fx:id="totalCar_txt" layoutX="510.0" layoutY="93.0" prefHeight="25.0" prefWidth="149.0" />
+      <TextField layoutX="510.0" layoutY="93.0" prefHeight="25.0" prefWidth="149.0" />
       <Label layoutX="406.0" layoutY="129.0" prefHeight="25.0" prefWidth="79.0" text="Car Capacity:" />
-      <TextField fx:id="carCapacity_txt" layoutX="511.0" layoutY="129.0" prefHeight="25.0" prefWidth="149.0" />
+      <TextField layoutX="511.0" layoutY="129.0" prefHeight="25.0" prefWidth="149.0" />
       <Label layoutX="406.0" layoutY="166.0" prefHeight="25.0" prefWidth="79.0" text="Train Capacity:" />
-      <TextArea fx:id="note_area" layoutX="78.0" layoutY="353.0" prefHeight="102.0" prefWidth="610.0" text="Description/Note:" />
+      <Label layoutX="511.0" layoutY="165.0" prefHeight="25.0" prefWidth="149.0" style="-fx-background-color: ffffff; -fx-border-color: b1b1b1;" />
+      <TextArea layoutX="78.0" layoutY="353.0" prefHeight="102.0" prefWidth="610.0" text="Description/Note:" />
       <Label layoutX="406.0" layoutY="248.0" prefHeight="25.0" prefWidth="79.0" text="Opening Date:" />
-      <DatePicker fx:id="openingDate_datePicker" layoutX="511.0" layoutY="248.0" />
-      <Button layoutX="265.0" layoutY="476.0" mnemonicParsing="false" onAction="#saveBtnOnAction" prefHeight="25.0" prefWidth="183.0" text="Save" />
-      <Label fx:id="totalCap_label" layoutX="509.0" layoutY="163.0" prefHeight="36.0" prefWidth="160.0" style="-fx-border-color: blue;" />
+      <Label layoutX="406.0" layoutY="204.0" prefHeight="25.0" prefWidth="103.0" text="Configure Date:" />
+      <DatePicker layoutX="511.0" layoutY="248.0" />
+      <Label layoutX="510.0" layoutY="204.0" prefHeight="25.0" prefWidth="149.0" style="-fx-background-color: ffffff; -fx-border-color: b1b1b1;" />
+      <Button layoutX="86.0" layoutY="495.0" mnemonicParsing="false" text="Save" />
+      <Button layoutX="625.0" layoutY="495.0" mnemonicParsing="false" text="Go Back" />
+      <Button layoutX="598.0" layoutY="38.0" mnemonicParsing="false" text="View Train" />
    </children>
 </AnchorPane>
