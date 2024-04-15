@@ -15,7 +15,7 @@ public class ResourceRequest  implements Serializable {
     
     private String requestID;
     private String requestedResource;
-    private List<String> requestedResourceList;
+  
     
     private String status;
     private String description;
@@ -29,7 +29,7 @@ public class ResourceRequest  implements Serializable {
 
     public ResourceRequest(String requestID, List<String> requestedResourceList, String status, String description) {
         this.requestID = requestID;
-        this.requestedResourceList = requestedResourceList;
+ 
         this.status = status;
         this.description = description;
     }
@@ -58,13 +58,8 @@ public class ResourceRequest  implements Serializable {
         this.requestedResource = requestedResource;
     }
 
-    public List<String> getRequestedResourceList() {
-        return requestedResourceList;
-    }
 
-    public void setRequestedResourceList(List<String> requestedResourceList) {
-        this.requestedResourceList = requestedResourceList;
-    }
+
 
     public String getStatus() {
         return status;
@@ -76,7 +71,7 @@ public class ResourceRequest  implements Serializable {
 
     @Override
     public String toString() {
-        return "ResourceRequest{" + "requestID=" + requestID + ", requestedResource=" + requestedResource + ", requestedResourceList=" + requestedResourceList + ", status=" + status + ", description=" + description + '}';
+        return "ResourceRequest{" + "requestID=" + requestID + ", requestedResource=" + requestedResource + ", status=" + status + ", description=" + description + '}';
     }
 
 
