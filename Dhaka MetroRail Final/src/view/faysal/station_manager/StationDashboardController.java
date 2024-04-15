@@ -9,6 +9,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -33,34 +34,6 @@ public class StationDashboardController implements Initializable {
     private TextField note_textField;
     @FXML
     private Label name_label;
-    @FXML
-    private HBox dashBoard_hBox;
-    @FXML
-    private Label dashBoardLabel;
-    @FXML
-    private HBox addUser;
-    @FXML
-    private Label profileLabel;
-    @FXML
-    private HBox logOut_hBox;
-    @FXML
-    private HBox goals_hBox;
-    @FXML
-    private Label expencesLID;
-    @FXML
-    private HBox download_Hbox;
-    @FXML
-    private Label downloadLid;
-    @FXML
-    private HBox notifications_hBox;
-    @FXML
-    private Label downloadLid1;
-    @FXML
-    private HBox logOut_hBox1;
-    @FXML
-    private HBox logOut_hBox11;
-    @FXML
-    private HBox logOut_hBox111;
 
     public void loadUIAtDashBorderPane(String ui) {
         Parent root;
@@ -83,44 +56,16 @@ public class StationDashboardController implements Initializable {
     }    
 
     @FXML
-    private void dashboardMouseOnClicked(MouseEvent event) {
+    private void rulesOnAction(ActionEvent event) {
+        
+        loadUIAtDashBorderPane("Rules");
     }
 
     @FXML
-    private void addUserOnMouseClicked(MouseEvent event) {
+    private void LogoutOnAction(ActionEvent event) {
+        
     }
 
-    @FXML
-    private void addTrainOnMouseClicked(MouseEvent event) {
-    }
-
-    @FXML
-    private void addTrainOnAction(MouseEvent event) {
-    }
-
-    @FXML
-    private void addStationOnMouseClicked(MouseEvent event) {
-    }
-
-    @FXML
-    private void generatePDF(MouseEvent event) {
-    }
-
-    @FXML
-    private void chartInfoOnMouseClikced(MouseEvent event) {
-    }
-
-    @FXML
-    private void scheduleOnMouseClicked(MouseEvent event) {
-    }
-
-    @FXML
-    private void reportOnMouseClicked(MouseEvent event) {
-    }
-
-    @FXML
-    private void logOutOnMouseClicked(MouseEvent event) {
-    }
 
     
 }

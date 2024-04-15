@@ -29,7 +29,7 @@ import model.faysal.Total;
  * @author Ishti
  */
 
-public class RulesTypeShowController implements Initializable {
+public class ShowRulesTypeController implements Initializable {
 
     @FXML private ComboBox<String> RulesTypeComboBox;
     @FXML private TableView<Total> totalCountTableView;

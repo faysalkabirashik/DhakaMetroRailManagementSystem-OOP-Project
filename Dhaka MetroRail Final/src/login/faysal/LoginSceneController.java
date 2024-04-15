@@ -111,19 +111,13 @@ public class LoginSceneController implements Initializable {
                         break;
                     case "01":
 
-                        System.out.println("Login succes         ");
-                         show_label.setText("Login success     ");
-//                                Parent dashBoard = null;
-//                                FXMLLoader loader = new FXMLLoader(getClass().getResource(".fxml"));
-//                                Parent root = (Parent) loader.load();
-//                                Scene scene = new Scene(root);
-//                                StationManager obj = loader.getController();
-//                                obj.setSystemAdmin((SystemAdministrator) User.getObjectV2(userID, "System Administrator"));
-//
-//                                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//                                stage.setScene(scene);
-//                                stage.show();
-//                                AlertGen.successfulAlert("Login Successfull!"); 
+                        FXMLLoader dashLoader1 = new FXMLLoader(getClass().getResource("/view/faysal/station_manager/StationManagerDashboard.fxml"));
+                        System.out.println("Dash");
+                        Parent root1 = dashLoader1.load();
+                        System.out.println("loader");
+                          Stage window1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                        window1.setScene(new Scene(root1));
+                        window1.show();
 
 
                         break;

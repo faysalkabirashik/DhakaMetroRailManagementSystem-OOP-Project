@@ -172,7 +172,7 @@ public class RulesController implements Initializable {
     @FXML
     private void showRulesButtonOnClick(MouseEvent event) throws IOException {
         
-        Parent fileChooserViewParent = FXMLLoader.load(getClass().getResource("rulesTypeShow.fxml"));
+        Parent fileChooserViewParent = FXMLLoader.load(getClass().getResource("/view/faysal/station_manager/ShowRulesType.fxml"));
         Scene fileChooserViewScene = new Scene(fileChooserViewParent);
         Stage newWindow  = new Stage();
         newWindow.setResizable(false);

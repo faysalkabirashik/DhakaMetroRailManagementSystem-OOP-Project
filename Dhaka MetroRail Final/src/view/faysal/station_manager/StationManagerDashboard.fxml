@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
@@ -8,7 +8,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.LinearGradient?>
@@ -16,169 +15,6 @@
 <?import javafx.scene.text.Font?>
 
 <BorderPane fx:id="adminMainDashboard_borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="1025.0" style="-fx-border-radius: 8; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.faysal.station_manager.StationDashboardController">
-   <left>
-      <VBox prefHeight="590.0" prefWidth="155.0" style="-fx-background-color: #f6f6fa; -fx-border-color: #C5AE85;" BorderPane.alignment="BOTTOM_LEFT">
-         <children>
-            <HBox fx:id="dashBoard_hBox" onMouseClicked="#dashboardMouseOnClicked" prefHeight="30.0" prefWidth="153.0" spacing="5.0" style="-fx-background-radius: 5;">
-               <children>
-                  <ImageView fitHeight="40.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../images/faysal/details_100px.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets left="10.0" top="10.0" />
-                     </HBox.margin>
-                  </ImageView>
-                  <Label fx:id="dashBoardLabel" prefHeight="60.0" prefWidth="92.0" style="-fx-font-size: 15;" text="Dashboard" />
-               </children>
-               <VBox.margin>
-                  <Insets bottom="15.0" />
-               </VBox.margin>
-               <opaqueInsets>
-                  <Insets top="10.0" />
-               </opaqueInsets>
-               <padding>
-                  <Insets bottom="5.0" right="5.0" top="5.0" />
-               </padding>
-            </HBox>
-            <HBox fx:id="addUser" onMouseClicked="#addUserOnMouseClicked" prefHeight="63.0" prefWidth="256.0" spacing="10.0" style="-fx-background-radius: 20; -fx-background-color: f6f6fa;">
-               <children>
-                  <ImageView fitHeight="35.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../images/faysal/change_user_male_32px.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets left="10.0" top="10.0" />
-                     </HBox.margin>
-                  </ImageView>
-                  <Label fx:id="profileLabel" prefHeight="77.0" prefWidth="76.0" style="-fx-font-size: 15;" text="Add User">
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                     <padding>
-                        <Insets bottom="5.0" top="5.0" />
-                     </padding>
-                  </Label>
-               </children>
-               <padding>
-                  <Insets bottom="5.0" />
-               </padding>
-            </HBox>
-            <HBox fx:id="logOut_hBox" onDragDetected="#addTrainOnAction" onMouseClicked="#addTrainOnMouseClicked" prefHeight="50.0" prefWidth="256.0" spacing="5.0">
-               <children>
-                  <ImageView fitHeight="30.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../images/faysal/subway_48px.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets left="10.0" top="10.0" />
-                     </HBox.margin>
-                  </ImageView>
-                  <Label prefHeight="85.0" prefWidth="76.0" style="-fx-font-size: 15;" text="Add Train" />
-               </children>
-               <padding>
-                  <Insets bottom="15.0" />
-               </padding>
-            </HBox>
-            <HBox fx:id="goals_hBox" onMouseClicked="#addStationOnMouseClicked" prefHeight="50.0" prefWidth="256.0" spacing="5.0">
-               <children>
-                  <ImageView fitHeight="40.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../images/faysal/train-station.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets left="10.0" top="10.0" />
-                     </HBox.margin>
-                  </ImageView>
-                  <Label fx:id="expencesLID" prefHeight="75.0" prefWidth="76.0" style="-fx-font-size: 14;" text="Add Station" />
-               </children>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-               <padding>
-                  <Insets bottom="5.0" top="5.0" />
-               </padding>
-            </HBox>
-            <HBox fx:id="download_Hbox" onMouseClicked="#generatePDF" prefHeight="50.0" prefWidth="256.0" spacing="10.0">
-               <children>
-                  <ImageView fitHeight="35.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../images/faysal/pdf.png" />
-                     </image>
-                  </ImageView>
-                  <Label fx:id="downloadLid" prefHeight="50.0" prefWidth="112.0" style="-fx-font-size: 12;" text="Generate PDF" />
-               </children>
-               <padding>
-                  <Insets bottom="10.0" left="5.0" top="10.0" />
-               </padding>
-            </HBox>
-            <HBox fx:id="notifications_hBox" onMouseClicked="#chartInfoOnMouseClikced" prefHeight="50.0" prefWidth="256.0" spacing="5.0">
-               <children>
-                  <ImageView fitHeight="30.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../images/faysal/chart_64px.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets left="10.0" top="10.0" />
-                     </HBox.margin>
-                  </ImageView>
-                  <Label fx:id="downloadLid1" prefHeight="85.0" prefWidth="85.0" style="-fx-font-size: 12;" text=" Chart Info" />
-               </children>
-               <padding>
-                  <Insets bottom="15.0" left="5.0" />
-               </padding>
-            </HBox>
-            <HBox fx:id="logOut_hBox1" layoutX="11.0" layoutY="309.0" onMouseClicked="#scheduleOnMouseClicked" prefHeight="50.0" prefWidth="256.0" spacing="5.0">
-               <children>
-                  <ImageView fitHeight="40.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../images/faysal/Schedule_100px.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets left="10.0" top="10.0" />
-                     </HBox.margin>
-                  </ImageView>
-                  <Label prefHeight="85.0" prefWidth="76.0" style="-fx-font-size: 15;" text="Schedule" />
-               </children>
-               <padding>
-                  <Insets bottom="15.0" />
-               </padding>
-            </HBox>
-            <HBox fx:id="logOut_hBox11" layoutX="11.0" layoutY="364.0" onMouseClicked="#reportOnMouseClicked" prefHeight="50.0" prefWidth="256.0" spacing="5.0">
-               <children>
-                  <ImageView fitHeight="40.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../images/faysal/report.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets left="10.0" top="10.0" />
-                     </HBox.margin>
-                  </ImageView>
-                  <Label prefHeight="85.0" prefWidth="76.0" style="-fx-font-size: 15;" text="Report" />
-               </children>
-               <padding>
-                  <Insets bottom="15.0" />
-               </padding>
-            </HBox>
-            <HBox fx:id="logOut_hBox111" layoutX="11.0" layoutY="419.0" onMouseClicked="#logOutOnMouseClicked" prefHeight="44.0" prefWidth="153.0" spacing="5.0">
-               <children>
-                  <ImageView fitHeight="30.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../images/faysal/logout.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets left="10.0" top="10.0" />
-                     </HBox.margin>
-                  </ImageView>
-                  <Label prefHeight="85.0" prefWidth="76.0" style="-fx-font-size: 15;" text="Log out" />
-               </children>
-               <padding>
-                  <Insets bottom="15.0" />
-               </padding>
-            </HBox>
-         </children>
-      </VBox>
-   </left>
    <top>
       <AnchorPane prefHeight="70.0" prefWidth="1024.0" style="-fx-background-color: #6BB2A2; -fx-border-color: #C5AE85;" BorderPane.alignment="CENTER">
          <children>
@@ -247,4 +83,26 @@
          </children>
       </AnchorPane>
    </bottom>
+   <left>
+      <VBox prefHeight="578.0" prefWidth="207.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onAction="#rulesOnAction" prefHeight="63.0" prefWidth="207.0" text="Manage Rules" />
+            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="207.0" text="Station" />
+            <Button mnemonicParsing="false" prefHeight="65.0" prefWidth="207.0" text="Reporting" />
+            <Button mnemonicParsing="false" prefHeight="59.0" prefWidth="236.0" text="Make announcement" />
+            <Button mnemonicParsing="false" prefHeight="79.0" prefWidth="207.0" text="Lost &amp; Found" />
+            <Button mnemonicParsing="false" prefHeight="59.0" prefWidth="236.0" text="Resourse Request" />
+            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="207.0" text="View Schedule" />
+            <Button mnemonicParsing="false" prefHeight="57.0" prefWidth="207.0" text="Get Updates from Train Operator" />
+            <Button mnemonicParsing="false" onAction="#LogoutOnAction" prefHeight="59.0" prefWidth="236.0" text="Logout" />
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" layoutX="138.0" layoutY="83.0" prefHeight="270.0" prefWidth="432.0" text="Welcome" textAlignment="CENTER" />
+         </children>
+      </Pane>
+   </center>
 </BorderPane>
