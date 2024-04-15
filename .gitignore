@@ -54,8 +54,12 @@
 !/Dhaka MetroRail Final/src/view/faysal/systemadmin/CreateReportsOnEmployeesController.java
 !/Dhaka MetroRail Final/src/view/faysal/systemadmin/SetNewTrainController.java
 !/Dhaka MetroRail Final/src/view/faysal/systemadmin/SetNewStationController.java
-<<<<<<< HEAD
 !/Dhaka MetroRail Final/src/view/nayem/passenger/PassengerSignUpSceneController.java
+<<<<<<< HEAD
+!/Dhaka MetroRail Final/src/view/nayem/TrainOperator/EmergencySceneController.java
+!/Dhaka MetroRail Final/src/model/nayem/Emergency.java
+!/Dhaka MetroRail Final/src/view/nayem/TrainOperator/MessageToMaintenanceStaffController.java
+=======
 =======
 !/Dhaka MetroRail Final/src/bintest/TestingBin.java
 >>>>>>> Faysal-2111585
@@ -75,3 +79,4 @@
 !/Dhaka MetroRail Final/src/view/faysal/station_manager/ScheduleShowController.java
 !/Dhaka MetroRail Final/src/view/faysal/station_manager/RequestResourceController.java
 !/Dhaka MetroRail Final/src/view/faysal/station_manager/FareChartController.java
+>>>>>>> Faysal-2111585
