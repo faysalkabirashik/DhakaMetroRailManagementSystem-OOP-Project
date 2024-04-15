@@ -254,50 +254,6 @@ public class CreateNewUserController implements Initializable {
         divisionComboBox.setOnAction(event -> updateDistrictComboBox());
         districtComboBox.setOnAction(event -> updateCityComboBox());
 
-        /*
-        // initialize district combo box    based on division selection
-        division_comBox.valueProperty().addListener((observable, oldValue, newValue) -> 
-        {
-            try 
-            {
-                districtCityMap  = AddressLists.getMap(newValue);
-
-                if (newValue != null && districtCityMap != null && districtCityMap.containsKey(newValue)) 
-                {
-                    List<String> districts = AddressLists.getBdDistricts(newValue);
-                    AutoFilterSupportToComboBox.setTheComboBoxAutoFilterSupportedV2(district_comBox, districts);
-                    district_comBox.setDisable(false);
-                
-                }
-                else
-                {
-                    district_comBox.getItems().clear();
-                    district_comBox.setDisable(true);
-                    city_comBox.getItems().clear();                  
-                    city_comBox.setDisable(true);
-                    
- 
-                }
-            }catch(Exception e){
-                System.out.println(e.toString());
-            }
-        });
-
-        
-        district_comBox.valueProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue != null) {
-                // If a district is selected newValue now district
-                List<String> cities = AddressLists.getMap(division_comBox.getValue()).get(newValue);
-                AutoFilterSupportToComboBox.setTheComboBoxAutoFilterSupportedV2(city_comBox, cities);
-                city_comBox.setDisable(false); // Enable comboBox3
-            } else {
-                // If no district is selected
-                city_comBox.getItems().clear();
-                city_comBox.setDisable(true);
-                
-            }
-        });        
-         */
     }
 
     @FXML

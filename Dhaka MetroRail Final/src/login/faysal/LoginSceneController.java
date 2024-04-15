@@ -13,6 +13,9 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.fxml.Initializable;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import model.faysal.AlertGen;
@@ -22,6 +25,10 @@ import model.nayem.TrainOperator;
 import javafx.scene.layout.AnchorPane;
 import model.faysal.AlertGen;
 import model.faysal.Validation;
+import model.faysal.users.StationManager;
+import model.faysal.users.SystemAdministrator;
+import model.faysal.users.User;
+import view.faysal.systemadmin.SystemAdminDashboardController;
 
 /**
  * FXML Controller class
@@ -60,75 +67,104 @@ public class LoginSceneController implements Initializable {
 //        //to.loadDashBoard(event);
 //        passen.loadDashBoard(event);
         @FXML
-    private void loginButtonOnAction(ActionEvent event) {
+    private void loginButtonOnAction(ActionEvent event) throws IOException {
         
-     if (userIdentity_textField.getText() == null || userIdentity_textField.getText().trim().isEmpty())
-     {
-            show_label.setText("UserIdentity field is empty!");
-             AlertGen.inforamtion("","UserIdentity field is empty!");
-     }
-  
-     else 
-     {
-         if (password_passField.getText() == null || password_passField.getText().trim().isEmpty()) 
-         {
-            show_label.setText("Password field is empty!");
-            AlertGen.inforamtion("","Password not given");
-            
-         }
-         else
-         {
-                String   userID = (userIdentity_textField.getText());
-                String pass =  password_passField.getText();
-                if (Validation.allDigits((userID)))
-                {
-                    ///checking for employ 
-                    if (Validation.isValisUserIdentity(userID))
-                    {
-                        
-                        if (Validation.isValidPassword(pass))
-                        {
-                        show_label.setText("Checking for verificaiton....");
-                        ////////////////////////////////////////////////////////////
-                        
-                        
-                        
-                        
-                        }
-                        ////////////////////////////////////////////////////////////
-                        else{
-                        AlertGen.unsuccessfulAlert("Not a valid password given");
-                        }
-                        
-                    }
-                    else
-                    {
-                        AlertGen.unsuccessfulAlert("Not a valid UserIdentity");
-                    }
-                }
-                else
-                {
-                    ////////////// checking for passenger ///////////////////////////////////// verification
-                    if (Validation.isValidUsername(userID) && Validation.isValidPassword(pass))
-                    {
-                        AlertGen.inforamtion("Successfull" , "You have to wait! An Email will be sent or Contact Admin");
+        if (userIdentity_textField.getText() == null || userIdentity_textField.getText().trim().isEmpty())
+        {
+               show_label.setText("UserIdentity field is empty!");
+                AlertGen.inforamtion("","UserIdentity field is empty!");
+        }
 
-                    ////////// only for passenger, just verify that user exist, and correct pass
-                    /////////// then 
-                    
-                    
-                    
-                    }
-                    /////////////////////////////////////////////////////////////////////////////////////
-                    else{
-                    AlertGen.unsuccessfulAlert("Not valid entry. Please check!");
-                    }
-                }
-         }
-       
-     }   
-        
+        else if (password_passField.getText() == null || password_passField.getText().trim().isEmpty()) 
+        {
+           show_label.setText("Password field is empty!");
+           AlertGen.inforamtion("","Password not given");}
+        else
+        {
+            String   userID = (userIdentity_textField.getText());
+            String pass =  password_passField.getText();
+            ///checking for employ 
+            if (  !Validation.isValisUserIdentity(userID) || !Validation.isValidPassword(pass))
+            {
+                AlertGen.unsuccessfulAlert("Not valid entry");
+            }else
+            {
+                show_label.setText("Checking for verificaiton....");
+                 ////////////////////////////////////////////////////////////      
+                String login = User.loginVerify(userID, pass);
+                switch(login){
+                    case  "00":
+                        FXMLLoader dashLoader = new FXMLLoader(getClass().getResource("SystemAdminDashboard.fxml"));
+                        Parent root = dashLoader.load();
+                        SystemAdminDashboardController obj = dashLoader.getController();
+                        obj.setSystemAdmin((SystemAdministrator) User.getObjectV2(userID, "System Administrator"));
+
+                        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                        window.setScene(new Scene(root));
+                        window.show();
+
+                        AlertGen.successfulAlert("Login Successfull!");
+                        break;
+                    case "01":
+
+                        System.out.println("Login succes         ");
+                         show_label.setText("Login success     ");
+//                                Parent dashBoard = null;
+//                                FXMLLoader loader = new FXMLLoader(getClass().getResource(".fxml"));
+//                                Parent root = (Parent) loader.load();
+//                                Scene scene = new Scene(root);
+//                                StationManager obj = loader.getController();
+//                                obj.setSystemAdmin((SystemAdministrator) User.getObjectV2(userID, "System Administrator"));
+//
+//                                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//                                stage.setScene(scene);
+//                                stage.show();
+//                                AlertGen.successfulAlert("Login Successfull!"); 
+
+
+                        break;
+                    case "02":
+                        System.out.println("Login succes         ");
+                         show_label.setText("Login success     ");
+
+
+                        break;
+                    case "03":
+                        System.out.println("Login succes         ");
+                         show_label.setText("Login success     ");
+
+
+                        break;
+                    case "04":
+                        System.out.println("Login succes         ");
+                         show_label.setText("Login success     ");
+
+
+                        break;
+                    case "05":
+                        System.out.println("Login succes         ");
+                         show_label.setText("Login success     ");
+
+
+                        break;
+                    case "06":
+                        System.out.println("Login succes         ");
+                         show_label.setText("Login success     ");
+                    case "07":
+                            System.out.println("Login not success - Pasenger         ");
+                         show_label.setText("Login success     ");
+
+                    break;}// switch break
+
+
+                
+                        }
+                        ////////////////////////////////////////////////////////////
+
+     } 
     }
+        
+
 
     @FXML
     private void forgotButtonOnAction(ActionEvent event) {
@@ -213,7 +249,7 @@ public class LoginSceneController implements Initializable {
     }
 
     @FXML
-    private void one(ActionEvent event) {
+    private void one(ActionEvent event) { 
         AlertGen.inforamtion("", "Work under maintanance!");
     }
 

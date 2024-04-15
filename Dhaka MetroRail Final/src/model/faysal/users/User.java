@@ -282,28 +282,28 @@ public abstract class  User implements Serializable, Countable {
         String path = "";
         switch(type){
             case "Passenger":
-                path="PassengerObjects.bin";
+                path="Passenger.bin";
                 break;
             case  "System Administrator":
-                path="SystemAdministratorObjects.bin";
+                path="SystemAdministrator.bin";
                 break;
             case "Station Manager":
-                path="StationManagerObjects.bin";
+                path="StationManager.bin";
                 break;
             case "Train Operator":
-                path="TrainOperatorObjects.bin";
+                path="TrainOperator.bin";
                 break;
             case "Head of HR":
-                path="HeadOfHRObjects.bin";
+                path="HeadOfHR.bin";
                 break;
             case "Maintenance Staff":
-                path="MaintenanceStaffObjects.bin";
+                path="MaintenanceStaff.bin";
                 break;
             case "Public Service Provider":
-                path="PublicServiceProviderObjects.bin";
+                path="PublicServiceProvider.bin";
                 break;
             case "Accountant":
-                path="AccountantObjects.bin";
+                path="Accountant.bin";
                 break;
         }
         
@@ -382,7 +382,7 @@ public abstract class  User implements Serializable, Countable {
     }
     
       
-    public static String userLoginVerify(String idcheck, String passcheck){
+    public static String loginVerify(String idcheck, String passcheck){
         File f = null;
         FileInputStream fis = null;      
         ObjectInputStream ois = null;
@@ -405,9 +405,10 @@ public abstract class  User implements Serializable, Countable {
                         idflag=1;
                         if (passcheck.equals(tempLogin.getPassword())){
                             passflag=1;
-                            
-                            if (   tempLogin.equals("System Administrator")   ) 
-                            
+                            if (tempLogin.getUserType().equals("Passenger")) {
+                                userType = "07";
+                            }      
+                            else if (   tempLogin.equals("System Administrator")   )
                             {
                                 userType = "00";
                             } else if (tempLogin.getUserType().equals("Station Manager")) {
@@ -423,6 +424,7 @@ public abstract class  User implements Serializable, Countable {
                             } else if (tempLogin.getUserType().equals("Public Service Provider")) {
                                 userType = "06";
                             }
+                            
                             break;
                         }
                     }
