@@ -87,8 +87,6 @@ public class SignUpSceneController implements Initializable {
     private DescriptionOnUserCreation descriptionObj ;
 
     private SystemAdministrator admin = new SystemAdministrator();
-    @FXML
-    
     public SystemAdministrator getSystemAdmin(){
         return admin;
     }
