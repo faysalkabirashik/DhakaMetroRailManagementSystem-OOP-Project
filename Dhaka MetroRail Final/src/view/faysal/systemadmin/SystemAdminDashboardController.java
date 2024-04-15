@@ -41,8 +41,6 @@ public class SystemAdminDashboardController implements Initializable {
     @FXML
     private Label profileLabel;
     @FXML
-    private HBox goals_hBox;
-    @FXML
     private Label expencesLID;
     @FXML
     private HBox download_Hbox;
@@ -64,6 +62,8 @@ public class SystemAdminDashboardController implements Initializable {
     private HBox logOut_hBox111;
 
     private SystemAdministrator admin;
+    @FXML
+    private HBox addStation;
     public SystemAdministrator getSystemAdmin(){
         return admin;
     }
@@ -96,17 +96,6 @@ public class SystemAdminDashboardController implements Initializable {
 
 
 
-//    private void goalsOnMouseClicked(MouseEvent event) {
-//        loadUIAtMainBorderPane("SystemAdminGoals");
-//    }
-//
-//    private void downloadOnMouseClicked(MouseEvent event) {
-//        loadUIAtMainBorderPane("CreateNewUser");
-//    }
-
-    @FXML
-    private void noteTextFieldKeyReleased(KeyEvent event) {
-    }
 
     @FXML
     private void dashboardMouseOnClicked(MouseEvent event) {
@@ -120,11 +109,9 @@ public class SystemAdminDashboardController implements Initializable {
 
     @FXML
     private void addTrainOnMouseClicked(MouseEvent event) {
+        loadUIAtDashBorderPane("SetNewTrain");
     }
 
-    @FXML
-    private void addTrainOnAction(MouseEvent event) {
-    }
 
     @FXML
     private void addStationOnMouseClicked(MouseEvent event) {

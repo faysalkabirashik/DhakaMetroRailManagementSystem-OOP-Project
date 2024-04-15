@@ -1,38 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Line?>
 
-<AnchorPane id="AnchorPane" prefHeight="542.0" prefWidth="764.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" prefHeight="339.0" prefWidth="494.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.faysal.systemadmin.SetNewStationController">
    <children>
-      <Label layoutX="351.0" layoutY="42.0" text="Set New Station" underline="true" />
-      <Label layoutX="83.0" layoutY="93.0" prefHeight="25.0" prefWidth="58.0" text="Staion ID:" />
-      <TextField fx:id="stationID_textField" layoutX="173.0" layoutY="93.0" prefHeight="25.0" prefWidth="199.0" />
-      <Label layoutX="83.0" layoutY="129.0" prefHeight="25.0" prefWidth="79.0" text="Station Name:" />
-      <TextField fx:id="stationName_textField" layoutX="173.0" layoutY="129.0" prefHeight="25.0" prefWidth="199.0" />
-      <Label layoutX="83.0" layoutY="172.0" prefHeight="25.0" prefWidth="103.0" text="Station Type:" />
-      <ComboBox fx:id="type_comBox" layoutX="173.0" layoutY="170.0" prefHeight="25.0" prefWidth="199.0" promptText="Select " />
-      <Label layoutX="83.0" layoutY="210.0" prefHeight="25.0" prefWidth="103.0" text="Operation Time:" />
-      <ComboBox fx:id="opTime_comBox" layoutX="173.0" layoutY="209.0" prefHeight="25.0" prefWidth="199.0" promptText="Select Time" />
-      <Label layoutX="83.0" layoutY="252.0" prefHeight="25.0" prefWidth="103.0" text="Category:" />
-      <ComboBox fx:id="category_comBox" layoutX="173.0" layoutY="251.0" prefHeight="25.0" prefWidth="199.0" promptText="Select " />
-      <Line endX="-100.0" endY="211.0" layoutX="490.0" layoutY="83.0" startX="-100.0" />
-      <Label layoutX="406.0" layoutY="93.0" prefHeight="25.0" prefWidth="103.0" text="Station Serial No.:" />
-      <TextField fx:id="serialNo_textField" layoutX="510.0" layoutY="93.0" prefHeight="25.0" prefWidth="149.0" />
-      <Label layoutX="406.0" layoutY="129.0" prefHeight="25.0" prefWidth="85.0" text="City Name:" />
-      <TextField fx:id="city_textField" layoutX="511.0" layoutY="129.0" prefHeight="25.0" prefWidth="149.0" />
-      <TextArea fx:id="description_textArea" layoutX="78.0" layoutY="353.0" prefHeight="102.0" prefWidth="610.0" text="Description/Note:" />
-      <Label layoutX="406.0" layoutY="248.0" prefHeight="25.0" prefWidth="79.0" text="Opening Date:" />
-      <Label layoutX="406.0" layoutY="204.0" prefHeight="25.0" prefWidth="103.0" text="Configure Date:" />
-      <DatePicker fx:id="opening_datePicker" layoutX="511.0" layoutY="248.0" />
-      <Button layoutX="296.0" layoutY="483.0" mnemonicParsing="false" onAction="#saveButtonOnClicked" prefHeight="25.0" prefWidth="85.0" text="Save" />
-      <Button layoutX="625.0" layoutY="495.0" mnemonicParsing="false" text="Go Back" />
-      <DatePicker fx:id="config_datePicker" layoutX="511.0" layoutY="209.0" />
+      <Label layoutX="182.0" layoutY="46.0" text="Set New Station" underline="true" />
+      <Label layoutX="155.0" layoutY="97.0" prefHeight="25.0" prefWidth="103.0" text="Station ID" />
+      <TextField fx:id="id_textField" layoutX="282.0" layoutY="97.0" prefHeight="25.0" prefWidth="149.0" />
+      <Label layoutX="164.0" layoutY="146.0" prefHeight="25.0" prefWidth="85.0" text="City Name:" />
+      <TextField fx:id="city_textField" layoutX="282.0" layoutY="146.0" prefHeight="25.0" prefWidth="149.0" />
+      <Button layoutX="140.0" layoutY="219.0" mnemonicParsing="false" onAction="#saveButtonOnClicked" prefHeight="25.0" prefWidth="284.0" text="Save" />
    </children>
 </AnchorPane>

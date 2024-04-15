@@ -96,6 +96,7 @@ public class LoginSceneController implements Initializable {
                     case  "00":
                         FXMLLoader dashLoader = new FXMLLoader(getClass().getResource("SystemAdminDashboard.fxml"));
                         Parent root = dashLoader.load();
+                        
                         SystemAdminDashboardController obj = dashLoader.getController();
                         obj.setSystemAdmin((SystemAdministrator) User.getObjectV2(userID, "System Administrator"));
 
