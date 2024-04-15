@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import model.faysal.AlertGen;
 import model.nayem.TrainOperator;
 import model.nayem.SystemFeedback;
 
@@ -36,10 +37,12 @@ public class SoftwareIssuesController implements Initializable {
     @FXML
     private void submitButtonOnClick(ActionEvent event) 
     {
-//        sf = new SystemFeedback(employeeIdTextField.getText(),incidentDatePicker.getValue().toString(),descriptionTextArea.getText(),
-//        suggesionTextArea.getText());
-//        to.systemFeedback(sf);
-//        
+        sf = new SystemFeedback(employeeIdTextField.getText(),incidentDatePicker.getValue().toString(),descriptionTextArea.getText(),
+        suggesionTextArea.getText());
+        to.systemFeedback(sf);
+        AlertGen.successfulAlert("Submitted Successfully");
+        employeeIdTextField.clear();descriptionTextArea.clear();suggesionTextArea.clear();
+        
     }
     
 }
