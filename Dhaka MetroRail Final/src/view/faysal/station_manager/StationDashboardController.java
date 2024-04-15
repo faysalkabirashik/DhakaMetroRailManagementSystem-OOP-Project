@@ -13,12 +13,15 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 import view.faysal.systemadmin.SystemAdminDashboardController;
 
 /**
@@ -62,7 +65,19 @@ public class StationDashboardController implements Initializable {
     }
 
     @FXML
-    private void LogoutOnAction(ActionEvent event) {
+    private void LogoutOnAction(ActionEvent event) throws Exception{
+
+        
+        FXMLLoader dashLoader1 = new FXMLLoader(getClass().getResource("/view/faysal/login/LoginScene.fxml"));
+        System.out.println("Dash");
+        Parent root1 = dashLoader1.load();
+        System.out.println("loader");
+        Stage window1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window1.setScene(new Scene(root1));
+        window1.show();
+        
+        
+        
         
     }
 
