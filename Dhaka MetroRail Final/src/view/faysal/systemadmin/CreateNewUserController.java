@@ -57,6 +57,7 @@ public class CreateNewUserController implements Initializable {
  
     @FXML private TextField fullName_textField;
     @FXML private TextArea note_textArea;
+    @FXML
     private ToggleGroup userType_toggleGroup;
     @FXML    private TextField road_textField;
     @FXML    private TextField village_textField;
@@ -70,6 +71,7 @@ public class CreateNewUserController implements Initializable {
     @FXML    private TextField nid_textField;
     @FXML    private TextField birthCer_textField;
     @FXML    private TextField generatePassengerUsername_textField;
+    @FXML
     private ComboBox<String> employeeType_comBox;
     @FXML    private TextField house_textField;
     @FXML    private ComboBox<String> country_comBox;
@@ -77,14 +79,19 @@ public class CreateNewUserController implements Initializable {
     @FXML    private Label generateEmployeeId_label;
     @FXML    private PasswordField generatePassword_passwordField;
     @FXML    private Button generatePassengerUsername_button;
+    @FXML
     private DatePicker joiningDate_datePicker;
     @FXML    private AnchorPane parentAnchorPane;
+    @FXML
     private RadioButton employee_radioButton;
+    @FXML
     private RadioButton passenger_radioButton;
+    @FXML
     private RadioButton admin_radioButton;
     @FXML    private RadioButton male_radioButton;
     @FXML    private RadioButton female_radioButton;
     @FXML    private RadioButton intersex_radioButton;
+    @FXML
     private Label joiningDate_label;
     @FXML    private Label nid_label;
     @FXML    private ComboBox<String> cityComboBox;
@@ -101,7 +108,7 @@ public class CreateNewUserController implements Initializable {
 
     private DescriptionOnUserCreation descriptionObj ;
 
-    private SystemAdministrator admin;
+    private SystemAdministrator admin = new SystemAdministrator();
     @FXML
     private TextField id_textField;
     
@@ -622,10 +629,7 @@ public class CreateNewUserController implements Initializable {
     }
     
 
-    private void employeeRadioButtonOnAction(ActionEvent event) {
-        if (employee_radioButton.isSelected()) {
-        }
-    }
+
 
 
     @FXML
