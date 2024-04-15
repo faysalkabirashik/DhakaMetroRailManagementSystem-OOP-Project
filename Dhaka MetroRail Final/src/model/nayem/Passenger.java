@@ -29,6 +29,7 @@ public class Passenger extends User implements Serializable{
     public static int itsTotalMember(){return userCount;}
     private String nid = null;
     private String birtCertificate = null;
+    private float balance = 0;
 
     public Passenger(String coreUserType, String userIdentity) {
         super(coreUserType, userIdentity);

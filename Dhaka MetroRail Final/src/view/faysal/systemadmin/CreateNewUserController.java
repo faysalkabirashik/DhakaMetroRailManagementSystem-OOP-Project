@@ -139,7 +139,7 @@ public class CreateNewUserController implements Initializable {
 
     private DescriptionOnUserCreation descriptionObj ;
 
-    private SystemAdministrator admin = new SystemAdministrator();
+    private SystemAdministrator admin;
     @FXML
     private TextField id_textField;
     

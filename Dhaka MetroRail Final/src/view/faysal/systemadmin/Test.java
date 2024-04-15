@@ -21,7 +21,7 @@ public class Test extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("SetNewTrain.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("SystemAdminDashboard.fxml"));
 
         Scene scene = new Scene(root);
 
