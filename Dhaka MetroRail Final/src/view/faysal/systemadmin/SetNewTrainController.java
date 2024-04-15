@@ -5,6 +5,7 @@
 package view.faysal.systemadmin;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,6 +18,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import model.faysal.AlertGen;
+import model.faysal.Station;
 import model.faysal.Train;
 import model.faysal.Validation;
 import model.faysal.users.SystemAdministrator;
@@ -68,6 +70,11 @@ public class SetNewTrainController implements Initializable {
         
         ObservableList<String> routLlist = FXCollections.observableArrayList("MRT Line 1", "MRT Line 2", "MRT Line 6");
         route_comBox.setItems(routLlist);
+        List<String> stations = Station.getList();
+        ObservableList<String> stationList = FXCollections.observableArrayList(stations);
+        startStation_comBox.setItems(stationList);
+        destinationStation_comBox.setItems(stationList);
+        
     }    
 
     @FXML
@@ -84,12 +91,14 @@ public class SetNewTrainController implements Initializable {
                    &&  Validation.allDigits(carCapacity_txt.getText()))   {
 
                 try {
+                    
                     int carCap = Integer.parseInt(carCapacity_txt.getText());
                     int totalCar = Integer.parseInt(totalCar_txt.getText());
                     String id = trainID_textField.getText();
                     String name = trainID_textField.getText();
                     String startingStation = startStation_comBox.getValue();
                     String destinationStation = destinationStation_comBox.getValue();
+                    if (startingStation.equals(destinationStation)){return;}
                     Train train = new Train(id, name, startingStation, destinationStation,
                             route_comBox.getValue(), carCap, totalCar,openingDate_datePicker.getValue() ,note_area.getText());
                     
