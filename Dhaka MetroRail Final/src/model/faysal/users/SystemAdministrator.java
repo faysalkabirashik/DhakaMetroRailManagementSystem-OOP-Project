@@ -16,6 +16,7 @@ import javafx.collections.ObservableList;
 import model.faysal.Address;
 import model.faysal.AlertGen;
 import model.faysal.AppendableObjectOutputStream;
+import model.faysal.Train;
 import model.nayem.TrainOperator;
 
 /**
@@ -484,131 +485,36 @@ public class SystemAdministrator extends Employee implements Serializable, Count
         catch (Exception ex){AlertGen.unsuccessfulAlert(ex.toString());}
         return null;
     }
-    /*
-    public Employee createEmployeeInstance(String employeeType ){
-        
-        Employee empObj;
-                                        boolean flag;
-                                        switch (employeeType) {
-                                            case "System Administrator":
-                                                empObj = new SystemAdministrator( 
-                                                        nid,
-                                                        employeeType,
-                                                        joiningDate,
-                                                        1000000,   fullName,
-                                                        primMobile,
-                                                        primEmail,
-                                                        gender, 
-                                                        employeeID,
-                                                        employeeType, 
-                                                        pass,   doB,   
-                                                        address, 
-                                                        true);
-                                                flag = this.admin.createNewUserInstance(empObj, empObj.getCoreUserType(), true);
-                                                
-                                                break;
-                                            case "Station Manager":
-                                                empObj = new StationManager( 
-                                                        nid,
-                                                        employeeType,
-                                                        joiningDate,
-                                                        1000000,   fullName,
-                                                        primMobile,
-                                                        primEmail,
-                                                        gender, 
-                                                        employeeID,
-                                                        employeeType, 
-                                                        pass,   doB,   
-                                                        address, 
-                                                        true);
-                                                flag = this.admin.createNewUserInstance(empObj, empObj.getCoreUserType(), true);    
-                                                break;
-                                            case "Train Operator":
-                                                empObj = new TrainOperator( 
-                                                        nid,
-                                                        employeeType,
-                                                        joiningDate,
-                                                        1000000,   fullName,
-                                                        primMobile,
-                                                        primEmail,
-                                                        gender, 
-                                                        employeeID,
-                                                        employeeType, 
-                                                        pass,   doB,   
-                                                        address, 
-                                                        true);
-                                                flag = this.admin.createNewUserInstance(empObj, empObj.getCoreUserType(), true);
-                                                break;
-                                            case "Head of HR":
-                                                empObj = new HeadOfHR( 
-                                                        nid,
-                                                        employeeType,
-                                                        joiningDate,
-                                                        1000000,   fullName,
-                                                        primMobile,
-                                                        primEmail,
-                                                        gender, 
-                                                        employeeID,
-                                                        employeeType, 
-                                                        pass,   doB,   
-                                                        address, 
-                                                        true);
-                                                flag = this.admin.createNewUserInstance(empObj, empObj.getCoreUserType(), true);
-                                                break;
-                                            case "Maintenance Staff":
-                                                empObj = new MaintenanceStaff( 
-                                                        nid,
-                                                        employeeType,
-                                                        joiningDate,
-                                                        1000000,   fullName,
-                                                        primMobile,
-                                                        primEmail,
-                                                        gender, 
-                                                        employeeID,
-                                                        employeeType, 
-                                                        pass,   doB,   
-                                                        address, 
-                                                        true);
-                                                flag = this.admin.createNewUserInstance(empObj, empObj.getCoreUserType(), true);
-                                                break;
-                                            case "Public Service Provider":
-                                                empObj = new PublicServiceProvider( 
-                                                        nid,
-                                                        employeeType,
-                                                        joiningDate,
-                                                        1000000,   fullName,
-                                                        primMobile,
-                                                        primEmail,
-                                                        gender, 
-                                                        employeeID,
-                                                        employeeType, 
-                                                        pass,   doB,   
-                                                        address, 
-                                                        true);
-                                                flag = this.admin.createNewUserInstance(empObj, empObj.getCoreUserType(), true);
-                                                break;
-                                            case "Accountant":
-                                                empObj = new Accountant( 
-                                                        nid,
-                                                        employeeType,
-                                                        joiningDate,
-                                                        1000000,   fullName,
-                                                        primMobile,
-                                                        primEmail,
-                                                        gender, 
-                                                        employeeID,
-                                                        employeeType, 
-                                                        pass,   doB,   
-                                                        address, 
-                                                        true);
-                                                flag = this.admin.createNewUserInstance(empObj, empObj.getCoreUserType(), true);
-                                                break;
-                                            default: flag = false;
-                                                    empObj = null;
-                                                break;
-        
-        return empObj;
-    
-    }*/
+    public void addNewTrain(Train train){
+        File f = null;
+        FileOutputStream fos = null;
+        ObjectOutputStream oos = null;
+        try {
+            f = new File("TrainObjects");
+            if (f.exists()) {
+                fos = new FileOutputStream(f, true);
+                oos = new AppendableObjectOutputStream(fos);
+            } else {
+                fos = new FileOutputStream(f);
+                oos = new ObjectOutputStream(fos);
+            }
+
+            oos.writeObject(train);
+        } catch (IOException iOExc) {
+            Logger.getLogger(Train.class.getName()).log(Level.SEVERE, null, iOExc);
+        } finally {
+            try {
+                if (oos != null) {
+                    oos.close();
+                }
+            } catch (IOException iOExc) {
+                Logger.getLogger(Train.class.getName()).log(Level.SEVERE, null, iOExc);
+            }
+
+        }
+
+    }
+
+
     
 }

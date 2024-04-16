@@ -64,7 +64,7 @@
                   <Insets bottom="5.0" />
                </padding>
             </HBox>
-            <HBox fx:id="logOut_hBox" onDragDetected="#addTrainOnAction" onMouseClicked="#addTrainOnMouseClicked" prefHeight="50.0" prefWidth="256.0" spacing="5.0">
+            <HBox fx:id="logOut_hBox" onMouseClicked="#addTrainOnMouseClicked" prefHeight="50.0" prefWidth="256.0" spacing="5.0">
                <children>
                   <ImageView fitHeight="30.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -80,7 +80,7 @@
                   <Insets bottom="15.0" />
                </padding>
             </HBox>
-            <HBox fx:id="goals_hBox" onMouseClicked="#addStationOnMouseClicked" prefHeight="50.0" prefWidth="256.0" spacing="5.0">
+            <HBox fx:id="addStation" onMouseClicked="#addStationOnMouseClicked" prefHeight="50.0" prefWidth="256.0" spacing="5.0">
                <children>
                   <ImageView fitHeight="40.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>

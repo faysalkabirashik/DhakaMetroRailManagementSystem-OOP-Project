@@ -103,7 +103,6 @@ public class TrainOperator extends Employee implements Serializable, Countable
                 oos = new ObjectOutputStream(fos);               
             }
             oos.writeObject(message);
-
         } catch (IOException ex) {
             //
         }
@@ -130,19 +129,6 @@ public class TrainOperator extends Employee implements Serializable, Countable
             //
         }
     }
-<<<<<<< HEAD
-=======
-    
-    public void signup(ActionEvent event) throws IOException 
-    {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/nayem/passenger/SignupScene.fxml"));
-        Parent parent = loader.load();
-        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene newScene = new Scene(parent);
-        currentStage.setScene(newScene);
-        currentStage.show();
-    }
->>>>>>> Jubair-2221134
 
     @Override
     public void changeDesignation() {
@@ -237,6 +223,28 @@ public class TrainOperator extends Employee implements Serializable, Countable
             //
         }
     }
+    }
+    
+    public void reportEmergency(Emergency emergency)
+    {
+        File f = null;
+        FileOutputStream fos = null;      
+        ObjectOutputStream oos = null;        
+        try {
+            f = new File("Emergency.bin");
+            if(f.exists()){
+                fos = new FileOutputStream(f,true);
+                oos = new AppendableObjectOutputStream(fos);                
+            }
+            else{
+                fos = new FileOutputStream(f);
+                oos = new ObjectOutputStream(fos);               
+            }
+            oos.writeObject(emergency);
+
+        } catch (IOException ex) {
+            //
+        }
     }
     
 }

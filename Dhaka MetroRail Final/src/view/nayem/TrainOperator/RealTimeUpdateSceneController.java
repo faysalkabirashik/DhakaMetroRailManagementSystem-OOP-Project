@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import model.faysal.AlertGen;
 import model.nayem.TrainOperator;
 import model.nayem.Update;
 
@@ -89,11 +90,6 @@ public class RealTimeUpdateSceneController implements Initializable {
             }
         }
         }
-<<<<<<< HEAD
-=======
-        
-        to.realTimeUpdate(update);
->>>>>>> Jubair-2221134
     }
     
 }
