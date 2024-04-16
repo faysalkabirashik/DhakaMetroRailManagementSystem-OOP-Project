@@ -56,8 +56,8 @@ import model.nayem.Passenger;
 public class CreateNewUserController implements Initializable {
  
     @FXML private TextField fullName_textField;
-<<<<<<< Updated upstream
     @FXML private TextArea note_textArea;
+    @FXML
     private ToggleGroup userType_toggleGroup;
     @FXML    private TextField road_textField;
     @FXML    private TextField village_textField;
@@ -71,38 +71,7 @@ public class CreateNewUserController implements Initializable {
     @FXML    private TextField nid_textField;
     @FXML    private TextField birthCer_textField;
     @FXML    private TextField generatePassengerUsername_textField;
-=======
-
-    @FXML private TextArea note_textArea;
-    
     @FXML
-    private ToggleGroup userType_toggleGroup;
-    @FXML
-    private TextField road_textField;
-    @FXML
-    private TextField village_textField;
-    @FXML
-    private TextField primaryMobileNo_textField;
-    @FXML
-    private TextField secondaryMobileNo_textField;
-    @FXML
-    private TextField primaryEmail_textField;
-    @FXML
-    private TextField secondaryEmail_textField;
-    @FXML
-    private ToggleGroup gender_toggleGroup;
-    @FXML
-    private CheckBox nid_checkBox;
-    @FXML
-    private CheckBox birthCer_checkBox;
-    @FXML
-    private TextField nid_textField;
-    @FXML
-    private TextField birthCer_textField;
-    @FXML
-    private TextField generatePassengerUsername_textField;
-    @FXML
->>>>>>> Stashed changes
     private ComboBox<String> employeeType_comBox;
     @FXML    private TextField house_textField;
     @FXML    private ComboBox<String> country_comBox;
@@ -110,16 +79,20 @@ public class CreateNewUserController implements Initializable {
     @FXML    private Label generateEmployeeId_label;
     @FXML    private PasswordField generatePassword_passwordField;
     @FXML    private Button generatePassengerUsername_button;
+    @FXML
     private DatePicker joiningDate_datePicker;
     @FXML    private AnchorPane parentAnchorPane;
+    @FXML
     private RadioButton employee_radioButton;
+    @FXML
     private RadioButton passenger_radioButton;
+    @FXML
     private RadioButton admin_radioButton;
     @FXML    private RadioButton male_radioButton;
     @FXML    private RadioButton female_radioButton;
     @FXML    private RadioButton intersex_radioButton;
+    @FXML
     private Label joiningDate_label;
-<<<<<<< Updated upstream
     @FXML    private Label nid_label;
     @FXML    private ComboBox<String> cityComboBox;
     @FXML    private ComboBox<String> divisionComboBox;
@@ -139,31 +112,6 @@ public class CreateNewUserController implements Initializable {
     @FXML
     private TextField id_textField;
     
-=======
-    @FXML
-    private Label nid_label;
-    @FXML
-    private ComboBox<String> cityComboBox;
-    @FXML
-    private ComboBox<String> divisionComboBox;
-    @FXML
-    private ComboBox<String> districtComboBox;
-    @FXML
-    private CheckBox showPass_checkBox;
-    @FXML
-    private DatePicker dob_datePicker;
-    @FXML
-    private Label showPass_label;  
-
-    //////////////////////////////////////////////////////
-    
-    private User user;
-
-
-    private DescriptionOnUserCreation descriptionObj ;
-
-    private SystemAdministrator admin;
->>>>>>> Stashed changes
     public SystemAdministrator getSystemAdmin(){
         return admin;
     }
@@ -172,11 +120,10 @@ public class CreateNewUserController implements Initializable {
         
         this.admin =  admin;
     }
-<<<<<<< Updated upstream
-   
-=======
     
->>>>>>> Stashed changes
+    
+    
+   
     private void updateDistrictComboBox() {
         String selectedDivision = divisionComboBox.getValue();
         if (selectedDivision != null) {
@@ -309,10 +256,7 @@ public class CreateNewUserController implements Initializable {
         String div = divisionComboBox.getValue();
         String district = districtComboBox.getValue() ;
         String city = cityComboBox.getValue();
-<<<<<<< Updated upstream
         if (genderRB == null){AlertGen.unsuccessfulAlert("please select gender first");return ;}
-=======
->>>>>>> Stashed changes
         String gender = genderRB.getText();
         String road = road_textField.getText();
         String house = house_textField.getText() ;
@@ -449,11 +393,7 @@ public class CreateNewUserController implements Initializable {
                     {   System.out.println("else7");
                         // User creation for all employee type
                         LocalDate joiningDate = joiningDate_datePicker.getValue();
-<<<<<<< Updated upstream
                         String employeeID = id_textField.getText();
-=======
-                        String employeeID = generateEmployeeId_label.getText();
->>>>>>> Stashed changes
                         String employeeType = employeeType_comBox.getValue();   
                         // CHECKS   if the joining date future date or not
                         if (joiningDate != null && 
@@ -468,7 +408,6 @@ public class CreateNewUserController implements Initializable {
                                    + year);
                         }
                         else
-<<<<<<< Updated upstream
                         {       System.out.println("Else 8");
                             // confirms joining date valid
                             // check employee id and employee type empty or unselected and nid is given or not
@@ -479,13 +418,6 @@ public class CreateNewUserController implements Initializable {
                                }
                             
 //                         
-=======
-                        {System.out.println("Else 8");
-                            // confirms joining date valid
-                            // check employee id and employee type empty or unselected and nid is given or not
-                            if (employeeID.isEmpty() || employeeType.isEmpty() || nid.isEmpty())
-                            {AlertGen.unsuccessfulAlert("Fill all unfilled entity"); System.out.println("if13");}
->>>>>>> Stashed changes
                             else{
                                 // validate nid
                                 System.out.println("else 9");
@@ -622,10 +554,7 @@ public class CreateNewUserController implements Initializable {
                                                 
                                                 
                                         }// get out of switch
-<<<<<<< Updated upstream
                                     
-=======
->>>>>>> Stashed changes
                                         if (flag)
                                         {   descriptionObj = new DescriptionOnUserCreation(description,empObj);
                                             System.out.println("Creation successfull");
@@ -649,11 +578,8 @@ public class CreateNewUserController implements Initializable {
                                 }
  
                                 }
-<<<<<<< Updated upstream
                                
                         }catch(NullPointerException ex){AlertGen.unsuccessfulAlert("NullPointer! Please reselect each.");}
-=======
->>>>>>> Stashed changes
                             }
                         }
                     }else{AlertGen.unsuccessfulAlert("Pass is not valid!");}
@@ -682,12 +608,8 @@ public class CreateNewUserController implements Initializable {
                AlertGen.unsuccessfulAlert("Select employee type");
            }
            else{
-<<<<<<< Updated upstream
                generatedID = this.admin.generateEmployeeID(employeeType_comBox.getValue(), joiningDate_datePicker.getValue());
                 generateEmployeeId_label.setText(generatedID);
-=======
-               this.admin.generateEmployeeID(employeeType_comBox.getValue(), joiningDate_datePicker.getValue());
->>>>>>> Stashed changes
            }
 //            if ( !employeeType_comBox.getValue().isEmpty() && joiningDate_datePicker.getValue() != null)
 //            {this.admin.generateEmployeeID(employeeType_comBox.getValue(), joiningDate_datePicker.getValue());
@@ -707,23 +629,8 @@ public class CreateNewUserController implements Initializable {
     }
     
 
-    private void employeeRadioButtonOnAction(ActionEvent event) {
-        if (employee_radioButton.isSelected()) {
-        }
-    }
 
 
-    @FXML
-    private void showPassCheckBoxOnAction(ActionEvent event) {
-       if ( showPass_checkBox.isSelected() ) {
-          String pass = generatePassword_passwordField.getText();
-          showPass_label.setVisible(true);
-          showPass_label.setText(pass);
-       }else{
-            showPass_label.setVisible(false);
-        }
-          
-    }
 
     @FXML
     private void showPassCheckBoxOnAction(ActionEvent event) {

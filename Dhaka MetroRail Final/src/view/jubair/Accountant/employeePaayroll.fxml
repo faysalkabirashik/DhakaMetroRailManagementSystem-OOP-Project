@@ -34,7 +34,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Button layoutX="416.0" layoutY="420.0" mnemonicParsing="false" onAction="#employeePayBackButtonOnAction" style="-fx-background-color: e82e2f;" text="Back" textFill="WHITE">
+      <Button layoutX="416.0" layoutY="420.0" mnemonicParsing="false" style="-fx-background-color: e82e2f;" text="Back" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

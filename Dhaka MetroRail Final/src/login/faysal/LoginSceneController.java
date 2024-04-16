@@ -42,7 +42,6 @@ public class LoginSceneController implements Initializable {
     @FXML    private AnchorPane forgotPass_anchorPane;
     @FXML    private TextField forgetAnchorPane_userIdentity_textField;
     @FXML    private TextField forgetAnchorPane_email_textField;
-    @FXML    private Label lopinInfo_label;
     TrainOperator to = new TrainOperator();
     Passenger passen = new Passenger();
     @FXML
@@ -91,13 +90,18 @@ public class LoginSceneController implements Initializable {
             {
                 show_label.setText("Checking for verificaiton....");
                  ////////////////////////////////////////////////////////////      
-                String login = User.loginVerify(userID, pass);
+                String login = User.verifyLogin(userID, pass);
+                System.out.println(login);
                 switch(login){
                     case  "00":
-                        FXMLLoader dashLoader = new FXMLLoader(getClass().getResource("SystemAdminDashboard.fxml"));
+
+                        FXMLLoader dashLoader = new FXMLLoader(getClass().getResource("/view/faysal/systemadmin/SystemAdminDashboard.fxml"));
+                        System.out.println("Dash");
                         Parent root = dashLoader.load();
-                        SystemAdminDashboardController obj = dashLoader.getController();
-                        obj.setSystemAdmin((SystemAdministrator) User.getObjectV2(userID, "System Administrator"));
+                        System.out.println("loader");
+//                        
+//                        SystemAdminDashboardController obj = dashLoader.getController();
+//                        obj.setSystemAdmin((SystemAdministrator) User.getObjectV2(userID, "System Administrator"));
 
                         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
                         window.setScene(new Scene(root));
@@ -107,38 +111,47 @@ public class LoginSceneController implements Initializable {
                         break;
                     case "01":
 
-                        System.out.println("Login succes         ");
-                         show_label.setText("Login success     ");
-//                                Parent dashBoard = null;
-//                                FXMLLoader loader = new FXMLLoader(getClass().getResource(".fxml"));
-//                                Parent root = (Parent) loader.load();
-//                                Scene scene = new Scene(root);
-//                                StationManager obj = loader.getController();
-//                                obj.setSystemAdmin((SystemAdministrator) User.getObjectV2(userID, "System Administrator"));
-//
-//                                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//                                stage.setScene(scene);
-//                                stage.show();
-//                                AlertGen.successfulAlert("Login Successfull!"); 
+                        FXMLLoader dashLoader1 = new FXMLLoader(getClass().getResource("/view/faysal/station_manager/StationManagerDashboard.fxml"));
+                        System.out.println("Dash");
+                        Parent root1 = dashLoader1.load();
+                        System.out.println("loader");
+                          Stage window1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                        window1.setScene(new Scene(root1));
+                        window1.show();
 
 
                         break;
                     case "02":
                         System.out.println("Login succes         ");
-                         show_label.setText("Login success     ");
+                        show_label.setText("Login success     ");
+                        FXMLLoader dashLoader2 = new FXMLLoader(getClass().getResource("/view/nayem/TrainOperator/TrainOperatorDashborad.fxml"));
+                        System.out.println("Dash");
+                        Parent root2 = dashLoader2.load();
+                        System.out.println("loader");
+                        Stage window2 = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                        window2.setScene(new Scene(root2));
+                        window2.show();
 
 
                         break;
                     case "03":
                         System.out.println("Login succes         ");
                          show_label.setText("Login success     ");
+                         System.out.println("Login succes         ");
+                        show_label.setText("Login success     ");
+                        FXMLLoader dashLoader3 = new FXMLLoader(getClass().getResource("/view/minhaz/maintenanceStaff/MaintenanceStaffDashboard.fxml"));
+                        System.out.println("Dash");
+                        Parent root3 = dashLoader3.load();
+                        System.out.println("loader");
+                        Stage window3 = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                        window3.setScene(new Scene(root3));
+                        window3.show();
 
 
                         break;
                     case "04":
                         System.out.println("Login succes         ");
                          show_label.setText("Login success     ");
-
 
                         break;
                     case "05":
@@ -175,7 +188,6 @@ public class LoginSceneController implements Initializable {
     }
 
     @FXML
-<<<<<<< HEAD
     private void signUpOnAction(ActionEvent event) throws IOException 
     {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/nayem/passenger/PassengerSignUpScene.fxml"));
@@ -185,10 +197,6 @@ public class LoginSceneController implements Initializable {
             currentStage.setScene(newScene);
             currentStage.show();
 
-=======
-    private void signUpOnAction(ActionEvent event) {
-        
->>>>>>> Jubair-2221134
     }
 
     @FXML
@@ -279,11 +287,29 @@ public class LoginSceneController implements Initializable {
     private void four(ActionEvent event) {
         AlertGen.inforamtion("", "Work under maintanance!");
     }
-
+    
     @FXML
     private void signUpButtonOnClick(ActionEvent event) throws IOException
     {
-        to.loadDashBoard(event);
+ 
+//        FXMLLoader dashLoader = new FXMLLoader(getClass().getResource("/view/nayem/passenger/SignUpScene.fxml"));
+//        Parent root = dashLoader.load();
+//
+//        
+//
+//        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//        window.setScene( new Scene(root));
+//        window.show();
+//        
+        FXMLLoader dashLoader = new FXMLLoader(getClass().getResource("/view/nayem/passenger/PassengerSignUpScene.fxml"));
+      
+        Parent root = dashLoader.load();
+
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(new Scene(root));
+        window.show();
+//        
     }
+ 
     
 }

@@ -43,13 +43,13 @@
             <TextArea fx:id="note_textArea" layoutX="90.0" layoutY="480.0" prefHeight="55.0" prefWidth="664.0" promptText="Description/Note:" />
             <Button layoutX="14.0" layoutY="481.0" mnemonicParsing="false" onAction="#goBackBtnOnAction" prefHeight="52.0" prefWidth="57.0" style="-fx-background-color: C5AE85;" text="Go Back" wrapText="true" />
             <Label layoutX="186.0" layoutY="38.0" text="Select User Type:" />
-            <RadioButton fx:id="employee_radioButton" layoutX="299.0" layoutY="38.0" mnemonicParsing="false" onAction="#employeeRadioButtonOnAction" selected="true" text="Employee">
+            <RadioButton fx:id="employee_radioButton" layoutX="299.0" layoutY="38.0" mnemonicParsing="false" selected="true" text="Employee">
                <toggleGroup>
                   <ToggleGroup fx:id="userType_toggleGroup" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="passenger_radioButton" layoutX="403.0" layoutY="38.0" mnemonicParsing="false" onAction="#passengerRadioButtonOnAction" text="Passenger" toggleGroup="$userType_toggleGroup" />
-            <RadioButton fx:id="admin_radioButton" layoutX="521.0" layoutY="38.0" mnemonicParsing="false" onAction="#adminRadioButtonOnAction" text="Admin" toggleGroup="$userType_toggleGroup" />
+            <RadioButton fx:id="passenger_radioButton" layoutX="403.0" layoutY="38.0" mnemonicParsing="false" text="Passenger" toggleGroup="$userType_toggleGroup" />
+            <RadioButton fx:id="admin_radioButton" layoutX="521.0" layoutY="38.0" mnemonicParsing="false" text="Admin" toggleGroup="$userType_toggleGroup" />
             <Line endX="685.0" endY="3.0517578125E-5" layoutX="148.0" layoutY="61.0" startX="-134.0" startY="1.52587890625E-5" />
             <Label layoutX="29.0" layoutY="66.0" text="Full Name:" />
             <TextField fx:id="fullName_textField" layoutX="29.0" layoutY="86.0" prefHeight="37.0" prefWidth="360.0" promptText="Enter name" />
@@ -126,11 +126,8 @@
             <Label layoutX="624.0" layoutY="195.0" prefHeight="17.0" prefWidth="102.0" text="Birth Certificate" />
             <CheckBox fx:id="showPass_checkBox" layoutX="620.0" layoutY="328.0" mnemonicParsing="false" onAction="#showPassCheckBoxOnAction" text="Show Password" />
             <Label fx:id="showPass_label" layoutX="620.0" layoutY="435.0" prefHeight="27.0" prefWidth="225.0" style="-fx-background-color: white; -fx-border-color: #BABABA; -fx-background-radius: 4; -fx-border-radius: 4;" visible="false" />
-<<<<<<< Updated upstream
             <TextField fx:id="id_textField" layoutX="416.0" layoutY="386.0" prefHeight="39.0" prefWidth="187.0" />
             <Label layoutX="418.0" layoutY="358.0" prefHeight="17.0" prefWidth="178.0" text="Give Valid ID (all digits, 7 long)" />
-=======
->>>>>>> Stashed changes
          </children>
          <BorderPane.margin>
             <Insets left="10.0" />

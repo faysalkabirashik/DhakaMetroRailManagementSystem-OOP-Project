@@ -7,7 +7,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="view.nayem.TrainOperator.MessageToMaintenanceCrewController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="view.nayem.TrainOperator.MessageToMaintenanceStaffController">
     <children>
       <Label layoutX="201.0" layoutY="14.0" text="Communicate Maintenance Crew" />
       <Label layoutX="23.0" layoutY="55.0" text="Train Number:" />

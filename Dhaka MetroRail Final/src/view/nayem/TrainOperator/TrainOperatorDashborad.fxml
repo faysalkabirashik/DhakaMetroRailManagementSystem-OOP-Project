@@ -3,11 +3,12 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.nayem.TrainOperator.TrainOperatorDashboradController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="view.nayem.TrainOperator.TrainOperatorDashboradController">
     <children>
-      <Label layoutX="212.0" layoutY="14.0" text="Hello + user full name">
+      <Label layoutX="193.0" layoutY="14.0" prefHeight="27.0" prefWidth="215.0" text="Train Operator Dashboard">
          <font>
             <Font size="18.0" />
          </font>
@@ -16,11 +17,11 @@
       <Button layoutX="21.0" layoutY="130.0" mnemonicParsing="false" onAction="#messageStationManagerButtonOnClicked" text="Message Station Manager" />
       <Button layoutX="21.0" layoutY="185.0" mnemonicParsing="false" onAction="#messageMaintananceStaffButtonOnClicked" text="Message Maintenance Staff " />
       <Button layoutX="21.0" layoutY="246.0" mnemonicParsing="false" onAction="#viewMaintanaceScheduleButtonOnClicked" text="View Maintenance Schedule" />
-      <Button layoutX="454.0" layoutY="69.0" mnemonicParsing="false" onAction="#notifcationButtonOnClicked" text="Notifications" />
-      <Button layoutX="438.0" layoutY="130.0" mnemonicParsing="false" onAction="#softwareIssuesButtonOnClicked" text="Software Issues" />
-      <Button layoutX="422.0" layoutY="185.0" mnemonicParsing="false" onAction="#realTimeUpdateButtonOnClicked" text="Real Time Update" />
-      <Button layoutX="422.0" layoutY="246.0" mnemonicParsing="false" onAction="#emergencyButtonOnClicked" text="Emergency" />
-      <Button layoutX="409.0" layoutY="299.0" mnemonicParsing="false" onAction="#routeInformationButtonOnCliked" text="Route Information" />
-      <Button layoutX="261.0" layoutY="330.0" mnemonicParsing="false" onAction="#signOutButtonOnClicked" text="Sign Out" />
+      <Button layoutX="430.0" layoutY="69.0" mnemonicParsing="false" onAction="#softwareIssuesButtonOnClicked" text="Software Issues" />
+      <Button layoutX="415.0" layoutY="130.0" mnemonicParsing="false" onAction="#realTimeUpdateButtonOnClicked" text="Real Time Update" />
+      <Button layoutX="462.0" layoutY="185.0" mnemonicParsing="false" onAction="#emergencyButtonOnClicked" text="Emergency" />
+      <Button layoutX="414.0" layoutY="246.0" mnemonicParsing="false" onAction="#routeInformationButtonOnCliked" text="Route Information" />
+      <Button layoutX="261.0" layoutY="329.0" mnemonicParsing="false" onAction="#signOutButtonOnClicked" text="Sign Out" />
+      <Line endX="108.0" layoutX="300.0" layoutY="41.0" startX="-118.0" />
    </children>
 </AnchorPane>
