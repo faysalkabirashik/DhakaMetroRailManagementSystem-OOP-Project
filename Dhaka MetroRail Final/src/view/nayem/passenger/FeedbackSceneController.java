@@ -51,8 +51,8 @@ public class FeedbackSceneController implements Initializable {
         feedback = new Feedback(reportTypeComboBox.getValue().toString(),
                 firstNameTextField.getText(),lastNameTextField.getText(),phoneNumberTextField.getText(),
                 descriptionTextArea.getText());
-//        passenger = new Passenger();
-//        passenger.submitReport(feedback);
+        passenger = new Passenger();
+        passenger.submitReport(feedback);
         
     }
     

@@ -96,7 +96,7 @@ public class TrainOperatorDashboradController implements Initializable {
     @FXML
     private void routeInformationButtonOnCliked(ActionEvent event) 
     {
-        AlertGen.errorAlert("404", "Under Construction");
+        AlertGen.errorAlert("404", "This Goal is Under Construction");
     }
 
     @FXML
