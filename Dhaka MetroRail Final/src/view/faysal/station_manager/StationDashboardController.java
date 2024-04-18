@@ -64,7 +64,7 @@ public class StationDashboardController implements Initializable {
         loadUIAtDashBorderPane("Rules");
     }
 
-    @FXML
+    /*@FXML
     private void LogoutOnAction(ActionEvent event) throws Exception{
 
         
@@ -79,7 +79,7 @@ public class StationDashboardController implements Initializable {
         
         
         
-    }
+    }*/
 
     @FXML
     private void makeAnnouncement(ActionEvent event) {

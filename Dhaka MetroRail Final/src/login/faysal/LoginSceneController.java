@@ -166,6 +166,15 @@ public class LoginSceneController implements Initializable {
                     case "07":
                             System.out.println("Login not success - Pasenger         ");
                          show_label.setText("Login success     ");
+                         System.out.println("Login succes         ");
+                        show_label.setText("Login success     ");
+                        FXMLLoader dashLoader7 = new FXMLLoader(getClass().getResource("/view/nayem/passenger/PassengerDashborad.fxml"));
+                        System.out.println("Dash");
+                        Parent root7 = dashLoader7.load();
+                        System.out.println("loader");
+                        Stage window7 = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                        window7.setScene(new Scene(root7));
+                        window7.show();
 
                     break;}// switch break
 
