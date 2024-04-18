@@ -38,6 +38,7 @@ public abstract class  User implements Serializable, Countable {
     
     public abstract void changePassword();
     public abstract int getTotalNoOfObjects();
+    public abstract ObservableList<?> getTotalListOfObjects();
     public static int totalUser(){return userCount;}
 
     

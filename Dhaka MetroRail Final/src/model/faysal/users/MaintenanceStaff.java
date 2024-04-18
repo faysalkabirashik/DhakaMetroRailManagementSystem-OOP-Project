@@ -22,6 +22,8 @@ public class MaintenanceStaff extends Employee implements Serializable, Countabl
     
     private static int userCount = 0;
     public static int itsTotalMember(){return userCount;}   
+    
+    public MaintenanceStaff(){}
 
     public MaintenanceStaff(String coreUserType, String userIdentity, LocalDate dateOfJoining) {
         super(coreUserType, userIdentity, dateOfJoining);
@@ -118,10 +120,46 @@ public class MaintenanceStaff extends Employee implements Serializable, Countabl
     }
 
    
-    public   int getTotalNoOfObjects() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    @Override
+    public int getTotalNoOfObjects() {
+        return this.getTotalListOfObjects().size();
     }
-    public static int getTotalNoOfObjectsV2() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+
+    @Override
+    public ObservableList<MaintenanceStaff> getTotalListOfObjects() {
+        ObservableList<MaintenanceStaff> list = FXCollections.observableArrayList();
+        File f = null;
+        FileInputStream fis = null;      
+        ObjectInputStream ois = null;
+        String path = "MaintenanceStaff.bin";
+        try {
+            f = new File(path);
+            fis = new FileInputStream(f);
+            ois = new ObjectInputStream(fis);
+            MaintenanceStaff tempUser = null;
+            try{
+                System.out.println(" objects of SystemAdministrator");
+                while(true){
+                    tempUser = (MaintenanceStaff) ois.readObject();
+                    //System.out.println(tempUser.toString());
+                    list.add((MaintenanceStaff)tempUser);
+                }
+            }
+            catch(IOException | ClassNotFoundException e){
+                //System.out.println(e.toString());
+                System.out.println("IOException | ClassNotFoundException in reading bin file");
+            }
+            System.out.println("End of file\n");
+        } catch (IOException ex) {
+            System.out.println("IOException on entire file handling");
+        }
+        finally {
+            try {
+                if(ois != null) ois.close();
+            } catch (IOException ex) { }
+        }
+        System.out.println(list);        
+        return list;        
+
     }
 }

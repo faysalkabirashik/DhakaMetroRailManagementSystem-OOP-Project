@@ -517,7 +517,45 @@ public class SystemAdministrator extends Employee implements Serializable, Count
 
     @Override
     public int getTotalNoOfObjects() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.getTotalListOfObjects().size();
+    }
+
+    @Override
+    public ObservableList<SystemAdministrator> getTotalListOfObjects() {
+        ObservableList<SystemAdministrator> list = FXCollections.observableArrayList();
+        File f = null;
+        FileInputStream fis = null;      
+        ObjectInputStream ois = null;
+        String path = "SystemAdministrator.bin";
+        try {
+            f = new File(path);
+            fis = new FileInputStream(f);
+            ois = new ObjectInputStream(fis);
+            SystemAdministrator tempUser = null;
+            try{
+                System.out.println(" objects of SystemAdministrator");
+                while(true){
+                    tempUser = (SystemAdministrator) ois.readObject();
+                    //System.out.println(tempUser.toString());
+                    list.add((SystemAdministrator)tempUser);
+                }
+            }
+            catch(IOException | ClassNotFoundException e){
+                //System.out.println(e.toString());
+                System.out.println("IOException | ClassNotFoundException in reading bin file");
+            }
+            System.out.println("End of file\n");
+        } catch (IOException ex) {
+            System.out.println("IOException on entire file handling");
+        }
+        finally {
+            try {
+                if(ois != null) ois.close();
+            } catch (IOException ex) { }
+        }
+        System.out.println(list );        
+        return list;        
+
     }
 
 

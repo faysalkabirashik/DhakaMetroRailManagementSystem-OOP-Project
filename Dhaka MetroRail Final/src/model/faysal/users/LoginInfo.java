@@ -43,6 +43,11 @@ public class LoginInfo implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    @Override
+    public String toString() {
+        return "LoginInfo{" + "userIdentity=" + userIdentity + ", userType=" + userType + ", password=" + password + '}';
+    }
     
     
     
