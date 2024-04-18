@@ -4,6 +4,7 @@
  */
 package bintest;
 
+import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -29,23 +30,26 @@ public class TestingBin {
      */
     public static void main(String[] args) {
         
+         Read.write();
+         Read.read();
 //        System.out.println(Read.getListOfObjects().size());
+System.out.println("Vitorer reaad");
 //        read();
 //        
         ///////////
-        SystemAdministrator admin = new SystemAdministrator();
-        StationManager sm = new StationManager();
-        TrainOperator to = new TrainOperator();
-        PublicServiceProvider ps = new PublicServiceProvider();
-        MaintenanceStaff ms = new MaintenanceStaff();
-        Passenger pas = new Passenger();
+//        SystemAdministrator admin = new SystemAdministrator();
+//        StationManager sm = new StationManager();
+//        TrainOperator to = new TrainOperator();
+//        PublicServiceProvider ps = new PublicServiceProvider();
+//        MaintenanceStaff ms = new MaintenanceStaff();
+//        Passenger pas = new Passenger();
 //        SystemAdministrator admin = new SystemAdministrator();
 //        SystemAdministrator admin = new SystemAdministrator();  
 //        SystemAdministrator admin = new SystemAdministrator();
 //        SystemAdministrator admin = new SystemAdministrator();
 //        SystemAdministrator admin = new SystemAdministrator();
         
-        System.out.println(admin.getTotalNoOfObjects()+ " " + admin.getTotalListOfObjects());
+        //System.out.println(admin.getTotalNoOfObjects()+ " " + admin.getTotalListOfObjects());
 //        System.out.println(sm.getTotalNoOfObjects()+ " " + sm.getTotalListOfObjects());
 //        System.out.println(to.getTotalNoOfObjects()+ " " + to.getTotalListOfObjects());
 //        System.out.println(ps.getTotalNoOfObjects()+ " " + ps.getTotalListOfObjects());
@@ -64,6 +68,10 @@ public class TestingBin {
 
     }
 
+    
+
+    
+    
 public static void read()
     {
         File f = null;
@@ -71,15 +79,16 @@ public static void read()
         ObjectInputStream ois = null;
         
         try {
-            f = new File("LoginInfoObjects.bin");
+            f = new File("SystemAdministrator.bin");
             fis = new FileInputStream(f);
             ois = new ObjectInputStream(fis);
-            LoginInfo tempUser = null;
+            SystemAdministrator tempUser = null;
             try{
                 System.out.println("Printing objects.");
                 while(true){
                     System.out.println("Dhukse");
-                    tempUser = (LoginInfo) ois.readObject();
+                    tempUser = (SystemAdministrator) ois.readObject();
+                    System.out.println("ar hoy na");
                     //Object obj = ois.readObject();
                     //obj.submitReport();
 //                    loginInfo.submitReport();
