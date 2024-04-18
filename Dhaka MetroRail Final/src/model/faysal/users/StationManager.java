@@ -202,7 +202,45 @@ public class StationManager extends Employee implements Serializable , Countable
 
     @Override
     public int getTotalNoOfObjects() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.getTotalListOfObjects().size();
     }
-            
+
+    @Override
+    public ObservableList<StationManager> getTotalListOfObjects() {
+        ObservableList<StationManager> list = FXCollections.observableArrayList();
+        File f = null;
+        FileInputStream fis = null;      
+        ObjectInputStream ois = null;
+        String path = "StationManager.bin";
+        try {
+            f = new File(path);
+            fis = new FileInputStream(f);
+            ois = new ObjectInputStream(fis);
+            StationManager tempUser = null;
+            try{
+                System.out.println(" objects of SystemAdministrator");
+                while(true){
+                    tempUser = (StationManager) ois.readObject();
+                    //System.out.println(tempUser.toString());
+                    list.add((StationManager)tempUser);
+                }
+            }
+            catch(IOException | ClassNotFoundException e){
+                //System.out.println(e.toString());
+                System.out.println("IOException | ClassNotFoundException in reading bin file");
+            }
+            System.out.println("End of file\n");
+        } catch (IOException ex) {
+            System.out.println("IOException on entire file handling");
+        }
+        finally {
+            try {
+                if(ois != null) ois.close();
+            } catch (IOException ex) { }
+        }
+        System.out.println(list);        
+        return list;        
+
+    }   
+    
 }

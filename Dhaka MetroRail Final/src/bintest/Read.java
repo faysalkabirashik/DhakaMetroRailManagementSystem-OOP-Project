@@ -17,6 +17,7 @@ import java.io.ObjectInputStream;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.faysal.users.Employee;
+import model.faysal.users.LoginInfo;
 import model.faysal.users.SystemAdministrator;
 import model.faysal.users.User;
 
@@ -26,28 +27,27 @@ import model.faysal.users.User;
  */
 public class Read {
     
-    public static ObservableList<Employee> getListOfObjects(){
-        ObservableList<Employee> list = FXCollections.observableArrayList();
+    public static ObservableList<LoginInfo> getListOfObjects(){
+        ObservableList<LoginInfo> list = FXCollections.observableArrayList();
         File f = null;
         FileInputStream fis = null;      
         ObjectInputStream ois = null;
-        String path = "SystemAdministrator.bin";
+        String path = "LoginInfoObjects.bin";
         try {
             f = new File(path);
             fis = new FileInputStream(f);
             ois = new ObjectInputStream(fis);
-            Employee tempUser = null;
+            LoginInfo tempUser = null;
             try{
                 System.out.println("Printing objects");
                 while(true){
-                    tempUser = (SystemAdministrator) ois.readObject();
- 
-                    System.out.println(tempUser.toString());
-                    list.add((SystemAdministrator)tempUser);
+                    tempUser = (LoginInfo) ois.readObject();
+//                     System.out.println(tempUser.toString());
+                    list.add((LoginInfo)tempUser);
                 }
             }
             catch(IOException | ClassNotFoundException e){
-                System.out.println(e.toString());
+                //System.out.println(e.toString());
                 System.out.println("IOException | ClassNotFoundException in reading bin file");
             }
             System.out.println("End of file\n");
@@ -59,7 +59,7 @@ public class Read {
                 if(ois != null) ois.close();
             } catch (IOException ex) { }
         }
-        System.out.println(list);        
+        //System.out.println(list);        
         return list;
     } 
 
