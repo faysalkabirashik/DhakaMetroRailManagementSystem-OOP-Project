@@ -4,6 +4,7 @@
  */
 package bintest;
 
+import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -29,6 +30,7 @@ public class TestingBin {
      */
     public static void main(String[] args) {
         
+<<<<<<< HEAD
 //        System.out.println(Read.getListOfObjects().size());
 //        read();
 //        
@@ -39,13 +41,32 @@ public class TestingBin {
         PublicServiceProvider ps = new PublicServiceProvider();
         MaintenanceStaff ms = new MaintenanceStaff();
         Passenger pas = new Passenger();
+=======
+         Read.write();
+         Read.read();
+//        System.out.println(Read.getListOfObjects().size());
+System.out.println("Vitorer reaad");
+//        read();
+//        
+        ///////////
+//        SystemAdministrator admin = new SystemAdministrator();
+//        StationManager sm = new StationManager();
+//        TrainOperator to = new TrainOperator();
+//        PublicServiceProvider ps = new PublicServiceProvider();
+//        MaintenanceStaff ms = new MaintenanceStaff();
+//        Passenger pas = new Passenger();
+>>>>>>> Faysal-2111585
 //        SystemAdministrator admin = new SystemAdministrator();
 //        SystemAdministrator admin = new SystemAdministrator();  
 //        SystemAdministrator admin = new SystemAdministrator();
 //        SystemAdministrator admin = new SystemAdministrator();
 //        SystemAdministrator admin = new SystemAdministrator();
         
+<<<<<<< HEAD
         System.out.println(admin.getTotalNoOfObjects()+ " " + admin.getTotalListOfObjects());
+=======
+        //System.out.println(admin.getTotalNoOfObjects()+ " " + admin.getTotalListOfObjects());
+>>>>>>> Faysal-2111585
 //        System.out.println(sm.getTotalNoOfObjects()+ " " + sm.getTotalListOfObjects());
 //        System.out.println(to.getTotalNoOfObjects()+ " " + to.getTotalListOfObjects());
 //        System.out.println(ps.getTotalNoOfObjects()+ " " + ps.getTotalListOfObjects());
@@ -64,6 +85,13 @@ public class TestingBin {
 
     }
 
+<<<<<<< HEAD
+=======
+    
+
+    
+    
+>>>>>>> Faysal-2111585
 public static void read()
     {
         File f = null;
@@ -79,7 +107,12 @@ public static void read()
                 System.out.println("Printing objects.");
                 while(true){
                     System.out.println("Dhukse");
+<<<<<<< HEAD
                     tempUser = (LoginInfo) ois.readObject();
+=======
+                    tempUser = (SystemAdministrator) ois.readObject();
+                    System.out.println("ar hoy na");
+>>>>>>> Faysal-2111585
                     //Object obj = ois.readObject();
                     //obj.submitReport();
 //                    loginInfo.submitReport();
