@@ -87,13 +87,13 @@ public class MaintenanceStaff extends Employee implements Serializable, Countabl
 
         return sm.size();
     }
-            public static ObservableList<MaintenanceStaff> getAllMaintenanceStaff()
+    public static ObservableList<MaintenanceStaff> getAllMaintenanceStaff()
     {
         ObservableList<MaintenanceStaff> sm = FXCollections.observableArrayList();
         File f = null;
         FileInputStream fis = null;      
         ObjectInputStream ois = null;
-        String path = "MaintenanceStaffObjects.bin";
+        String path = "MaintenanceStaff.bin";
         try {
                 f = new File(path);
                 fis = new FileInputStream(f);
@@ -115,5 +115,13 @@ public class MaintenanceStaff extends Employee implements Serializable, Countabl
                 }
 
         return sm;
+    }
+
+   
+    public   int getTotalNoOfObjects() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    public static int getTotalNoOfObjectsV2() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

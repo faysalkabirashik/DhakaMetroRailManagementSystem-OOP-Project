@@ -98,4 +98,9 @@ public class HeadOfHR extends Employee implements Serializable , Countable{
 
         return hr.size();
     }
+
+    @Override
+    public int getTotalNoOfObjects() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

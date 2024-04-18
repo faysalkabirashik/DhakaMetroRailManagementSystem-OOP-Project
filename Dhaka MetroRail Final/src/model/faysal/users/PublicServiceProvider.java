@@ -113,5 +113,10 @@ public class PublicServiceProvider extends Employee implements Serializable, Cou
 
         return sm;
     }
+
+    @Override
+    public int getTotalNoOfObjects() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
 }

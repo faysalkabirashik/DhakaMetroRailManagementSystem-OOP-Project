@@ -23,12 +23,21 @@ public class TestingBin {
  
      */
     public static void main(String[] args) {
+        /////////////
+        System.out.println(Read.getListOfObjects());
+        
+        
+        /////////////////////
+        read();
+        
+        
+        
 //        System.out.println(User.verifyLogin("2400100", "Pass@123"));
 //        System.out.println(User.getCountOfAllTypeOfUsers());
 //            System.out.println(User.getObjectV2("2400100", "System Administrator"));
 
 
-read();
+
     }
 
         public static void read()
@@ -38,10 +47,10 @@ read();
         ObjectInputStream ois = null;
         
         try {
-            f = new File("EmployeeObjects.bin");
+            f = new File("SystemAdministrator.bin");
             fis = new FileInputStream(f);
             ois = new ObjectInputStream(fis);
-            Employee tempUser = null;
+            SystemAdministrator tempUser = null;
             try{
                 System.out.println("Printing objects.");
                 while(true){

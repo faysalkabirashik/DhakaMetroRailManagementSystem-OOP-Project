@@ -199,5 +199,10 @@ public class StationManager extends Employee implements Serializable , Countable
             }
  
     }
+
+    @Override
+    public int getTotalNoOfObjects() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
             
 }

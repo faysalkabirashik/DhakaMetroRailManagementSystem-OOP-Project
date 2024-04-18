@@ -180,7 +180,7 @@ public class SystemAdministrator extends Employee implements Serializable, Count
                     path =  "Passenger"; 
             }
       
-        
+        path = path + ".bin";
        
         
         File fUser = null;
@@ -368,7 +368,7 @@ public class SystemAdministrator extends Employee implements Serializable, Count
         File f = null;
         FileInputStream fis = null;      
         ObjectInputStream ois = null;
-        String path = "SystemAdministratorObjects.bin";
+        String path = "SystemAdministrator.bin";
         try {
                 f = new File(path);
                 fis = new FileInputStream(f);
@@ -399,7 +399,7 @@ public class SystemAdministrator extends Employee implements Serializable, Count
         File f = null;
         FileInputStream fis = null;      
         ObjectInputStream ois = null;
-        String path = "SystemAdministratorObjects.bin";
+        String path = "SystemAdministrator.bin";
         try {
                 f = new File(path);
                 fis = new FileInputStream(f);
@@ -513,6 +513,11 @@ public class SystemAdministrator extends Employee implements Serializable, Count
 
         }
 
+    }
+
+    @Override
+    public int getTotalNoOfObjects() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 

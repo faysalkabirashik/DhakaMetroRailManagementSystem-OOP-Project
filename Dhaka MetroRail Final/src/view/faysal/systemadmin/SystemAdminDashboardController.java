@@ -144,7 +144,7 @@ public class SystemAdminDashboardController implements Initializable {
     @FXML
     private void logOutOnMouseClicked(MouseEvent event  ) throws Exception{
         
-        FXMLLoader dashLoader3 = new FXMLLoader(getClass().getResource("/view/faysal/login/LoginScene.fxml"));
+        FXMLLoader dashLoader3 = new FXMLLoader(getClass().getResource("/view/login/faysal/LoginScene.fxml"));
         System.out.println("Dash");
         Parent root1 = dashLoader3.load();
         System.out.println("loader");

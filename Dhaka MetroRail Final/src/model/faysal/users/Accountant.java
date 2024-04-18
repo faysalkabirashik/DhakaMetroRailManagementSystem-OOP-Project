@@ -113,4 +113,9 @@ public class Accountant extends Employee implements Serializable, Countable {
 
         return em;
     }    
+
+    @Override
+    public int getTotalNoOfObjects() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

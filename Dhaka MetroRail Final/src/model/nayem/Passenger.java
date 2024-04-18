@@ -215,5 +215,9 @@ public class Passenger extends User implements Serializable{
             //
         }
     }
+
+    public int getTotalNoOfObjects() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
 }
