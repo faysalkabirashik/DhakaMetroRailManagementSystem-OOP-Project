@@ -46,7 +46,7 @@
             <Pane layoutX="243.0" layoutY="4.0" prefHeight="70.0" prefWidth="736.0">
                <children>
                   <TextField fx:id="note_textField" layoutX="114.0" layoutY="14.0" prefHeight="40.0" prefWidth="331.0" promptText="Note here " style="-fx-background-color: white; -fx-background-radius: 15; -fx-border-width: 0 0 3 0;" text="Note " />
-                  <Label fx:id="name_label" layoutX="461.0" layoutY="19.0" prefHeight="45.0" prefWidth="310.0" text="Mr.">
+                  <Label fx:id="name_label" layoutX="461.0" layoutY="19.0" prefHeight="45.0" prefWidth="310.0" text="Mr. Faysal">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
@@ -90,10 +90,11 @@
             <Button mnemonicParsing="false" onAction="#showRules" prefHeight="70.0" prefWidth="207.0" text="Show Rules" />
             <Button mnemonicParsing="false" onAction="#makeAnnouncement" prefHeight="65.0" prefWidth="207.0" text="Make Announcement" />
             <Button mnemonicParsing="false" onAction="#resourceReq" prefHeight="59.0" prefWidth="236.0" text="Resourse Request" />
-            <Button mnemonicParsing="false" onAction="#fareChart" prefHeight="79.0" prefWidth="207.0" text="Fare Chart" />
+            <Button mnemonicParsing="false" onAction="#fareChart" prefHeight="68.0" prefWidth="207.0" text="Fare Chart" />
             <Button mnemonicParsing="false" onAction="#reporting" prefHeight="64.0" prefWidth="207.0" text="Reporting" />
             <Button mnemonicParsing="false" onAction="#schedule" prefHeight="70.0" prefWidth="207.0" text="View Schedule" />
             <Button disable="true" mnemonicParsing="false" prefHeight="57.0" prefWidth="207.0" text="Get Updates from Train Operator" />
+            <Button mnemonicParsing="false" onAction="#logoutBtnOnAction" prefHeight="65.0" prefWidth="207.0" text="Logout" />
          </children>
       </VBox>
    </left>

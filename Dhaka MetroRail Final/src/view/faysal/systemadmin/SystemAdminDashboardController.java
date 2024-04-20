@@ -128,23 +128,23 @@ public class SystemAdminDashboardController implements Initializable {
 
     @FXML
     private void chartInfoOnMouseClikced(MouseEvent event) {
-        loadUIAtDashBorderPane("/view/faysal.station_manager/FareChart");
+        loadUIAtDashBorderPane("/view/faysal/systemadmin/PieChartTotalUsers");
     }
 
     @FXML
     private void scheduleOnMouseClicked(MouseEvent event) {
-         loadUIAtDashBorderPane("/view/faysal.station_manager/ScheduleShow");
+         loadUIAtDashBorderPane("/view/faysal/station_manager/ScheduleShow");
     }
 
     @FXML
     private void reportOnMouseClicked(MouseEvent event) {
-        loadUIAtDashBorderPane("/view/faysal.station_manager/Reporting");
+        loadUIAtDashBorderPane("/view/faysal/station_manager/Reporting");
     }
 
     @FXML
     private void logOutOnMouseClicked(MouseEvent event  ) throws Exception{
         
-        FXMLLoader dashLoader3 = new FXMLLoader(getClass().getResource("/view/login/faysal/LoginScene.fxml"));
+        FXMLLoader dashLoader3 = new FXMLLoader(getClass().getResource("/login/faysal/LoginScene.fxml"));
         System.out.println("Dash");
         Parent root1 = dashLoader3.load();
         System.out.println("loader");
