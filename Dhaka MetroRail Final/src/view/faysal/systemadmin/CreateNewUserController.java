@@ -424,7 +424,7 @@ public class CreateNewUserController implements Initializable {
                                 if (!Validation.allDigits(nid)){AlertGen.unsuccessfulAlert("NID is not valid");System.out.println("if14");}
                                 else{
                                     System.out.println("else 10 ");
-                                   boolean confimationEmp = AlertGen.confirmationAlert("Do you want to confim to add new ?"+employeeType);
+                                   boolean confimationEmp = AlertGen.confirmationAlert("Do you want to confim to add new?"+" " +employeeType + " of ID: " + employeeID);
                                     if (!confimationEmp){System.out.println("calcel dise if");}
                                     else
                                     {  System.out.println("else 11 e created object");

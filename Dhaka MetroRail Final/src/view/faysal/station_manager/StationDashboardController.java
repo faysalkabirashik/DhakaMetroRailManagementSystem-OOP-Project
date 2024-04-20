@@ -117,6 +117,18 @@ public class StationDashboardController implements Initializable {
         
     }
 
+    @FXML
+    private void logoutBtnOnAction(ActionEvent event) throws IOException {
+        FXMLLoader dashLoader3 = new FXMLLoader(getClass().getResource("/login/faysal/LoginScene.fxml"));
+        System.out.println("Dash");
+        Parent root1 = dashLoader3.load();
+        System.out.println("loader");
+        Stage window1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window1.setScene(new Scene(root1));
+        window1.show();
+        
+    }
+
  
     
 
