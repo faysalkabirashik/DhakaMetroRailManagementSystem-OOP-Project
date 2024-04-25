@@ -29,15 +29,16 @@ public class TestingBin {
  
      */
     public static void main(String[] args) {
+        System.out.println(Read.checkUserExist("Passenger", ""));
         
-         Read.write();
-         Read.read();
+         //Read.write();
+         //Read.read();
 //        System.out.println(Read.getListOfObjects().size());
 System.out.println("Vitorer reaad");
 //        read();
 //        
         ///////////
-//        SystemAdministrator admin = new SystemAdministrator();
+        SystemAdministrator admin = new SystemAdministrator();
 //        StationManager sm = new StationManager();
 //        TrainOperator to = new TrainOperator();
 //        PublicServiceProvider ps = new PublicServiceProvider();
@@ -49,7 +50,7 @@ System.out.println("Vitorer reaad");
 //        SystemAdministrator admin = new SystemAdministrator();
 //        SystemAdministrator admin = new SystemAdministrator();
         
-        //System.out.println(admin.getTotalNoOfObjects()+ " " + admin.getTotalListOfObjects());
+        System.out.println(admin.getTotalNoOfObjects()+ " " + admin.getTotalListOfObjects());
 //        System.out.println(sm.getTotalNoOfObjects()+ " " + sm.getTotalListOfObjects());
 //        System.out.println(to.getTotalNoOfObjects()+ " " + to.getTotalListOfObjects());
 //        System.out.println(ps.getTotalNoOfObjects()+ " " + ps.getTotalListOfObjects());

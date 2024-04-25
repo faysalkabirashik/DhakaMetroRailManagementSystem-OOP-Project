@@ -425,64 +425,79 @@ public class SystemAdministrator extends Employee implements Serializable, Count
     
     public  String generateEmployeeID(String userType, LocalDate dateOfJoining)
     {   
+        
+        int total = -1;
+        String year, label, key = userType;
+        label = MAP_CLASSIFICATION_LABEL.get(key);
+        System.out.println("This is all: " + label+ key + total);
         try{
-            String key = userType;
+            
             if (key != null && MAP_CLASSIFICATION_LABEL.containsKey(key)) 
-                {        
-                    String  year = String.valueOf(dateOfJoining.getYear()).substring(2,4);
-                    String label = MAP_CLASSIFICATION_LABEL.get(key);
-                    int total = 0;
-                    switch (key) {
-                        case "System Administrator":
-                            System.out.println("admin ");
-                            
-                            total = getCountOfSystemAdmins();
-                            System.out.println(total);
-                            break;
-                        case "Station Manager":
-                            total =StationManager.getCountOfStationManager() ;
-                            break;
-                        case "Train Operator":
-                            total = TrainOperator.getCountOfTrainOperator();
-                            break;
-                        case "Head of HR":
-                            total = HeadOfHR.getCountOfHeadOfHR();
-                            break;
-                        case "Maintenance Staff":
-                            total = MaintenanceStaff.getCountOfMaintenanceStaff();
-                            break;
-                        case "Public Service Provider":
-                            total = PublicServiceProvider.getCountOfPublicServiceProvider();
-                            break;
-                        case "Accountant":
-                            total = Accountant.getCountOfAccountant();
-                            break;
-                        default:
-                            break;
-                    }
-                    try{ System.out.println("try 2");
+            {        
+                year = String.valueOf(dateOfJoining.getYear()).substring(2, 4);
+                System.out.println("year: "+ year);
+                switch (key) {
+                case "System Administrator":
+                    System.out.println("admin ");      
+                    total = this.getTotalNoOfObjects();
+                    System.out.println(total);
+                    break;
+                case "Station Manager":
+                    System.out.println("MANAGER users: ");   
+                    total =new StationManager().getTotalNoOfObjects() ;
+                    System.out.println(total);
+                    break;
+                case "Train Operator":
+                    System.out.println("train operator users: ");   
+                    total = new TrainOperator().getTotalNoOfObjects();
+                    System.out.println(total);
+                    break;
+                case "Head of HR":
+                    System.out.println("HR users: ");   
+                    total = new HeadOfHR().getTotalNoOfObjects();
+                    System.out.println(total);
+                    break;
+                case "Maintenance Staff":
+                    total = new MaintenanceStaff().getTotalNoOfObjects();
+                    System.out.println(total);
+                    break;
+                case "Public Service Provider":
+                    total = new PublicServiceProvider().getTotalNoOfObjects();
+                    System.out.println(total);
+                    break;
+                case "Accountant":
+                    total = new Accountant().getTotalNoOfObjects();
+                    System.out.println(total);
+                    break;
+                default:
+                    System.out.println("Default block");
+                    System.out.println(total);
+                    break;     
+                }
+                try{    
+                    System.out.println("try 2");
                     String id = year + label;
+                    total++;
+                    System.out.println("initial id " + id);
                     if (total == 0){
-                        System.out.println("total 0");
+                        System.out.println("total 0");     
                         id = id + "000";
-                        }
-                    
-                   else if( total < 10){
-                         id = id + "00" + String.valueOf(total);
-                        }
-                     else if (total > 10 && total < 100){
+                        System.out.println("id "+ id);
+                    }else if( total < 10){     
+                        id = id + "00" + String.valueOf(total);
+                    }else if (total > 10 && total < 100){
                          id = id + "0" + String.valueOf(total);
-                        } 
-                     else{
+                    }else{
                          id = id + String.valueOf(total);
-                        }
-                        System.out.println(id);
+                    }System.out.println(id);
                     return id;  
                     }catch(Exception ex){AlertGen.unsuccessfulAlert(ex.toString());}
                     
+                }else{
+                    AlertGen.unsuccessfulAlert("Couldn't generate ID");
                 }
-            }
-        catch (Exception ex){AlertGen.unsuccessfulAlert(ex.toString());}
+            }catch (Exception ex){AlertGen.unsuccessfulAlert(ex.toString());}
+        if (total == -1){AlertGen.errorAlert("Error", "Something went wrong!");}
         return null;
     }
     public void addNewTrain(Train train){
@@ -539,8 +554,7 @@ public class SystemAdministrator extends Employee implements Serializable, Count
                     //System.out.println(tempUser.toString());
                     list.add((SystemAdministrator)tempUser);
                 }
-            }
-            catch(IOException | ClassNotFoundException e){
+            }catch(IOException | ClassNotFoundException e){
                 //System.out.println(e.toString());
                 System.out.println("IOException | ClassNotFoundException in reading bin file");
             }
@@ -557,7 +571,10 @@ public class SystemAdministrator extends Employee implements Serializable, Count
         return list;        
 
     }
-
+    
+    public static boolean checkUserExist(String path, String userIdentity){
+        return false;
+    }
 
     
 }

@@ -48,10 +48,9 @@ public class Passenger extends User implements Serializable{
     public Passenger() {
     }
 
-    
-    
-        ////////////////////////////// getter setter//////////////////////
-    //// all implemented in User class, so no need
+    ////////////////////////////// getter setter//////////////////////
+    //// all implemented in User class, so no need   ////////////////
+    /////////////////////////////////////////////////////////////////
     
     public String getNid() {
         return nid;
@@ -130,8 +129,6 @@ public class Passenger extends User implements Serializable{
                         currentStage.setScene(newScene);
                         currentStage.show();
     }
-    
-    
     /////////////////// 
     
     public static int getCountOfPassenger()
