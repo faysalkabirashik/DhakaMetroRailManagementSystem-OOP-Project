@@ -31,10 +31,6 @@ import model.nayem.TrainOperator;
  * @author Faysal Kabir Ashik
  */
 public class Read {
-<<<<<<< HEAD
-    
-    public static ObservableList<LoginInfo> getListOfObjects(){
-=======
 //    Book s = new Book();
     
     
@@ -406,32 +402,16 @@ public class Read {
     }
 
     public static ObservableList<LoginInfo> getListOfObjects() {
->>>>>>> Faysal-2111585
         ObservableList<LoginInfo> list = FXCollections.observableArrayList();
         File f = null;
         FileInputStream fis = null;
         ObjectInputStream ois = null;
-<<<<<<< HEAD
-        String path = "LoginInfoObjects.bin";
-=======
         String path = "Books.bin";
->>>>>>> Faysal-2111585
         try {
             f = new File(path);
             fis = new FileInputStream(f);
             ois = new ObjectInputStream(fis);
             LoginInfo tempUser = null;
-<<<<<<< HEAD
-            try{
-                System.out.println("Printing objects");
-                while(true){
-                    tempUser = (LoginInfo) ois.readObject();
-//                     System.out.println(tempUser.toString());
-                    list.add((LoginInfo)tempUser);
-                }
-            }
-            catch(IOException | ClassNotFoundException e){
-=======
             try {
                 System.out.println("Printing objects");
                 while (true) {
@@ -440,7 +420,6 @@ public class Read {
                     list.add((LoginInfo) tempUser);
                 }
             } catch (IOException | ClassNotFoundException e) {
->>>>>>> Faysal-2111585
                 //System.out.println(e.toString());
                 System.out.println("IOException | ClassNotFoundException in reading bin file");
             }
