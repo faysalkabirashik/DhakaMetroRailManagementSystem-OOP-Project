@@ -60,3 +60,10 @@
 !/Dhaka MetroRail Final/src/view/nayem/TrainOperator/MessageToMaintenanceStaffController.java
 !/Dhaka MetroRail Final/src/view/nayem/passenger/TransactionHistoryController.java
 !/Dhaka MetroRail Final/src/view/nayem/passenger/PassengerEmergencyController.java
+<<<<<<< HEAD
+=======
+!/Dhaka MetroRail Final/src/bintest/Read.java
+!/Dhaka MetroRail Final/src/bintest/Book.java
+!/Dhaka MetroRail Final/src/view/faysal/systemadmin/PieChartTotalUsersController.java
+!/Dhaka MetroRail Final/src/login/faysal/LoginController.java
+>>>>>>> main
