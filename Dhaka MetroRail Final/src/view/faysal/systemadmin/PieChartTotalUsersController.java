@@ -51,8 +51,10 @@ public class PieChartTotalUsersController implements Initializable {
     @FXML
     private void loadPieChartButtonOnClick(ActionEvent event) {
         pieChart.getData().clear();
+//        SystemAdministrator.getCountOfSystemAdmins();
         showLabel.setText("Select node to total no. of users.");
-        list.add( new PieChart.Data("System Administrator",new SystemAdministrator().getTotalNoOfObjects()) );
+//        SystemAdministrator admin = new SystemAdministrator();
+        list.add( new PieChart.Data("System Administrator",  new SystemAdministrator().getTotalNoOfObjects()) );
         list.add( new PieChart.Data("Passenger",new Passenger().getTotalNoOfObjects()) );
         list.add( new PieChart.Data("Train Operator",new TrainOperator().getTotalNoOfObjects()) );
         list.add( new PieChart.Data("Station Manager",new StationManager().getTotalNoOfObjects()) );
