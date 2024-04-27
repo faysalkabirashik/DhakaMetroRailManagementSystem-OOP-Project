@@ -138,32 +138,44 @@ public class LoginController implements Initializable {
                     case "03":
                         System.out.println("Login succes         ");
                          show_label.setText("Login success     ");
-                         System.out.println("Login succes         ");
-                        show_label.setText("Login success     ");
-                        FXMLLoader dashLoader3 = new FXMLLoader(getClass().getResource("/view/minhaz/maintenanceStaff/MaintenanceStaffDashboard.fxml"));
-                        System.out.println("Dash");
-                        Parent root3 = dashLoader3.load();
-                        System.out.println("loader");
-                        Stage window3 = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                        window3.setScene(new Scene(root3));
-                        window3.show();
+
 
 
                         break;
                     case "04":
-                        System.out.println("Login succes         ");
+                        System.out.println("Login not success - Pasenger         ");
                          show_label.setText("Login success     ");
+                         System.out.println("Login succes         ");
+                        show_label.setText("Login success     ");
+                        FXMLLoader dashLoader4 = new FXMLLoader(getClass().getResource(".fxml"));
+                        System.out.println("Dash");
+                        Parent root4 = dashLoader4.load();
+                        System.out.println("loader");
+                        Stage window4 = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                        window4.setScene(new Scene(root4));
+                        window4.show();
 
+                        AlertGen.successfulAlert("Login Successfull!");
                         break;
                     case "05":
                         System.out.println("Login succes         ");
                          show_label.setText("Login success     ");
-
-
                         break;
+                        
                     case "06":
+                        System.out.println("Login not success - Pasenger         ");
+                        show_label.setText("Login success     ");
                         System.out.println("Login succes         ");
-                         show_label.setText("Login success     ");
+                        show_label.setText("Login success     ");
+                        FXMLLoader dashLoader5 = new FXMLLoader(getClass().getResource(".fxml"));
+                        System.out.println("Dash");
+                        Parent root5 = dashLoader5.load();
+                        System.out.println("loader");
+                        Stage window5 = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                        window5.setScene(new Scene(root5));
+                        window5.show();
+
+                        
                     case "07":
                             System.out.println("Login not success - Pasenger         ");
                          show_label.setText("Login success     ");
