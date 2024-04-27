@@ -54,6 +54,9 @@ public class SetNewTrainController implements Initializable {
 
     private SystemAdministrator admin = new SystemAdministrator();
     private Train train = new Train();
+ 
+
+
     
     public SystemAdministrator getSystemAdmin(){
         return admin;
@@ -71,7 +74,9 @@ public class SetNewTrainController implements Initializable {
         ObservableList<String> routLlist = FXCollections.observableArrayList("MRT Line 1", "MRT Line 2", "MRT Line 6");
         route_comBox.setItems(routLlist);
         List<String> stations = Station.getList();
+        System.out.println(stations);
         ObservableList<String> stationList = FXCollections.observableArrayList(stations);
+        System.out.println(stationList);
         startStation_comBox.setItems(stationList);
         destinationStation_comBox.setItems(stationList);
         
@@ -94,6 +99,7 @@ public class SetNewTrainController implements Initializable {
                     
                     int carCap = Integer.parseInt(carCapacity_txt.getText());
                     int totalCar = Integer.parseInt(totalCar_txt.getText());
+                    totalCap_label.setText(String.valueOf(carCap * totalCar));
                     String id = trainID_textField.getText();
                     String name = trainID_textField.getText();
                     String startingStation = startStation_comBox.getValue();

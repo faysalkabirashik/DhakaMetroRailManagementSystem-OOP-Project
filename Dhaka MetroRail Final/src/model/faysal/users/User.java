@@ -9,6 +9,7 @@ import java.time.LocalDate;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.faysal.Address;
+import model.faysal.AlertGen;
 import model.nayem.Passenger;
 import model.nayem.TrainOperator;
 
@@ -36,6 +37,8 @@ public abstract class  User implements Serializable, Countable {
 
     
     public abstract void changePassword();
+    public abstract int getTotalNoOfObjects();
+    public abstract ObservableList<?> getTotalListOfObjects();
     public static int totalUser(){return userCount;}
 
     
@@ -185,8 +188,8 @@ public abstract class  User implements Serializable, Countable {
     /// own method ///////////
 
     
-        public static int getCountOfAllTypeOfUsers()
-    {
+    public static int getCountOfAllTypeOfUsers()
+        {
         ObservableList<User> allUsers = FXCollections.observableArrayList();
         File f = null;
         FileInputStream fis = null;      
@@ -202,6 +205,7 @@ public abstract class  User implements Serializable, Countable {
                         {
                         tempUser = (User) ois.readObject();
                         allUsers.add((User)tempUser);
+                            System.out.println("added");
                         }
                     }
                 catch(IOException | ClassNotFoundException e){}
@@ -211,7 +215,7 @@ public abstract class  User implements Serializable, Countable {
                 try {if(ois != null) ois.close();} 
                 catch (IOException ex) { }
                 }
-
+            System.out.println(allUsers);
         return allUsers.size();
     }
         
@@ -382,7 +386,7 @@ public abstract class  User implements Serializable, Countable {
     }
     
       
-    public static String loginVerify(String idcheck, String passcheck){
+    public static String verifyLogin(String idcheck, String passcheck){
         File f = null;
         FileInputStream fis = null;      
         ObjectInputStream ois = null;
@@ -398,41 +402,45 @@ public abstract class  User implements Serializable, Countable {
                 System.out.println("Printing login objects");           
 
                 while(true){
-                    if (idflag==1){break;}
+                    if (idflag==1){                        
+                        System.out.println("User found");
+                            break;
+                                }
                     tempLogin = (LoginInfo) ois.readObject();
                     System.out.println(tempLogin.toString());
                     if (idcheck.equals(tempLogin.getUserIdentity())){
+                        System.out.println("idflag");
+                        System.out.println(idflag);
                         idflag=1;
                         if (passcheck.equals(tempLogin.getPassword())){
                             passflag=1;
                             if (tempLogin.getUserType().equals("Passenger")) {
-                                userType = "07";
+                                userType = "07"; return userType;
                             }      
-                            else if (   tempLogin.equals("System Administrator")   )
+                            else if (   tempLogin.getUserType().equals("System Administrator")   )
                             {
-                                userType = "00";
+                                userType = "00";return userType;
                             } else if (tempLogin.getUserType().equals("Station Manager")) {
-                                userType = "01";
+                                userType = "01"; return userType;
                             } else if (tempLogin.getUserType().equals("Train Operator")) {
-                                userType = "02";
+                                userType = "02"; return userType;
                             } else if (tempLogin.getUserType().equals("Head of HR")) {
-                                userType = "03";
+                                userType = "03"; return userType;
                             } else if (tempLogin.getUserType().equals("Accountant")) {
-                                userType = "04";
+                                userType = "04"; return userType;
                             } else if (tempLogin.getUserType().equals("Maintenance Staff")) {
-                                userType = "05";
+                                userType = "05"; return userType;
                             } else if (tempLogin.getUserType().equals("Public Service Provider")) {
-                                userType = "06";
+                                userType = "06"; return userType;
                             }
+                            else{}
                             
-                            break;
                         }
                     }
                 }
             }
             catch(IOException | ClassNotFoundException e){
-                System.out.println(e.toString());
-                System.out.println("IOException | ClassNotFoundException in reading bin file");
+                e.toString();
             }
             System.out.println("End of file\n");
             
@@ -441,10 +449,10 @@ public abstract class  User implements Serializable, Countable {
  
                     return userType;
                 }
-                else{return "Wrong Pass";}
+                else{AlertGen.unsuccessfulAlert(("No such user"));return "Wrong Pass";}
                
             }
-            else{return "Not found";}
+            else{AlertGen.unsuccessfulAlert(("No such user"));return "Not found";}
                 
         
         } catch (IOException ex) {
@@ -454,7 +462,8 @@ public abstract class  User implements Serializable, Countable {
         finally {
             try {
                 if(ois != null) ois.close();
-            } catch (IOException ex) { }
+                return userType;
+            } catch (IOException ex) { ex.toString();}
         }
        
     }

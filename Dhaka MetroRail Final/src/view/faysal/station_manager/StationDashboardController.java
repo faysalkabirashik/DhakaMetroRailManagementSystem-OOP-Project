@@ -4,15 +4,25 @@
  */
 package view.faysal.station_manager;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
+import view.faysal.systemadmin.SystemAdminDashboardController;
 
 /**
  * FXML Controller class
@@ -27,53 +37,51 @@ public class StationDashboardController implements Initializable {
     private TextField note_textField;
     @FXML
     private Label name_label;
-    @FXML
-    private HBox dashBoard_hBox;
-    @FXML
-    private Label dashBoardLabel;
-    @FXML
-    private HBox addUser;
-    @FXML
-    private Label profileLabel;
-    @FXML
-    private HBox logOut_hBox;
-    @FXML
-    private HBox goals_hBox;
-    @FXML
-    private Label expencesLID;
-    @FXML
-    private HBox download_Hbox;
-    @FXML
-    private Label downloadLid;
-    @FXML
-    private HBox notifications_hBox;
-    @FXML
-    private Label downloadLid1;
-    @FXML
-    private HBox logOut_hBox1;
-    @FXML
-    private HBox logOut_hBox11;
-    @FXML
-    private HBox logOut_hBox111;
 
-    /**
-     * Initializes the controller class.
-     */
+    public void loadUIAtDashBorderPane(String ui) {
+        Parent root;
+        try {
+            root = FXMLLoader.load(getClass().getResource(ui+".fxml"));
+            adminMainDashboard_borderPane.setCenter(root);
+        }
+        catch (IOException ex) {
+            Logger.getLogger(StationDashboardController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
+    
+    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
 
     @FXML
-    private void dashboardMouseOnClicked(MouseEvent event) {
+    private void rulesOnAction(ActionEvent event) {
+        
+        loadUIAtDashBorderPane("Rules");
     }
 
-    @FXML
-    private void addUserOnMouseClicked(MouseEvent event) {
-    }
+    /*@FXML
+    private void LogoutOnAction(ActionEvent event) throws Exception{
+
+        
+        FXMLLoader dashLoader1 = new FXMLLoader(getClass().getResource("/view/faysal/login/LoginScene.fxml"));
+        System.out.println("Dash");
+        Parent root1 = dashLoader1.load();
+        System.out.println("loader");
+        Stage window1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window1.setScene(new Scene(root1));
+        window1.show();
+        
+        
+        
+        
+    }*/
 
     @FXML
-<<<<<<< HEAD
     private void makeAnnouncement(ActionEvent event) {
         
         loadUIAtDashBorderPane("MakeAnnouncement");
@@ -109,41 +117,22 @@ public class StationDashboardController implements Initializable {
         
     }
 
+    @FXML
+    private void logoutBtnOnAction(ActionEvent event) throws IOException {
+        FXMLLoader dashLoader3 = new FXMLLoader(getClass().getResource("/login/faysal/LoginScene.fxml"));
+        System.out.println("Dash");
+        Parent root1 = dashLoader3.load();
+        System.out.println("loader");
+        Stage window1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window1.setScene(new Scene(root1));
+        window1.show();
+        
+    }
+
  
     
 
 
-=======
-    private void addTrainOnMouseClicked(MouseEvent event) {
-    }
->>>>>>> Jubair-2221134
 
-    @FXML
-    private void addTrainOnAction(MouseEvent event) {
-    }
-
-    @FXML
-    private void addStationOnMouseClicked(MouseEvent event) {
-    }
-
-    @FXML
-    private void generatePDF(MouseEvent event) {
-    }
-
-    @FXML
-    private void chartInfoOnMouseClikced(MouseEvent event) {
-    }
-
-    @FXML
-    private void scheduleOnMouseClicked(MouseEvent event) {
-    }
-
-    @FXML
-    private void reportOnMouseClicked(MouseEvent event) {
-    }
-
-    @FXML
-    private void logOutOnMouseClicked(MouseEvent event) {
-    }
     
 }

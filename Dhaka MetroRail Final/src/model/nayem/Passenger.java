@@ -28,6 +28,7 @@ public class Passenger extends User implements Serializable{
     public static int itsTotalMember(){return userCount;}
     private String nid = null;
     private String birtCertificate = null;
+    private float balance = 0;
 
     public Passenger(String coreUserType, String userIdentity) {
         super(coreUserType, userIdentity);
@@ -47,10 +48,9 @@ public class Passenger extends User implements Serializable{
     public Passenger() {
     }
 
-    
-    
-        ////////////////////////////// getter setter//////////////////////
-    //// all implemented in User class, so no need
+    ////////////////////////////// getter setter//////////////////////
+    //// all implemented in User class, so no need   ////////////////
+    /////////////////////////////////////////////////////////////////
     
     public String getNid() {
         return nid;
@@ -129,8 +129,6 @@ public class Passenger extends User implements Serializable{
                         currentStage.setScene(newScene);
                         currentStage.show();
     }
-    
-    
     /////////////////// 
     
     public static int getCountOfPassenger()
@@ -213,6 +211,49 @@ public class Passenger extends User implements Serializable{
         } catch (IOException ex) {
             //
         }
+    }
+
+    @Override
+    public int getTotalNoOfObjects() {
+        return this.getTotalListOfObjects().size();
+    }
+
+    @Override
+    public ObservableList<Passenger> getTotalListOfObjects() {
+        ObservableList<Passenger> list = FXCollections.observableArrayList();
+        File f = null;
+        FileInputStream fis = null;      
+        ObjectInputStream ois = null;
+        String path = "Passenger.bin";
+        try {
+            f = new File(path);
+            fis = new FileInputStream(f);
+            ois = new ObjectInputStream(fis);
+            Passenger tempUser = null;
+            try{
+                System.out.println(" objects of SystemAdministrator");
+                while(true){
+                    tempUser = (Passenger) ois.readObject();
+                    //System.out.println(tempUser.toString());
+                    list.add((Passenger)tempUser);
+                }
+            }
+            catch(IOException | ClassNotFoundException e){
+                //System.out.println(e.toString());
+                System.out.println("IOException | ClassNotFoundException in reading bin file");
+            }
+            System.out.println("End of file\n");
+        } catch (IOException ex) {
+            System.out.println("IOException on entire file handling");
+        }
+        finally {
+            try {
+                if(ois != null) ois.close();
+            } catch (IOException ex) { }
+        }
+        System.out.println(list);        
+        return list;        
+
     }
     
 }

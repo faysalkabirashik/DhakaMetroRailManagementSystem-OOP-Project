@@ -11,6 +11,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model.faysal.AlertGen;
 
 public class TrainOperatorDashboradController implements Initializable {
 
@@ -44,7 +45,7 @@ public class TrainOperatorDashboradController implements Initializable {
     @FXML
     private void messageMaintananceStaffButtonOnClicked(ActionEvent event) throws IOException 
     {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/nayem/TrainOperator/MessageToMaintenanceCrew.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/nayem/TrainOperator/MessageToMaintenanceStaff.fxml"));
             Parent parent = loader.load();
             Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene newScene = new Scene(parent);
@@ -53,12 +54,11 @@ public class TrainOperatorDashboradController implements Initializable {
     }
 
     @FXML
-    private void viewMaintanaceScheduleButtonOnClicked(ActionEvent event) {
+    private void viewMaintanaceScheduleButtonOnClicked(ActionEvent event) 
+    {
+        AlertGen.errorAlert("404", "Under Construction");
     }
 
-    @FXML
-    private void notifcationButtonOnClicked(ActionEvent event) {
-    }
 
     @FXML
     private void softwareIssuesButtonOnClicked(ActionEvent event) throws IOException 
@@ -83,23 +83,31 @@ public class TrainOperatorDashboradController implements Initializable {
     }
 
     @FXML
-    private void emergencyButtonOnClicked(ActionEvent event) {
+    private void emergencyButtonOnClicked(ActionEvent event) throws IOException 
+    {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/nayem/TrainOperator/EmergencyScene.fxml"));
+            Parent parent = loader.load();
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene newScene = new Scene(parent);
+            currentStage.setScene(newScene);
+            currentStage.show();
     }
 
     @FXML
-<<<<<<< HEAD
     private void routeInformationButtonOnCliked(ActionEvent event) 
     {
         AlertGen.errorAlert("404", "This Goal is Under Construction");
-=======
-    private void routeInformationButtonOnCliked(ActionEvent event) {
->>>>>>> Jubair-2221134
     }
 
     @FXML
     private void signOutButtonOnClicked(ActionEvent event) throws IOException 
     {
-
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/login/faysal/LoginScene.fxml"));
+            Parent parent = loader.load();
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene newScene = new Scene(parent);
+            currentStage.setScene(newScene);
+            currentStage.show();
     }
     
 }

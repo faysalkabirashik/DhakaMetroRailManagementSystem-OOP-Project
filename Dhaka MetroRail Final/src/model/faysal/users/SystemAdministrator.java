@@ -16,6 +16,9 @@ import javafx.collections.ObservableList;
 import model.faysal.Address;
 import model.faysal.AlertGen;
 import model.faysal.AppendableObjectOutputStream;
+import model.faysal.Train;
+import model.faysal.Validation;
+import model.nayem.Passenger;
 import model.nayem.TrainOperator;
 
 /**
@@ -179,7 +182,7 @@ public class SystemAdministrator extends Employee implements Serializable, Count
                     path =  "Passenger"; 
             }
       
-        
+        path = path + ".bin";
        
         
         File fUser = null;
@@ -367,7 +370,7 @@ public class SystemAdministrator extends Employee implements Serializable, Count
         File f = null;
         FileInputStream fis = null;      
         ObjectInputStream ois = null;
-        String path = "SystemAdministratorObjects.bin";
+        String path = "SystemAdministrator.bin";
         try {
                 f = new File(path);
                 fis = new FileInputStream(f);
@@ -398,7 +401,7 @@ public class SystemAdministrator extends Employee implements Serializable, Count
         File f = null;
         FileInputStream fis = null;      
         ObjectInputStream ois = null;
-        String path = "SystemAdministratorObjects.bin";
+        String path = "SystemAdministrator.bin";
         try {
                 f = new File(path);
                 fis = new FileInputStream(f);
@@ -424,191 +427,517 @@ public class SystemAdministrator extends Employee implements Serializable, Count
     
     public  String generateEmployeeID(String userType, LocalDate dateOfJoining)
     {   
+        
+        int total = -1;
+        String year, label, key = userType;
+        label = MAP_CLASSIFICATION_LABEL.get(key);
+        System.out.println("This is all: " + label+ key + total);
         try{
-            String key = userType;
+            
             if (key != null && MAP_CLASSIFICATION_LABEL.containsKey(key)) 
-                {        
-                    String  year = String.valueOf(dateOfJoining.getYear()).substring(2,4);
-                    String label = MAP_CLASSIFICATION_LABEL.get(key);
-                    int total = 0;
-                    switch (key) {
-                        case "System Administrator":
-                            System.out.println("admin ");
-                            
-                            total = getCountOfSystemAdmins();
-                            System.out.println(total);
-                            break;
-                        case "Station Manager":
-                            total =StationManager.getCountOfStationManager() ;
-                            break;
-                        case "Train Operator":
-                            total = TrainOperator.getCountOfTrainOperator();
-                            break;
-                        case "Head of HR":
-                            total = HeadOfHR.getCountOfHeadOfHR();
-                            break;
-                        case "Maintenance Staff":
-                            total = MaintenanceStaff.getCountOfMaintenanceStaff();
-                            break;
-                        case "Public Service Provider":
-                            total = PublicServiceProvider.getCountOfPublicServiceProvider();
-                            break;
-                        case "Accountant":
-                            total = Accountant.getCountOfAccountant();
-                            break;
-                        default:
-                            break;
-                    }
-                    try{ System.out.println("try 2");
+            {        
+                year = String.valueOf(dateOfJoining.getYear()).substring(2, 4);
+                System.out.println("year: "+ year);
+                switch (key) {
+                case "System Administrator":
+                    System.out.println("admin ");      
+                    total = this.getTotalNoOfObjects();
+                    System.out.println(total);
+                    break;
+                case "Station Manager":
+                    System.out.println("MANAGER users: ");   
+                    total =new StationManager().getTotalNoOfObjects() ;
+                    System.out.println(total);
+                    break;
+                case "Train Operator":
+                    System.out.println("train operator users: ");   
+                    total = new TrainOperator().getTotalNoOfObjects();
+                    System.out.println(total);
+                    break;
+                case "Head of HR":
+                    System.out.println("HR users: ");   
+                    total = new HeadOfHR().getTotalNoOfObjects();
+                    System.out.println(total);
+                    break;
+                case "Maintenance Staff":
+                    total = new MaintenanceStaff().getTotalNoOfObjects();
+                    System.out.println(total);
+                    break;
+                case "Public Service Provider":
+                    total = new PublicServiceProvider().getTotalNoOfObjects();
+                    System.out.println(total);
+                    break;
+                case "Accountant":
+                    total = new Accountant().getTotalNoOfObjects();
+                    System.out.println(total);
+                    break;
+                default:
+                    System.out.println("Default block");
+                    System.out.println(total);
+                    break;     
+                }
+                try{    
+                    System.out.println("try 2");
                     String id = year + label;
+                    total++;
+                    System.out.println("initial id " + id);
                     if (total == 0){
-                        System.out.println("total 0");
+                        System.out.println("total 0");     
                         id = id + "000";
-                        }
-                    
-                   else if( total < 10){
-                         id = id + "00" + String.valueOf(total);
-                        }
-                     else if (total > 10 && total < 100){
+                        System.out.println("id "+ id);
+                    }else if( total < 10){     
+                        id = id + "00" + String.valueOf(total);
+                    }else if (total > 10 && total < 100){
                          id = id + "0" + String.valueOf(total);
-                        } 
-                     else{
+                    }else{
                          id = id + String.valueOf(total);
-                        }
-                        System.out.println(id);
+                    }System.out.println(id);
                     return id;  
                     }catch(Exception ex){AlertGen.unsuccessfulAlert(ex.toString());}
                     
+                }else{
+                    AlertGen.unsuccessfulAlert("Couldn't generate ID");
                 }
-            }
-        catch (Exception ex){AlertGen.unsuccessfulAlert(ex.toString());}
+            }catch (Exception ex){AlertGen.unsuccessfulAlert(ex.toString());}
+        if (total == -1){AlertGen.errorAlert("Error", "Something went wrong!");}
         return null;
     }
-    /*
-    public Employee createEmployeeInstance(String employeeType ){
-        
-        Employee empObj;
-                                        boolean flag;
-                                        switch (employeeType) {
-                                            case "System Administrator":
-                                                empObj = new SystemAdministrator( 
-                                                        nid,
-                                                        employeeType,
-                                                        joiningDate,
-                                                        1000000,   fullName,
-                                                        primMobile,
-                                                        primEmail,
-                                                        gender, 
-                                                        employeeID,
-                                                        employeeType, 
-                                                        pass,   doB,   
-                                                        address, 
-                                                        true);
-                                                flag = this.admin.createNewUserInstance(empObj, empObj.getCoreUserType(), true);
-                                                
-                                                break;
-                                            case "Station Manager":
-                                                empObj = new StationManager( 
-                                                        nid,
-                                                        employeeType,
-                                                        joiningDate,
-                                                        1000000,   fullName,
-                                                        primMobile,
-                                                        primEmail,
-                                                        gender, 
-                                                        employeeID,
-                                                        employeeType, 
-                                                        pass,   doB,   
-                                                        address, 
-                                                        true);
-                                                flag = this.admin.createNewUserInstance(empObj, empObj.getCoreUserType(), true);    
-                                                break;
-                                            case "Train Operator":
-                                                empObj = new TrainOperator( 
-                                                        nid,
-                                                        employeeType,
-                                                        joiningDate,
-                                                        1000000,   fullName,
-                                                        primMobile,
-                                                        primEmail,
-                                                        gender, 
-                                                        employeeID,
-                                                        employeeType, 
-                                                        pass,   doB,   
-                                                        address, 
-                                                        true);
-                                                flag = this.admin.createNewUserInstance(empObj, empObj.getCoreUserType(), true);
-                                                break;
-                                            case "Head of HR":
-                                                empObj = new HeadOfHR( 
-                                                        nid,
-                                                        employeeType,
-                                                        joiningDate,
-                                                        1000000,   fullName,
-                                                        primMobile,
-                                                        primEmail,
-                                                        gender, 
-                                                        employeeID,
-                                                        employeeType, 
-                                                        pass,   doB,   
-                                                        address, 
-                                                        true);
-                                                flag = this.admin.createNewUserInstance(empObj, empObj.getCoreUserType(), true);
-                                                break;
-                                            case "Maintenance Staff":
-                                                empObj = new MaintenanceStaff( 
-                                                        nid,
-                                                        employeeType,
-                                                        joiningDate,
-                                                        1000000,   fullName,
-                                                        primMobile,
-                                                        primEmail,
-                                                        gender, 
-                                                        employeeID,
-                                                        employeeType, 
-                                                        pass,   doB,   
-                                                        address, 
-                                                        true);
-                                                flag = this.admin.createNewUserInstance(empObj, empObj.getCoreUserType(), true);
-                                                break;
-                                            case "Public Service Provider":
-                                                empObj = new PublicServiceProvider( 
-                                                        nid,
-                                                        employeeType,
-                                                        joiningDate,
-                                                        1000000,   fullName,
-                                                        primMobile,
-                                                        primEmail,
-                                                        gender, 
-                                                        employeeID,
-                                                        employeeType, 
-                                                        pass,   doB,   
-                                                        address, 
-                                                        true);
-                                                flag = this.admin.createNewUserInstance(empObj, empObj.getCoreUserType(), true);
-                                                break;
-                                            case "Accountant":
-                                                empObj = new Accountant( 
-                                                        nid,
-                                                        employeeType,
-                                                        joiningDate,
-                                                        1000000,   fullName,
-                                                        primMobile,
-                                                        primEmail,
-                                                        gender, 
-                                                        employeeID,
-                                                        employeeType, 
-                                                        pass,   doB,   
-                                                        address, 
-                                                        true);
-                                                flag = this.admin.createNewUserInstance(empObj, empObj.getCoreUserType(), true);
-                                                break;
-                                            default: flag = false;
-                                                    empObj = null;
-                                                break;
-        
-        return empObj;
+    public void addNewTrain(Train train){
+        File f = null;
+        FileOutputStream fos = null;
+        ObjectOutputStream oos = null;
+        try {
+            f = new File("TrainObjects");
+            if (f.exists()) {
+                fos = new FileOutputStream(f, true);
+                oos = new AppendableObjectOutputStream(fos);
+            } else {
+                fos = new FileOutputStream(f);
+                oos = new ObjectOutputStream(fos);
+            }
+
+            oos.writeObject(train);
+        } catch (IOException iOExc) {
+            Logger.getLogger(SystemAdministrator.class.getName()).log(Level.SEVERE, null, iOExc);
+        } finally {
+            try {
+                if (oos != null) {
+                    oos.close();
+                }
+            } catch (IOException iOExc) {
+                Logger.getLogger(SystemAdministrator.class.getName()).log(Level.SEVERE, null, iOExc);
+            }
+
+        }
+
+    }
+
+    @Override
+    public int getTotalNoOfObjects() {
+        return this.getTotalListOfObjects().size();
+    }
+
+    @Override
+    public ObservableList<SystemAdministrator> getTotalListOfObjects() {
+        ObservableList<SystemAdministrator> list = FXCollections.observableArrayList();
+        File f = null;
+        FileInputStream fis = null;      
+        ObjectInputStream ois = null;
+        String path = "SystemAdministrator.bin";
+        try {
+            f = new File(path);
+            fis = new FileInputStream(f);
+            ois = new ObjectInputStream(fis);
+            SystemAdministrator tempUser = null;
+            try{
+                System.out.println(" objects of SystemAdministrator");
+                while(true){
+                    tempUser = (SystemAdministrator) ois.readObject();
+                    //System.out.println(tempUser.toString());
+                    list.add((SystemAdministrator)tempUser);
+                }
+            }catch(IOException | ClassNotFoundException e){
+                //System.out.println(e.toString());
+                System.out.println("IOException | ClassNotFoundException in reading bin file");
+            }
+            System.out.println("End of file\n");
+        } catch (IOException ex) {
+            System.out.println("IOException on entire file handling");
+        }
+        finally {
+            try {
+                if(ois != null) ois.close();
+            } catch (IOException ex) { }
+        }
+        System.out.println(list );        
+        return list;        
+
+    }
     
-    }*/
+       public static boolean checkUserExist( String idCheck) {
+        
+        File f = null;
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+        String path = null;
+        boolean foundFlag = false;
+        
+        ////////////////////////////////////////////////////
+        if (Validation.allDigits(idCheck)){
+            String empLabel = idCheck.substring(2, 4);
+            switch (empLabel) {
+                case "00":
+                    path = "SystemAdministrator.bin";
+                    break;
+                case "01":
+                    path = "StationManager.bin";
+                    break;
+                case "02":
+                    path = "TrainOperator.bin";
+                    break;
+                case "03":
+                    path = "HeadOfHR.bin";
+                    break;
+                case "05":
+                    path = "MaintenanceStaff.bin"; 
+                    break;
+                case "06":
+                    path = "PublicServiceProvider.bin";
+                    break;
+                case "04":
+                    path = "Accountant.bin";
+                    break;
+                default:
+                    break;
+            }
+            
+        } else if (Validation.isValidUsername(idCheck)){
+            path = "Passenger.bin";
+        } else {
+            AlertGen.unsuccessfulAlert("invalid User Identity!!");
+            return false;
+        }
+ 
+        ///////////////////////////////////////////////
+        try {
+            f = new File(path);
+            fis = new FileInputStream(f);
+            ois = new ObjectInputStream(fis);
+            
+            /////////////////////////////////////////////////                        
+            try {
+                System.out.println(" objects of SystemAdministrator");
+                if (path.equals("SystemAdministrator.bin")) {
+                    SystemAdministrator tempUser ;
+                    while (true){
+                        if (foundFlag == true){
+                            System.out.println("user exists || System Admin");
+                            break;
+                        }
+                        tempUser = (SystemAdministrator) ois.readObject();
+                        if (idCheck.equals(tempUser.getUserIdentity())) {
+                            foundFlag = true;
+                            System.out.println(tempUser.getUserIdentity() +" = "+ idCheck);
+                            return true;
+                        }
+                    }
+                } else if (path.equals("StationManager.bin")) {
+                    StationManager tempUser;
+                    while (true){
+                        if (foundFlag == true){
+                            System.out.println("user exists || Station Manager");
+                            break;
+                        }
+                        tempUser = (StationManager) ois.readObject();
+                        if (idCheck.equals(tempUser.getUserIdentity())) {
+                            foundFlag = true;
+                            System.out.println(tempUser.getUserIdentity() +" = "+ idCheck);
+                            return true;
+                        }
+                    }
+                } else if (path.equals("Passenger.bin")) {
+                    Passenger tempUser;
+                    while (true){
+                        if (foundFlag == true){
+                            System.out.println("user exists || Passenger");
+                            break;
+                        }
+                        tempUser = (Passenger) ois.readObject();
+                        if (idCheck.equals(tempUser.getUserIdentity())) {
+                            foundFlag = true;
+                            System.out.println(tempUser.getUserIdentity() +" = "+ idCheck);
+                            return true;
+                        }
+                    }
+                    
+                } else if (path.equals("TrainOperator.bin")) {
+                    TrainOperator tempUser;
+                    while (true){
+                        if (foundFlag == true){
+                            System.out.println("user exists || Train Operator");
+                            break;
+                        }
+                        tempUser = (TrainOperator) ois.readObject();
+                        if (idCheck.equals(tempUser.getUserIdentity())) {
+                            foundFlag = true;
+                            System.out.println(tempUser.getUserIdentity() +" = "+ idCheck);
+                            return true;
+                        }
+                    }
+                } else if (path.equals("HeadOfHR.bin")) {
+                    HeadOfHR tempUser;
+                    while (true){
+                        if (foundFlag == true){
+                            System.out.println("user exists || Head Of HR");
+                            break;
+                        }
+                        tempUser = (HeadOfHR) ois.readObject();
+                        if (idCheck.equals(tempUser.getUserIdentity())) {
+                            foundFlag = true;
+                            System.out.println(tempUser.getUserIdentity() +" = "+ idCheck);
+                            return true;
+                        }
+                    }
+                } else if (path.equals("Accountant.bin")) {
+                    Accountant tempUser;
+                    while (true){
+                        if (foundFlag == true){
+                            System.out.println("user exists || Accountant");
+                            break;
+                        }
+                        tempUser = (Accountant) ois.readObject();
+                        if (idCheck.equals(tempUser.getUserIdentity())) {
+                            foundFlag = true;
+                            System.out.println(tempUser.getUserIdentity() +" = "+ idCheck);
+                            return true;
+                        }
+                    }
+                } else if (path.equals("MaintenanceStaff.bin")) {
+                   MaintenanceStaff tempUser;
+                   while (true){
+                        if (foundFlag == true){
+                            System.out.println("user exists || MaintenanceS taff ");
+                            break;
+                        }
+                        tempUser = (MaintenanceStaff) ois.readObject();
+                        if (idCheck.equals(tempUser.getUserIdentity())) {
+                            foundFlag = true;
+                            System.out.println(tempUser.getUserIdentity() +" = "+ idCheck);
+                            return true;
+                        }
+                    }
+                } else if (path.equals("PublicServiceProvider.bin")){
+                    PublicServiceProvider tempUser;
+                    while (true){
+                        if (foundFlag == true){
+                            System.out.println("user exists || Public Service Provider");
+                            break;
+                        }
+                        tempUser = (PublicServiceProvider) ois.readObject();
+                        if (idCheck.equals(tempUser.getUserIdentity())) {
+                            foundFlag = true;
+                            System.out.println(tempUser.getUserIdentity() +" = "+ idCheck);
+                            return true;
+                        }
+                    }
+                }
+
+                //System.out.println(tempUser.toString());
+            } catch (IOException | ClassNotFoundException e) {
+                //System.out.println(e.toString());
+                System.out.println("IOException | ClassNotFoundException in reading bin file");
+            }
+            System.out.println("End of file\n");
+            ////////////////////////////////////////////
+
+        } catch (IOException ex) {
+            System.out.println("IOException on entire file handling");
+        } finally {
+            try {
+                if (ois != null) {
+                    ois.close();
+                }
+            } catch (IOException ex) {
+            }
+        }
+        
+        return foundFlag;
+
+    }
+    
+    
+    
+    public static boolean checkUserExist(String userType, String idCheck) {
+        
+        File f = null;
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+        String path = null;
+        boolean foundFlag = false;
+        if (userType.equals("System Administrator")) {
+            path = "SystemAdministrator.bin";
+        } else if (userType.equals("Station Manager")) {
+            path = "StationManager.bin";
+        } else if (userType.equals("Train Operator")) {
+            path = "TrainOperator.bin";
+        } else if (userType.equals("Head of HR")) {
+            path = "HeadOfHR.bin";
+        } else if (userType.equals("Maintenance Staff")) {
+            path = "MaintenanceStaff.bin";
+        } else if (userType.equals("Public Service Provider")) {
+            path = "PublicServiceProvider.bin";
+        } else if (userType.equals("Accountant")) {
+            path = "Accountant.bin";
+        } else if (userType.equals("Passenger")) {
+            path = "Passenger.bin";
+        }
+
+        try {
+            f = new File(path);
+            fis = new FileInputStream(f);
+            ois = new ObjectInputStream(fis);
+            
+            /////////////////////////////////////////////////                        
+            try {
+                System.out.println(" objects of SystemAdministrator");
+
+                if (path.equals("SystemAdministrator.bin")) {
+                    SystemAdministrator tempUser ;
+                    while (true){
+                        if (foundFlag == true){
+                            System.out.println("user exists");
+                            break;
+                        }
+                        tempUser = (SystemAdministrator) ois.readObject();
+                        if (idCheck.equals(tempUser.getUserIdentity())) {
+                            foundFlag = true;
+                            System.out.println(tempUser.getUserIdentity() +" = "+ idCheck);
+                            return true;
+                        }
+                    }
+                } else if (path.equals("StationManager.bin")) {
+                    StationManager tempUser;
+                    while (true){
+                        if (foundFlag == true){
+                            System.out.println("user exists");
+                            break;
+                        }
+                        tempUser = (StationManager) ois.readObject();
+                        if (idCheck.equals(tempUser.getUserIdentity())) {
+                            foundFlag = true;
+                            System.out.println(tempUser.getUserIdentity() +" = "+ idCheck);
+                            return true;
+                        }
+                    }
+                } else if (path.equals("Passenger.bin")) {
+                    Passenger tempUser;
+                    while (true){
+                        if (foundFlag == true){
+                            System.out.println("user exists");
+                            break;
+                        }
+                        tempUser = (Passenger) ois.readObject();
+                        if (idCheck.equals(tempUser.getUserIdentity())) {
+                            foundFlag = true;
+                            System.out.println(tempUser.getUserIdentity() +" = "+ idCheck);
+                            return true;
+                        }
+                    }
+                    
+                } else if (path.equals("TrainOperator.bin")) {
+                    TrainOperator tempUser;
+                    while (true){
+                        if (foundFlag == true){
+                            System.out.println("user exists");
+                            break;
+                        }
+                        tempUser = (TrainOperator) ois.readObject();
+                        if (idCheck.equals(tempUser.getUserIdentity())) {
+                            foundFlag = true;
+                            System.out.println(tempUser.getUserIdentity() +" = "+ idCheck);
+                            return true;
+                        }
+                    }
+                } else if (path.equals("HeadOfHR.bin")) {
+                    HeadOfHR tempUser;
+                    while (true){
+                        if (foundFlag == true){
+                            System.out.println("user exists");
+                            break;
+                        }
+                        tempUser = (HeadOfHR) ois.readObject();
+                        if (idCheck.equals(tempUser.getUserIdentity())) {
+                            foundFlag = true;
+                            System.out.println(tempUser.getUserIdentity() +" = "+ idCheck);
+                            return true;
+                        }
+                    }
+                } else if (path.equals("Accountant.bin")) {
+                    Accountant tempUser;
+                    while (true){
+                        if (foundFlag == true){
+                            System.out.println("user exists");
+                            break;
+                        }
+                        tempUser = (Accountant) ois.readObject();
+                        if (idCheck.equals(tempUser.getUserIdentity())) {
+                            foundFlag = true;
+                            System.out.println(tempUser.getUserIdentity() +" = "+ idCheck);
+                            return true;
+                        }
+                    }
+                } else if (path.equals("MaintenanceStaff.bin")) {
+                   MaintenanceStaff tempUser;
+                   while (true){
+                        if (foundFlag == true){
+                            System.out.println("user exists");
+                            break;
+                        }
+                        tempUser = (MaintenanceStaff) ois.readObject();
+                        if (idCheck.equals(tempUser.getUserIdentity())) {
+                            foundFlag = true;
+                            System.out.println(tempUser.getUserIdentity() +" = "+ idCheck);
+                            return true;
+                        }
+                    }
+                } else if (path.equals("PublicServiceProvider.bin")){
+                    PublicServiceProvider tempUser;
+                    while (true){
+                        if (foundFlag == true){
+                            System.out.println("user exists");
+                            break;
+                        }
+                        tempUser = (PublicServiceProvider) ois.readObject();
+                        if (idCheck.equals(tempUser.getUserIdentity())) {
+                            foundFlag = true;
+                            System.out.println(tempUser.getUserIdentity() +" = "+ idCheck);
+                            return true;
+                        }
+                    }
+                }
+
+                //System.out.println(tempUser.toString());
+            } catch (IOException | ClassNotFoundException e) {
+                //System.out.println(e.toString());
+                System.out.println("IOException | ClassNotFoundException in reading bin file");
+            }
+            System.out.println("End of file\n");
+            ////////////////////////////////////////////
+
+        } catch (IOException ex) {
+            System.out.println("IOException on entire file handling");
+        } finally {
+            try {
+                if (ois != null) {
+                    ois.close();
+                }
+            } catch (IOException ex) {
+            }
+        }
+        
+        return foundFlag;
+
+    }
+
     
 }

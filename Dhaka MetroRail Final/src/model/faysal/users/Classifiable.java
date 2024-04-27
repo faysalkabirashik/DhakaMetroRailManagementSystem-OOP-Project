@@ -22,7 +22,10 @@ public interface Classifiable extends Countable  {
     put("Head of HR",    "03");
     put("Accountant", "04");
     put("Maintenance Staff",   "05");
-    put("Public Service Provider",   "06");         }};
+    put("Public Service Provider",   "06");  
+    put(  "Passenger",  "07");}
+    
+    };
                                                                                                         
     
     //public void setLabel(String str);

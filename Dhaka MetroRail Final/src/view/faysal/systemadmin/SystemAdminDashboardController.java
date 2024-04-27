@@ -12,13 +12,16 @@ import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyEvent;
+
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 import model.faysal.users.SystemAdministrator;
 
 /**
@@ -41,8 +44,6 @@ public class SystemAdminDashboardController implements Initializable {
     @FXML
     private Label profileLabel;
     @FXML
-    private HBox goals_hBox;
-    @FXML
     private Label expencesLID;
     @FXML
     private HBox download_Hbox;
@@ -64,6 +65,9 @@ public class SystemAdminDashboardController implements Initializable {
     private HBox logOut_hBox111;
 
     private SystemAdministrator admin;
+    @FXML
+    private HBox addStation;
+ 
     public SystemAdministrator getSystemAdmin(){
         return admin;
     }
@@ -96,17 +100,6 @@ public class SystemAdminDashboardController implements Initializable {
 
 
 
-//    private void goalsOnMouseClicked(MouseEvent event) {
-//        loadUIAtMainBorderPane("SystemAdminGoals");
-//    }
-//
-//    private void downloadOnMouseClicked(MouseEvent event) {
-//        loadUIAtMainBorderPane("CreateNewUser");
-//    }
-
-    @FXML
-    private void noteTextFieldKeyReleased(KeyEvent event) {
-    }
 
     @FXML
     private void dashboardMouseOnClicked(MouseEvent event) {
@@ -120,11 +113,9 @@ public class SystemAdminDashboardController implements Initializable {
 
     @FXML
     private void addTrainOnMouseClicked(MouseEvent event) {
+        loadUIAtDashBorderPane("SetNewTrain");
     }
 
-    @FXML
-    private void addTrainOnAction(MouseEvent event) {
-    }
 
     @FXML
     private void addStationOnMouseClicked(MouseEvent event) {
@@ -137,21 +128,23 @@ public class SystemAdminDashboardController implements Initializable {
 
     @FXML
     private void chartInfoOnMouseClikced(MouseEvent event) {
+        loadUIAtDashBorderPane("/view/faysal/systemadmin/PieChartTotalUsers");
     }
 
     @FXML
     private void scheduleOnMouseClicked(MouseEvent event) {
+         loadUIAtDashBorderPane("/view/faysal/station_manager/ScheduleShow");
     }
 
     @FXML
     private void reportOnMouseClicked(MouseEvent event) {
+        loadUIAtDashBorderPane("/view/faysal/station_manager/Reporting");
     }
 
     @FXML
-<<<<<<< HEAD
     private void logOutOnMouseClicked(MouseEvent event  ) throws Exception{
         
-        FXMLLoader dashLoader3 = new FXMLLoader(getClass().getResource("/view/faysal/login/LoginScene.fxml"));
+        FXMLLoader dashLoader3 = new FXMLLoader(getClass().getResource("/login/faysal/LoginScene.fxml"));
         System.out.println("Dash");
         Parent root1 = dashLoader3.load();
         System.out.println("loader");
@@ -161,9 +154,6 @@ public class SystemAdminDashboardController implements Initializable {
         
         
         
-=======
-    private void logOutOnMouseClicked(MouseEvent event) {
->>>>>>> Jubair-2221134
     }
 
 
