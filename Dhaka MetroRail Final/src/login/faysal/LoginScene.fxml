@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="990.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.faysal.LoginSceneController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="990.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.faysal.LoginController">
    <children>
       <ImageView fitHeight="600.0" fitWidth="990.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -101,8 +101,6 @@
                                     <Button cancelButton="true" layoutX="142.0" layoutY="268.0" mnemonicParsing="false" onAction="#forgotButtonOnAction" style="-fx-background-color: #ff6060;" text="Forgot Password" AnchorPane.rightAnchor="23.0" />
                                     <Button cache="true" layoutX="123.0" layoutY="309.0" mnemonicParsing="false" onAction="#signUpButtonOnClick" style="-fx-background-color: transparent;" text="Sign Up as Passenger" textFill="#4d8189" underline="true" />
                        <PasswordField fx:id="password_passField" layoutX="14.0" layoutY="216.0" prefHeight="35.0" prefWidth="242.0" promptText="Password" style="-fx-border-color: #54A872; -fx-border-radius: 8; -fx-background-radius: 8;" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="216.0" />
-                                    <Button layoutX="26.0" layoutY="268.0" mnemonicParsing="false" onAction="#loginButtonOnAction" prefHeight="25.0" prefWidth="81.0" style="-fx-background-color: #218C74;" text="Login" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="26.0" />
-                                    <Button cancelButton="true" layoutX="142.0" layoutY="268.0" mnemonicParsing="false" onAction="#forgotButtonOnAction" style="-fx-background-color: #ff6060;" text="Forgot Password" AnchorPane.bottomAnchor="55.0" AnchorPane.rightAnchor="23.0" />
                                     <Button cache="true" layoutX="123.0" layoutY="309.0" mnemonicParsing="false" onAction="#signUpOnAction" style="-fx-background-color: transparent;" text="Sign Up as Passenger" textFill="#4d8189" underline="true" />
  
                                     <Label layoutX="28.0" layoutY="314.0" text="Not a memeber?">

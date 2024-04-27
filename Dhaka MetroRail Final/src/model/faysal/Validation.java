@@ -48,7 +48,7 @@ public final class Validation  implements Serializable {
     }
 
     
-    public static boolean isValisUserIdentity(String userIdentity)
+    public static boolean isValidUserIdentity(String userIdentity)
     {
        return (!containsWhiteSpace(userIdentity)) && (isValidUsername(userIdentity) || allDigits(userIdentity));
     }

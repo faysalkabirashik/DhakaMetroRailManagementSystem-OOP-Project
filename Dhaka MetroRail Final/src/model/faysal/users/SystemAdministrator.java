@@ -583,34 +583,37 @@ public class SystemAdministrator extends Employee implements Serializable, Count
         boolean foundFlag = false;
         
         ////////////////////////////////////////////////////
-        if (Validation.allDigits(idCheck)){
-            String empLabel = idCheck.substring(2, 4);
-            switch (empLabel) {
-                case "00":
-                    path = "SystemAdministrator.bin";
-                    break;
-                case "01":
-                    path = "StationManager.bin";
-                    break;
-                case "02":
-                    path = "TrainOperator.bin";
-                    break;
-                case "03":
-                    path = "HeadOfHR.bin";
-                    break;
-                case "05":
-                    path = "MaintenanceStaff.bin"; 
-                    break;
-                case "06":
-                    path = "PublicServiceProvider.bin";
-                    break;
-                case "04":
-                    path = "Accountant.bin";
-                    break;
-                default:
-                    break;
-            }
-            
+        if (Validation.allDigits(idCheck )){
+            // i could have checked isValidUserIdentity() . but as it validate both for passenger and employee
+            // I checked first it all digits -  to confirtm employee type then validate employee ID
+            if (Validation.isValidUserIdentity(idCheck)){
+                String empLabel = idCheck.substring(2, 4);
+                switch (empLabel) {
+                    case "00":
+                        path = "SystemAdministrator.bin";
+                        break;
+                    case "01":
+                        path = "StationManager.bin";
+                        break;
+                    case "02":
+                        path = "TrainOperator.bin";
+                        break;
+                    case "03":
+                        path = "HeadOfHR.bin";
+                        break;
+                    case "05":
+                        path = "MaintenanceStaff.bin"; 
+                        break;
+                    case "06":
+                        path = "PublicServiceProvider.bin";
+                        break;
+                    case "04":
+                        path = "Accountant.bin";
+                        break;
+                    default:
+                        break;
+                } 
+            }else {AlertGen.unsuccessfulAlert("Not valid employee ID!!"); return false;}
         } else if (Validation.isValidUsername(idCheck)){
             path = "Passenger.bin";
         } else {

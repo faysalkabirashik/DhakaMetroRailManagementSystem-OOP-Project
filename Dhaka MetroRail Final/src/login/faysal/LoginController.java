@@ -35,7 +35,7 @@ import view.faysal.systemadmin.SystemAdminDashboardController;
  *
  * @author Faysal Kabir Ashik
  */
-public class LoginSceneController implements Initializable {
+public class LoginController implements Initializable {
 
     @FXML    private TextField userIdentity_textField;
     @FXML    private PasswordField password_passField;
@@ -83,7 +83,7 @@ public class LoginSceneController implements Initializable {
             String   userID = (userIdentity_textField.getText());
             String pass =  password_passField.getText();
             ///checking for employ 
-            if (  !Validation.isValisUserIdentity(userID) || !Validation.isValidPassword(pass))
+            if (  !Validation.isValidUserIdentity(userID) || !Validation.isValidPassword(pass))
             {
                 AlertGen.unsuccessfulAlert("Not valid entry");
             }else
@@ -92,6 +92,7 @@ public class LoginSceneController implements Initializable {
                  ////////////////////////////////////////////////////////////      
                 String login = User.verifyLogin(userID, pass);
                 System.out.println(login);
+                if (login == null){return;};
                 switch(login){
                     case  "00":
 
@@ -168,13 +169,15 @@ public class LoginSceneController implements Initializable {
                          show_label.setText("Login success     ");
                          System.out.println("Login succes         ");
                         show_label.setText("Login success     ");
-                        FXMLLoader dashLoader7 = new FXMLLoader(getClass().getResource("/view/nayem/passenger/PassengerDashborad.fxml"));
+                        FXMLLoader dashLoader7 = new FXMLLoader(getClass().getResource("/view/nayem/passenger/PassengerDashBoard.fxml"));
                         System.out.println("Dash");
                         Parent root7 = dashLoader7.load();
                         System.out.println("loader");
                         Stage window7 = (Stage) ((Node) event.getSource()).getScene().getWindow();
                         window7.setScene(new Scene(root7));
                         window7.show();
+
+                        AlertGen.successfulAlert("Login Successfull!");
 
                     break;}// switch break
 
@@ -232,7 +235,7 @@ public class LoginSceneController implements Initializable {
                String email =  forgetAnchorPane_email_textField.getText().trim();
                 if (Validation.allDigits((userID)))
                 {
-                    if (Validation.isValisUserIdentity(userID))
+                    if (Validation.isValidUserIdentity(userID))
                     {
                         
                         if (Validation.isValidEmail(email)){

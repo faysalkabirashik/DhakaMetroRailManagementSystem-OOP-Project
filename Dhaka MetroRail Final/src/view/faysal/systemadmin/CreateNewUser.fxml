@@ -128,7 +128,7 @@
             <Label fx:id="showPass_label" layoutX="620.0" layoutY="435.0" prefHeight="27.0" prefWidth="225.0" style="-fx-background-color: white; -fx-border-color: #BABABA; -fx-background-radius: 4; -fx-border-radius: 4;" visible="false" />
             <TextField fx:id="id_textField" disable="true" layoutX="418.0" layoutY="386.0" prefHeight="39.0" prefWidth="187.0" visible="false" />
             <Label disable="true" layoutX="421.0" layoutY="358.0" prefHeight="17.0" prefWidth="178.0" text="Give Valid ID (all digits, 7 long)" visible="false" />
-            <CheckBox fx:id="manuallyGenerateID_checkBox" layoutX="418.0" layoutY="330.0" mnemonicParsing="false" prefHeight="4.0" prefWidth="141.0" text="Manually Generate ID" />
+            <CheckBox fx:id="manuallyGenerateID_checkBox" disable="true" layoutX="418.0" layoutY="330.0" mnemonicParsing="false" prefHeight="4.0" prefWidth="141.0" text="Manually Generate ID" />
          </children>
          <BorderPane.margin>
             <Insets left="10.0" />
