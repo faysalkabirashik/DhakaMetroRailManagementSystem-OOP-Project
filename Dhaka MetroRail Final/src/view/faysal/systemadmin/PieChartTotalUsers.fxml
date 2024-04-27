@@ -10,7 +10,7 @@
    <right>
       <AnchorPane prefHeight="500.0" prefWidth="241.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="showLabel" layoutX="107.0" layoutY="185.0" style="-fx-border-color: blue;" AnchorPane.bottomAnchor="90.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="10.0" />
+            <Label fx:id="showLabel" alignment="CENTER" layoutX="107.0" layoutY="185.0" style="-fx-border-color: blue;" text="Welcome! " textAlignment="CENTER" AnchorPane.bottomAnchor="90.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="10.0" />
          </children>
       </AnchorPane>
    </right>
