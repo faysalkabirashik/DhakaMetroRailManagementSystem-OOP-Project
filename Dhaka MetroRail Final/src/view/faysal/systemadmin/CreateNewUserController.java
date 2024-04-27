@@ -82,12 +82,9 @@ public class CreateNewUserController implements Initializable {
     @FXML
     private DatePicker joiningDate_datePicker;
     @FXML    private AnchorPane parentAnchorPane;
-    @FXML
-    private RadioButton employee_radioButton;
-    @FXML
-    private RadioButton passenger_radioButton;
-    @FXML
-    private RadioButton admin_radioButton;
+    @FXML    private RadioButton employee_radioButton;
+    @FXML    private RadioButton passenger_radioButton;
+    @FXML    private RadioButton admin_radioButton;
     @FXML    private RadioButton male_radioButton;
     @FXML    private RadioButton female_radioButton;
     @FXML    private RadioButton intersex_radioButton;
@@ -319,10 +316,7 @@ public class CreateNewUserController implements Initializable {
                     System.out.println("else 2");
                 if (Validation.isValidPassword(pass))// if 4
                 {
-                    System.out.println("if 4");
-                    
-                    
-                    
+                    System.out.println("if 4");  
                     // user creation for passenger, birth certificate or nid is needed
                     if ("Passenger".equals(parentUserType))    //if 5
                     {   System.out.println("if 5 passenger e dhukse ");
@@ -331,26 +325,25 @@ public class CreateNewUserController implements Initializable {
                         {                                  System.out.println("if 6 e dhukse");
                             AlertGen.unsuccessfulAlert("You have to select NID or Birth Certificate!");
                         }
-           
-                        
+                
                         else// else 3
                           {   System.out.println("else 3 ");
-                          
-                            
                               String username = generatePassengerUsername_textField.getText();
+                              
+                              // user name validation
                               if (username.isEmpty() || !Validation.isValidUsername(username)) // if 7
                               {
                                   AlertGen.unsuccessfulAlert("Select username properly!");
                                   System.out.println("if 7");
+                              } else if (SystemAdministrator.checkUserExist(username)){
+                                  AlertGen.unsuccessfulAlert("The username already exist");
                               }
-                              
                               else // else 4
                               {
                                   // can create , vaid type passenger, create one
                                   System.out.println("Can create passenger block");
                                   System.out.println("else 4 e parbe");
-                                  
-                                  
+
                                   boolean confirmation = AlertGen.confirmationAlert("Do you want to confim to add new Passenger?");
                                   System.out.println(confirmation);
                                   if (confirmation)// if 8
@@ -383,7 +376,10 @@ public class CreateNewUserController implements Initializable {
                                         gender_toggleGroup.selectToggle(null);
                                         dob_datePicker.getEditor().clear();
                                         generatePassengerUsername_textField.clear();
-                                    }else{AlertGen.unsuccessfulAlert("Something Gone Wrong!");}//else 5
+                                        System.out.println("Before set true passenger radio button: ");
+                                        passenger_radioButton.setSelected(true);      
+                                        System.out.println("After , what happenening? ");
+                                    }else{AlertGen.unsuccessfulAlert("Something Gone Wrong!");}//else 5 
                                   }else // else6
                                   {System.out.println("else 6 e nothing");
                                      //nothoing 
@@ -395,7 +391,8 @@ public class CreateNewUserController implements Initializable {
                     {   System.out.println("else7");
                         // User creation for all employee type
                         LocalDate joiningDate = joiningDate_datePicker.getValue();
-                        String employeeID = id_textField.getText();
+                        //String employeeID = id_textField.getText();
+                        String employeeID = generateEmployeeId_label.getText();
                         String employeeType = employeeType_comBox.getValue();   
                         // CHECKS   if the joining date future date or not
                         if (joiningDate != null && 
@@ -563,7 +560,7 @@ public class CreateNewUserController implements Initializable {
                                             AlertGen.successfulAlert("Employee scucceesfully added!");
                                             System.out.println("file wirte done");
                                             generateEmployeeId_label.setText("");
-                                            employeeType_comBox.getItems().clear();
+                                             
                                             generatePassword_passwordField.clear();
                                             secondaryMobileNo_textField.clear();
                                             secondaryEmail_textField.clear();
@@ -575,6 +572,8 @@ public class CreateNewUserController implements Initializable {
                                             dob_datePicker.getEditor().clear();
                                             joiningDate_datePicker.getEditor().clear();
                                             generatePassengerUsername_textField.clear();
+                                            //employee_radioButton.setSelected(true);
+                                            userType_toggleGroup.selectToggle(employee_radioButton);
                                         }else{AlertGen.unsuccessfulAlert("Something Gone Wrong!");}
                                     }// empobj access seseh
                                 }
@@ -600,7 +599,7 @@ public class CreateNewUserController implements Initializable {
     {
         try{
            if (joiningDate_datePicker.getValue() == null){
-               AlertGen.inforamtion("Empty entry", "Please provide joining date firs");
+               AlertGen.inforamtion("Empty entry", "Please provide joining date first");
            
            }
            else if (employeeType_comBox.getValue().isEmpty() || !Validation.isValidJoiningDate(joiningDate_datePicker.getValue()))
@@ -633,13 +632,13 @@ public class CreateNewUserController implements Initializable {
 
     @FXML
     private void generatePassengerUsernameBtnOnAction(ActionEvent event) {
-        generatePassengerUsername_textField.setText(Validation.generateUsername());
+        String username = Validation.generateUsername();
+        while (  SystemAdministrator.checkUserExist(username) ){
+            username = Validation.generateUsername();
+        }
+        generatePassengerUsername_textField.setText(username);
     }
     
-
-
-
-
     @FXML
     private void showPassCheckBoxOnAction(ActionEvent event) {
        if ( showPass_checkBox.isSelected() ) {
