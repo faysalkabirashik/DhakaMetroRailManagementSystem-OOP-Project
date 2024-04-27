@@ -35,7 +35,7 @@ import view.faysal.systemadmin.SystemAdminDashboardController;
  *
  * @author Faysal Kabir Ashik
  */
-public class LoginSceneController implements Initializable {
+public class LoginController implements Initializable {
 
     @FXML    private TextField userIdentity_textField;
     @FXML    private PasswordField password_passField;
@@ -169,13 +169,15 @@ public class LoginSceneController implements Initializable {
                          show_label.setText("Login success     ");
                          System.out.println("Login succes         ");
                         show_label.setText("Login success     ");
-                        FXMLLoader dashLoader7 = new FXMLLoader(getClass().getResource("/view/nayem/passenger/PassengerDashborad.fxml"));
+                        FXMLLoader dashLoader7 = new FXMLLoader(getClass().getResource("/view/nayem/passenger/PassengerDashBoard.fxml"));
                         System.out.println("Dash");
                         Parent root7 = dashLoader7.load();
                         System.out.println("loader");
                         Stage window7 = (Stage) ((Node) event.getSource()).getScene().getWindow();
                         window7.setScene(new Scene(root7));
                         window7.show();
+
+                        AlertGen.successfulAlert("Login Successfull!");
 
                     break;}// switch break
 
