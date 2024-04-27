@@ -21,7 +21,7 @@ public class LostAndFoundSceneController implements Initializable {
     @FXML    private TextField itemNameTextField;
     @FXML    private TextField itemTypeTextField;
     @FXML    private TextArea descriptionTextArea;
-    //    Passenger passenger = new Passenger();
+    Passenger passenger = new Passenger();
     LostAndFound lf;
 
     @Override
@@ -33,7 +33,7 @@ public class LostAndFoundSceneController implements Initializable {
     @FXML
     private void cancelButtonOnClicked(ActionEvent event) throws IOException 
     {
-//        passenger.loadDashBoard(event);
+        passenger.loadDashBoard(event);
     }
 
     @FXML
@@ -42,7 +42,7 @@ public class LostAndFoundSceneController implements Initializable {
         lf = new LostAndFound(reportTypeComboBox.getValue().toString(),firstNameTextField.getText(),lastNameTextField.getText(),phoneTextField.getText(),
         itemNameTextField.getText(),itemTypeTextField.getText(),descriptionTextArea.getText());
 //        passenger.reportLostAndFound(lf);
-        
+        passenger.reportLostAndFound(lf);
     }
     
 }

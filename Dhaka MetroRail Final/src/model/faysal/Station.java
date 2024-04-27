@@ -4,13 +4,14 @@
  */
 package model.faysal;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 /**
  *
  * @author Faysal Kabir Ashik
  */
-public class Station {
+public class Station  implements Serializable {
     
     private String stationName; 
      private String stationID;

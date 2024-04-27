@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -33,36 +34,44 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Button layoutX="408.0" layoutY="418.0" mnemonicParsing="false" style="-fx-background-color: e82e2f;" text="Logout" textFill="WHITE">
+      <Button layoutX="416.0" layoutY="420.0" mnemonicParsing="false" onAction="#employeePayBackButtonOnAction" style="-fx-background-color: e82e2f;" text="Back" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
       <Line endX="367.0" layoutX="243.0" layoutY="54.0" startX="-100.0" stroke="#0a8d45" strokeWidth="4.0" />
-      <TableView layoutX="113.0" layoutY="209.0" prefHeight="200.0" prefWidth="658.0">
-        <columns>
-          <TableColumn prefWidth="75.0" text="Employee ID" />
-          <TableColumn prefWidth="180.0" text="Name" />
-            <TableColumn minWidth="1.0" prefWidth="103.0" text="Designation" />
-            <TableColumn minWidth="0.0" prefWidth="130.0" text="Bank Account No" />
-            <TableColumn minWidth="0.0" prefWidth="86.0" text="Salary" />
-            <TableColumn minWidth="0.0" prefWidth="82.0" text="Status" />
-        </columns>
-      </TableView>
       <Label layoutX="87.0" layoutY="78.0" text="Employee ID:" />
-      <TextField layoutX="183.0" layoutY="74.0" />
+      <TextField fx:id="empIDtextField" layoutX="183.0" layoutY="74.0" />
       <Label layoutX="87.0" layoutY="112.0" text="Employee Name:" />
-      <TextField layoutX="183.0" layoutY="108.0" prefHeight="25.0" prefWidth="431.0" />
+      <TextField fx:id="empNameTextField" layoutX="183.0" layoutY="108.0" prefHeight="25.0" prefWidth="431.0" />
       <Label layoutX="368.0" layoutY="78.0" text="Designation:" />
       <Label layoutX="87.0" layoutY="146.0" text="Bank A/C No:" />
-      <TextField layoutX="183.0" layoutY="142.0" prefHeight="25.0" prefWidth="182.0" />
+      <TextField fx:id="bankAcTextField" layoutX="183.0" layoutY="142.0" prefHeight="25.0" prefWidth="182.0" />
       <Label layoutX="371.0" layoutY="146.0" text="Employee Salary:" />
-      <TextField layoutX="466.0" layoutY="142.0" />
-      <Button layoutX="676.0" layoutY="94.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="95.0" style="-fx-background-color: #87ceeb; -fx-border-color: black;" text="Process Payroll" textAlignment="CENTER" wrapText="true">
+      <TextField fx:id="empSalaryTextField" layoutX="466.0" layoutY="142.0" />
+      <ComboBox fx:id="empDesignationCombobox" layoutX="466.0" layoutY="74.0" prefWidth="150.0" />
+      <Button layoutX="676.0" layoutY="75.0" mnemonicParsing="false" onAction="#processPayrollButtonOnClick" prefHeight="43.0" prefWidth="95.0" style="-fx-background-color: #87ceeb; -fx-border-color: black;" text="Process Payroll" textAlignment="CENTER" wrapText="true">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font>
       </Button>
-      <ComboBox layoutX="466.0" layoutY="74.0" prefWidth="150.0" />
+      <Button layoutX="676.0" layoutY="124.0" mnemonicParsing="false" onAction="#viewDataButtonOnClick" prefHeight="43.0" prefWidth="95.0" style="-fx-background-color: #87ceeb; -fx-border-color: black;" text="View" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font>
+      </Button>
+      <TableView fx:id="empPayrollTableView" layoutX="113.0" layoutY="210.0" prefHeight="200.0" prefWidth="658.0">
+         <columns>
+            <TableColumn fx:id="empIDTableColumn" prefWidth="75.0" text="Employee ID" />
+            <TableColumn fx:id="empNameTableColumn" prefWidth="180.0" text="Name" />
+            <TableColumn fx:id="empDesignationTableColumn" minWidth="1.0" prefWidth="103.0" text="Designation" />
+            <TableColumn fx:id="empBankAcTableColumn" minWidth="0.0" prefWidth="130.0" text="Bank Account No" />
+            <TableColumn fx:id="empSalaryTableColumn" minWidth="0.0" prefWidth="86.0" text="Salary" />
+            <TableColumn fx:id="statusTableColumn" minWidth="0.0" prefWidth="82.0" text="Status" />
+         </columns>
+      </TableView>
+      <Label layoutX="87.0" layoutY="180.0" text="Salary Status:" />
+      <RadioButton fx:id="paidRadioButton" layoutX="183.0" layoutY="180.0" mnemonicParsing="false" text="Paid" />
+      <RadioButton fx:id="dueRadioButton" layoutX="258.0" layoutY="180.0" mnemonicParsing="false" text="Due" />
    </children>
 </AnchorPane>

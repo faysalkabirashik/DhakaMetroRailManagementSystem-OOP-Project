@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
+
 package view.faysal.systemadmin;
 
 import java.io.IOException;
@@ -15,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
+import model.faysal.users.SystemAdministrator;
 
 /**
  * FXML Controller class
@@ -26,6 +24,15 @@ public class SystemAdminGoalsController implements Initializable {
     @FXML
      BorderPane adminMainGoals_borderPane;
 
+        private SystemAdministrator admin;
+    public SystemAdministrator getSystemAdmin(){
+        return admin;
+    }
+    
+    public void setSystemAdmin(SystemAdministrator admin){
+        
+        this.admin =  admin;
+    }
     
     
     @Override

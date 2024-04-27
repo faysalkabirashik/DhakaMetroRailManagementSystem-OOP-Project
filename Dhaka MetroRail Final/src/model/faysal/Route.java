@@ -1,16 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package model.faysal;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  *
  * @author Faysal Kabir Ashik
  */
-public class Route {
+public class Route  implements Serializable {
     
     private int mrtLineNo;
     private String routeName;

@@ -3,13 +3,21 @@ package model.faysal.users;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.faysal.Address;
+import model.faysal.AppendableObjectOutputStream;
+import model.faysal.Report;
+import model.faysal.ResourceRequest;
+import model.faysal.Train;
 
 /**
  *
@@ -20,6 +28,11 @@ public class StationManager extends Employee implements Serializable , Countable
     //// field hidinhg/shawdowing.
     private static int userCount = 0;
     public static int itsTotalMember(){return userCount;}
+
+    public StationManager() {
+    }
+    
+    
 
     public StationManager(String coreUserType, String userIdentity, LocalDate dateOfJoining) {
         super(coreUserType, userIdentity, dateOfJoining);
@@ -117,5 +130,74 @@ public class StationManager extends Employee implements Serializable , Countable
         return sm;
     }
     
-        
+        public void makeReport(String title, String message) {
+
+        File f = null;
+        FileOutputStream fos = null;
+        ObjectOutputStream oos = null;
+        try {
+
+            f = new File("StationReport.bin");
+            if (f.exists()) {
+                fos = new FileOutputStream(f, true);
+                oos = new AppendableObjectOutputStream(fos);
+            } else {
+                fos = new FileOutputStream(f);
+                oos = new ObjectOutputStream(fos);
+            }
+
+            Report report = new Report(title, message);
+            oos.writeObject(report);
+
+        } catch (IOException iOExc) {
+                Logger.getLogger(StationManager.class.getName()).log(Level.SEVERE, null, iOExc);
+            }
+        finally
+            {
+                try { if (oos !=null ){  oos.close(); }
+                }
+                catch (IOException iOExc)
+                    {
+                         Logger.getLogger(SystemAdministrator.class.getName()).log(Level.SEVERE, null, iOExc);
+                    }     
+
+            }
+ 
+    }
+    
+    public void requestResource(String id, String name,  String message) {
+
+        File f = null;
+        FileOutputStream fos = null;
+        ObjectOutputStream oos = null;
+        try {
+
+            f = new File("ResourceRequests.bin");
+            if (f.exists()) {
+                fos = new FileOutputStream(f, true);
+                oos = new AppendableObjectOutputStream(fos);
+            } else {
+                fos = new FileOutputStream(f);
+                oos = new ObjectOutputStream(fos);
+            }
+
+            ResourceRequest req = new ResourceRequest(id,name, message);
+            oos.writeObject(req);
+
+        } catch (IOException iOExc) {
+                Logger.getLogger(StationManager.class.getName()).log(Level.SEVERE, null, iOExc);
+            }
+        finally
+            {
+                try { if (oos !=null ){  oos.close(); }
+                }
+                catch (IOException iOExc)
+                    {
+                         Logger.getLogger(SystemAdministrator.class.getName()).log(Level.SEVERE, null, iOExc);
+                    }     
+
+            }
+ 
+    }
+            
 }

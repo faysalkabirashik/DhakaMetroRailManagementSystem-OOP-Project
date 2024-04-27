@@ -15,13 +15,13 @@
          </font>
       </Label>
       <Button layoutX="52.0" layoutY="283.0" mnemonicParsing="false" onAction="#publicInquiriesButtonOnClick" text="Public Inquiries" />
-      <Button layoutX="48.0" layoutY="347.0" mnemonicParsing="false" onAction="#ticketingAndFareIssuesButtonOnClick" text="Ticketing and Fare Issues" />
-      <Button layoutX="52.0" layoutY="407.0" mnemonicParsing="false" onAction="#realTimeServiceButtonOnClick" text="Real-Time Service" />
-      <Button layoutX="53.0" layoutY="468.0" mnemonicParsing="false" onAction="#complaintsAndFeedbackButtonOnClick" text="Complaints And Feedback" />
-      <Button layoutX="53.0" layoutY="533.0" mnemonicParsing="false" onAction="#safetyAndSecurityButtonOnClick" text="Safety and Security" />
-      <Button layoutX="53.0" layoutY="588.0" mnemonicParsing="false" onAction="#accessibilityButoonOnClick" text="Accessibility" />
+      <Button layoutX="48.0" layoutY="366.0" mnemonicParsing="false" onAction="#ticketingAndFareIssuesButtonOnClick" text="Ticketing and Fare Issues" />
+      <Button layoutX="52.0" layoutY="438.0" mnemonicParsing="false" onAction="#realTimeServiceButtonOnClick" text="Real-Time Service" />
+      <Button layoutX="53.0" layoutY="491.0" mnemonicParsing="false" onAction="#complaintsAndFeedbackButtonOnClick" text="Complaints And Feedback" />
+      <Button layoutX="53.0" layoutY="561.0" mnemonicParsing="false" onAction="#safetyAndSecurityButtonOnClick" text="Safety and Security" />
+      <Button layoutX="53.0" layoutY="620.0" mnemonicParsing="false" onAction="#accessibilityButoonOnClick" text="Accessibility" />
       <ComboBox layoutX="577.0" layoutY="126.0" prefWidth="150.0" />
       <TextField layoutX="358.0" layoutY="287.0" prefHeight="333.0" prefWidth="411.0" />
-      <Button layoutX="674.0" layoutY="196.0" mnemonicParsing="false" onAction="#signOutButtonOnClick" text="Sign Out" />
+      <Button layoutX="674.0" layoutY="196.0" mnemonicParsing="false" text="Button" />
    </children>
 </AnchorPane>

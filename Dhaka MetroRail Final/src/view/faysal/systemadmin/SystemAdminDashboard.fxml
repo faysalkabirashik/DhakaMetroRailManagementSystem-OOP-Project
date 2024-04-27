@@ -15,13 +15,13 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="adminMainDashboard_borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="1024.0" style="-fx-border-radius: 8; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.faysal.systemadmin.SystemAdminDashboardController">
+<BorderPane fx:id="adminMainDashboard_borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="1025.0" style="-fx-border-radius: 8; -fx-background-radius: 8;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.faysal.systemadmin.SystemAdminDashboardController">
    <left>
       <VBox prefHeight="590.0" prefWidth="155.0" style="-fx-background-color: #f6f6fa; -fx-border-color: #C5AE85;" BorderPane.alignment="BOTTOM_LEFT">
          <children>
-            <HBox fx:id="dashBoard_hBox" onMouseClicked="#dashboardMouseOnClicked" spacing="5.0" style="-fx-background-radius: 5;">
+            <HBox fx:id="dashBoard_hBox" onMouseClicked="#dashboardMouseOnClicked" prefHeight="30.0" prefWidth="153.0" spacing="5.0" style="-fx-background-radius: 5;">
                <children>
-                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="40.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/faysal/details_100px.png" />
                      </image>
@@ -29,7 +29,7 @@
                         <Insets left="10.0" top="10.0" />
                      </HBox.margin>
                   </ImageView>
-                  <Label fx:id="dashBoardLabel" prefHeight="60.0" prefWidth="76.0" style="-fx-font-size: 15;" text="Dashboard" />
+                  <Label fx:id="dashBoardLabel" prefHeight="60.0" prefWidth="92.0" style="-fx-font-size: 15;" text="Dashboard" />
                </children>
                <VBox.margin>
                   <Insets bottom="15.0" />
@@ -38,12 +38,12 @@
                   <Insets top="10.0" />
                </opaqueInsets>
                <padding>
-                  <Insets bottom="5.0" right="5.0" top="20.0" />
+                  <Insets bottom="5.0" right="5.0" top="5.0" />
                </padding>
             </HBox>
-            <HBox fx:id="profile_hBox" onMouseClicked="#profileMouseOnClicked" prefHeight="63.0" prefWidth="256.0" spacing="10.0" style="-fx-background-radius: 20; -fx-background-color: f6f6fa;">
+            <HBox fx:id="addUser" onMouseClicked="#addUserOnMouseClicked" prefHeight="63.0" prefWidth="256.0" spacing="10.0" style="-fx-background-radius: 20; -fx-background-color: f6f6fa;">
                <children>
-                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="35.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/faysal/change_user_male_32px.png" />
                      </image>
@@ -64,57 +64,105 @@
                   <Insets bottom="5.0" />
                </padding>
             </HBox>
-            <HBox fx:id="goals_hBox" onMouseClicked="#goalsOnMouseClicked" prefHeight="50.0" prefWidth="256.0" spacing="5.0">
+            <HBox fx:id="logOut_hBox" onDragDetected="#addTrainOnAction" onMouseClicked="#addTrainOnMouseClicked" prefHeight="50.0" prefWidth="256.0" spacing="5.0">
                <children>
-                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="30.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../images/faysal/4600164.png" />
+                        <Image url="@../../../images/faysal/subway_48px.png" />
                      </image>
                      <HBox.margin>
                         <Insets left="10.0" top="10.0" />
                      </HBox.margin>
                   </ImageView>
-                  <Label fx:id="expencesLID" prefHeight="75.0" prefWidth="76.0" style="-fx-font-size: 15;" text="Edit User" />
-               </children>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-               <padding>
-                  <Insets bottom="10.0" />
-               </padding>
-            </HBox>
-            <HBox fx:id="download_Hbox" onMouseClicked="#downloadOnMouseClicked" prefHeight="50.0" prefWidth="256.0" spacing="10.0">
-               <children>
-                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../images/faysal/download.png" />
-                     </image>
-                  </ImageView>
-                  <Label fx:id="downloadLid" prefHeight="85.0" prefWidth="76.0" style="-fx-font-size: 15;" text="Download" />
-               </children>
-               <padding>
-                  <Insets bottom="15.0" top="10.0" />
-               </padding>
-            </HBox>
-            <HBox fx:id="notifications_hBox" onMouseClicked="#notificationsOnMouseClicked" prefHeight="50.0" prefWidth="256.0" spacing="5.0">
-               <children>
-                  <ImageView fitHeight="42.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../images/faysal/notification.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets left="10.0" top="10.0" />
-                     </HBox.margin>
-                  </ImageView>
-                  <Label fx:id="downloadLid1" prefHeight="85.0" prefWidth="85.0" style="-fx-font-size: 15;" text="AccessInfo" />
+                  <Label prefHeight="85.0" prefWidth="76.0" style="-fx-font-size: 15;" text="Add Train" />
                </children>
                <padding>
                   <Insets bottom="15.0" />
                </padding>
             </HBox>
-            <HBox fx:id="logOut_hBox" onMouseClicked="#logOutOnMouseClicked" prefHeight="50.0" prefWidth="256.0" spacing="5.0">
+            <HBox fx:id="goals_hBox" onMouseClicked="#addStationOnMouseClicked" prefHeight="50.0" prefWidth="256.0" spacing="5.0">
                <children>
-                  <ImageView fitHeight="48.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="40.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/faysal/train-station.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <Label fx:id="expencesLID" prefHeight="75.0" prefWidth="76.0" style="-fx-font-size: 14;" text="Add Station" />
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" top="5.0" />
+               </padding>
+            </HBox>
+            <HBox fx:id="download_Hbox" onMouseClicked="#generatePDF" prefHeight="50.0" prefWidth="256.0" spacing="10.0">
+               <children>
+                  <ImageView fitHeight="35.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/faysal/pdf.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="downloadLid" prefHeight="50.0" prefWidth="112.0" style="-fx-font-size: 12;" text="Generate PDF" />
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="5.0" top="10.0" />
+               </padding>
+            </HBox>
+            <HBox fx:id="notifications_hBox" onMouseClicked="#chartInfoOnMouseClikced" prefHeight="50.0" prefWidth="256.0" spacing="5.0">
+               <children>
+                  <ImageView fitHeight="30.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/faysal/chart_64px.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <Label fx:id="downloadLid1" prefHeight="85.0" prefWidth="85.0" style="-fx-font-size: 12;" text=" Chart Info" />
+               </children>
+               <padding>
+                  <Insets bottom="15.0" left="5.0" />
+               </padding>
+            </HBox>
+            <HBox fx:id="logOut_hBox1" layoutX="11.0" layoutY="309.0" onMouseClicked="#scheduleOnMouseClicked" prefHeight="50.0" prefWidth="256.0" spacing="5.0">
+               <children>
+                  <ImageView fitHeight="40.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/faysal/Schedule_100px.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <Label prefHeight="85.0" prefWidth="76.0" style="-fx-font-size: 15;" text="Schedule" />
+               </children>
+               <padding>
+                  <Insets bottom="15.0" />
+               </padding>
+            </HBox>
+            <HBox fx:id="logOut_hBox11" layoutX="11.0" layoutY="364.0" onMouseClicked="#reportOnMouseClicked" prefHeight="50.0" prefWidth="256.0" spacing="5.0">
+               <children>
+                  <ImageView fitHeight="40.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/faysal/report.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <Label prefHeight="85.0" prefWidth="76.0" style="-fx-font-size: 15;" text="Report" />
+               </children>
+               <padding>
+                  <Insets bottom="15.0" />
+               </padding>
+            </HBox>
+            <HBox fx:id="logOut_hBox111" layoutX="11.0" layoutY="419.0" onMouseClicked="#logOutOnMouseClicked" prefHeight="44.0" prefWidth="153.0" spacing="5.0">
+               <children>
+                  <ImageView fitHeight="30.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/faysal/logout.png" />
                      </image>
@@ -161,7 +209,7 @@
             </Pane>
             <Pane layoutX="243.0" layoutY="4.0" prefHeight="70.0" prefWidth="736.0">
                <children>
-                  <TextField fx:id="note_textField" layoutX="114.0" layoutY="14.0" onKeyReleased="#noteTextFieldKeyReleased" prefHeight="40.0" prefWidth="331.0" promptText="Note here " style="-fx-background-color: white; -fx-background-radius: 15; -fx-border-width: 0 0 3 0;" text="Note " />
+                  <TextField fx:id="note_textField" layoutX="114.0" layoutY="14.0" prefHeight="40.0" prefWidth="331.0" promptText="Note here " style="-fx-background-color: white; -fx-background-radius: 15; -fx-border-width: 0 0 3 0;" text="Note " />
                   <Label fx:id="name_label" layoutX="461.0" layoutY="19.0" prefHeight="45.0" prefWidth="310.0" text="Mr.">
                      <font>
                         <Font name="System Bold" size="16.0" />

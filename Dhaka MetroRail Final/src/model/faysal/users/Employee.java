@@ -27,7 +27,8 @@ public abstract class Employee extends User implements Serializable, Classifiabl
     private static int userCount = 0;
     
     protected String nid, designation;
-    protected final LocalDate dateOfJoining;
+//    protected final LocalDate dateOfJoining;
+        protected  LocalDate dateOfJoining;
     protected float salary;
 
     

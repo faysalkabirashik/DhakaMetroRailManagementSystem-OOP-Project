@@ -9,6 +9,8 @@ import java.time.LocalDate;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.faysal.Address;
+import model.nayem.Passenger;
+import model.nayem.TrainOperator;
 
 /**
  *
@@ -19,17 +21,18 @@ public abstract class  User implements Serializable, Countable {
     private static int  userCount = 0;
     
     public String fullName, primaryMobile, primaryEmail;
-    public final String gender;
-                          
-    protected final String userIdentity, coreUserType;  
+//    public final String gender;
+    public String gender;
+//    protected final String userIdentity, coreUserType;  
+    protected String userIdentity, coreUserType;
     protected String password;
-    
-    protected LocalDate dateOfBirth;  
+
+    protected LocalDate dateOfBirth;
     protected Address address;
 
     protected boolean loginStatus;
-    
-    protected String secondaryMobile, secondaryEmail ; // Optional
+
+    protected String secondaryMobile, secondaryEmail; // Optional
 
     
     public abstract void changePassword();
@@ -46,9 +49,7 @@ public abstract class  User implements Serializable, Countable {
     }
 
     public User() {
-        this.gender = null;
-        this.userIdentity = null;
-        this.coreUserType = null;
+
     }
 
     
@@ -274,5 +275,188 @@ public abstract class  User implements Serializable, Countable {
         return null;
     }
     
+      public static User getObjectV2(String id, String type){
+        File f = null;
+        FileInputStream fis = null;      
+        ObjectInputStream ois = null;
+        String path = "";
+        switch(type){
+            case "Passenger":
+                path="Passenger.bin";
+                break;
+            case  "System Administrator":
+                path="SystemAdministrator.bin";
+                break;
+            case "Station Manager":
+                path="StationManager.bin";
+                break;
+            case "Train Operator":
+                path="TrainOperator.bin";
+                break;
+            case "Head of HR":
+                path="HeadOfHR.bin";
+                break;
+            case "Maintenance Staff":
+                path="MaintenanceStaff.bin";
+                break;
+            case "Public Service Provider":
+                path="PublicServiceProvider.bin";
+                break;
+            case "Accountant":
+                path="Accountant.bin";
+                break;
+        }
+        
+        try {
+            f = new File(path);
+            fis = new FileInputStream(f);
+            ois = new ObjectInputStream(fis);
+            User tempUser = null;
+            try{
+                System.out.println("Printing user objects");
+                while(true){
+                    switch(type){
+                        case "Accountant": 
+                            tempUser = (Accountant) ois.readObject();
+                            System.out.println("1");
+                            System.out.println(tempUser.toString());
+                            break;
+                        case "Passenger": 
+                            tempUser = (Passenger) ois.readObject();
+                            System.out.println("Reading pat");
+                            System.out.println(tempUser.toString());
+                            break;
+                        case "System Administrator": 
+                            tempUser = (SystemAdministrator) ois.readObject();
+                            System.out.println("Reading pharma");
+                            System.out.println(tempUser.toString());
+                            break;
+                        case "Station Manager": 
+                            tempUser = (StationManager) ois.readObject();
+                            System.out.println("Reading nurse");
+                            System.out.println(tempUser.toString());
+                            break;
+                        case "Train Operator": 
+                            tempUser = (TrainOperator) ois.readObject();                            
+                            System.out.println("Reading director");
+                            System.out.println(tempUser.toString());
+                            break;
+                        case "Head of HR": 
+                            tempUser = (HeadOfHR) ois.readObject();
+                            System.out.println("Reading accounts");
+                            System.out.println(tempUser.toString());
+                            break;
+                        case "Maintenance Staff": 
+                            tempUser = (MaintenanceStaff) ois.readObject();
+                            System.out.println("Reading HR");
+                            System.out.println(tempUser.toString());
+                            break;
+                        case "Public Service Provider": 
+                            tempUser = (PublicServiceProvider) ois.readObject();
+                            System.out.println("Reading technician");
+                            System.out.println(tempUser.toString());
+                            break;
+                    }
+                    if ( id.equals(tempUser.getUserIdentity() )){
+                        System.out.println("User found");
+ 
+                        System.out.println(tempUser.toString());
+                        return tempUser;
+                    }
+                }
+            }
+            catch(IOException | ClassNotFoundException e){
+                System.out.println(e.toString());
+                System.out.println("IOException | ClassNotFoundException in reading bin file");
+            }
+            System.out.println("End of file\n");
+        } catch (IOException ex) {
+            System.out.println("IOException on entire file handling");
+        }
+        finally {
+            try {
+                if(ois != null) ois.close();
+            } catch (IOException ex) { }
+        }
+        return null;
+    }
+    
+      
+    public static String loginVerify(String idcheck, String passcheck){
+        File f = null;
+        FileInputStream fis = null;      
+        ObjectInputStream ois = null;
+        int idflag=0;
+        int passflag=0;
+        String userType = null ;
+        try {
+            f = new File("LoginInfoObjects.bin");
+            fis = new FileInputStream(f);
+            ois = new ObjectInputStream(fis);
+            LoginInfo tempLogin;
+            try{
+                System.out.println("Printing login objects");           
+
+                while(true){
+                    if (idflag==1){break;}
+                    tempLogin = (LoginInfo) ois.readObject();
+                    System.out.println(tempLogin.toString());
+                    if (idcheck.equals(tempLogin.getUserIdentity())){
+                        idflag=1;
+                        if (passcheck.equals(tempLogin.getPassword())){
+                            passflag=1;
+                            if (tempLogin.getUserType().equals("Passenger")) {
+                                userType = "07";
+                            }      
+                            else if (   tempLogin.equals("System Administrator")   )
+                            {
+                                userType = "00";
+                            } else if (tempLogin.getUserType().equals("Station Manager")) {
+                                userType = "01";
+                            } else if (tempLogin.getUserType().equals("Train Operator")) {
+                                userType = "02";
+                            } else if (tempLogin.getUserType().equals("Head of HR")) {
+                                userType = "03";
+                            } else if (tempLogin.getUserType().equals("Accountant")) {
+                                userType = "04";
+                            } else if (tempLogin.getUserType().equals("Maintenance Staff")) {
+                                userType = "05";
+                            } else if (tempLogin.getUserType().equals("Public Service Provider")) {
+                                userType = "06";
+                            }
+                            
+                            break;
+                        }
+                    }
+                }
+            }
+            catch(IOException | ClassNotFoundException e){
+                System.out.println(e.toString());
+                System.out.println("IOException | ClassNotFoundException in reading bin file");
+            }
+            System.out.println("End of file\n");
+            
+            if (idflag==1){
+                if(passflag==1){
+ 
+                    return userType;
+                }
+                else{return "Wrong Pass";}
+               
+            }
+            else{return "Not found";}
+                
+        
+        } catch (IOException ex) {
+            System.out.println("IOException on entire file handling");
+            return null;
+        }
+        finally {
+            try {
+                if(ois != null) ois.close();
+            } catch (IOException ex) { }
+        }
+       
+    }
         
 }

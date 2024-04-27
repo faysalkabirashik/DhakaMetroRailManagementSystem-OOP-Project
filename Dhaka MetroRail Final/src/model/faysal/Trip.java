@@ -4,6 +4,7 @@
  */
 package model.faysal;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
@@ -12,7 +13,7 @@ import java.util.List;
  *
  * @author Faysal Kabir Ashik
  */
-public class Trip {
+public class Trip  implements Serializable {
     
     private String tripId;
     private Route route;

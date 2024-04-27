@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="646.0" prefWidth="741.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.CrossDepartmentalCollaborationController">
+<AnchorPane id="AnchorPane" prefHeight="646.0" prefWidth="741.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.minhaz.maintenanceStaff.CrossDepartmentalCollaborationController">
    <children>
       <Label layoutX="172.0" layoutY="64.0" text="Cross Departmental Collaboration">
          <font>

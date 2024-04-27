@@ -4,11 +4,13 @@
  */
 package model.faysal;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Faysal Kabir Ashik
  */
-public class PassengerService {
+public class PassengerService  implements Serializable  {
     
       private String serviceType;
     private  String inquiry;

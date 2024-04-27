@@ -19,7 +19,6 @@ import javafx.stage.Stage;
 import model.faysal.Address;
 import model.faysal.users.User;
 import model.faysal.AppendableObjectOutputStream;
-import model.faysal.users.Accountant;
 
 
 
@@ -27,6 +26,8 @@ public class Passenger extends User implements Serializable{
     
     public static int userCount = 0;
     public static int itsTotalMember(){return userCount;}
+    private String nid = null;
+    private String birtCertificate = null;
 
     public Passenger(String coreUserType, String userIdentity) {
         super(coreUserType, userIdentity);
@@ -42,13 +43,31 @@ public class Passenger extends User implements Serializable{
         super(fullName, primaryMobile, primaryEmail, gender, userIdentity, coreUserType, password, dateOfBirth, address, loginStatus, secondaryMobile, secondaryEmail);
         userCount++;
     }
+
+    public Passenger() {
+    }
+
     
     
-    
-    ////////////////////////////// getter setter//////////////////////
+        ////////////////////////////// getter setter//////////////////////
     //// all implemented in User class, so no need
     
-    
+    public String getNid() {
+        return nid;
+    }
+
+    public void setNid(String nid) {
+        this.nid = nid;
+    }
+
+    public String getBirtCertificate() {
+        return birtCertificate;
+    }
+ 
+
+    public void setBirtCertificate(String birtCertificate) {
+        this.birtCertificate = birtCertificate;
+    }
 
     @Override
     public void changePassword() {
@@ -173,5 +192,27 @@ public class Passenger extends User implements Serializable{
 
         return em;
     }  
+
+    public void reportEmergency(Emergency emergency) 
+    {
+        File f = null;
+        FileOutputStream fos = null;      
+        ObjectOutputStream oos = null;        
+        try {
+            f = new File("PassengerEmergency.bin");
+            if(f.exists()){
+                fos = new FileOutputStream(f,true);
+                oos = new AppendableObjectOutputStream(fos);
+            }
+            else{
+                fos = new FileOutputStream(f);
+                oos = new ObjectOutputStream(fos);               
+            }
+            oos.writeObject(emergency);
+
+        } catch (IOException ex) {
+            //
+        }
+    }
     
 }

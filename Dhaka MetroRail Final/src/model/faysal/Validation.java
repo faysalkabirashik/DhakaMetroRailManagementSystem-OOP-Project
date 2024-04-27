@@ -4,7 +4,9 @@
  */
 package model.faysal;
 
+import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -12,8 +14,12 @@ import java.util.regex.Pattern;
  *
  * @author Faysal Kabir Ashik
  */
-public final class Validation {
+public final class Validation  implements Serializable {
     
+    private static final String LOWERCASE_LETTERS = "abcdefghijklmnopqrstuvwxyz";
+    private static final String NUMBERS = "0123456789";
+    private static final String SPECIAL_CHARACTERS = "_";
+
     private static final String EMAIL_REGEX =
             "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
     /// validation
@@ -26,8 +32,9 @@ public final class Validation {
     }
     public static boolean allDigits(String str) 
     {
-    String digitPattern = "\\d+";
-    return str.matches(digitPattern);
+        if (str == null) {return false;}
+        String digitPattern = "\\d+";
+        return str.matches(digitPattern);
     }
     
     public static boolean containsWhiteSpace(String str) 
@@ -35,11 +42,11 @@ public final class Validation {
     return str.contains(" ");
     }
     
-    public static boolean isValidUsername(String username) 
-    {
-    String pattern = "^[a-zA-Z_][a-zA-Z0-9_]*$";
-    return username.matches(pattern);
+        public static boolean isValidUsername(String username) {
+        String pattern = "^[a-z_][a-z0-9_]*$";
+        return username.matches(pattern);
     }
+
     
     public static boolean isValisUserIdentity(String userIdentity)
     {
@@ -100,11 +107,11 @@ public final class Validation {
     }
 
     // Confirm age is at least 15 years
-    public static boolean isAtLeastFifteenYearsOld(LocalDate birthDate) {
+    public static boolean isAtLeastEighteenYearsOld(LocalDate birthDate) {
         if (birthDate == null) return false; 
         LocalDate currentDate = LocalDate.now();
-        LocalDate fifteenYearsAgo = currentDate.minusYears(15);
-        return isValidBirthDate( birthDate) && !birthDate.isAfter(fifteenYearsAgo);
+        LocalDate yearAgo = currentDate.minusYears(18);
+        return isValidBirthDate( birthDate) && !birthDate.isAfter(yearAgo);
     }
 
     // Confirm age is at least 20 years
@@ -114,13 +121,20 @@ public final class Validation {
         LocalDate twentyYearsAgo = currentDate.minusYears(20);
         return isValidBirthDate( birthDate) && !birthDate.isAfter(twentyYearsAgo);
     }
-
+    
+    public static boolean upToYearsFutureDateValidation(LocalDate givenDate, int noOfYears) {
+        LocalDate currentDate = LocalDate.now();
+        LocalDate futureDate = currentDate.plusYears(noOfYears);
+        return !givenDate.isBefore(currentDate) && !givenDate.isAfter(futureDate);
+    }
     // Check if a given date is a future date up to the specified valid date
-    public static boolean futureDateValidation(LocalDate givenDate, LocalDate upToValidDate) {
+    public static boolean upToValidADateFutureDateValidation(LocalDate givenDate, LocalDate upToValidDate) {
         LocalDate currentDate = LocalDate.now();
         return !givenDate.isBefore(currentDate) && !givenDate.isAfter(upToValidDate);
     }
-
+    
+    
+    
     // Check if a given date is a past date up to the specified valid date
     public static boolean pastDateValidation(LocalDate givenDate, LocalDate pastValidDate) {
         LocalDate currentDate = LocalDate.now();
@@ -129,14 +143,58 @@ public final class Validation {
     
     public static boolean isValidJoiningDate(LocalDate joiningDate) {
         LocalDate currentDate = LocalDate.now();
-        LocalDate upToValidDate = currentDate.plusYears(3); // Up to 3 years from the current date
+        LocalDate upToValidDate = currentDate.plusYears(4); // Up to 4 years from the current date
         LocalDate pastValidDate = LocalDate.of(2021, 1, 1); // January 1, 2021
         return !joiningDate.isBefore(pastValidDate) && !joiningDate.isAfter(upToValidDate);
     }
     
     
     //////////////////////////////////////////////////////////////////////
-    ////////////////// VERification///////////////////
+    ////////////////// generate pass///////////////////
          
+    public static String generatePassword() {
+        String validChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+";
+        Random random = new Random();
+
+        StringBuilder password = new StringBuilder();
+
+   
+        while (true) {
+            password.setLength(0); // Clear StringBuilder
+ 
+            int length = random.nextInt(13) + 8;
+
+         
+            for (int i = 0; i < length; i++) {
+                int randomIndex = random.nextInt(validChars.length());
+                password.append(validChars.charAt(randomIndex));
+            }
+
+             if (isValidPassword(password.toString())) {
+                break;  
+            }
+        }
+
+        return password.toString();
+    }
+    
+    public static String generateUsername() {
+        StringBuilder usernameBuilder = new StringBuilder();
+
+        Random random = new Random();
+
+        // Ensure the username starts with a lowercase letter or underscore
+        usernameBuilder.append(LOWERCASE_LETTERS.charAt(random.nextInt(LOWERCASE_LETTERS.length())));
+
+        // Append lowercase letters, numbers, and underscores randomly
+        String characters = LOWERCASE_LETTERS + NUMBERS + SPECIAL_CHARACTERS;
+        for (int i = 1; i < 8; i++) { // 8 characters total
+            usernameBuilder.append(characters.charAt(random.nextInt(characters.length())));
+        }
+
+        return usernameBuilder.toString();
+    }
+
+    
     
 }

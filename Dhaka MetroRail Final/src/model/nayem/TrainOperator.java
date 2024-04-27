@@ -22,7 +22,6 @@ import model.faysal.users.Countable;
 import model.faysal.users.Employee;
 import model.faysal.users.User;
 import model.faysal.AppendableObjectOutputStream;
-import model.faysal.SystemFeedback;
 
 
 public class TrainOperator extends Employee implements Serializable, Countable
@@ -49,10 +48,6 @@ public class TrainOperator extends Employee implements Serializable, Countable
 
     public TrainOperator() {
     }
-    
-    
-  
-    
 
     @Override
     public void changePassword() {
@@ -114,29 +109,40 @@ public class TrainOperator extends Employee implements Serializable, Countable
         }
     }
     
- 
-    public void softwareFeedback(SystemFeedback sf)
+    public void realTimeUpdate(Update update)
     {
         File f = null;
         FileOutputStream fos = null;      
         ObjectOutputStream oos = null;        
         try {
-            f = new File("SystemFeedback.bin");
+            f = new File("RealTimeUpdate.bin");
             if(f.exists()){
                 fos = new FileOutputStream(f,true);
-                oos = new AppendableObjectOutputStream(fos);                
+                oos = new AppendableObjectOutputStream(fos);
             }
             else{
                 fos = new FileOutputStream(f);
                 oos = new ObjectOutputStream(fos);               
             }
-            oos.writeObject(sf);
+            oos.writeObject(update);
 
         } catch (IOException ex) {
             //
         }
     }
+<<<<<<< HEAD
+=======
     
+    public void signup(ActionEvent event) throws IOException 
+    {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/nayem/passenger/SignupScene.fxml"));
+        Parent parent = loader.load();
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene newScene = new Scene(parent);
+        currentStage.setScene(newScene);
+        currentStage.show();
+    }
+>>>>>>> Jubair-2221134
 
     @Override
     public void changeDesignation() {
@@ -210,5 +216,27 @@ public class TrainOperator extends Employee implements Serializable, Countable
 
         return em;
     }  
+
+    public void systemFeedback(model.nayem.SystemFeedback sf) {
+        {
+        File f = null;
+        FileOutputStream fos = null;      
+        ObjectOutputStream oos = null;        
+        try {
+            f = new File("SystemFeedback.bin");
+            if(f.exists()){
+                fos = new FileOutputStream(f,true);
+                oos = new AppendableObjectOutputStream(fos);                
+            }
+            else{
+                fos = new FileOutputStream(f);
+                oos = new ObjectOutputStream(fos);               
+            }
+            oos.writeObject(sf);
+        } catch (IOException ex) {
+            //
+        }
+    }
+    }
     
 }

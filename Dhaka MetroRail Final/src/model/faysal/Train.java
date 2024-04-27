@@ -4,14 +4,14 @@
  */
 package model.faysal;
 
-import com.sun.org.glassfish.gmbal.Description;
+import java.io.Serializable;
 import java.util.List;
 
 /**
  *
  * @author Faysal Kabir Ashik
  */
-public class Train {
+public class Train  implements Serializable {
 
     private String  trainId;
     private String trainName;
@@ -22,7 +22,8 @@ public class Train {
     private int totalCapacity ;
     Route route; 
     List<Trip> tripList;
-    Description description; 
+    
+    String description; 
 
     public String getTrainId() {
         return trainId;
@@ -91,11 +92,11 @@ public class Train {
 
 
 
-    public Description getDescription() {
+    public String getDescription() {
         return description;
     }
 
-    public void setDescription(Description description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 

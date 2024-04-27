@@ -4,23 +4,33 @@
  */
 package model.faysal;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  *
  * @author Faysal Kabir Ashik
  */
-public class ResourceRequest {
+public class ResourceRequest  implements Serializable {
     
     private String requestID;
+<<<<<<< HEAD
+    private String stationName;
+  
+ 
+=======
     private String requestedResource;
     private List<String> requestedResourceList;
     
     private String status;
+>>>>>>> Jubair-2221134
     private String description;
 
-    public ResourceRequest(String requestID, String requestedResource, String status, String description) {
+    public ResourceRequest(String requestID, String stationName, String description) {
         this.requestID = requestID;
+<<<<<<< HEAD
+        this.stationName = stationName;
+=======
         this.requestedResource = requestedResource;
         this.status = status;
         this.description = description;
@@ -38,6 +48,7 @@ public class ResourceRequest {
     }
 
     public void setDescription(String description) {
+>>>>>>> Jubair-2221134
         this.description = description;
     }
 
@@ -49,14 +60,18 @@ public class ResourceRequest {
         this.requestID = requestID;
     }
 
-    public String getRequestedResource() {
-        return requestedResource;
+    public String getStationName() {
+        return stationName;
     }
 
-    public void setRequestedResource(String requestedResource) {
-        this.requestedResource = requestedResource;
+    public void setStationName(String stationName) {
+        this.stationName = stationName;
     }
 
+<<<<<<< HEAD
+    public String getDescription() {
+        return description;
+=======
     public List<String> getRequestedResourceList() {
         return requestedResourceList;
     }
@@ -67,12 +82,16 @@ public class ResourceRequest {
 
     public String getStatus() {
         return status;
+>>>>>>> Jubair-2221134
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
+<<<<<<< HEAD
+   
+=======
     @Override
     public String toString() {
         return "ResourceRequest{" + "requestID=" + requestID + ", requestedResource=" + requestedResource + ", requestedResourceList=" + requestedResourceList + ", status=" + status + ", description=" + description + '}';
@@ -80,6 +99,7 @@ public class ResourceRequest {
 
 
     
+>>>>>>> Jubair-2221134
     
     
     

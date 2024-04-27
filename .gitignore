@@ -27,6 +27,13 @@
 !/Dhaka MetroRail Final/src/view/faysal/systemadmin/StationConfigurationOptionController.java
 !/Dhaka MetroRail Final/src/view/faysal/systemadmin/Test.java
 !/Dhaka MetroRail Final/src/view/faysal/systemadmin/SystemAdminDashboardController.java
+<<<<<<< HEAD
+!/Dhaka MetroRail Final/src/view/nayem/TrainOperator/SoftwareIssuesController.java
+!/Dhaka MetroRail Final/src/model/nayem/SystemFeedback.java
+!/Dhaka MetroRail Final/src/view/nayem/TrainOperator/RealTimeUpdateSceneController.java
+!/Dhaka MetroRail Final/src/model/nayem/Update.java
+!/Dhaka MetroRail Final/src/view/nayem/passenger/RealTimeUpdateController.java
+=======
 !/Dhaka MetroRail Final/src/model/faysal/SystemFeedback.java
 !/Dhaka MetroRail Final/src/model/faysal/Validation.java
 !/Dhaka MetroRail Final/src/model/faysal/Varification.java
@@ -41,3 +48,13 @@
 !/Dhaka MetroRail Final/src/model/faysal/TrainSchedule.java
 !/Dhaka MetroRail Final/src/model/faysal/LeaveRequest.java
 !/Dhaka MetroRail Final/src/model/faysal/ResourceRequest.java
+>>>>>>> fa56ffb1d293ef322ef5ca3db9ba818eaf05233b
+!/Dhaka MetroRail Final/src/model/jubair/accountant/EmployeeAc.java
+!/Dhaka MetroRail Final/src/view/faysal/station_manager/StationDashboardController.java
+!/Dhaka MetroRail Final/src/view/faysal/systemadmin/CreateReportsOnEmployeesController.java
+!/Dhaka MetroRail Final/src/view/jubair/headofHR/dailyAttendanceController.java
+!/Dhaka MetroRail Final/src/view/jubair/headofHR/HeadofHRDashBoardController.java
+!/Dhaka MetroRail Final/src/view/jubair/Accountant/EmployeePaayrollController.java
+!/Dhaka MetroRail Final/src/model/jubair/hr/Attendance.java
+!/Dhaka MetroRail Final/src/view/jubair/headofHR/RecruitmentController.java
+!/Dhaka MetroRail Final/src/model/jubair/hr/Recruitment.java
