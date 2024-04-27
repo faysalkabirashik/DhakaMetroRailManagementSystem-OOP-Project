@@ -10,6 +10,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import model.faysal.users.Employee;
+import model.faysal.users.HeadOfHR;
 import model.faysal.users.LoginInfo;
 import model.faysal.users.MaintenanceStaff;
 import model.faysal.users.PublicServiceProvider;
@@ -29,44 +30,18 @@ public class TestingBin {
  
      */
     public static void main(String[] args) {
-        System.out.println(Read.checkUserExist("Passenger", ""));
-        
-         //Read.write();
-         //Read.read();
-//        System.out.println(Read.getListOfObjects().size());
-System.out.println("Vitorer reaad");
-//        read();
-//        
-        ///////////
-        SystemAdministrator admin = new SystemAdministrator();
-//        StationManager sm = new StationManager();
-//        TrainOperator to = new TrainOperator();
-//        PublicServiceProvider ps = new PublicServiceProvider();
-//        MaintenanceStaff ms = new MaintenanceStaff();
-//        Passenger pas = new Passenger();
-//        SystemAdministrator admin = new SystemAdministrator();
-//        SystemAdministrator admin = new SystemAdministrator();  
-//        SystemAdministrator admin = new SystemAdministrator();
-//        SystemAdministrator admin = new SystemAdministrator();
-//        SystemAdministrator admin = new SystemAdministrator();
-        
-        System.out.println(admin.getTotalNoOfObjects()+ " " + admin.getTotalListOfObjects());
-//        System.out.println(sm.getTotalNoOfObjects()+ " " + sm.getTotalListOfObjects());
-//        System.out.println(to.getTotalNoOfObjects()+ " " + to.getTotalListOfObjects());
-//        System.out.println(ps.getTotalNoOfObjects()+ " " + ps.getTotalListOfObjects());
-//        System.out.println(ms.getTotalNoOfObjects()+ " " + ms.getTotalListOfObjects());
-//        System.out.println(pas.getTotalNoOfObjects()+ " " + pas.getTotalListOfObjects());
-//        
-//        
-//        
-//        /////////////////////
-////         
-////        System.out.println(User.verifyLogin("2400100", "Pass@123"));
-////        System.out.println(User.getCountOfAllTypeOfUsers());
-////            System.out.println(User.getObjectV2("2400100", "System Administrator"));
-
-
-
+        System.out.println(Read.checkUserExist( "pass2"));
+        System.out.println("");
+          
+//        System.out.println(new SystemAdministrator().getTotalNoOfObjects());
+//         System.out.println(new StationManager().getTotalNoOfObjects()+ " "  );
+//         System.out.println(new Passenger().getTotalNoOfObjects()+ " " );
+//         System.out.println(new HeadOfHR().getTotalNoOfObjects()+ " "  );
+//         System.out.println(new TrainOperator().getTotalNoOfObjects()   );
+//        System.out.println(new PublicServiceProvider().getTotalNoOfObjects()+ " " );
+// 
+//        System.out.println(User.verifyLogin("2400100", "Pass@123"));
+ 
     }
 
     

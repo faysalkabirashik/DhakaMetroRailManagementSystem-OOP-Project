@@ -17,6 +17,8 @@ import model.faysal.Address;
 import model.faysal.AlertGen;
 import model.faysal.AppendableObjectOutputStream;
 import model.faysal.Train;
+import model.faysal.Validation;
+import model.nayem.Passenger;
 import model.nayem.TrainOperator;
 
 /**
@@ -516,14 +518,14 @@ public class SystemAdministrator extends Employee implements Serializable, Count
 
             oos.writeObject(train);
         } catch (IOException iOExc) {
-            Logger.getLogger(Train.class.getName()).log(Level.SEVERE, null, iOExc);
+            Logger.getLogger(SystemAdministrator.class.getName()).log(Level.SEVERE, null, iOExc);
         } finally {
             try {
                 if (oos != null) {
                     oos.close();
                 }
             } catch (IOException iOExc) {
-                Logger.getLogger(Train.class.getName()).log(Level.SEVERE, null, iOExc);
+                Logger.getLogger(SystemAdministrator.class.getName()).log(Level.SEVERE, null, iOExc);
             }
 
         }
@@ -572,8 +574,369 @@ public class SystemAdministrator extends Employee implements Serializable, Count
 
     }
     
-    public static boolean checkUserExist(String path, String userIdentity){
-        return false;
+       public static boolean checkUserExist( String idCheck) {
+        
+        File f = null;
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+        String path = null;
+        boolean foundFlag = false;
+        
+        ////////////////////////////////////////////////////
+        if (Validation.allDigits(idCheck)){
+            String empLabel = idCheck.substring(2, 4);
+            switch (empLabel) {
+                case "00":
+                    path = "SystemAdministrator.bin";
+                    break;
+                case "01":
+                    path = "StationManager.bin";
+                    break;
+                case "02":
+                    path = "TrainOperator.bin";
+                    break;
+                case "03":
+                    path = "HeadOfHR.bin";
+                    break;
+                case "05":
+                    path = "MaintenanceStaff.bin"; 
+                    break;
+                case "06":
+                    path = "PublicServiceProvider.bin";
+                    break;
+                case "04":
+                    path = "Accountant.bin";
+                    break;
+                default:
+                    break;
+            }
+            
+        } else if (Validation.isValidUsername(idCheck)){
+            path = "Passenger.bin";
+        } else {
+            AlertGen.unsuccessfulAlert("invalid User Identity!!");
+            return false;
+        }
+ 
+        ///////////////////////////////////////////////
+        try {
+            f = new File(path);
+            fis = new FileInputStream(f);
+            ois = new ObjectInputStream(fis);
+            
+            /////////////////////////////////////////////////                        
+            try {
+                System.out.println(" objects of SystemAdministrator");
+                if (path.equals("SystemAdministrator.bin")) {
+                    SystemAdministrator tempUser ;
+                    while (true){
+                        if (foundFlag == true){
+                            System.out.println("user exists || System Admin");
+                            break;
+                        }
+                        tempUser = (SystemAdministrator) ois.readObject();
+                        if (idCheck.equals(tempUser.getUserIdentity())) {
+                            foundFlag = true;
+                            System.out.println(tempUser.getUserIdentity() +" = "+ idCheck);
+                            return true;
+                        }
+                    }
+                } else if (path.equals("StationManager.bin")) {
+                    StationManager tempUser;
+                    while (true){
+                        if (foundFlag == true){
+                            System.out.println("user exists || Station Manager");
+                            break;
+                        }
+                        tempUser = (StationManager) ois.readObject();
+                        if (idCheck.equals(tempUser.getUserIdentity())) {
+                            foundFlag = true;
+                            System.out.println(tempUser.getUserIdentity() +" = "+ idCheck);
+                            return true;
+                        }
+                    }
+                } else if (path.equals("Passenger.bin")) {
+                    Passenger tempUser;
+                    while (true){
+                        if (foundFlag == true){
+                            System.out.println("user exists || Passenger");
+                            break;
+                        }
+                        tempUser = (Passenger) ois.readObject();
+                        if (idCheck.equals(tempUser.getUserIdentity())) {
+                            foundFlag = true;
+                            System.out.println(tempUser.getUserIdentity() +" = "+ idCheck);
+                            return true;
+                        }
+                    }
+                    
+                } else if (path.equals("TrainOperator.bin")) {
+                    TrainOperator tempUser;
+                    while (true){
+                        if (foundFlag == true){
+                            System.out.println("user exists || Train Operator");
+                            break;
+                        }
+                        tempUser = (TrainOperator) ois.readObject();
+                        if (idCheck.equals(tempUser.getUserIdentity())) {
+                            foundFlag = true;
+                            System.out.println(tempUser.getUserIdentity() +" = "+ idCheck);
+                            return true;
+                        }
+                    }
+                } else if (path.equals("HeadOfHR.bin")) {
+                    HeadOfHR tempUser;
+                    while (true){
+                        if (foundFlag == true){
+                            System.out.println("user exists || Head Of HR");
+                            break;
+                        }
+                        tempUser = (HeadOfHR) ois.readObject();
+                        if (idCheck.equals(tempUser.getUserIdentity())) {
+                            foundFlag = true;
+                            System.out.println(tempUser.getUserIdentity() +" = "+ idCheck);
+                            return true;
+                        }
+                    }
+                } else if (path.equals("Accountant.bin")) {
+                    Accountant tempUser;
+                    while (true){
+                        if (foundFlag == true){
+                            System.out.println("user exists || Accountant");
+                            break;
+                        }
+                        tempUser = (Accountant) ois.readObject();
+                        if (idCheck.equals(tempUser.getUserIdentity())) {
+                            foundFlag = true;
+                            System.out.println(tempUser.getUserIdentity() +" = "+ idCheck);
+                            return true;
+                        }
+                    }
+                } else if (path.equals("MaintenanceStaff.bin")) {
+                   MaintenanceStaff tempUser;
+                   while (true){
+                        if (foundFlag == true){
+                            System.out.println("user exists || MaintenanceS taff ");
+                            break;
+                        }
+                        tempUser = (MaintenanceStaff) ois.readObject();
+                        if (idCheck.equals(tempUser.getUserIdentity())) {
+                            foundFlag = true;
+                            System.out.println(tempUser.getUserIdentity() +" = "+ idCheck);
+                            return true;
+                        }
+                    }
+                } else if (path.equals("PublicServiceProvider.bin")){
+                    PublicServiceProvider tempUser;
+                    while (true){
+                        if (foundFlag == true){
+                            System.out.println("user exists || Public Service Provider");
+                            break;
+                        }
+                        tempUser = (PublicServiceProvider) ois.readObject();
+                        if (idCheck.equals(tempUser.getUserIdentity())) {
+                            foundFlag = true;
+                            System.out.println(tempUser.getUserIdentity() +" = "+ idCheck);
+                            return true;
+                        }
+                    }
+                }
+
+                //System.out.println(tempUser.toString());
+            } catch (IOException | ClassNotFoundException e) {
+                //System.out.println(e.toString());
+                System.out.println("IOException | ClassNotFoundException in reading bin file");
+            }
+            System.out.println("End of file\n");
+            ////////////////////////////////////////////
+
+        } catch (IOException ex) {
+            System.out.println("IOException on entire file handling");
+        } finally {
+            try {
+                if (ois != null) {
+                    ois.close();
+                }
+            } catch (IOException ex) {
+            }
+        }
+        
+        return foundFlag;
+
+    }
+    
+    
+    
+    public static boolean checkUserExist(String userType, String idCheck) {
+        
+        File f = null;
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+        String path = null;
+        boolean foundFlag = false;
+        if (userType.equals("System Administrator")) {
+            path = "SystemAdministrator.bin";
+        } else if (userType.equals("Station Manager")) {
+            path = "StationManager.bin";
+        } else if (userType.equals("Train Operator")) {
+            path = "TrainOperator.bin";
+        } else if (userType.equals("Head of HR")) {
+            path = "HeadOfHR.bin";
+        } else if (userType.equals("Maintenance Staff")) {
+            path = "MaintenanceStaff.bin";
+        } else if (userType.equals("Public Service Provider")) {
+            path = "PublicServiceProvider.bin";
+        } else if (userType.equals("Accountant")) {
+            path = "Accountant.bin";
+        } else if (userType.equals("Passenger")) {
+            path = "Passenger.bin";
+        }
+
+        try {
+            f = new File(path);
+            fis = new FileInputStream(f);
+            ois = new ObjectInputStream(fis);
+            
+            /////////////////////////////////////////////////                        
+            try {
+                System.out.println(" objects of SystemAdministrator");
+
+                if (path.equals("SystemAdministrator.bin")) {
+                    SystemAdministrator tempUser ;
+                    while (true){
+                        if (foundFlag == true){
+                            System.out.println("user exists");
+                            break;
+                        }
+                        tempUser = (SystemAdministrator) ois.readObject();
+                        if (idCheck.equals(tempUser.getUserIdentity())) {
+                            foundFlag = true;
+                            System.out.println(tempUser.getUserIdentity() +" = "+ idCheck);
+                            return true;
+                        }
+                    }
+                } else if (path.equals("StationManager.bin")) {
+                    StationManager tempUser;
+                    while (true){
+                        if (foundFlag == true){
+                            System.out.println("user exists");
+                            break;
+                        }
+                        tempUser = (StationManager) ois.readObject();
+                        if (idCheck.equals(tempUser.getUserIdentity())) {
+                            foundFlag = true;
+                            System.out.println(tempUser.getUserIdentity() +" = "+ idCheck);
+                            return true;
+                        }
+                    }
+                } else if (path.equals("Passenger.bin")) {
+                    Passenger tempUser;
+                    while (true){
+                        if (foundFlag == true){
+                            System.out.println("user exists");
+                            break;
+                        }
+                        tempUser = (Passenger) ois.readObject();
+                        if (idCheck.equals(tempUser.getUserIdentity())) {
+                            foundFlag = true;
+                            System.out.println(tempUser.getUserIdentity() +" = "+ idCheck);
+                            return true;
+                        }
+                    }
+                    
+                } else if (path.equals("TrainOperator.bin")) {
+                    TrainOperator tempUser;
+                    while (true){
+                        if (foundFlag == true){
+                            System.out.println("user exists");
+                            break;
+                        }
+                        tempUser = (TrainOperator) ois.readObject();
+                        if (idCheck.equals(tempUser.getUserIdentity())) {
+                            foundFlag = true;
+                            System.out.println(tempUser.getUserIdentity() +" = "+ idCheck);
+                            return true;
+                        }
+                    }
+                } else if (path.equals("HeadOfHR.bin")) {
+                    HeadOfHR tempUser;
+                    while (true){
+                        if (foundFlag == true){
+                            System.out.println("user exists");
+                            break;
+                        }
+                        tempUser = (HeadOfHR) ois.readObject();
+                        if (idCheck.equals(tempUser.getUserIdentity())) {
+                            foundFlag = true;
+                            System.out.println(tempUser.getUserIdentity() +" = "+ idCheck);
+                            return true;
+                        }
+                    }
+                } else if (path.equals("Accountant.bin")) {
+                    Accountant tempUser;
+                    while (true){
+                        if (foundFlag == true){
+                            System.out.println("user exists");
+                            break;
+                        }
+                        tempUser = (Accountant) ois.readObject();
+                        if (idCheck.equals(tempUser.getUserIdentity())) {
+                            foundFlag = true;
+                            System.out.println(tempUser.getUserIdentity() +" = "+ idCheck);
+                            return true;
+                        }
+                    }
+                } else if (path.equals("MaintenanceStaff.bin")) {
+                   MaintenanceStaff tempUser;
+                   while (true){
+                        if (foundFlag == true){
+                            System.out.println("user exists");
+                            break;
+                        }
+                        tempUser = (MaintenanceStaff) ois.readObject();
+                        if (idCheck.equals(tempUser.getUserIdentity())) {
+                            foundFlag = true;
+                            System.out.println(tempUser.getUserIdentity() +" = "+ idCheck);
+                            return true;
+                        }
+                    }
+                } else if (path.equals("PublicServiceProvider.bin")){
+                    PublicServiceProvider tempUser;
+                    while (true){
+                        if (foundFlag == true){
+                            System.out.println("user exists");
+                            break;
+                        }
+                        tempUser = (PublicServiceProvider) ois.readObject();
+                        if (idCheck.equals(tempUser.getUserIdentity())) {
+                            foundFlag = true;
+                            System.out.println(tempUser.getUserIdentity() +" = "+ idCheck);
+                            return true;
+                        }
+                    }
+                }
+
+                //System.out.println(tempUser.toString());
+            } catch (IOException | ClassNotFoundException e) {
+                //System.out.println(e.toString());
+                System.out.println("IOException | ClassNotFoundException in reading bin file");
+            }
+            System.out.println("End of file\n");
+            ////////////////////////////////////////////
+
+        } catch (IOException ex) {
+            System.out.println("IOException on entire file handling");
+        } finally {
+            try {
+                if (ois != null) {
+                    ois.close();
+                }
+            } catch (IOException ex) {
+            }
+        }
+        
+        return foundFlag;
+
     }
 
     

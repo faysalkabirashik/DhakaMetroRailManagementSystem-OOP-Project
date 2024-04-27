@@ -1,6 +1,6 @@
 package view.jubair.Accountant;
 
-import model.jubair.accountant.EmployeeAc;
+ 
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -15,6 +15,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
+import model.faysal.users.Employee;
 
 public class EmployeePaayrollController implements Initializable {
 
@@ -29,25 +30,25 @@ public class EmployeePaayrollController implements Initializable {
     @FXML
     private ComboBox<String> empDesignationCombobox;
     @FXML
-    private TableView<EmployeeAc> empPayrollTableView;
+    private TableView<Employee> empPayrollTableView;
     @FXML
-    private TableColumn<EmployeeAc, Integer> empIDTableColumn;
+    private TableColumn<Employee, Integer> empIDTableColumn;
     @FXML
-    private TableColumn<EmployeeAc, String> empNameTableColumn;
+    private TableColumn<Employee, String> empNameTableColumn;
     @FXML
-    private TableColumn<EmployeeAc, String> empDesignationTableColumn;
+    private TableColumn<Employee, String> empDesignationTableColumn;
     @FXML
-    private TableColumn<EmployeeAc, String> empBankAcTableColumn;
+    private TableColumn<Employee, String> empBankAcTableColumn;
     @FXML
-    private TableColumn<EmployeeAc, Float> empSalaryTableColumn;
+    private TableColumn<Employee, Float> empSalaryTableColumn;
     @FXML
-    private TableColumn<EmployeeAc, String> statusTableColumn;
+    private TableColumn<Employee, String> statusTableColumn;
     @FXML
     private RadioButton paidRadioButton;
     @FXML
     private RadioButton dueRadioButton;
 
-    ArrayList<EmployeeAc> employeeList;
+    ArrayList<Employee> employeeList;
     ToggleGroup statusToggleGroup;
 
     @Override
