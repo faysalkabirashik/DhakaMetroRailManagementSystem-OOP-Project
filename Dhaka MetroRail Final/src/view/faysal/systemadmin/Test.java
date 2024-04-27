@@ -21,11 +21,15 @@ public class Test extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
+<<<<<<< HEAD
  
  
  
         Parent root = FXMLLoader.load(getClass().getResource("PieChartTotalUsers.fxml"));
  
+=======
+        Parent root = FXMLLoader.load(getClass().getResource("CreateNewUser.fxml"));
+>>>>>>> Faysal-2111585
 
         Scene scene = new Scene(root);
 

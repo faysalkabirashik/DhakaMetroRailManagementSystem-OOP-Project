@@ -111,6 +111,8 @@ public class CreateNewUserController implements Initializable {
     private SystemAdministrator admin = new SystemAdministrator();
     @FXML
     private TextField id_textField;
+    @FXML
+    private CheckBox manuallyGenerateID_checkBox;
     
     public SystemAdministrator getSystemAdmin(){
         return admin;
@@ -598,6 +600,7 @@ public class CreateNewUserController implements Initializable {
     {
         try{
            if (joiningDate_datePicker.getValue() == null){
+               AlertGen.inforamtion("Empty entry", "Please provide joining date firs");
            
            }
            else if (employeeType_comBox.getValue().isEmpty() || !Validation.isValidJoiningDate(joiningDate_datePicker.getValue()))
@@ -609,13 +612,18 @@ public class CreateNewUserController implements Initializable {
            }
            else{
                generatedID = this.admin.generateEmployeeID(employeeType_comBox.getValue(), joiningDate_datePicker.getValue());
-                generateEmployeeId_label.setText(generatedID);
+               if (generatedID == null){
+                   AlertGen.unsuccessfulAlert("Null id");
+                   return;
+               }
+               generateEmployeeId_label.setText(generatedID);
            }
 //            if ( !employeeType_comBox.getValue().isEmpty() && joiningDate_datePicker.getValue() != null)
 //            {this.admin.generateEmployeeID(employeeType_comBox.getValue(), joiningDate_datePicker.getValue());
 //                }
 //            else{AlertGen.unsuccessfulAlert("Please select fields first");}
-        }catch(NullPointerException nu){System.out.println("NULLLLLLLLLLLLLL");}
+        }catch(NullPointerException nu){System.out.println("NULLLLLLLLLLLLLL");
+        AlertGen.warningAlert("Warning!", nu.toString());}
        
     }
     @FXML

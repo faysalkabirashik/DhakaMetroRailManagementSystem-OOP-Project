@@ -62,9 +62,9 @@
             <Line endX="-100.0" endY="389.0" layoutX="504.0" layoutY="76.0" startX="-100.0" />
             <Label layoutX="417.0" layoutY="65.0" prefHeight="17.0" prefWidth="289.0" text="Mobile/Phone: (Start from)" />
             <TextField fx:id="secondaryMobileNo_textField" layoutX="622.0" layoutY="86.0" prefHeight="37.0" prefWidth="188.0" promptText="Secodary Mobile No. (Optional)" />
-            <TextField fx:id="primaryEmail_textField" layoutX="417.0" layoutY="152.0" prefHeight="37.0" prefWidth="188.0" promptText="Primary Email" />
-            <Label layoutX="416.0" layoutY="131.0" prefHeight="17.0" prefWidth="289.0" text="Email: (Start from)" />
-            <TextField fx:id="secondaryEmail_textField" layoutX="623.0" layoutY="150.0" prefHeight="37.0" prefWidth="188.0" promptText="Secodary Email (Optional)" />
+            <TextField fx:id="primaryEmail_textField" layoutX="417.0" layoutY="148.0" prefHeight="37.0" prefWidth="188.0" promptText="Primary Email" />
+            <Label layoutX="416.0" layoutY="125.0" prefHeight="17.0" prefWidth="289.0" text="Email: (Start from)" />
+            <TextField fx:id="secondaryEmail_textField" layoutX="623.0" layoutY="146.0" prefHeight="37.0" prefWidth="188.0" promptText="Secodary Email (Optional)" />
             <Label layoutX="28.0" layoutY="387.0" prefHeight="25.0" prefWidth="85.0" text="Date of Birth:" />
             <DatePicker fx:id="dob_datePicker" layoutX="105.0" layoutY="381.0" prefHeight="32.0" prefWidth="205.0" promptText="Pick your DoB" />
             <Label layoutX="337.0" layoutY="377.0" text="Gender:" />
@@ -75,29 +75,29 @@
             </RadioButton>
             <RadioButton fx:id="female_radioButton" layoutX="321.0" layoutY="421.0" mnemonicParsing="false" text="Female" toggleGroup="$gender_toggleGroup" />
             <RadioButton fx:id="intersex_radioButton" layoutX="321.0" layoutY="447.0" mnemonicParsing="false" text="Intersex" toggleGroup="$gender_toggleGroup" />
-            <CheckBox fx:id="nid_checkBox" disable="true" layoutX="418.0" layoutY="195.0" mnemonicParsing="false" selected="true" text="NID" />
+            <CheckBox fx:id="nid_checkBox" disable="true" layoutX="418.0" layoutY="191.0" mnemonicParsing="false" selected="true" text="NID" />
             <CheckBox fx:id="birthCer_checkBox" disable="true" layoutX="623.0" layoutY="195.0" mnemonicParsing="false" visible="false" />
-            <TextField fx:id="nid_textField" layoutX="416.0" layoutY="219.0" prefHeight="37.0" prefWidth="188.0" promptText="NID is for 20+ age &amp; employees" />
-            <TextField fx:id="birthCer_textField" disable="true" layoutX="623.0" layoutY="219.0" prefHeight="37.0" prefWidth="188.0" promptText="only for age below 20 passengers" />
-            <Label layoutX="462.0" layoutY="259.0" prefHeight="17.0" prefWidth="294.0" text="(For employees providing NID information is necessary)" />
-            <Line endX="329.0" layoutX="517.0" layoutY="284.0" startX="-100.0" />
-            <Label layoutX="421.0" layoutY="327.0" text="Generate UserIdentity:" underline="true" />
+            <TextField fx:id="nid_textField" layoutX="416.0" layoutY="215.0" prefHeight="37.0" prefWidth="188.0" promptText="NID is for 20+ age &amp; employees" />
+            <TextField fx:id="birthCer_textField" disable="true" layoutX="623.0" layoutY="215.0" prefHeight="37.0" prefWidth="188.0" promptText="only for age below 20 passengers" />
+            <Label layoutX="462.0" layoutY="255.0" prefHeight="17.0" prefWidth="294.0" text="(For employees providing NID information is necessary)" />
+            <Line endX="329.0" layoutX="517.0" layoutY="275.0" startX="-100.0" />
+            <Label layoutX="446.0" layoutY="307.0" text="Generate UserIdentity:" underline="true" />
             <TextField fx:id="generatePassengerUsername_textField" disable="true" layoutX="620.0" layoutY="387.0" prefHeight="37.0" prefWidth="226.0" promptText="Passenger Username (Editable)" />
-            <Label layoutX="420.0" layoutY="293.0" prefHeight="25.0" prefWidth="164.0" text="Employee Type (Designation):" wrapText="true" />
-            <ComboBox fx:id="employeeType_comBox" layoutX="620.0" layoutY="294.0" prefHeight="25.0" prefWidth="226.0" promptText="Select Designation" />
+            <Label layoutX="420.0" layoutY="281.0" prefHeight="25.0" prefWidth="164.0" text="Employee Type (Designation):" wrapText="true" />
+            <ComboBox fx:id="employeeType_comBox" layoutX="620.0" layoutY="282.0" prefHeight="25.0" prefWidth="226.0" promptText="Select Designation" />
             <TextField fx:id="house_textField" layoutX="217.0" layoutY="336.0" prefHeight="37.0" prefWidth="170.0" promptText="House No." />
             <Label layoutX="29.0" layoutY="141.0" text="Nationality/Country:" />
             <ComboBox fx:id="country_comBox" editable="true" layoutX="144.0" layoutY="131.0" prefHeight="37.0" prefWidth="243.0" promptText="Select your country" />
             <Button layoutX="768.0" layoutY="482.0" mnemonicParsing="false" onAction="#saveAndCreateUserBtnOnAction" prefHeight="52.0" prefWidth="85.0" style="-fx-background-color: #6BB2A2; -fx-background-radius: 10;" text="Save and Create User" textAlignment="RIGHT" wrapText="true" />
-            <Button fx:id="generateEmployeeId_button" disable="true" layoutX="417.0" layoutY="354.0" mnemonicParsing="false" onAction="#generateEmployeeIdBtnOnAction" prefHeight="25.0" prefWidth="188.0" text="Generate employee ID:" visible="false" />
-            <Label fx:id="generateEmployeeId_label" disable="true" layoutX="417.0" layoutY="388.0" prefHeight="37.0" prefWidth="188.0" style="-fx-background-color: white; -fx-border-color: #BABABA; -fx-background-radius: 4; -fx-border-radius: 4;" visible="false" />
+            <Button fx:id="generateEmployeeId_button" layoutX="417.0" layoutY="354.0" mnemonicParsing="false" onAction="#generateEmployeeIdBtnOnAction" prefHeight="25.0" prefWidth="188.0" text="Generate employee ID:" />
+            <Label fx:id="generateEmployeeId_label" layoutX="417.0" layoutY="388.0" prefHeight="37.0" prefWidth="188.0" style="-fx-background-color: white; -fx-border-color: #BABABA; -fx-background-radius: 4; -fx-border-radius: 4;" text=" Employee ID" />
             <Button layoutX="417.0" layoutY="436.0" mnemonicParsing="false" onAction="#generatePasswordBtnOnAction" prefHeight="25.0" prefWidth="188.0" text="Generate Password:" />
             <PasswordField fx:id="generatePassword_passwordField" layoutX="620.0" layoutY="436.0" prefHeight="25.0" prefWidth="226.0" />
             <Button fx:id="generatePassengerUsername_button" disable="true" layoutX="620.0" layoutY="354.0" mnemonicParsing="false" onAction="#generatePassengerUsernameBtnOnAction" prefHeight="25.0" prefWidth="226.0" text="Generate Passenger Username:" />
             <DatePicker fx:id="joiningDate_datePicker" layoutX="105.0" layoutY="428.0" prefHeight="32.0" prefWidth="205.0" promptText="Only for employee/admin" />
             <Label fx:id="joiningDate_label" layoutX="28.0" layoutY="428.0" prefHeight="25.0" prefWidth="85.0" text="Joining Date:" />
             <ComboBox fx:id="districtComboBox" editable="true" layoutX="207.0" layoutY="190.0" prefHeight="37.0" prefWidth="180.0" promptText="District" />
-            <Label fx:id="nid_label" layoutX="467.0" layoutY="195.0" text="Provide NID no.:" />
+            <Label fx:id="nid_label" layoutX="478.0" layoutY="191.0" text="Provide NID no.:" />
             <MenuBar disable="true" layoutX="702.0" layoutY="34.0" style="-fx-background-color: #C7D1D2;" AnchorPane.topAnchor="34.0">
               <menus>
                 <Menu mnemonicParsing="false" text="File">
@@ -126,8 +126,9 @@
             <Label layoutX="624.0" layoutY="195.0" prefHeight="17.0" prefWidth="102.0" text="Birth Certificate" />
             <CheckBox fx:id="showPass_checkBox" layoutX="620.0" layoutY="328.0" mnemonicParsing="false" onAction="#showPassCheckBoxOnAction" text="Show Password" />
             <Label fx:id="showPass_label" layoutX="620.0" layoutY="435.0" prefHeight="27.0" prefWidth="225.0" style="-fx-background-color: white; -fx-border-color: #BABABA; -fx-background-radius: 4; -fx-border-radius: 4;" visible="false" />
-            <TextField fx:id="id_textField" layoutX="416.0" layoutY="386.0" prefHeight="39.0" prefWidth="187.0" />
-            <Label layoutX="418.0" layoutY="358.0" prefHeight="17.0" prefWidth="178.0" text="Give Valid ID (all digits, 7 long)" />
+            <TextField fx:id="id_textField" disable="true" layoutX="418.0" layoutY="386.0" prefHeight="39.0" prefWidth="187.0" visible="false" />
+            <Label disable="true" layoutX="421.0" layoutY="358.0" prefHeight="17.0" prefWidth="178.0" text="Give Valid ID (all digits, 7 long)" visible="false" />
+            <CheckBox fx:id="manuallyGenerateID_checkBox" layoutX="418.0" layoutY="330.0" mnemonicParsing="false" prefHeight="4.0" prefWidth="141.0" text="Manually Generate ID" />
          </children>
          <BorderPane.margin>
             <Insets left="10.0" />

@@ -10,6 +10,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import model.faysal.users.Employee;
+import model.faysal.users.HeadOfHR;
 import model.faysal.users.LoginInfo;
 import model.faysal.users.MaintenanceStaff;
 import model.faysal.users.PublicServiceProvider;
@@ -29,6 +30,7 @@ public class TestingBin {
  
      */
     public static void main(String[] args) {
+<<<<<<< HEAD
         
 <<<<<<< HEAD
 //        System.out.println(Read.getListOfObjects().size());
@@ -83,6 +85,20 @@ System.out.println("Vitorer reaad");
 
 
 
+=======
+        System.out.println(Read.checkUserExist( "pass2"));
+        System.out.println("");
+          
+//        System.out.println(new SystemAdministrator().getTotalNoOfObjects());
+//         System.out.println(new StationManager().getTotalNoOfObjects()+ " "  );
+//         System.out.println(new Passenger().getTotalNoOfObjects()+ " " );
+//         System.out.println(new HeadOfHR().getTotalNoOfObjects()+ " "  );
+//         System.out.println(new TrainOperator().getTotalNoOfObjects()   );
+//        System.out.println(new PublicServiceProvider().getTotalNoOfObjects()+ " " );
+// 
+//        System.out.println(User.verifyLogin("2400100", "Pass@123"));
+ 
+>>>>>>> Faysal-2111585
     }
 
 <<<<<<< HEAD

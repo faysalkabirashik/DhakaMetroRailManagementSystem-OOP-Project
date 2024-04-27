@@ -22,6 +22,10 @@ public class HeadOfHR extends Employee implements Serializable , Countable{
 
     private static int userCount = 0;
     public static int itsTotalMember(){return userCount;}
+
+    public HeadOfHR() {
+    }
+    
     
     public HeadOfHR(String coreUserType, String userIdentity, LocalDate dateOfJoining) {
         super(coreUserType, userIdentity, dateOfJoining);
