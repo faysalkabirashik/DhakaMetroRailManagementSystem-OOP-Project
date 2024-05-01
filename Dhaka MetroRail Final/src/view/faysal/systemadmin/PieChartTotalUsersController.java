@@ -15,7 +15,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import model.faysal.users.Accountant;
 import model.faysal.users.HeadOfHR;
+import model.faysal.users.MaintenanceStaff;
+import model.faysal.users.PublicServiceProvider;
 import model.faysal.users.StationManager;
 import model.faysal.users.SystemAdministrator;
 import model.nayem.Passenger;
@@ -48,16 +51,24 @@ public class PieChartTotalUsersController implements Initializable {
     @FXML
     private void loadPieChartButtonOnClick(ActionEvent event) {
         pieChart.getData().clear();
-        
-        list.add( new PieChart.Data("Admin",new SystemAdministrator().getTotalNoOfObjects()) );
+//        SystemAdministrator.getCountOfSystemAdmins();
+        showLabel.setText("Select node to total no. of users.");
+//        SystemAdministrator admin = new SystemAdministrator();
+        list.add( new PieChart.Data("System Administrator",  new SystemAdministrator().getTotalNoOfObjects()) );
         list.add( new PieChart.Data("Passenger",new Passenger().getTotalNoOfObjects()) );
         list.add( new PieChart.Data("Train Operator",new TrainOperator().getTotalNoOfObjects()) );
         list.add( new PieChart.Data("Station Manager",new StationManager().getTotalNoOfObjects()) );
+        list.add( new PieChart.Data("Head of HR",new HeadOfHR().getTotalNoOfObjects()) );
+        list.add( new PieChart.Data("Maintenance Staff",new MaintenanceStaff().getTotalNoOfObjects()) );
+        list.add( new PieChart.Data("Accountant",new Accountant().getTotalNoOfObjects()) );
+        list.add( new PieChart.Data("Public Service Provider",new PublicServiceProvider().getTotalNoOfObjects()) );
+        
+        
 //        list.add( new PieChart.Data("Head of HR",new HeadOfHR().getTotalNoOfObjects()) );
         //ObservableList <PieChart.Data> list2 = FXCollections.observableArrayList();
         //list2.add(new PieChart.Data("Java",50));
         //...
-        pieChart.setData(list);
+        //pieChart.setData(list);
         
         pieChart.setData(list);
         
@@ -66,7 +77,7 @@ public class PieChartTotalUsersController implements Initializable {
                 new EventHandler<MouseEvent>(){
                     @Override
                     public void handle(MouseEvent event) {
-                        showLabel.setText(String.valueOf(data.getPieValue()));
+                        showLabel.setText(String.valueOf("Total no of users: " + data.getPieValue()));
                         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
                     }
                 }

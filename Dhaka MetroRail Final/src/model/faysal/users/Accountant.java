@@ -22,6 +22,11 @@ public class Accountant extends Employee implements Serializable, Countable {
     private static int userCount = 0;
     public static int itsTotalMember(){return userCount;}
 
+    public Accountant() {
+    }
+    
+    
+
     public Accountant(String coreUserType, String userIdentity, LocalDate dateOfJoining) {
         super(coreUserType, userIdentity, dateOfJoining);
         userCount++;

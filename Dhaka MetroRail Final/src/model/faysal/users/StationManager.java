@@ -18,6 +18,10 @@ import model.faysal.AppendableObjectOutputStream;
 import model.faysal.Report;
 import model.faysal.ResourceRequest;
 import model.faysal.Train;
+import model.faysal.users.Countable;
+import model.faysal.users.Employee;
+import model.faysal.users.SystemAdministrator;
+import model.faysal.users.User;
 
 /**
  *
@@ -28,8 +32,15 @@ public class StationManager extends Employee implements Serializable , Countable
     //// field hidinhg/shawdowing.
     private static int userCount = 0;
     public static int itsTotalMember(){return userCount;}
+    private int noOfEmpManaged;
 
+    
     public StationManager() {
+    }
+
+    public StationManager(int noOfEmpManaged, String nid, String designation, LocalDate dateOfJoining, float salary, String fullName, String primaryMobile, String primaryEmail, String gender, String userIdentity, String coreUserType, String password, LocalDate dateOfBirth, Address address, boolean loginStatus) {
+        super(nid, designation, dateOfJoining, salary, fullName, primaryMobile, primaryEmail, gender, userIdentity, coreUserType, password, dateOfBirth, address, loginStatus);
+        this.noOfEmpManaged = noOfEmpManaged;
     }
     
     
@@ -62,6 +73,147 @@ public class StationManager extends Employee implements Serializable , Countable
     @Override
     public void changePassword() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public int getNoOfEmpManaged() {
+        return noOfEmpManaged;
+    }
+
+    public void setNoOfEmpManaged(int noOfEmpManaged) {
+        this.noOfEmpManaged = noOfEmpManaged;
+    }
+
+    @Override
+    public String toString() {
+        return "StationManager{" + "noOfEmpManaged=" + noOfEmpManaged + '}';
+    }
+
+    public String getNid() {
+        return nid;
+    }
+
+    public void setNid(String nid) {
+        this.nid = nid;
+    }
+
+    public String getDesignation() {
+        return designation;
+    }
+
+    public void setDesignation(String designation) {
+        this.designation = designation;
+    }
+
+    public LocalDate getDateOfJoining() {
+        return dateOfJoining;
+    }
+
+    public void setDateOfJoining(LocalDate dateOfJoining) {
+        this.dateOfJoining = dateOfJoining;
+    }
+
+    public float getSalary() {
+        return salary;
+    }
+
+    public void setSalary(float salary) {
+        this.salary = salary;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public String getPrimaryMobile() {
+        return primaryMobile;
+    }
+
+    public void setPrimaryMobile(String primaryMobile) {
+        this.primaryMobile = primaryMobile;
+    }
+
+    public String getPrimaryEmail() {
+        return primaryEmail;
+    }
+
+    public void setPrimaryEmail(String primaryEmail) {
+        this.primaryEmail = primaryEmail;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getUserIdentity() {
+        return userIdentity;
+    }
+
+    public void setUserIdentity(String userIdentity) {
+        this.userIdentity = userIdentity;
+    }
+
+    public String getCoreUserType() {
+        return coreUserType;
+    }
+
+    public void setCoreUserType(String coreUserType) {
+        this.coreUserType = coreUserType;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public boolean isLoginStatus() {
+        return loginStatus;
+    }
+
+    public void setLoginStatus(boolean loginStatus) {
+        this.loginStatus = loginStatus;
+    }
+
+    public String getSecondaryMobile() {
+        return secondaryMobile;
+    }
+
+    public void setSecondaryMobile(String secondaryMobile) {
+        this.secondaryMobile = secondaryMobile;
+    }
+
+    public String getSecondaryEmail() {
+        return secondaryEmail;
+    }
+
+    public void setSecondaryEmail(String secondaryEmail) {
+        this.secondaryEmail = secondaryEmail;
     }
 
 
@@ -204,7 +356,7 @@ public class StationManager extends Employee implements Serializable , Countable
     public int getTotalNoOfObjects() {
         return this.getTotalListOfObjects().size();
     }
-
+    ////////////////////// modification method //////////////
     @Override
     public ObservableList<StationManager> getTotalListOfObjects() {
         ObservableList<StationManager> list = FXCollections.observableArrayList();
@@ -218,7 +370,7 @@ public class StationManager extends Employee implements Serializable , Countable
             ois = new ObjectInputStream(fis);
             StationManager tempUser = null;
             try{
-                System.out.println(" objects of SystemAdministrator");
+                System.out.println(" objects of StaitonManagers");
                 while(true){
                     tempUser = (StationManager) ois.readObject();
                     //System.out.println(tempUser.toString());
@@ -242,5 +394,10 @@ public class StationManager extends Employee implements Serializable , Countable
         return list;        
 
     }   
+    
+    
+    //////////////////   
+    
+    
     
 }
