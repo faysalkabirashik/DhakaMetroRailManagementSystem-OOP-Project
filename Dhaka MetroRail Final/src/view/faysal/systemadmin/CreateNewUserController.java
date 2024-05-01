@@ -110,11 +110,10 @@ public class CreateNewUserController implements Initializable {
     private TextField id_textField;
     @FXML
     private CheckBox manuallyGenerateID_checkBox;
-<<<<<<< HEAD
+ 
     @FXML
     private TextField noOfEmpManged;
-=======
->>>>>>> 5bbe4178c3dcd79dadf3d351c0c786fde353c19a
+ 
     
     public SystemAdministrator getSystemAdmin(){
         return admin;
