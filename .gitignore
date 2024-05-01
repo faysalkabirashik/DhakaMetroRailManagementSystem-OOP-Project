@@ -63,5 +63,10 @@
 !/Dhaka MetroRail Final/src/bintest/Read.java
 !/Dhaka MetroRail Final/src/bintest/Book.java
 !/Dhaka MetroRail Final/src/view/faysal/systemadmin/PieChartTotalUsersController.java
+<<<<<<< HEAD
 !/Dhaka MetroRail Final/src/view/faysal/station_manager/ShowStationManagersController.java
+=======
+!/Dhaka MetroRail Final/src/login/faysal/LoginController.java
+!/Dhaka MetroRail Final/src/model/faysal/users/NewMain.java
+>>>>>>> 5bbe4178c3dcd79dadf3d351c0c786fde353c19a
 !/Dhaka MetroRail Final/src/charttest/ChartController.java
