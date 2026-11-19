@@ -3,7 +3,7 @@
 > A role-based desktop application built with **Java and FXML** to model and manage passenger services, users, trains, stations, schedules, reporting, and administrative workflows for a Dhaka Metro Rail environment.
 
 [![Java](https://img.shields.io/badge/Java-8-orange?style=flat-square&logo=openjdk&logoColor=white)](https://www.java.com/)
-![Java FXML UI](https://img.shields.io/badge/UI-Java%20FXML-blue?style=flat-square)
+[![FXML](https://img.shields.io/badge/UI-FXML-blue?style=flat-square)](https://openjfx.io/)
 [![OOP](https://img.shields.io/badge/Design-OOP-6f42c1?style=flat-square)](https://en.wikipedia.org/wiki/Object-oriented_programming)
 [![Desktop Application](https://img.shields.io/badge/Application-Desktop-2ea44f?style=flat-square)](#)
 
@@ -12,8 +12,8 @@
 ## Table of Contents
 
 - [Overview](#overview)
-- [What This Project Demonstrates](#what-this-project-demonstrates)
 - [A Few UI Snapshots](#a-few-ui-snapshots)
+- [What This Project Demonstrates](#what-this-project-demonstrates)
 - [Core Features](#core-features)
 - [System Roles](#system-roles)
 - [Application Workflow](#application-workflow)
@@ -39,7 +39,7 @@ The **Dhaka Metro Rail Management System** is an academic desktop software proje
 
 The application provides a **role-based interface** through which different users can perform tasks associated with passenger services, user administration, station operations, train management, scheduling, reporting, and related operational activities.
 
-The project focuses on applying **Object-Oriented Programming (OOP)** concepts to a real-world inspired software system rather than implementing a single-purpose application.
+The project focuses on applying **Object-Oriented Programming (OOP)** concepts and **Model-View-Controller (MVC)** to a real-world inspired software system rather than implementing a single-purpose application.
 
 ### Main areas covered
 
@@ -55,6 +55,36 @@ The project focuses on applying **Object-Oriented Programming (OOP)** concepts t
 - File-based persistence
 - Charts and statistical visualization
 - Desktop GUI development using FXML
+
+---
+
+## A Few UI Snapshots
+
+A few examples of the application's desktop interface are shown below. These screenshots highlight the login interface, user management, train management, and chart-based dashboard functionality.
+
+All images are kept in the existing project image directory:
+
+```text
+Dhaka MetroRail Final/src/images/
+```
+
+### Login Interface
+
+![Dhaka Metro Rail login interface](<Dhaka MetroRail Final/src/images/Login_page_ss.png>)
+
+### User Management — Add User
+
+![Add User interface](<Dhaka MetroRail Final/src/images/dashboard_new_user_ss.png>)
+
+### Train Management — Add Train
+
+![Add Train interface](<Dhaka MetroRail Final/src/images/add_train_dashboard.png>)
+
+### Dashboard — User Statistics and Chart
+
+![Dashboard pie chart showing user-role statistics](<Dhaka MetroRail Final/src/images/dashboard-pie_chart.png>)
+
+> These are selected examples of the user interface, not an exhaustive list of every screen in the application.
 
 ---
 
@@ -90,29 +120,6 @@ This project brings together several software engineering concepts in one deskto
 - Multiple serialized data files
 - Read/write workflows for application objects
 
----
-
-## A Few UI Snapshots
-
-The following images show selected screens from the desktop application. They are already stored in the repository under `Dhaka MetroRail Final/src/images/`, so you do **not** need to create a separate `docs/screenshots/` folder or upload duplicate copies.
-
-### Login Interface
-
-![Login Interface](Dhaka%20MetroRail%20Final/src/images/Login_page_ss.png)
-
-### New User and Account Setup
-
-![New User and Account Setup](Dhaka%20MetroRail%20Final/src/images/dashboard_new_user_ss.png)
-
-### Train Management — Add New Train
-
-![Add New Train](Dhaka%20MetroRail%20Final/src/images/add_train_dashboard.png)
-
-### Dashboard — User Distribution Chart
-
-![Dashboard User Distribution Chart](Dhaka%20MetroRail%20Final/src/images/dashboard-pie_chart.png)
-
-> These are a few representative UI snapshots; the repository contains additional application screens and visual assets in the same `src/images/` directory.
 ---
 
 ## Core Features
@@ -261,7 +268,9 @@ A simplified workflow of the application is:
 
 ## Technical Architecture
 
-The application is organized around four broad layers:
+The application uses an **MVC-style (Model–View–Controller) organization**. FXML files define the views, Java controller classes handle user interactions and coordinate application workflows, and model classes represent the system entities and their data/behaviour. The separation is MVC-inspired rather than a claim of a perfectly strict MVC implementation; some application logic is handled within controllers and supporting classes.
+
+The application can be understood through these main parts:
 
 ```text
 ┌─────────────────────────────────────────────────┐
@@ -295,11 +304,21 @@ The application is organized around four broad layers:
 └─────────────────────────────────────────────────┘
 ```
 
-### Presentation Layer
+### View — FXML
 
-The user interface is built from **FXML view files** with Java controllers handling application events and workflow logic.
+The **View** is defined using FXML files, with CSS and image assets supporting the desktop interface. These files describe the layouts and visual components shown to users.
 
-The project also contains:
+### Controller — Java Controllers
+
+The **Controller** consists of Java controller classes that respond to UI events, validate or process user input, and coordinate the relevant application workflows.
+
+### Model — Domain and Supporting Classes
+
+The **Model** contains the domain entities and supporting classes used by the application, such as users, employees, passengers, trains, stations, routes, schedules, and transactions.
+
+The project also includes persistence code that reads and writes serialized objects. This is used by the application workflows and is not presented as a separate database server.
+
+FXML views are supported by:
 
 - CSS styling
 - UI images and icons
